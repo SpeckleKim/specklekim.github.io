@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Robot Head -->
+  <rect x="40" y="30" width="120" height="100" rx="15" fill="#2c3e50" stroke="#34495e" stroke-width="2"/>
+  
+  <!-- Robot Eyes -->
+  <circle cx="70" cy="70" r="12" fill="#3498db"/>
+  <circle cx="130" cy="70" r="12" fill="#3498db"/>
+  <circle cx="70" cy="70" r="6" fill="#ecf0f1"/>
+  <circle cx="130" cy="70" r="6" fill="#ecf0f1"/>
+  
+  <!-- Robot Antenna -->
+  <line x1="100" y1="30" x2="100" y2="15" stroke="#34495e" stroke-width="3"/>
+  <circle cx="100" cy="12" r="4" fill="#e74c3c"/>
+  
+  <!-- Robot Mouth -->
+  <rect x="75" y="95" width="50" height="8" rx="4" fill="#ecf0f1"/>
+  <rect x="80" y="97" width="8" height="4" rx="2" fill="#2c3e50"/>
+  <rect x="95" y="97" width="8" height="4" rx="2" fill="#2c3e50"/>
+  <rect x="110" y="97" width="8" height="4" rx="2" fill="#2c3e50"/>
+  
+  <!-- Robot Body -->
+  <rect x="60" y="130" width="80" height="60" rx="10" fill="#34495e" stroke="#2c3e50" stroke-width="2"/>
+  
+  <!-- Robot Arms -->
+  <rect x="20" y="140" width="25" height="8" rx="4" fill="#34495e"/>
+  <rect x="155" y="140" width="25" height="8" rx="4" fill="#34495e"/>
+  
+  <!-- Robot Hands -->
+  <circle cx="25" cy="144" r="6" fill="#95a5a6"/>
+  <circle cx="175" cy="144" r="6" fill="#95a5a6"/>
+  
+  <!-- Robot Legs -->
+  <rect x="75" y="190" width="15" height="8" rx="4" fill="#34495e"/>
+  <rect x="110" y="190" width="15" height="8" rx="4" fill="#34495e"/>
+  
+  <!-- Circuit Pattern on Body -->
+  <line x1="70" y1="150" x2="90" y2="150" stroke="#3498db" stroke-width="1"/>
+  <line x1="110" y1="150" x2="130" y2="150" stroke="#3498db" stroke-width="1"/>
+  <line x1="80" y1="160" x2="120" y2="160" stroke="#3498db" stroke-width="1"/>
+  <line x1="85" y1="170" x2="115" y2="170" stroke="#3498db" stroke-width="1"/>
+  
+  <!-- AI Text -->
+  <text x="100" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">AI</text>
+</svg> 
