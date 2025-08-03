@@ -12,6 +12,9 @@ lang: ko
 
 - [RAG: 검색 증강 생성](./rag-kor.html) - AI 시스템이 지식에 접근하고 통합하는 방법 이해하기
 - [AI 에이전트](./agent-kor.html) - 인식하고, 추론하고, 행동하는 자율 시스템
+- [인공지능](./ai-kor.html) - 지능적 기계의 과학
+- [AI의 역사](./history-kor.html) - 꿈에서 현실로의 여정
+- [신경망](./neural-kor.html) - 뇌의 정보처리를 모방하다
 
 ## 앨런 매티슨 튜링
 

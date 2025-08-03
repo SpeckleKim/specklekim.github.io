@@ -57,6 +57,30 @@
           {% elsif current_url contains "agent-eng" %}
             {% assign eng_url = current_url %}
             {% assign kor_url = current_url | replace: "agent-eng", "agent-kor" %}
+          {% elsif current_url contains "ai-kor" %}
+            {% assign eng_url = current_url | replace: "ai-kor", "ai-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "ai-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "ai-eng", "ai-kor" %}
+          {% elsif current_url contains "history-kor" %}
+            {% assign eng_url = current_url | replace: "history-kor", "history-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "history-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "history-eng", "history-kor" %}
+          {% elsif current_url contains "neural-kor" %}
+            {% assign eng_url = current_url | replace: "neural-kor", "neural-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "neural-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "neural-eng", "neural-kor" %}
+          {% elsif current_url contains "genetic-kor" %}
+            {% assign eng_url = current_url | replace: "genetic-kor", "genetic-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "genetic-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "genetic-eng", "genetic-kor" %}
           {% elsif current_url contains "index-kor" %}
             {% assign eng_url = current_url | replace: "index-kor", "index-eng" %}
             {% assign kor_url = current_url %}

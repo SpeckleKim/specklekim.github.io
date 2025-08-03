@@ -12,6 +12,9 @@ Welcome to my journey in artificial intelligence. Here are some of the most insp
 
 - [RAG: Retrieval-Augmented Generation](./rag-eng.html) - Understanding how AI systems access and integrate knowledge
 - [AI Agents](./agent-eng.html) - Autonomous systems that perceive, reason, and act
+- [Artificial Intelligence](./ai-eng.html) - The science of intelligent machines
+- [History of AI](./history-eng.html) - The journey from dreams to reality
+- [Neural Networks](./neural-eng.html) - Mimicking the brain's information processing
 
 ## Alan Mathison Turing
 
