@@ -20,8 +20,8 @@
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
-
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
+        
+        {% include navigation.html %}
 
         {% if site.github.is_project_page %}
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
@@ -41,6 +41,36 @@
         <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+          {% assign current_url = page.url %}
+          {% if current_url contains "rag-kor" %}
+            {% assign eng_url = current_url | replace: "rag-kor", "rag-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "rag-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "rag-eng", "rag-kor" %}
+          {% elsif current_url contains "agent-kor" %}
+            {% assign eng_url = current_url | replace: "agent-kor", "agent-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "agent-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "agent-eng", "agent-kor" %}
+          {% elsif current_url contains "index-kor" %}
+            {% assign eng_url = current_url | replace: "index-kor", "index-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "index-eng" or current_url == "/" or current_url == "/index.html" %}
+            {% assign eng_url = current_url | replace: "index-kor", "index-eng" %}
+            {% assign kor_url = current_url | replace: "index-eng", "index-kor" %}
+          {% else %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url %}
+          {% endif %}
+          
+          <a href="{{ eng_url | relative_url }}" class="lang-btn{% if current_url contains 'eng' or current_url == '/' or current_url == '/index.html' %} active{% endif %}" data-lang="en">English</a>
+          <a href="{{ kor_url | relative_url }}" class="lang-btn{% if current_url contains 'kor' %} active{% endif %}" data-lang="ko">한국어</a>
+        </div>
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>

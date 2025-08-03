@@ -2,15 +2,15 @@
 @import "rouge-github";
 
 body {
-  background-color: #fff;
+  background-color: #fafbfc;
   padding:50px;
   font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#727272;
+  color:#586069;
   font-weight:400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#222;
+  color:#24292e;
   margin:0 0 20px;
 }
 
@@ -27,20 +27,20 @@ h1 {
 }
 
 h2 {
-  color:#393939;
+  color:#24292e;
 }
 
 h3, h4, h5, h6 {
-  color:#494949;
+  color:#24292e;
 }
 
 a {
-  color:#267CB9;
+  color:#0366d6;
   text-decoration:none;
 }
 
 a:hover, a:focus {
-  color:#069;
+  color:#1f6feb;
   font-weight: bold;
 }
 
@@ -61,7 +61,7 @@ a:hover small {
 }
 
 blockquote {
-  border-left:1px solid #e5e5e5;
+  border-left:1px solid #e1e4e8;
   margin:0;
   padding:0 0 0 20px;
   font-style:italic;
@@ -74,9 +74,9 @@ code, pre {
 
 pre {
   padding:8px 15px;
-  background: #f8f8f8;
+  background: #f6f8fa;
   border-radius:5px;
-  border:1px solid #e5e5e5;
+  border:1px solid #e1e4e8;
   overflow-x: auto;
 }
 
@@ -88,16 +88,16 @@ table {
 th, td {
   text-align:left;
   padding:5px 10px;
-  border-bottom:1px solid #e5e5e5;
+  border-bottom:1px solid #e1e4e8;
 }
 
 dt {
-  color:#444;
+  color:#24292e;
   font-weight:700;
 }
 
 th {
-  color:#444;
+  color:#24292e;
 }
 
 img {
@@ -129,16 +129,16 @@ ul.downloads {
   list-style:none;
   height:40px;
   padding:0;
-  background: #f4f4f4;
+  background: #f6f8fa;
   border-radius:5px;
-  border:1px solid #e0e0e0;
+  border:1px solid #e1e4e8;
   width:270px;
 }
 
 .downloads li {
   width:89px;
   float:left;
-  border-right:1px solid #e0e0e0;
+  border-right:1px solid #e1e4e8;
   height:40px;
 }
 
@@ -153,7 +153,7 @@ ul.downloads {
 .downloads a {
   line-height:1;
   font-size:11px;
-  color:#676767;
+  color:#586069;
   display:block;
   text-align:center;
   padding-top:6px;
@@ -161,7 +161,7 @@ ul.downloads {
 }
 
 .downloads a:hover, .downloads a:focus {
-  color:#675C5C;
+  color:#24292e;
   font-weight:bold;
 }
 
@@ -170,7 +170,7 @@ ul.downloads {
 }
 
 strong {
-  color:#222;
+  color:#24292e;
   font-weight:700;
 }
 
@@ -182,7 +182,7 @@ strong {
 .downloads a strong {
   font-size:14px;
   display:block;
-  color:#222;
+  color:#24292e;
 }
 
 section {
@@ -197,7 +197,7 @@ small {
 
 hr {
   border:0;
-  background:#e5e5e5;
+  background:#e1e4e8;
   height:1px;
   margin:0 0 20px;
 }
@@ -274,6 +274,111 @@ footer {
 
   .downloads li, .downloads li + li + li {
     width:33%;
+  }
+}
+
+/* Navigation Styles */
+.site-navigation {
+  margin: 20px 0;
+  padding: 0;
+}
+
+.nav-container {
+  width: 100%;
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  color: #0366d6;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: #0366d6;
+  color: white;
+  border-color: #0366d6;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  background-color: #0366d6;
+  color: white;
+  border-color: #0366d6;
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+  margin-top: 20px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 10px 0;
+  border-top: 1px solid #e1e4e8;
+}
+
+.lang-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  color: #0366d6;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-width: 70px;
+  text-align: center;
+}
+
+.lang-btn:hover,
+.lang-btn:focus {
+  background-color: #0366d6;
+  color: white;
+  border-color: #0366d6;
+  text-decoration: none;
+}
+
+.lang-btn.active {
+  background-color: #0366d6;
+  color: white;
+  border-color: #0366d6;
+}
+
+@media print, screen and (max-width: 960px) {
+  .nav-menu {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .nav-link {
+    text-align: center;
+  }
+  
+  .language-switcher {
+    margin-top: 15px;
+    padding: 8px 0;
   }
 }
 

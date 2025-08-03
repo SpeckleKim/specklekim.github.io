@@ -1,12 +1,8 @@
 ---
 layout: default
 title: AI Fanatic
+lang: en
 ---
-
-<script>
-  // Redirect to English version by default
-  window.location.href = './index-eng.html';
-</script>
 
 # A Passionate Engineer Devoted to AI
 
@@ -15,6 +11,7 @@ Welcome to my journey in artificial intelligence. Here are some of the most insp
 ## Explore AI Topics
 
 - [RAG: Retrieval-Augmented Generation](./rag-eng.html) - Understanding how AI systems access and integrate knowledge
+- [AI Agents](./agent-eng.html) - Autonomous systems that perceive, reason, and act
 
 ## Alan Mathison Turing
 
@@ -68,4 +65,4 @@ Welcome to my journey in artificial intelligence. Here are some of the most insp
 
 *"The best way to predict the future is to invent it."* - Alan Kay
 
-*"The only way to discover the limits of the possible is to go beyond them into the impossible."* - Arthur C. Clarke
+*"The only way to discover the limits of the possible is to go beyond them into the impossible."* - Arthur C. Clarke 
