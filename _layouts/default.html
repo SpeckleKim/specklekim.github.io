@@ -35,6 +35,19 @@
 
       {{ content }}
 
+      <!-- AdSense: Bottom of article (non-intrusive) -->
+      <div class="ad-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4009955888630951"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
       </section>
       <footer>
         {% if site.github.is_project_page %}
@@ -87,6 +100,30 @@
           {% elsif current_url contains "index-eng" or current_url == "/" or current_url == "/index.html" %}
             {% assign eng_url = current_url | replace: "index-kor", "index-eng" %}
             {% assign kor_url = current_url | replace: "index-eng", "index-kor" %}
+          {% elsif current_url contains "llm-kor" %}
+            {% assign eng_url = current_url | replace: "llm-kor", "llm-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "llm-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "llm-eng", "llm-kor" %}
+          {% elsif current_url contains "prompt-kor" %}
+            {% assign eng_url = current_url | replace: "prompt-kor", "prompt-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "prompt-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "prompt-eng", "prompt-kor" %}
+          {% elsif current_url contains "cv-kor" %}
+            {% assign eng_url = current_url | replace: "cv-kor", "cv-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "cv-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "cv-eng", "cv-kor" %}
+          {% elsif current_url contains "rl-kor" %}
+            {% assign eng_url = current_url | replace: "rl-kor", "rl-eng" %}
+            {% assign kor_url = current_url %}
+          {% elsif current_url contains "rl-eng" %}
+            {% assign eng_url = current_url %}
+            {% assign kor_url = current_url | replace: "rl-eng", "rl-kor" %}
           {% else %}
             {% assign eng_url = current_url %}
             {% assign kor_url = current_url %}

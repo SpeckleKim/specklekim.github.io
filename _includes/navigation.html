@@ -11,6 +11,13 @@
       </li>
       <li class="nav-item">
         {% if page.url contains "kor" %}
+          <a href="{{ "/llm-kor.html" | relative_url }}" class="nav-link{% if page.url contains "llm-kor" %} active{% endif %}">LLM</a>
+        {% else %}
+          <a href="{{ "/llm-eng.html" | relative_url }}" class="nav-link{% if page.url contains "llm-eng" %} active{% endif %}">LLM</a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if page.url contains "kor" %}
           <a href="{{ "/rag-kor.html" | relative_url }}" class="nav-link{% if page.url contains "rag-kor" %} active{% endif %}">RAG</a>
         {% else %}
           <a href="{{ "/rag-eng.html" | relative_url }}" class="nav-link{% if page.url contains "rag-eng" %} active{% endif %}">RAG</a>
@@ -21,6 +28,34 @@
           <a href="{{ "/agent-kor.html" | relative_url }}" class="nav-link{% if page.url contains "agent-kor" %} active{% endif %}">Agent</a>
         {% else %}
           <a href="{{ "/agent-eng.html" | relative_url }}" class="nav-link{% if page.url contains "agent-eng" %} active{% endif %}">Agent</a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if page.url contains "kor" %}
+          <a href="{{ "/prompt-kor.html" | relative_url }}" class="nav-link{% if page.url contains "prompt-kor" %} active{% endif %}">Prompt</a>
+        {% else %}
+          <a href="{{ "/prompt-eng.html" | relative_url }}" class="nav-link{% if page.url contains "prompt-eng" %} active{% endif %}">Prompt</a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if page.url contains "kor" %}
+          <a href="{{ "/cv-kor.html" | relative_url }}" class="nav-link{% if page.url contains "cv-kor" %} active{% endif %}">Vision</a>
+        {% else %}
+          <a href="{{ "/cv-eng.html" | relative_url }}" class="nav-link{% if page.url contains "cv-eng" %} active{% endif %}">Vision</a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if page.url contains "kor" %}
+          <a href="{{ "/rl-kor.html" | relative_url }}" class="nav-link{% if page.url contains "rl-kor" %} active{% endif %}">RL</a>
+        {% else %}
+          <a href="{{ "/rl-eng.html" | relative_url }}" class="nav-link{% if page.url contains "rl-eng" %} active{% endif %}">RL</a>
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {% if page.url contains "kor" %}
+          <a href="{{ "/neural-kor.html" | relative_url }}" class="nav-link{% if page.url contains "neural-kor" %} active{% endif %}">Neural</a>
+        {% else %}
+          <a href="{{ "/neural-eng.html" | relative_url }}" class="nav-link{% if page.url contains "neural-eng" %} active{% endif %}">Neural</a>
         {% endif %}
       </li>
       <li class="nav-item">
@@ -39,13 +74,6 @@
       </li>
       <li class="nav-item">
         {% if page.url contains "kor" %}
-          <a href="{{ "/neural-kor.html" | relative_url }}" class="nav-link{% if page.url contains "neural-kor" %} active{% endif %}">Neural</a>
-        {% else %}
-          <a href="{{ "/neural-eng.html" | relative_url }}" class="nav-link{% if page.url contains "neural-eng" %} active{% endif %}">Neural</a>
-        {% endif %}
-      </li>
-      <li class="nav-item">
-        {% if page.url contains "kor" %}
           <a href="{{ "/genetic-kor.html" | relative_url }}" class="nav-link{% if page.url contains "genetic-kor" %} active{% endif %}">Genetic</a>
         {% else %}
           <a href="{{ "/genetic-eng.html" | relative_url }}" class="nav-link{% if page.url contains "genetic-eng" %} active{% endif %}">Genetic</a>
@@ -53,4 +81,4 @@
       </li>
     </ul>
   </div>
-</nav> 
+</nav>
