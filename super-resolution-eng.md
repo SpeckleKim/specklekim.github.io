@@ -22,7 +22,7 @@ I_HR = f(I_LR)
 
 ## SRCNN (Super-Resolution Convolutional Neural Network, 2015)
 
-Pioneering end-to-end CNN approach:
+Pioneering end-to-end [CNN](/cnn-deep-dive-eng.html) approach:
 
 1. **Patch Extraction:** Extracts patches from LR image
 2. **Non-linear Mapping:** Learns mapping from LR to HR patch space
@@ -65,15 +65,15 @@ Adversarial training enables high-quality generation:
 - Perceptual Loss: Ensures feature similarity to ground truth
 
 **SRResNet:**
-- Residual connections throughout generator
-- Skip connections preserve low-frequency information
+- [Residual connections](/residual-connections-eng.html) throughout generator
+- [Skip connections](/residual-connections-eng.html) preserve low-frequency information
 - Blocks focus on high-frequency details
 
 **Remaining Issues:** Artifacts, training instability, mode collapse
 
 ## ESRGAN (Enhanced SRGAN, 2018)
 
-Improved GAN-based approach:
+Improved [GAN](/gan-eng.html)-based approach:
 
 - **Relativistic Discriminator:** Judges relative realism between real and fake
 - **Improved Perceptual Loss:** Better alignment with human perception
@@ -95,11 +95,11 @@ Practical variant for real-world images:
 
 Recent generative model approaches:
 
-- **Score-based Generation:** Learns gradient of log probability
+- **Score-based Generation:** Learns gradient of log [probability](/probability-eng.html)
 - **Iterative Refinement:** Progressively adds structure through denoising steps
-- **Advantages:** Better mode coverage, fewer artifacts than GANs
+- **Advantages:** Better mode coverage, fewer artifacts than [GANs](/gan-eng.html)
 - **Challenge:** Slower inference (multiple sampling steps)
-- **Emerging:** SR with diffusion models showing promising results
+- **Emerging:** SR with [diffusion models](/diffusion-models-eng.html) showing promising results
 
 ## Residual Learning
 
@@ -112,7 +112,7 @@ I_HR = I_LR_upsampled + ResidualNetwork(I_LR_upsampled)
 **Benefits:**
 - Faster convergence
 - Better gradient flow
-- Skip connections leverage existing upsampling
+- [Skip connections](/residual-connections-eng.html) leverage existing upsampling
 - Enables much deeper networks
 
 ## Multi-Scale Processing
@@ -155,9 +155,9 @@ Higher is better; limited correlation with human perception
 
 ## Trade-offs and Considerations
 
-**Quality vs Artifacts:** GANs produce sharp images but introduce artifacts
+**Quality vs Artifacts:** [GANs](/gan-eng.html) produce sharp images but introduce artifacts
 
-**Speed vs Quality:** Diffusion models superior quality but slower
+**Speed vs Quality:** [Diffusion models](/diffusion-models-eng.html) superior quality but slower
 
 **Computation:** Real-ESRGAN efficient; pure diffusion slower
 

@@ -17,7 +17,7 @@ Genetic algorithms are inspired by the mechanisms of Darwinian natural selection
 Genetic algorithms replicate these principles computationally:
 - **Population**: A collection of candidate solutions
 - **Fitness**: A measure of solution quality corresponding to organism fitness
-- **Selection**: Reproduction probability proportional to fitness
+- **Selection**: Reproduction [probability](/probability-eng.html) proportional to fitness
 - **Reproduction**: Creating offspring through genetic recombination and mutation
 - **Evolution**: Repeated generations improve population quality
 
@@ -52,9 +52,9 @@ Selection determines which individuals reproduce, biasing toward higher fitness:
 
 **Tournament Selection**: Randomly selects k individuals and chooses the best. Simple and parallelizable.
 
-**Roulette Wheel Selection**: Selection probability proportional to fitness. More pressure toward best individuals.
+**Roulette Wheel Selection**: Selection [probability](/probability-eng.html) proportional to fitness. More pressure toward best individuals.
 
-**Rank-Based Selection**: Selection probability proportional to rank rather than absolute fitness. Reduces pressure from outlier individuals.
+**Rank-Based Selection**: Selection [probability](/probability-eng.html) proportional to rank rather than absolute fitness. Reduces pressure from outlier individuals.
 
 **Elitism**: Preserves the best solution(s) across generations, guaranteeing non-decreasing fitness.
 
@@ -67,7 +67,7 @@ Crossover combines genetic material from two parent solutions to create offsprin
 
 **Multi-Point Crossover**: Uses multiple crossover points, increasing genetic mixing.
 
-**Uniform Crossover**: Each gene is inherited from either parent with equal probability.
+**Uniform Crossover**: Each gene is inherited from either parent with equal [probability](/probability-eng.html).
 
 **Partially Mapped Crossover (PMX)**: Preserves order in permutation problems while exchanging segments.
 
@@ -78,7 +78,7 @@ Crossover enables combining good traits from different solutions to create poten
 ### Mutation
 Mutation introduces small random changes to individual solutions:
 
-**Bit Flip**: For binary representations, flip bits with probability p.
+**Bit Flip**: For binary representations, flip bits with [probability](/probability-eng.html) p.
 
 **Gaussian Mutation**: Add random noise from Gaussian distribution to real-valued parameters.
 
@@ -127,13 +127,13 @@ Genetic programming has solved symbolic regression problems, designed electrical
 
 ## Neuroevolution
 
-Neuroevolution applies evolutionary algorithms to design neural networks, evolving:
+Neuroevolution applies evolutionary algorithms to design [neural networks](/neural-eng.html), evolving:
 
 **Architecture**: Network topology, layer configurations, connection patterns.
 
 **Weights**: Connection strength parameters.
 
-**Hyperparameters**: Learning rates, activation functions, regularization parameters.
+**Hyperparameters**: Learning rates, [activation functions](/activation-functions-eng.html), [regularization](/regularization-eng.html) parameters.
 
 **NEAT (NeuroEvolution of Augmenting Topologies)**: Evolves both topology and weights through speciation and feature-adding mutations. Produces minimal, efficient networks.
 
@@ -143,11 +143,11 @@ Neuroevolution is particularly effective when network architecture is unknown or
 
 Different selection mechanisms balance exploration and exploitation:
 
-**Proportionate Selection**: Selection probability proportional to fitness. High selection pressure but sensitive to fitness scaling.
+**Proportionate Selection**: Selection [probability](/probability-eng.html) proportional to fitness. High selection pressure but sensitive to fitness scaling.
 
 **Tournament Selection**: Select k individuals, choose the best. Adjustable selection pressure through tournament size.
 
-**Rank-Based Selection**: Selection probability based on sorted rank. Reduces sensitivity to absolute fitness values.
+**Rank-Based Selection**: Selection [probability](/probability-eng.html) based on sorted rank. Reduces sensitivity to absolute fitness values.
 
 **Threshold Selection**: Only individuals exceeding a fitness threshold reproduce. Creates sharp selection pressure.
 
@@ -163,7 +163,7 @@ Selection strategy significantly impacts convergence speed and ability to escape
 
 **Design**: Aerodynamic shape optimization, antenna design, architectural layouts, circuit design.
 
-**Machine Learning**: Feature selection, hyperparameter optimization, rule discovery, ensemble learning.
+**Machine Learning**: Feature selection, [hyperparameter optimization](/hyperparameter-tuning-eng.html), rule discovery, [ensemble learning](/ensemble-methods-eng.html).
 
 **Game AI**: Playing game strategies, evolving opponent behavior, competitive co-evolution.
 
@@ -240,7 +240,7 @@ Good partial solutions (schemas) combine to form better complete solutions. This
 
 **Financial Engineering**: Portfolio construction, derivative pricing, algorithmic trading strategy discovery.
 
-**Data Mining**: Feature selection for classification, clustering parameter optimization, rule discovery.
+**Data Mining**: Feature selection for classification, [clustering](/clustering-eng.html) parameter optimization, rule discovery.
 
 **Robotics**: Robot morphology design, control policy evolution, navigation strategy optimization.
 

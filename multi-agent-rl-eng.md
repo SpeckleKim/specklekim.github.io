@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Multi-Agent Reinforcement Learning (MARL) extends single-agent RL to environments with multiple interacting agents. Agents can be cooperative (shared objectives), competitive (opposing goals), or mixed. MARL poses challenges: non-stationary environments, coordination difficulties, scalability issues. Applications include robot swarms, traffic management, and game playing.
+[Multi-Agent](/multi-agent-eng.html) [Reinforcement Learning](/rl-eng.html) (MARL) extends single-agent RL to environments with multiple interacting agents. Agents can be cooperative (shared objectives), competitive (opposing goals), or mixed. MARL poses challenges: non-stationary environments, coordination difficulties, scalability issues. Applications include robot swarms, traffic management, and game playing.
 
 ## Fundamental Differences
 
@@ -92,7 +92,7 @@ Each agent's strategy is best response to others' strategies.
 - Addresses credit assignment through global critic
 
 **Canonical Approach: MADDPG**
-- Multi-agent extension of DDPG
+- [Multi-agent](/multi-agent-eng.html) extension of DDPG
 - Centralized critics during training
 - Decentralized actors for execution
 
@@ -111,13 +111,13 @@ Each agent's strategy is best response to others' strategies.
 
 ## MAPPO (Multi-Agent PPO)
 
-Extension of PPO to multi-agent settings:
+Extension of PPO to [multi-agent](/multi-agent-eng.html) settings:
 
 **Key Components:**
 1. **Shared Policy Network:** All agents share policy parameters
 2. **Individual Value Networks:** Each agent has separate value function
 3. **Centralized Value Function:** Central critic for stability (optional)
-4. **Clipped Surrogate:** PPO clipping applied to multi-agent case
+4. **Clipped Surrogate:** PPO clipping applied to [multi-agent](/multi-agent-eng.html) case
 
 **Training:**
 ```
@@ -132,7 +132,7 @@ For each episode:
 - Simple, practical algorithm
 - Effective in many cooperative domains
 - Scalable to many agents
-- Maintains policy gradient benefits
+- Maintains [policy gradient](/policy-gradient-eng.html) benefits
 
 ## Learning in Non-Stationary Environments
 
@@ -174,7 +174,7 @@ For each iteration:
 **Success Stories:**
 - AlphaGo defeating world champion Go players
 - AlphaStar reaching superhuman StarCraft performance
-- Emergent behaviors in multi-agent environments
+- Emergent behaviors in [multi-agent](/multi-agent-eng.html) environments
 
 ## Emergent Behaviors
 
@@ -183,7 +183,7 @@ For each iteration:
 **Examples:**
 - Predator-prey dynamics without preprogrammed behaviors
 - Formation control without explicit coordination rules
-- Language-like communication in multi-agent systems
+- Language-like communication in [multi-agent](/multi-agent-eng.html) systems
 - Task specialization in teams
 
 **Factors Enabling Emergence:**
@@ -232,7 +232,7 @@ Reduces dimensionality, enables many-agent learning.
 
 **SMAC (StarCraft Multi-Agent Challenge):** Cooperative combat scenarios in StarCraft.
 
-**OpenAI Gym Environments:** Multi-agent variants of classic environments.
+**OpenAI Gym Environments:** [Multi-agent](/multi-agent-eng.html) variants of classic environments.
 
 **OpenSpiel:** Board games, game-theoretic environments.
 
@@ -240,7 +240,7 @@ Reduces dimensionality, enables many-agent learning.
 
 ## Theoretical Considerations
 
-**Convergence Guarantees:** Limited in multi-agent settings.
+**Convergence Guarantees:** Limited in [multi-agent](/multi-agent-eng.html) settings.
 - Single-agent convergence proofs don't apply
 - Cyclic behaviors possible
 - Non-convergent dynamics common
@@ -249,7 +249,7 @@ Reduces dimensionality, enables many-agent learning.
 - Information-theoretic limits
 - Trade-off between efficiency and coordination
 
-**Hardness Results:** Some multi-agent problems NP-hard.
+**Hardness Results:** Some [multi-agent](/multi-agent-eng.html) problems NP-hard.
 
 ## Modern Trends
 
@@ -263,5 +263,5 @@ Reduces dimensionality, enables many-agent learning.
 
 ## Conclusion
 
-Multi-agent RL extends single-agent learning to complex, interactive environments. Cooperative and competitive settings require different approaches. CTDE framework enables scalable training and execution. Self-play drives superhuman performance in zero-sum games. Emergent behaviors demonstrate complex coordination from simple objectives. As multi-agent systems proliferate (autonomous vehicles, drone swarms, game AI), MARL becomes increasingly crucial for practical applications.
+[Multi-agent](/multi-agent-eng.html) RL extends single-agent learning to complex, interactive environments. Cooperative and competitive settings require different approaches. CTDE framework enables scalable training and execution. Self-play drives superhuman performance in zero-sum games. Emergent behaviors demonstrate complex coordination from simple objectives. As multi-agent systems proliferate (autonomous vehicles, drone swarms, game AI), MARL becomes increasingly crucial for practical applications.
 

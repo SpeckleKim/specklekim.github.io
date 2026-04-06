@@ -15,11 +15,11 @@ Object detection extends image classification by identifying multiple objects an
 Two-stage detectors separate detection into region proposal and classification stages, typically achieving higher accuracy.
 
 **R-CNN Family Evolution:**
-- **R-CNN (2014)**: Uses selective search for region proposals, feeds each to CNN for features, then classifies with SVM
+- **R-CNN (2014)**: Uses selective search for region proposals, feeds each to [CNN](/cnn-deep-dive-eng.html) for features, then classifies with [SVM](/svm-eng.html)
 - **Fast R-CNN (2015)**: RoI pooling layer enables sharing computation across proposals
 - **Faster R-CNN (2015)**: Replaces selective search with Region Proposal Network (RPN), dramatically improving speed
 - **Cascade R-CNN (2017)**: Cascaded refinement of detections across multiple quality thresholds
-- **Mask R-CNN (2017)**: Extends Faster R-CNN with instance segmentation branch
+- **Mask R-CNN (2017)**: Extends Faster R-[CNN](/cnn-deep-dive-eng.html) with instance segmentation branch
 
 ## One-Stage Detectors
 
@@ -27,7 +27,7 @@ One-stage detectors predict bounding boxes directly from feature maps, trading s
 
 **YOLO Series:**
 - **YOLOv1 (2016)**: Pioneering approach treating detection as regression problem on spatial grid
-- **YOLOv2 (2016)**: Batch normalization, multi-scale predictions, anchor boxes
+- **YOLOv2 (2016)**: [Batch normalization](/batch-normalization-eng.html), multi-scale predictions, anchor boxes
 - **YOLOv3-v8 (2018-2023)**: Progressively improved with better backbones and training strategies
 - **YOLOv9**: Advanced scaling and efficiency innovations
 
@@ -41,14 +41,14 @@ One-stage detectors predict bounding boxes directly from feature maps, trading s
 
 ## DETR and Vision Transformers
 
-**DETR (2020):** Detection Transformer treats detection as set prediction problem. Encoder-decoder architecture with learnable queries for objects. Eliminates hand-designed components like NMS, enabling end-to-end training.
+**DETR (2020):** Detection [Transformer](/llm-eng.html) treats detection as set prediction problem. Encoder-decoder architecture with learnable queries for objects. Eliminates hand-designed components like NMS, enabling end-to-end training.
 
 **Advantages:** Conceptually clean, set-based loss avoiding NMS
-**Disadvantages:** Slower convergence, requires more data than CNN-based detectors
+**Disadvantages:** Slower convergence, requires more data than [CNN](/cnn-deep-dive-eng.html)-based detectors
 
 ## RT-DETR
 
-Efficient DETR variant optimized for real-time detection. Combines transformer strengths with CNN efficiency, achieving competitive speed-accuracy trade-offs for practical deployment.
+Efficient DETR variant optimized for real-time detection. Combines [transformer](/llm-eng.html) strengths with [CNN](/cnn-deep-dive-eng.html) efficiency, achieving competitive speed-accuracy trade-offs for practical deployment.
 
 ## Evaluation Metrics
 
@@ -65,7 +65,7 @@ Efficient DETR variant optimized for real-time detection. Combines transformer s
 
 ## Modern Trends
 
-Contemporary detectors increasingly adopt transformer architectures, hybrid approaches combining CNNs and attention, and efficient designs for deployment. Recent work focuses on:
+Contemporary detectors increasingly adopt [transformer](/llm-eng.html) architectures, hybrid approaches combining CNNs and attention, and efficient designs for deployment. Recent work focuses on:
 
 - Few-shot and zero-shot detection
 - Cross-domain generalization
@@ -74,9 +74,9 @@ Contemporary detectors increasingly adopt transformer architectures, hybrid appr
 
 ## Practical Considerations
 
-When choosing detectors: Consider target accuracy (mAP), speed requirements (FPS/latency), computational resources, and deployment platform. Two-stage detectors excel in accuracy; one-stage dominate speed. Transformers offer conceptual clarity at computational cost.
+When choosing detectors: Consider target accuracy (mAP), speed requirements (FPS/latency), computational resources, and deployment platform. Two-stage detectors excel in accuracy; one-stage dominate speed. [Transformers](/llm-eng.html) offer conceptual clarity at computational cost.
 
 ## Conclusion
 
-Object detection remains a cornerstone of computer vision. Understanding architectural choices—two-stage vs one-stage, anchor-based vs anchor-free, CNN vs transformer—enables informed decisions for specific applications. The field continues evolving toward more efficient and generalizable approaches.
+Object detection remains a cornerstone of [computer vision](/cv-eng.html). Understanding architectural choices—two-stage vs one-stage, anchor-based vs anchor-free, [CNN](/cnn-deep-dive-eng.html) vs [transformer](/llm-eng.html)—enables informed decisions for specific applications. The field continues evolving toward more efficient and generalizable approaches.
 

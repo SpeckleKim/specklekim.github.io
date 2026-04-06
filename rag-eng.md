@@ -8,9 +8,9 @@ lang: en
 
 ## What is RAG and Why It Matters
 
-Retrieval-Augmented Generation (RAG) is a transformative AI technique that combines large language models (LLMs) with external knowledge retrieval systems. Rather than relying solely on pre-trained weights, RAG systems dynamically access and integrate current, domain-specific information to generate factually grounded, accurate responses. In 2024-2025, RAG has become essential for enterprise AI, addressing critical challenges like hallucination, knowledge currency, and domain specialization.
+Retrieval-Augmented Generation (RAG) is a transformative AI technique that combines [large language models](/llm-eng.html) ([LLMs](/llm-eng.html)) with external knowledge retrieval systems. Rather than relying solely on pre-trained weights, RAG systems dynamically access and integrate current, domain-specific information to generate factually grounded, accurate responses. In 2024-2025, RAG has become essential for enterprise AI, addressing critical challenges like [hallucination](/hallucination-eng.html), knowledge currency, and domain specialization.
 
-**The Core Principle**: The retriever (search component) drives performance more than the generator. While LLMs get the attention, retrieval quality determines 80%+ of system success. An excellent retriever with a modest LLM outperforms a weak retriever with a powerful model.
+**The Core Principle**: The retriever (search component) drives performance more than the generator. While [LLMs](/llm-eng.html) get the attention, retrieval quality determines 80%+ of system success. An excellent retriever with a modest [LLM](/llm-eng.html) outperforms a weak retriever with a powerful model.
 
 ## RAG Architecture Overview: The Complete Pipeline
 
@@ -27,8 +27,8 @@ RAG operates through a coordinated pipeline where each stage influences downstre
 3. **Vector Storage**: Embeddings are indexed in specialized databases (Pinecone, Weaviate, Milvus)
 4. **Retrieval**: Query vectors find semantically similar chunks through similarity search
 5. **Reranking**: Retrieved candidates are re-scored to surface the most relevant results
-6. **Prompt Augmentation**: Top results become context in the LLM prompt
-7. **Generation**: The LLM synthesizes retrieved information into a coherent response
+6. **Prompt Augmentation**: Top results become context in the [LLM](/llm-eng.html) prompt
+7. **Generation**: The [LLM](/llm-eng.html) synthesizes retrieved information into a coherent response
 
 ## Chunking Strategies: Beyond Fixed Sizes
 
@@ -59,7 +59,7 @@ Chunking profoundly impacts retrieval quality. 2024 research shows strategic chu
 Each database trades off speed, scale, and feature richness:
 
 - **Pinecone**: Fully managed, serverless, excellent UX
-- **Weaviate**: Open-source, GraphQL interface, multimodal-ready
+- **Weaviate**: Open-source, GraphQL interface, [multimodal](/multimodal-llm-eng.html)-ready
 - **Milvus**: Open-source, horizontally scalable, high throughput
 - **Qdrant**: High-performance vector search, excellent filtering
 - **PgVector**: PostgreSQL extension, ideal for hybrid SQL+vector workloads
@@ -107,7 +107,7 @@ The "Basic RAG" paradigm has evolved into sophisticated multi-stage patterns:
 - Re-queries with refined terms until sufficient information is gathered
 
 ### Self-RAG (Self-Reflective RAG)
-- LLM generates reflection tokens deciding when to retrieve and how to use results
+- [LLM](/llm-eng.html) generates reflection tokens deciding when to retrieve and how to use results
 - Learns to invoke retrieval only when necessary
 - Improves efficiency by skipping unnecessary retrievals
 
@@ -134,13 +134,13 @@ Evaluating RAG systems requires domain-specific metrics, as traditional metrics 
 
 ### Evaluation Frameworks
 
-- **RAGAS** (RAG Assessment): Modular metrics system using LLMs to evaluate RAG outputs
+- **RAGAS** (RAG Assessment): Modular metrics system using [LLMs](/llm-eng.html) to evaluate RAG outputs
 - **DeepEval**: Production evaluation suite with domain-specific scorers
 - **Trulens**: Comprehensive tracing and evaluation for RAG pipelines
 - **Human Annotation**: Gold-standard for critical applications, though expensive
 
 ### LLM-Based Evaluation
-- Using capable models (GPT-4, Claude) to score retrieved document relevance
+- Using capable models ([GPT](/gpt-eng.html)-4, Claude) to score retrieved document relevance
 - Assessing factual consistency between responses and sources
 - Emerging as practical alternative to human annotation
 
@@ -184,7 +184,7 @@ A common misconception: RAG and fine-tuning are competitors. In reality, they ad
 ## Future Directions: The Evolution of RAG
 
 ### Agentic RAG
-- LLM agents plan multi-step retrieval workflows
+- [LLM](/llm-eng.html) agents plan multi-step retrieval workflows
 - Decide what to search, when to rerank, whether to retrieve again
 - Mimics human research process with iterative refinement
 

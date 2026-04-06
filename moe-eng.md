@@ -8,7 +8,7 @@ lang: en
 
 ## From Dense to Sparse Models
 
-Traditional transformer models are **dense**: every token flows through all layers and all parameters. This means inference cost scales directly with model size. A 70B parameter dense model processes every parameter for every token, leading to predictable but high compute requirements.
+Traditional [transformer](/llm-eng.html) models are **dense**: every token flows through all layers and all parameters. This means inference cost scales directly with model size. A 70B parameter dense model processes every parameter for every token, leading to predictable but high compute requirements.
 
 **Mixture of Experts (MoE)** takes a different approach. Instead of dense layers, MoE uses sparse layers where only a subset of parameters activates for each token. This enables models to scale parameter count dramatically while keeping per-token computation relatively constant.
 
@@ -28,7 +28,7 @@ Traditional transformer models are **dense**: every token flows through all laye
 
 ## The Gating Mechanism
 
-The core of MoE is the **gating network**. For each token, the gating function determines which experts process it. This is typically a learned neural network that outputs a gate vector—usually softmax probabilities over expert choices.
+The core of MoE is the **gating network**. For each token, the gating function determines which experts process it. This is typically a learned [neural network](/neural-eng.html) that outputs a gate vector—usually softmax probabilities over expert choices.
 
 ### How Gating Works
 
@@ -69,12 +69,12 @@ Mistral's Mixtral model demonstrates practical MoE effectiveness. It has 8 exper
 
 Key features:
 - Trained with balanced loads through careful auxiliary loss tuning
-- Outperforms denser models on many benchmarks with lower inference cost
+- Outperforms denser models on many [benchmarks](/benchmarks-eng.html) with lower inference cost
 - Shows that MoE can be production-ready for consumer-grade inference
 
 ### Switch Transformer
 
-Google's Switch Transformer simplified MoE by using **top-1 routing** instead of top-k. Each token routes to exactly one expert, maximizing sparsity and simplicity. Though simpler, empirical results show competitive performance compared to top-k approaches.
+Google's Switch [Transformer](/llm-eng.html) simplified MoE by using **top-1 routing** instead of top-k. Each token routes to exactly one expert, maximizing sparsity and simplicity. Though simpler, empirical results show competitive performance compared to top-k approaches.
 
 Key findings:
 - Top-1 routing simplifies implementation and reduces communication overhead
@@ -96,7 +96,7 @@ Load balancing is critical because uneven expert usage directly degrades perform
 
 ### Auxiliary Loss
 
-The standard approach adds a regularization term:
+The standard approach adds a [regularization](/regularization-eng.html) term:
 ```
 L_aux = α * Σ (f_i * L_i)
 ```
@@ -132,7 +132,7 @@ The MoE model has more flexibility because scaling parameters doesn't directly s
 
 Studies show:
 - 10-100x parameter increases with only 2-5x compute increases
-- Better scaling laws than dense models for fixed compute budgets
+- Better [scaling laws](/scaling-laws-eng.html) than dense models for fixed compute budgets
 - Competitive quality despite sparse activation
 
 However, inference frameworks must be optimized to realize these gains—naive implementations may actually be slower due to routing overhead and irregular memory access patterns.
@@ -147,7 +147,7 @@ However, inference frameworks must be optimized to realize these gains—naive i
 ### Communication Overhead
 - All-to-all communication between devices for token routing
 - Can saturate network bandwidth on clusters
-- Makes distributed training more complex
+- Makes [distributed training](/distributed-training-eng.html) more complex
 
 ### Memory Requirements
 - All experts must fit in cluster memory
@@ -169,7 +169,7 @@ However, inference frameworks must be optimized to realize these gains—naive i
 
 **Not ideal for:**
 - Latency-critical applications (routing adds overhead)
-- Single-GPU deployment (routing becomes inefficient)
+- Single-[GPU](/gpu-hardware-eng.html) deployment (routing becomes inefficient)
 - Memory-constrained scenarios (need to store all experts)
 
 ## Future Directions
@@ -179,6 +179,6 @@ Active research includes:
 - **Adaptive top-k**: Dynamically adjust routing budget per token
 - **Expert consolidation**: Training to reduce total expert count
 - **Improved load balancing**: New auxiliary loss formulations
-- **Hardware optimization**: CPU/GPU support for sparse MoE operations
+- **Hardware optimization**: CPU/[GPU](/gpu-hardware-eng.html) support for sparse MoE operations
 
-MoE represents an important paradigm for building more efficient large models. As inference becomes economically critical, sparse models will likely play an increasingly central role in LLM deployment.
+MoE represents an important paradigm for building more efficient large models. As inference becomes economically critical, sparse models will likely play an increasingly central role in [LLM](/llm-eng.html) deployment.

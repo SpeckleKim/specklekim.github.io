@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Diffusion Models represent a paradigm shift in generative modeling, achieving state-of-the-art image generation quality through a process inspired by diffusion in statistical physics. Unlike GANs or VAEs, diffusion models generate images by iteratively denoising random noise, learning to reverse a process of gradual noise addition.
+Diffusion Models represent a paradigm shift in generative modeling, achieving state-of-the-art [image generation](/image-generation-eng.html) quality through a process inspired by diffusion in statistical physics. Unlike [GANs](/gan-eng.html) or VAEs, diffusion models generate images by iteratively denoising random noise, learning to reverse a process of gradual noise addition.
 
 ## The Core Concept: Forward and Reverse Processes
 
@@ -36,7 +36,7 @@ Generation occurs by learning to reverse this process: starting from noise x_T a
 p(x_{t-1} | x_t) = N(x_{t-1}; μ_θ(x_t, t), Σ_θ(x_t, t))
 ```
 
-A neural network learns the mean μ_θ and variance Σ_θ at each denoising step. During generation, we iteratively sample from this learned reverse process.
+A [neural network](/neural-eng.html) learns the mean μ_θ and variance Σ_θ at each denoising step. During generation, we iteratively sample from this learned reverse process.
 
 ## DDPM: Denoising Diffusion Probabilistic Models
 
@@ -77,7 +77,7 @@ Various empirical schedules have been proposed, with success depending on datase
 
 ## Denoising Score Matching
 
-A deeper theoretical perspective connects diffusion models to score-based generative models. Score functions estimate the gradient of log-probability:
+A deeper theoretical perspective connects diffusion models to score-based generative models. Score functions estimate the gradient of log-[probability](/probability-eng.html):
 
 ```
 s_θ(x_t, t) = ∇_{x_t} log p(x_t)
@@ -95,7 +95,7 @@ During generation, the denoising step is adjusted:
 ˆε_θ(x_t, t) = ε_θ(x_t, t, ∅) + w * (ε_θ(x_t, t, c) - ε_θ(x_t, t, ∅))
 ```
 
-Where w is a guidance weight. Higher w values increase class conditioning strength but can reduce diversity. This technique enables powerful text-to-image generation without additional networks.
+Where w is a guidance weight. Higher w values increase class conditioning strength but can reduce diversity. This technique enables powerful text-to-[image generation](/image-generation-eng.html) without additional networks.
 
 ## Stable Diffusion Architecture
 
@@ -126,9 +126,9 @@ Latent diffusion enables practical deployment of high-resolution generation on c
 
 ## Training and Sampling
 
-**Training:** Simple and stable compared to GANs. Requires predicting noise at random timesteps, with straightforward backpropagation. No mode collapse or training instability.
+**Training:** Simple and stable compared to [GANs](/gan-eng.html). Requires predicting noise at random timesteps, with straightforward [backpropagation](/backpropagation-eng.html). No mode collapse or training instability.
 
-**Sampling:** Iterative denoising from noise through T steps. Though slower than single-pass GANs, the quality-speed tradeoff favors diffusion models. Techniques like DDIM reduce required steps without sacrificing quality.
+**Sampling:** Iterative denoising from noise through T steps. Though slower than single-pass [GANs](/gan-eng.html), the quality-speed tradeoff favors diffusion models. Techniques like DDIM reduce required steps without sacrificing quality.
 
 ## Applications
 
@@ -142,7 +142,7 @@ Latent diffusion enables practical deployment of high-resolution generation on c
 
 **3D Generation:** Extending diffusion to 3D shape and scene synthesis
 
-**Medical Imaging:** Artifact removal, super-resolution, and data augmentation
+**Medical Imaging:** Artifact removal, [super-resolution](/super-resolution-eng.html), and [data augmentation](/data-augmentation-eng.html)
 
 ## Advantages and Challenges
 
@@ -156,7 +156,7 @@ Latent diffusion enables practical deployment of high-resolution generation on c
 **Challenges:**
 - Slow generation requiring many denoising steps
 - High computational cost during sampling
-- Training requires significant GPU memory
+- Training requires significant [GPU](/gpu-hardware-eng.html) memory
 - Difficulty in fine-grained control over generated content
 - Potential for mode averaging (less diverse than expected)
 

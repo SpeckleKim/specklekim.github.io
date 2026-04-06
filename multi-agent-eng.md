@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Multi-agent systems combine multiple specialized AI agents working together toward common goals. Each agent has specific expertise, role, and responsibilities. Rather than one monolithic AI solving all problems, multi-agent systems parallelize work, specialize expertise, and handle complex problems that no single agent could solve effectively. Multi-agent collaboration mirrors how human teams work.
+Multi-agent systems combine multiple specialized [AI agents](/agent-eng.html) working together toward common goals. Each agent has specific expertise, role, and responsibilities. Rather than one monolithic AI solving all problems, multi-agent systems parallelize work, specialize expertise, and handle complex problems that no single agent could solve effectively. Multi-agent collaboration mirrors how human teams work.
 
 ## Role Assignment
 
@@ -161,7 +161,7 @@ crew.kickoff()
 
 ### Individual Agents as Swarm
 
-Simple agents following local rules create emergent behavior:
+Simple agents following local rules create [emergent behavior](/emergent-abilities-eng.html):
 
 ```
 Each ant:

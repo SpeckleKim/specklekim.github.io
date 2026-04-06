@@ -8,13 +8,13 @@ lang: en
 
 ## Introduction
 
-Tool use (also called function calling) enables language models to call external functions and APIs during inference. Rather than generating text only, an LLM can now invoke tools—search databases, execute code, fetch real-time data, control devices—making models agents capable of interacting with external systems. Tool use is fundamental to building practical AI systems.
+Tool use (also called function calling) enables language models to call external functions and APIs during inference. Rather than generating text only, an [LLM](/llm-eng.html) can now invoke tools—search databases, execute code, fetch real-time data, control devices—making models agents capable of interacting with external systems. Tool use is fundamental to building practical AI systems.
 
 ## The Tool Use Paradigm
 
 ### Traditional LLM Output
 
-LLM generates only text:
+[LLM](/llm-eng.html) generates only text:
 ```
 User: "What's the weather in London?"
 LLM: "I don't have access to real-time weather data..."
@@ -22,7 +22,7 @@ LLM: "I don't have access to real-time weather data..."
 
 ### With Tool Use
 
-LLM can invoke tools:
+[LLM](/llm-eng.html) can invoke tools:
 ```
 User: "What's the weather in London?"
 LLM: [calls tool] weather_api(location="London")
@@ -34,7 +34,7 @@ LLM: "It's 15°C and rainy in London."
 
 ### OpenAI
 
-OpenAI's GPT models support function_calling natively:
+OpenAI's [GPT](/gpt-eng.html) models support function_calling natively:
 
 ```python
 functions = [
@@ -176,7 +176,7 @@ except ToolException as e:
     # Option 3: Return error to user
 ```
 
-LLMs need graceful error handling; they're prone to invalid tool calls.
+[LLMs](/llm-eng.html) need graceful error handling; they're prone to invalid tool calls.
 
 ### Parameter Validation
 
@@ -193,7 +193,7 @@ Prevent passing malformed data to tools.
 
 ### Hallucination Prevention
 
-LLMs may invent tool names or parameters:
+[LLMs](/llm-eng.html) may invent tool names or parameters:
 
 ```
 User: "What's the weather?"
@@ -220,7 +220,7 @@ Enable model to search web:
 Offload math to ensure correctness:
 - Calculator
 - Algebra solver
-- Statistics functions
+- [Statistics](/probability-eng.html) functions
 
 **Example**: "What's 17234 * 8472?" → calculator tool ensures correctness.
 
@@ -287,7 +287,7 @@ Communicate limitations:
 Log which tools are called:
 - Understand model behavior
 - Identify misuse (wrong tool chosen)
-- Spot hallucinations
+- Spot [hallucinations](/hallucination-eng.html)
 
 ### Graceful Degradation
 
@@ -298,7 +298,7 @@ Model should work even if tools unavailable:
 
 ## Limitations and Challenges
 
-**Accuracy**: LLMs can call non-existent tools or use wrong parameters
+**Accuracy**: [LLMs](/llm-eng.html) can call non-existent tools or use wrong parameters
 
 **Latency**: Tool calls add network latency (100ms-1s per call)
 
@@ -318,4 +318,4 @@ Model should work even if tools unavailable:
 
 ## Conclusion
 
-Tool use transforms LLMs from text generators into agents capable of interacting with real systems. Effective tool use requires clear API design, robust error handling, and thoughtful security boundaries. As tool ecosystems mature, agent systems become increasingly powerful and practical.
+Tool use transforms [LLMs](/llm-eng.html) from text generators into agents capable of interacting with real systems. Effective tool use requires clear API design, robust error handling, and thoughtful security boundaries. As tool ecosystems mature, agent systems become increasingly powerful and practical.

@@ -6,7 +6,7 @@ lang: en
 
 # Clustering Algorithms: Discovering Structure in Unlabeled Data
 
-Clustering is a fundamental unsupervised learning technique that discovers natural groupings in data. This guide covers the major clustering algorithms, their mechanics, evaluation methods, and practical applications.
+Clustering is a fundamental [unsupervised learning](/unsupervised-learning-eng.html) technique that discovers natural groupings in data. This guide covers the major clustering algorithms, their mechanics, evaluation methods, and practical applications.
 
 ## K-Means: The Most Popular Algorithm
 
@@ -125,17 +125,17 @@ GMM is a probabilistic approach assuming data comes from mixture of Gaussian dis
 
 **Key Concepts:**
 - Each cluster is a Gaussian distribution
-- Soft assignment: each point has probability of belonging to each cluster
+- Soft assignment: each point has [probability](/probability-eng.html) of belonging to each cluster
 - EM algorithm: Expectation-Maximization for parameter estimation
 - Can estimate cluster count using BIC or AIC
 
 **EM Algorithm:**
-- **E-step:** Calculate probability of each point in each cluster
+- **E-step:** Calculate [probability](/probability-eng.html) of each point in each cluster
 - **M-step:** Update cluster parameters based on probabilities
 - Iterate until convergence
 
 **Advantages:**
-- Probabilistic framework (probability of cluster membership)
+- Probabilistic framework ([probability](/probability-eng.html) of cluster membership)
 - Soft clustering provides uncertainty estimates
 - Well-founded statistical theory
 - Can model elliptical cluster shapes
@@ -194,8 +194,8 @@ GMM is a probabilistic approach assuming data comes from mixture of Gaussian dis
 
 **Image Segmentation:**
 - Group pixels into semantic regions
-- K-Means for color quantization
-- DBSCAN for object detection
+- K-Means for color [quantization](/quantization-eng.html)
+- DBSCAN for [object detection](/object-detection-eng.html)
 
 ## Choosing the Right Algorithm
 
@@ -225,4 +225,4 @@ GMM is a probabilistic approach assuming data comes from mixture of Gaussian dis
 
 ## Conclusion
 
-Effective clustering requires understanding data characteristics and choosing appropriate algorithms. K-Means provides fast, simple clustering; DBSCAN handles arbitrary shapes; hierarchical methods show relationships; GMM provides probabilistic insights. Combine algorithmic understanding with domain knowledge, proper evaluation metrics, and exploratory analysis to discover meaningful structure in your data.
+Effective clustering requires understanding data characteristics and choosing appropriate algorithms. K-Means provides fast, simple clustering; DBSCAN handles arbitrary shapes; hierarchical methods show relationships; GMM provides probabilistic insights. Combine algorithmic understanding with domain knowledge, proper [evaluation metrics](/evaluation-metrics-eng.html), and exploratory analysis to discover meaningful structure in your data.

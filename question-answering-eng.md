@@ -14,7 +14,7 @@ QA systems can be categorized along multiple dimensions:
 
 **Extractive QA** locates answer spans within provided context, selecting start and end positions. This approach guarantees answers come from the source material, ensuring factuality but limiting answer expressiveness.
 
-**Generative QA** produces novel answer text, not constrained to source material. This enables more natural, concise answers but introduces hallucination risks and requires more careful evaluation.
+**Generative QA** produces novel answer text, not constrained to source material. This enables more natural, concise answers but introduces [hallucination](/hallucination-eng.html) risks and requires more careful evaluation.
 
 **Closed-book QA** relies purely on parameters learned during training, answering without external context. This tests pure memorization and reasoning capabilities.
 
@@ -22,21 +22,21 @@ QA systems can be categorized along multiple dimensions:
 
 ## Extractive QA: The SQuAD Era
 
-The Stanford Question Answering Dataset (SQuAD) revolutionized the field by establishing extractive QA as a well-defined benchmark. SQuAD 2.0 added unanswerable questions, requiring systems to recognize when context contains no valid answer. Extractive systems typically employ two steps: retrieving relevant passages and identifying answer spans within those passages.
+The Stanford Question Answering Dataset (SQuAD) revolutionized the field by establishing extractive QA as a well-defined [benchmark](/benchmarks-eng.html). SQuAD 2.0 added unanswerable questions, requiring systems to recognize when context contains no valid answer. Extractive systems typically employ two steps: retrieving relevant passages and identifying answer spans within those passages.
 
 ## BERT for Question Answering
 
-BERT achieved state-of-the-art performance on SQuAD and similar datasets through fine-tuning on QA tasks. The approach uses special tokens ([CLS] and [SEP]) to separate questions and passages, then adds a span classification layer predicting start and end token positions. BERT's bidirectional contextual representations excel at understanding relationships between questions and context, making it particularly effective for extractive QA.
+[BERT](/bert-eng.html) achieved state-of-the-art performance on SQuAD and similar datasets through fine-tuning on QA tasks. The approach uses special tokens ([CLS] and [SEP]) to separate questions and passages, then adds a span classification layer predicting start and end token positions. BERT's bidirectional contextual representations excel at understanding relationships between questions and context, making it particularly effective for extractive QA.
 
 ## Retriever-Reader Architecture
 
-The retriever-reader pipeline separates QA into two stages: retrieval and reading comprehension. The **retriever** component ranks documents by relevance, typically using BM25 or dense passage retrieval. The **reader** component, often a fine-tuned BERT variant, finds answers within the top-ranked passages. This modular approach scales efficiently to large document collections while maintaining accuracy.
+The retriever-reader pipeline separates QA into two stages: retrieval and reading comprehension. The **retriever** component ranks documents by relevance, typically using BM25 or dense passage retrieval. The **reader** component, often a fine-tuned [BERT](/bert-eng.html) variant, finds answers within the top-ranked passages. This modular approach scales efficiently to large document collections while maintaining accuracy.
 
 Dense passage retrieval uses learned embeddings to compute similarity between questions and passages, enabling semantic search beyond keyword matching. Contrastive learning approaches like DPR (Dense Passage Retriever) train embeddings that bring relevant passages close to questions in embedding space while pushing irrelevant passages apart.
 
 ## Open-Domain Question Answering
 
-Open-domain QA removes the assumption of having a small context window, instead requiring systems to search through millions of documents. These systems combine retrieval and comprehension: first retrieving candidate documents using BM25 or dense retrieval, then applying reader models to find answers. The challenge involves handling noisy retrieval results and errors that propagate to downstream components.
+Open-domain QA removes the assumption of having a small [context window](/context-window-eng.html), instead requiring systems to search through millions of documents. These systems combine retrieval and comprehension: first retrieving candidate documents using BM25 or dense retrieval, then applying reader models to find answers. The challenge involves handling noisy retrieval results and errors that propagate to downstream components.
 
 ## Multi-Hop Question Answering
 
@@ -48,7 +48,7 @@ Conversational QA handles follow-up questions within a dialogue context, requiri
 
 ## Generative QA and seq2seq Models
 
-Seq2seq models with attention can generate natural language answers unconstrained by source text. Encoder-decoder architectures process questions and context, generating answer tokens sequentially. These systems produce more fluent answers but require careful training to avoid hallucination and maintain factual consistency with the provided context.
+[Seq2seq](/seq2seq-eng.html) models with attention can generate natural language answers unconstrained by source text. Encoder-decoder architectures process questions and context, generating answer tokens sequentially. These systems produce more fluent answers but require careful training to avoid [hallucination](/hallucination-eng.html) and maintain factual consistency with the provided context.
 
 ## Challenges and Future Directions
 
@@ -56,4 +56,4 @@ Seq2seq models with attention can generate natural language answers unconstraine
 
 **Knowledge integration** remains challenging, as purely parametric models may struggle with rare facts or require prohibitively large parameter counts. **Adversarial robustness** ensures systems resist carefully crafted questions designed to elicit errors.
 
-Modern large language models demonstrate impressive few-shot QA capabilities, answering complex questions without task-specific fine-tuning. However, they exhibit brittleness to adversarial inputs and may hallucinate plausible-sounding but incorrect answers. The field continues evolving toward systems that combine retrieval, reasoning, and generation while maintaining interpretability and factual grounding.
+Modern [large language models](/llm-eng.html) demonstrate impressive few-shot QA capabilities, answering complex questions without task-specific fine-tuning. However, they exhibit brittleness to adversarial inputs and may hallucinate plausible-sounding but incorrect answers. The field continues evolving toward systems that combine retrieval, reasoning, and generation while maintaining interpretability and factual grounding.

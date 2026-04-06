@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Model-based RL learns environment models enabling agents to plan. Unlike model-free methods that learn directly from experience, model-based approaches use planning algorithms (search, dynamic programming) with learned models. This paradigm offers sample efficiency, interpretability, and transfer learning opportunities at the cost of model learning complexity.
+Model-based RL learns environment models enabling agents to plan. Unlike model-free methods that learn directly from experience, model-based approaches use planning algorithms (search, dynamic programming) with learned models. This paradigm offers sample efficiency, interpretability, and [transfer learning](/transfer-learning-eng.html) opportunities at the cost of model learning complexity.
 
 ## World Models
 
@@ -61,7 +61,7 @@ Myopic but computationally feasible for short horizons.
 Recent state-of-the-art model-based approach:
 
 **Components:**
-1. **World Model:** VAE-based latent dynamics with stochastic variables
+1. **World Model:** [VAE](/vae-eng.html)-based latent dynamics with stochastic variables
 2. **Actor:** Policy network maximizing imagined returns
 3. **Critic:** Value network in imagination space
 4. **Imagination Rollouts:** Plan trajectories in learned latent space

@@ -8,7 +8,7 @@ lang: en
 
 ## What is Computer Vision?
 
-Computer Vision (CV) is a field of artificial intelligence that trains computers to interpret and understand the visual world using digital images and videos. It combines techniques from image processing, machine learning, and deep learning to enable machines to automatically analyze visual data the way humans do. From detecting objects in images to recognizing faces, computer vision powers many of today's intelligent applications.
+Computer Vision (CV) is a field of [artificial intelligence](/ai-eng.html) that trains computers to interpret and understand the visual world using digital images and videos. It combines techniques from image processing, machine learning, and deep learning to enable machines to automatically analyze visual data the way humans do. From detecting objects in images to recognizing faces, computer vision powers many of today's intelligent applications.
 
 Unlike humans who learn to see through experience and evolutionary development, machines must be explicitly trained on large datasets to recognize patterns, extract meaningful information, and make decisions based on visual inputs.
 
@@ -16,9 +16,9 @@ Unlike humans who learn to see through experience and evolutionary development, 
 
 The journey of computer vision began in the 1960s when researchers first attempted to process digital images. Early work focused on simple edge detection and image filtering. The 1970s and 1980s saw the development of fundamental techniques like feature extraction and pattern recognition.
 
-The true revolution came with the rise of deep learning in the 2010s. In 2012, AlexNet won the ImageNet competition by a significant margin, demonstrating that deep convolutional neural networks could dramatically outperform traditional computer vision methods. This sparked an explosion of research and innovation, leading to rapid progress across all CV tasks.
+The true revolution came with the rise of deep learning in the 2010s. In 2012, AlexNet won the ImageNet competition by a significant margin, demonstrating that deep [convolutional neural networks](/cnn-deep-dive-eng.html) could dramatically outperform traditional computer vision methods. This sparked an explosion of research and innovation, leading to rapid progress across all CV tasks.
 
-Today, computer vision integrates with other AI domains, creating powerful multimodal systems that combine vision with language and reasoning capabilities.
+Today, computer vision integrates with other AI domains, creating powerful [multimodal](/multimodal-llm-eng.html) systems that combine vision with language and reasoning capabilities.
 
 ## Core Computer Vision Tasks
 
@@ -32,7 +32,7 @@ Image classification is the foundation of computer vision. The task involves ass
 
 ### Object Detection
 
-Object detection goes beyond classification by identifying multiple objects within an image and locating their positions using bounding boxes. A model trained for object detection returns both the object category and spatial coordinates.
+[Object detection](/object-detection-eng.html) goes beyond classification by identifying multiple objects within an image and locating their positions using bounding boxes. A model trained for [object detection](/object-detection-eng.html) returns both the object category and spatial coordinates.
 
 Applications include:
 - Autonomous vehicles detecting pedestrians and other vehicles
@@ -41,13 +41,13 @@ Applications include:
 
 ### Semantic Segmentation
 
-Semantic segmentation assigns a class label to every pixel in an image, creating pixel-level classification maps. Unlike object detection, it doesn't distinguish between different instances of the same class - all dogs would be labeled as "dog."
+[Semantic segmentation](/image-segmentation-eng.html) assigns a class label to every pixel in an image, creating pixel-level classification maps. Unlike [object detection](/object-detection-eng.html), it doesn't distinguish between different instances of the same class - all dogs would be labeled as "dog."
 
 Use cases include medical image analysis, autonomous driving perception, and scene understanding.
 
 ### Instance Segmentation
 
-Instance segmentation combines object detection and semantic segmentation, detecting individual object instances and segmenting each one separately. This is crucial when you need to distinguish between multiple objects of the same class.
+Instance segmentation combines [object detection](/object-detection-eng.html) and [semantic segmentation](/image-segmentation-eng.html), detecting individual object instances and segmenting each one separately. This is crucial when you need to distinguish between multiple objects of the same class.
 
 ## Key Neural Network Architectures
 
@@ -63,21 +63,21 @@ CNNs are specifically designed for processing grid-like data such as images. The
 
 ### Classic CNN Architectures
 
-**LeNet (1998)**: The pioneering CNN designed by Yann LeCun, originally used for handwritten digit recognition. It established the basic CNN pattern: convolution → pooling → convolution → pooling → fully connected layers.
+**LeNet (1998)**: The pioneering [CNN](/cnn-deep-dive-eng.html) designed by Yann LeCun, originally used for handwritten digit recognition. It established the basic CNN pattern: convolution → pooling → convolution → pooling → fully connected layers.
 
 **AlexNet (2012)**: The breakthrough network that won ImageNet and sparked the deep learning revolution. It used:
 - 8 layers (5 convolutional, 3 fully connected)
-- ReLU activation functions for faster training
-- Dropout for regularization
-- GPU acceleration for training
+- ReLU [activation functions](/activation-functions-eng.html) for faster training
+- [Dropout](/dropout-eng.html) for [regularization](/regularization-eng.html)
+- [GPU](/gpu-hardware-eng.html) acceleration for training
 
 **VGG (2014)**: Demonstrated the importance of network depth. VGG-16 and VGG-19 used small 3×3 convolutional filters stacked together, achieving state-of-the-art results while showing that depth matters significantly.
 
-**ResNet (2015)**: Introduced residual connections that allow training of extremely deep networks (up to 152 layers). Residual blocks help gradients flow through the network, solving the vanishing gradient problem and enabling networks to benefit from increased depth.
+**ResNet (2015)**: Introduced [residual connections](/residual-connections-eng.html) that allow training of extremely deep networks (up to 152 layers). Residual blocks help gradients flow through the network, solving the [vanishing gradient](/vanishing-gradients-eng.html) problem and enabling networks to benefit from increased depth.
 
 ### Vision Transformers (ViT)
 
-Introduced in 2020, Vision Transformers adapt the transformer architecture from NLP to computer vision. Instead of processing images as continuous grids, ViT divides images into patches, treats them as sequences, and applies transformer self-attention mechanisms.
+Introduced in 2020, [Vision Transformers](/vision-transformers-eng.html) adapt the [transformer](/llm-eng.html) architecture from NLP to computer vision. Instead of processing images as continuous grids, [ViT](/vision-transformers-eng.html) divides images into patches, treats them as sequences, and applies transformer self-[attention mechanisms](/attention-mechanism-eng.html).
 
 Key advantages:
 - Better scalability to large datasets
@@ -89,19 +89,19 @@ Key advantages:
 
 ### Generative Adversarial Networks (GANs)
 
-GANs consist of two neural networks in competition:
+[GANs](/gan-eng.html) consist of two [neural networks](/neural-eng.html) in competition:
 
 **Generator**: Creates synthetic images from random noise, trying to fool the discriminator.
 
 **Discriminator**: Attempts to distinguish real images from generated ones.
 
-Through this adversarial process, both networks improve, eventually producing highly realistic synthetic images. Applications include style transfer, image-to-image translation, and data augmentation.
+Through this adversarial process, both networks improve, eventually producing highly realistic synthetic images. Applications include style transfer, image-to-image translation, and [data augmentation](/data-augmentation-eng.html).
 
 ### Diffusion Models
 
-Diffusion models work by learning to reverse a noising process. They start with random noise and gradually denoise it into coherent images, learning the underlying data distribution in the process.
+[Diffusion models](/diffusion-models-eng.html) work by learning to reverse a noising process. They start with random noise and gradually denoise it into coherent images, learning the underlying data distribution in the process.
 
-Advantages over GANs:
+Advantages over [GANs](/gan-eng.html):
 - More stable training
 - Better sample diversity
 - Excellent image quality
@@ -112,11 +112,11 @@ OpenAI's DALL-E models generate images from text descriptions. DALL-E 2 can crea
 
 ### Stable Diffusion
 
-An open-source diffusion model that democratized image generation. It can generate high-quality images from text prompts and performs various image editing tasks efficiently on consumer hardware.
+An open-source [diffusion model](/diffusion-models-eng.html) that democratized [image generation](/image-generation-eng.html). It can generate high-quality images from text prompts and performs various image editing tasks efficiently on consumer hardware.
 
 ### Midjourney
 
-A sophisticated image generation system that produces artistic, high-quality images from textual descriptions. It emphasizes aesthetic quality and artistic interpretation.
+A sophisticated [image generation](/image-generation-eng.html) system that produces artistic, high-quality images from textual descriptions. It emphasizes aesthetic quality and artistic interpretation.
 
 ## Video Understanding and Temporal Analysis
 
@@ -131,7 +131,7 @@ Video introduces the temporal dimension to computer vision. Key tasks include:
 Approaches include:
 - 3D CNNs that process space and time jointly
 - Two-stream networks processing RGB and optical flow separately
-- Transformer-based models that capture temporal dependencies
+- [Transformer](/llm-eng.html)-based models that capture temporal dependencies
 
 ## 3D Vision and Depth Estimation
 
@@ -164,14 +164,14 @@ CLIP learns to associate images with text descriptions using contrastive learnin
 
 ### GPT-4V and Multimodal LLMs
 
-Large language models enhanced with vision capabilities can analyze images and answer questions about them, performing visual reasoning that combines image understanding with language comprehension.
+[Large language models](/llm-eng.html) enhanced with vision capabilities can analyze images and answer questions about them, performing visual reasoning that combines image understanding with language comprehension.
 
 ## Applications Across Industries
 
 ### Autonomous Vehicles
 
 Computer vision is central to self-driving cars:
-- Object detection for identifying pedestrians, vehicles, and obstacles
+- [Object detection](/object-detection-eng.html) for identifying pedestrians, vehicles, and obstacles
 - Lane detection for road following
 - Traffic sign recognition
 - 3D scene understanding for navigation
@@ -186,8 +186,8 @@ CV accelerates medical diagnostics:
 
 ### Surveillance and Security
 
-- Facial recognition for authentication and security
-- Anomaly detection for unusual behavior
+- [Facial recognition](/face-recognition-eng.html) for authentication and security
+- [Anomaly detection](/anomaly-detection-eng.html) for unusual behavior
 - Crowd analysis and density estimation
 - Intrusion detection
 
@@ -225,13 +225,13 @@ CV accelerates medical diagnostics:
 
 **Foundation models**: Large pre-trained models that can be efficiently adapted to many downstream tasks with minimal data.
 
-**Efficient architectures**: Developing smaller, faster models without sacrificing performance (knowledge distillation, quantization).
+**Efficient architectures**: Developing smaller, faster models without sacrificing performance ([knowledge distillation](/knowledge-distillation-eng.html), [quantization](/quantization-eng.html)).
 
 **Neurosymbolic approaches**: Combining deep learning with symbolic reasoning for more interpretable and robust systems.
 
 **Continual learning**: Enabling models to learn new tasks while retaining previous knowledge.
 
-**Embodied vision**: Integrating vision with robotics and reinforcement learning for agents that learn through interaction.
+**Embodied vision**: Integrating vision with robotics and [reinforcement learning](/rl-eng.html) for agents that learn through interaction.
 
 ## Conclusion
 

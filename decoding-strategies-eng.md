@@ -8,7 +8,7 @@ lang: en
 
 ## The Decoding Problem
 
-Once a language model produces a probability distribution over the vocabulary for the next token, we face a choice: **how do we select which token to generate?** This seemingly simple decision dramatically impacts output quality, diversity, and computational cost. The wrong strategy produces repetitive, incoherent, or overly generic text.
+Once a language model produces a [probability](/probability-eng.html) distribution over the [vocabulary](/tokenizer-design-eng.html) for the next token, we face a choice: **how do we select which token to generate?** This seemingly simple decision dramatically impacts output quality, diversity, and computational cost. The wrong strategy produces repetitive, incoherent, or overly generic text.
 
 Decoding is the algorithm that converts model probabilities into actual text. Even with a perfect language model, poor decoding ruins quality. Conversely, clever decoding can work around model limitations.
 
@@ -58,7 +58,7 @@ where α typically ranges 0.5-1.0.
 ### Advantages
 - Explores multiple hypotheses in parallel
 - Finds locally optimal sequences
-- Better than greedy for translation/summarization
+- Better than greedy for translation/[summarization](/text-summarization-eng.html)
 
 ### Disadvantages
 - Computationally expensive (k times slower than greedy)
@@ -70,30 +70,30 @@ Beam search works well for translation and structured generation but can feel ge
 
 ## Sampling-Based Methods
 
-Sampling introduces **stochasticity**—we randomly select from the distribution rather than always picking the highest probability.
+Sampling introduces **stochasticity**—we randomly select from the distribution rather than always picking the highest [probability](/probability-eng.html).
 
 ### Pure Sampling
 
-Sample the next token directly from the model's probability distribution:
+Sample the next token directly from the model's [probability](/probability-eng.html) distribution:
 
 ```
 next_token ~ p(vocab)
 ```
 
-This produces diversity but can include very low-probability, nonsensical tokens. Most models have long tails of terrible completions.
+This produces diversity but can include very low-[probability](/probability-eng.html), nonsensical tokens. Most models have long tails of terrible completions.
 
 ## Temperature Scaling
 
-**Temperature** controls the sharpness of the probability distribution. It's a simple but powerful parameter.
+**Temperature** controls the sharpness of the [probability](/probability-eng.html) distribution. It's a simple but powerful parameter.
 
 The distribution becomes:
 ```
 p_t(token) = exp(logits/T) / Σ exp(logits/T)
 ```
 
-- **T < 1 (cold)**: Distribution sharpens, makes high-probability tokens even more likely
+- **T < 1 (cold)**: Distribution sharpens, makes high-[probability](/probability-eng.html) tokens even more likely
 - **T = 1 (normal)**: Original probabilities
-- **T > 1 (hot)**: Distribution flattens, gives low-probability tokens more chance
+- **T > 1 (hot)**: Distribution flattens, gives low-[probability](/probability-eng.html) tokens more chance
 
 ### Practical Use
 - Lower temperature (0.3-0.7) for factual, consistent outputs
@@ -126,31 +126,31 @@ where Z is the normalization constant.
 
 ## Top-p (Nucleus) Sampling
 
-A smarter alternative to top-k: sample from a **dynamic subset** that contains p fraction of the probability mass.
+A smarter alternative to top-k: sample from a **dynamic subset** that contains p fraction of the [probability](/probability-eng.html) mass.
 
 ### How It Works
 
-1. Sort tokens by descending probability
-2. Select just enough tokens so their cumulative probability ≥ p
+1. Sort tokens by descending [probability](/probability-eng.html)
+2. Select just enough tokens so their cumulative [probability](/probability-eng.html) ≥ p
 3. Renormalize and sample from this subset
 
-Example: If p=0.9, keep sampling tokens until cumulative probability reaches 90%.
+Example: If p=0.9, keep sampling tokens until cumulative [probability](/probability-eng.html) reaches 90%.
 
 ### Advantages
 - Adaptive: naturally handles varying distributions
 - Works well for diverse, fluent text
 - Good default choice for most applications
-- Less hyperparameter tuning than top-k
+- Less [hyperparameter tuning](/hyperparameter-tuning-eng.html) than top-k
 
 ### Disadvantages
 - Slightly more computation than top-k
 - Still requires p tuning (typically 0.85-0.95)
 
-Top-p has become the standard for many applications and is often the default in modern LLM APIs.
+Top-p has become the standard for many applications and is often the default in modern [LLM](/llm-eng.html) APIs.
 
 ## Repetition Penalty
 
-Models tend to repeat tokens or phrases. **Repetition penalty** discounts the probability of tokens that already appeared.
+Models tend to repeat tokens or phrases. **Repetition penalty** discounts the [probability](/probability-eng.html) of tokens that already appeared.
 
 For tokens that appeared n times in the sequence:
 ```
@@ -172,12 +172,12 @@ Common penalty values: 1.0-2.0
 
 A recent technique that **filters based on relative probability**, not absolute count.
 
-For minimum probability threshold p_min:
+For minimum [probability](/probability-eng.html) threshold p_min:
 ```
 keep tokens where: p(token) ≥ p_min * max(p(vocab))
 ```
 
-So if the top token has probability 0.8, min-p=0.1 keeps tokens down to probability 0.08.
+So if the top token has [probability](/probability-eng.html) 0.8, min-p=0.1 keeps tokens down to [probability](/probability-eng.html) 0.08.
 
 ### Advantages
 - Relative filtering is more principled than top-k's hard cutoff
@@ -192,7 +192,7 @@ The idea: keep tokens whose information content is near the distribution's avera
 
 ### Practical Effect
 - Produces less repetitive, more fluent text than top-k
-- Better handles varying entropy across contexts
+- Better handles varying [entropy](/information-theory-eng.html) across contexts
 - Good for zero-shot performance without tuning
 
 ## Constrained Decoding

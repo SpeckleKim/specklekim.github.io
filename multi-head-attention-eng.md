@@ -6,7 +6,7 @@ lang: en
 
 # Multi-Head Attention
 
-While single-head self-attention is powerful, multi-head attention enables transformers to jointly attend to information from different representation subspaces. This parallelization of attention mechanisms is one of the key innovations that made transformers practical and effective.
+While single-head [self-attention](/self-attention-eng.html) is powerful, multi-head attention enables [transformers](/llm-eng.html) to jointly attend to information from different representation subspaces. This parallelization of [attention mechanisms](/attention-mechanism-eng.html) is one of the key innovations that made transformers practical and effective.
 
 ## Why Multiple Attention Heads?
 
@@ -84,7 +84,7 @@ Research has shown:
 4. **Head contribution varies**: Early layers develop more syntactic patterns, later layers semantic
 5. **Redundancy as robustness**: Redundant heads provide insurance against distribution shift
 
-The "Lottery Ticket Hypothesis" in transformers suggests many heads are redundant lottery tickets—they help during training but aren't strictly necessary at test time.
+The "Lottery Ticket Hypothesis" in [transformers](/llm-eng.html) suggests many heads are redundant lottery tickets—they help during training but aren't strictly necessary at test time.
 
 ## Number of Heads: A Design Choice
 
@@ -110,7 +110,7 @@ Multi-head attention enables "cross-head" effects:
 3. **Error correction**: If one head misfires, others can compensate
 4. **Ensemble effect**: Similar to boosting where multiple weak learners combine
 
-This ensemble-like property contributes to transformers' robustness and generalization.
+This ensemble-like property contributes to [transformers](/llm-eng.html)' robustness and generalization.
 
 ## Attention Patterns Visualization
 
@@ -133,7 +133,7 @@ Multi-head attention complexity per head:
 - Attention computation: O(h * n² * d_k)
 - Output projection: O(h * d_v * d_model)
 
-While adding h heads multiplies computation by h, the parallel nature allows efficient GPU implementation, making multi-head essentially "free" compared to adding depth.
+While adding h heads multiplies computation by h, the parallel nature allows efficient [GPU](/gpu-hardware-eng.html) implementation, making multi-head essentially "free" compared to adding depth.
 
 ## Comparison: Single vs. Multi-Head
 
@@ -158,6 +158,6 @@ These variants reduce memory while maintaining performance.
 
 ## Conclusion
 
-Multi-head attention transforms a single projection space into h complementary subspaces, enabling rich pattern capture through parallel computation. The emergence of specialized heads without supervision demonstrates how gradient-based learning naturally discovers diverse attention strategies. This design choice was pivotal in making transformers practical, enabling efficient parallelization and strong empirical performance across diverse tasks.
+Multi-head attention transforms a single projection space into h complementary subspaces, enabling rich pattern capture through parallel computation. The emergence of specialized heads without supervision demonstrates how gradient-based learning naturally discovers diverse attention strategies. This design choice was pivotal in making [transformers](/llm-eng.html) practical, enabling efficient parallelization and strong empirical performance across diverse tasks.
 
 Understanding multi-head attention's role in specialization, redundancy, and parallelization is essential for model design, optimization, and interpretability work.

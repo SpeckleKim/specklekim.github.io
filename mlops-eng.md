@@ -20,7 +20,7 @@ MLOps manages several interconnected phases:
 
 **Model Development**: Training and evaluation. Data scientists experiment with architectures, hyperparameters, and algorithms. This phase generates dozens of model candidates.
 
-**Model Validation**: Rigorous evaluation on held-out test sets. Cross-validation, stratification, and temporal validation ensure generalization.
+**Model Validation**: Rigorous evaluation on held-out test sets. [Cross-validation](/cross-validation-eng.html), stratification, and temporal validation ensure generalization.
 
 **Deployment**: Moving models to production. Containerization, API deployment, and gradual rollout ensure reliability.
 
@@ -39,7 +39,7 @@ Traditional CI/CD principles apply to ML but with important modifications:
 **Continuous Deployment for ML**:
 - Automated model validation before production release
 - Gradual rollout with canary deployments
-- A/B testing framework for new models
+- [A/B testing](/ab-testing-ml-eng.html) framework for new models
 - Easy rollback mechanisms if performance degrades
 
 Key difference from software CI/CD: ML systems are non-deterministic. Two models trained on the same data with same hyperparameters may differ slightly due to random initialization.
@@ -65,7 +65,7 @@ Features:
 ### Weights & Biases (W&B)
 
 W&B offers richer visualization and collaboration:
-- Sweeps: Automated hyperparameter optimization
+- Sweeps: Automated [hyperparameter optimization](/hyperparameter-tuning-eng.html)
 - Reports: Shareable experiment documentation
 - Artifacts: Track datasets, models, and outputs
 - Alerts: Monitor production model metrics
@@ -82,7 +82,7 @@ A model registry acts as a single source of truth for production models:
 
 **Popular Solutions**:
 - MLflow Model Registry: Simple, integrated with MLflow
-- Hugging Face Model Hub: Community-driven, great for transformers
+- Hugging Face Model Hub: Community-driven, great for [transformers](/llm-eng.html)
 - Custom solutions: AWS SageMaker, Google Vertex AI registries
 
 ## A/B Testing in Production

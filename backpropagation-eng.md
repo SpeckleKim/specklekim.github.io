@@ -6,11 +6,11 @@ lang: en
 
 # Backpropagation: Training Neural Networks
 
-Backpropagation is the fundamental algorithm that enables training of deep neural networks. It efficiently computes gradients of a loss function with respect to all network parameters, allowing us to update weights in the direction that minimizes loss.
+Backpropagation is the fundamental algorithm that enables training of deep [neural networks](/neural-eng.html). It efficiently computes gradients of a [loss function](/loss-functions-eng.html) with respect to all network parameters, allowing us to update weights in the direction that minimizes loss.
 
 ## The Forward Pass
 
-During the forward pass, data flows through the network layer by layer. Each neuron computes a weighted sum of its inputs plus a bias term, then applies an activation function. This process is repeated until we reach the output layer, producing predictions.
+During the forward pass, data flows through the network layer by layer. Each neuron computes a weighted sum of its inputs plus a bias term, then applies an [activation function](/activation-functions-eng.html). This process is repeated until we reach the output layer, producing predictions.
 
 For a simple layer: `z = Wx + b`, then `a = activation(z)`.
 
@@ -18,7 +18,7 @@ The forward pass establishes the **computational graph**, which records how each
 
 ## Computing the Loss
 
-After predictions are made, we compute the loss—a scalar value measuring how far predictions deviate from true labels. Common loss functions include Mean Squared Error (MSE) for regression and cross-entropy for classification.
+After predictions are made, we compute the loss—a scalar value measuring how far predictions deviate from true labels. Common [loss functions](/loss-functions-eng.html) include Mean Squared Error (MSE) for regression and cross-[entropy](/information-theory-eng.html) for classification.
 
 `L = (1/m) * Σ(y_true - y_pred)²` (MSE example)
 
@@ -26,7 +26,7 @@ The loss quantifies our model's error. Lower loss means better predictions.
 
 ## The Chain Rule Foundation
 
-Backpropagation relies on the chain rule from calculus. If loss L depends on parameter W through multiple intermediate variables, the chain rule tells us:
+Backpropagation relies on the chain rule from [calculus](/calculus-eng.html). If loss L depends on parameter W through multiple intermediate variables, the chain rule tells us:
 
 `dL/dW = (dL/da) * (da/dz) * (dz/dW)`
 
@@ -61,19 +61,19 @@ Backpropagation traverses this graph in reverse topological order, computing gra
 
 ## Automatic Differentiation
 
-Modern deep learning frameworks (PyTorch, TensorFlow) implement automatic differentiation engines that automatically build the computational graph and compute gradients—no manual calculus required.
+Modern deep learning frameworks (PyTorch, TensorFlow) implement automatic differentiation engines that automatically build the computational graph and compute gradients—no manual [calculus](/calculus-eng.html) required.
 
 Two approaches:
 - **Reverse-mode AD** (used for backprop): efficient for scalar outputs, O(1) graph traversals
 - **Forward-mode AD**: efficient for many outputs relative to few inputs
 
-For neural networks with millions of parameters and scalar losses, reverse-mode is ideal.
+For [neural networks](/neural-eng.html) with millions of parameters and scalar losses, reverse-mode is ideal.
 
 ## Challenges and Solutions
 
 **Vanishing Gradients**: In deep networks, gradients can become extremely small as they backpropagate through many layers, making learning slow.
 
-Solutions: ReLU activations, layer normalization, residual connections, careful weight initialization.
+Solutions: ReLU activations, [layer normalization](/layer-normalization-eng.html), [residual connections](/residual-connections-eng.html), careful [weight initialization](/weight-initialization-eng.html).
 
 **Exploding Gradients**: Conversely, gradients can blow up exponentially.
 
@@ -85,7 +85,7 @@ Weight updates occur after computing gradients for a batch:
 
 `W_new = W_old - learning_rate * dL/dW`
 
-The learning rate controls step size. Larger rates converge faster but risk overshooting; smaller rates are stable but slower.
+The [learning rate](/learning-rate-scheduling-eng.html) controls step size. Larger rates converge faster but risk overshooting; smaller rates are stable but slower.
 
 Backpropagation enables end-to-end training where high-level task performance directly drives learning at all levels. This is why deep learning has been so successful.
 

@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Vector databases store and search high-dimensional vectors (embeddings) efficiently. They power semantic search, similarity matching, and retrieval-augmented generation (RAG) systems that are central to modern AI applications. Traditional databases index on exact matches; vector databases search by similarity.
+Vector databases store and search high-dimensional vectors (embeddings) efficiently. They power semantic search, similarity matching, and [retrieval-augmented generation](/rag-eng.html) ([RAG](/rag-eng.html)) systems that are central to modern AI applications. Traditional databases index on exact matches; vector databases search by similarity.
 
 ## Why Vector Databases?
 
@@ -25,7 +25,7 @@ Given a query vector q and a corpus of millions of vectors, find the k most simi
 - **Semantic search**: Find documents similar in meaning, not just keywords
 - **Recommendation systems**: Recommend items based on embedding similarity
 - **Duplicate detection**: Identify similar content across datasets
-- **RAG systems**: Retrieve relevant context for LLM inference
+- **RAG systems**: Retrieve relevant context for [LLM](/llm-eng.html) inference
 - **Image search**: Find visually similar images by embedding
 
 ## Approximate Nearest Neighbor (ANN) Algorithms
@@ -57,7 +57,7 @@ Divides vector space into regions:
 
 Hash similar vectors to same bucket:
 - Use family of hash functions preserving locality
-- Similar vectors hash to same bucket with high probability
+- Similar vectors hash to same bucket with high [probability](/probability-eng.html)
 - Query: hash query vector, search same buckets
 
 **Advantages**: Theoretical guarantees, simple to implement
@@ -71,7 +71,7 @@ Hash similar vectors to same bucket:
 Fully managed vector database:
 - Easy API, zero maintenance
 - Automatic indexing and scaling
-- Integrated with LLM ecosystems (LangChain, LlamaIndex)
+- Integrated with [LLM](/llm-eng.html) ecosystems (LangChain, LlamaIndex)
 - Pricing: pay per storage and API calls
 
 **Best for**: Teams wanting production-grade vector search without DevOps
@@ -172,7 +172,7 @@ a · b
 
 ## Integration with RAG
 
-Vector databases are core to RAG:
+Vector databases are core to [RAG](/rag-eng.html):
 
 ```
 1. Embed documents: Convert docs to vectors, store in DB
@@ -205,7 +205,7 @@ Quality of retrieval dramatically affects final answer quality. Embedding model 
 ## Best Practices
 
 - **Embedding model choice**: Fundamental; domain-specific models often outperform general
-- **Dimensionality reduction**: PCA or quantization can reduce memory with minimal quality loss
+- **Dimensionality reduction**: PCA or [quantization](/quantization-eng.html) can reduce memory with minimal quality loss
 - **Batch operations**: More efficient than individual queries
 - **Monitoring**: Track query latency, recall, index freshness
 - **Regular reindexing**: As data changes, index quality may degrade
@@ -220,4 +220,4 @@ Quality of retrieval dramatically affects final answer quality. Embedding model 
 
 ## Conclusion
 
-Vector databases enable semantic understanding in AI systems. Choosing the right database depends on scale, latency requirements, and infrastructure constraints. As RAG becomes standard in LLM applications, understanding vector database design becomes increasingly important for AI engineers.
+Vector databases enable semantic understanding in AI systems. Choosing the right database depends on scale, latency requirements, and infrastructure constraints. As [RAG](/rag-eng.html) becomes standard in [LLM](/llm-eng.html) applications, understanding vector database design becomes increasingly important for AI engineers.

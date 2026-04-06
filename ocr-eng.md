@@ -17,16 +17,16 @@ Early OCR systems used hand-crafted features and rule-based approaches:
 - **Preprocessing:** Binarization, noise removal, skew correction
 - **Segmentation:** Isolating individual characters or words
 - **Feature Extraction:** Histogram of oriented gradients, template matching
-- **Classification:** Support Vector Machines, Hidden Markov Models
+- **Classification:** [Support Vector Machines](/svm-eng.html), Hidden Markov Models
 - **Limitations:** Poor generalization, sensitive to variations in font, size, orientation
 
 ## Deep Learning OCR
 
-Neural networks revolutionized OCR by learning features automatically from data.
+[Neural networks](/neural-eng.html) revolutionized OCR by learning features automatically from data.
 
 **Sequence-to-Sequence Models:**
 - Encoder processes entire image, decoder generates character sequences
-- Attention mechanisms focus on relevant image regions during decoding
+- [Attention mechanisms](/attention-mechanism-eng.html) focus on relevant image regions during decoding
 - Handles variable-length text naturally
 - Significantly higher accuracy than traditional approaches
 
@@ -55,13 +55,13 @@ Localizing text regions before recognition:
 
 ## TrOCR (Transformer-Based OCR)
 
-Modern transformer-based architecture:
+Modern [transformer](/llm-eng.html)-based architecture:
 
 - **Vision Transformer Encoder:** Extracts visual features from entire image
 - **Transformer Decoder:** Generates text tokens autoregressively
 - **End-to-End:** Single model handles text detection and recognition
 - **Multi-language:** Effective across diverse scripts and languages
-- **State-of-the-Art:** Achieves best accuracy on standard benchmarks
+- **State-of-the-Art:** Achieves best accuracy on standard [benchmarks](/benchmarks-eng.html)
 
 **Advantages over CRNN:**
 - Better context understanding through global attention
@@ -127,5 +127,5 @@ Recent approaches combine OCR with language models:
 
 ## Conclusion
 
-OCR evolved from rule-based systems to deep neural networks, dramatically improving accuracy. Modern approaches like TrOCR leverage transformers for state-of-the-art performance. Document AI extends OCR beyond character recognition to full document understanding. The field continues advancing toward universal, multilingual, robust text recognition systems.
+OCR evolved from rule-based systems to deep [neural networks](/neural-eng.html), dramatically improving accuracy. Modern approaches like TrOCR leverage [transformers](/llm-eng.html) for state-of-the-art performance. Document AI extends OCR beyond character recognition to full document understanding. The field continues advancing toward universal, multilingual, robust text recognition systems.
 

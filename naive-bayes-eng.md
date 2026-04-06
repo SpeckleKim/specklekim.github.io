@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-The Naive Bayes classifier is a probabilistic algorithm based on Bayes' theorem with a simplifying assumption: features are conditionally independent given the class label. Despite its oversimplified assumption, Naive Bayes is remarkably effective for classification tasks, particularly in text classification and spam filtering. It's fast, interpretable, and requires modest computational resources.
+The Naive Bayes classifier is a probabilistic algorithm based on Bayes' theorem with a simplifying assumption: features are conditionally independent given the class label. Despite its oversimplified assumption, Naive Bayes is remarkably effective for classification tasks, particularly in [text classification](/text-classification-eng.html) and spam filtering. It's fast, interpretable, and requires modest computational resources.
 
 ## Bayes Theorem
 
@@ -20,9 +20,9 @@ P(Class | Features) = P(Features | Class) × P(Class) / P(Features)
 ```
 
 Where:
-- **P(Class | Features)**: Posterior probability (what we want to compute)
-- **P(Features | Class)**: Likelihood (probability of features given class)
-- **P(Class)**: Prior probability (class frequency in training data)
+- **P(Class | Features)**: Posterior [probability](/probability-eng.html) (what we want to compute)
+- **P(Features | Class)**: Likelihood ([probability](/probability-eng.html) of features given class)
+- **P(Class)**: Prior [probability](/probability-eng.html) (class frequency in training data)
 - **P(Features)**: Evidence (constant for comparison)
 
 **For classification:**
@@ -30,7 +30,7 @@ Where:
 Predicted_Class = argmax_c P(c) × ∏ P(f_i | c)
 ```
 
-We choose the class with highest posterior probability.
+We choose the class with highest posterior [probability](/probability-eng.html).
 
 ## The Naive Independence Assumption
 
@@ -44,7 +44,7 @@ This dramatically simplifies computation but is rarely true in reality. Despite 
 
 ## Variants and Probability Models
 
-Different probability models suit different feature types and data distributions.
+Different [probability](/probability-eng.html) models suit different feature types and data distributions.
 
 ### Gaussian Naive Bayes
 
@@ -66,7 +66,7 @@ Estimated from training data.
 
 ### Multinomial Naive Bayes
 
-For discrete count data, particularly useful for text classification:
+For discrete count data, particularly useful for [text classification](/text-classification-eng.html):
 
 ```
 P(x_i | c) = (count_i + 1) / (total_count + vocabulary_size)
@@ -87,7 +87,7 @@ For binary features (presence/absence), common in document classification:
 P(x_i | c) = P_i^(x_i) × (1 - P_i)^(1 - x_i)
 ```
 
-Where P_i is the probability of feature i in class c.
+Where P_i is the [probability](/probability-eng.html) of feature i in class c.
 
 **Use cases:**
 - Binary feature vectors
@@ -113,7 +113,7 @@ This ensures all probabilities remain non-zero.
 
 ## Text Classification
 
-Naive Bayes excels at text classification due to high-dimensional sparse features and probabilistic modeling of word distributions.
+Naive Bayes excels at [text classification](/text-classification-eng.html) due to high-dimensional sparse features and probabilistic modeling of word distributions.
 
 **Process:**
 1. Tokenize documents into words
@@ -148,12 +148,12 @@ Naive Bayes became famous for effective email spam filtering:
 
 - **Speed**: Training and prediction are computationally fast
 - **Simplicity**: Easy to understand and implement
-- **Probabilistic**: Provides probability estimates for predictions
+- **Probabilistic**: Provides [probability](/probability-eng.html) estimates for predictions
 - **Interpretable**: Can examine learned feature-class relationships
 - **Small datasets**: Works well with limited training data
 - **High dimensions**: Handles many features effectively
 - **Robust**: Performs well despite independence assumption violations
-- **Text**: Excellent for text classification and NLP tasks
+- **Text**: Excellent for [text classification](/text-classification-eng.html) and NLP tasks
 
 ## Disadvantages
 
@@ -171,7 +171,7 @@ Naive Bayes became famous for effective email spam filtering:
 **Preprocessing:**
 - Feature scaling not required
 - Handle missing values beforehand
-- Text: Tokenization, lowercasing, stop word removal
+- Text: [Tokenization](/tokenization-eng.html), lowercasing, stop word removal
 
 **Parameter tuning:**
 - Smoothing parameter α (typically 1.0)
@@ -180,15 +180,15 @@ Naive Bayes became famous for effective email spam filtering:
 
 **Model selection:**
 - Choose variant based on feature type (Gaussian/Multinomial/Bernoulli)
-- Cross-validation for performance assessment
-- Compare probability calibration with other methods
+- [Cross-validation](/cross-validation-eng.html) for performance assessment
+- Compare [probability](/probability-eng.html) calibration with other methods
 
 **When to use:**
-- Text classification (primary use case)
+- [Text classification](/text-classification-eng.html) (primary use case)
 - Spam and email filtering
-- Sentiment analysis
+- [Sentiment analysis](/sentiment-analysis-eng.html)
 - Document categorization
-- Medical diagnosis with probability output
+- Medical diagnosis with [probability](/probability-eng.html) output
 
 **When to avoid:**
 - When feature dependencies are critical
@@ -204,12 +204,12 @@ Naive Bayes became famous for effective email spam filtering:
 - Naive Bayes often faster to train
 
 **vs. SVM:**
-- SVM: Better for complex decision boundaries
+- [SVM](/svm-eng.html): Better for complex decision boundaries
 - Naive Bayes: Better for high-dimensional text
 - Naive Bayes: More interpretable
 
 **vs. Random Forest:**
-- Random Forest: Captures feature interactions better
+- [Random Forest](/decision-trees-eng.html): Captures feature interactions better
 - Naive Bayes: Faster, more interpretable
 - Naive Bayes: Better with limited data
 

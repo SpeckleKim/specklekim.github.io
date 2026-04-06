@@ -11,15 +11,15 @@ Hyperparameter tuning is the process of finding the optimal configuration for mo
 ## Hyperparameters vs Parameters
 
 **Parameters** are learned from data during training:
-- Neural network weights and biases
-- Decision tree split values
+- [Neural network](/neural-eng.html) weights and biases
+- [Decision tree](/decision-trees-eng.html) split values
 - Linear regression coefficients
 
 **Hyperparameters** are set before training and control how learning happens:
-- Learning rate, batch size, number of epochs
-- Regularization strength (λ)
+- [Learning rate](/learning-rate-scheduling-eng.html), batch size, number of epochs
+- [Regularization](/regularization-eng.html) strength (λ)
 - Model architecture (depth, width)
-- Dropout rate, early stopping patience
+- [Dropout](/dropout-eng.html) rate, early stopping patience
 - Tree depth, number of trees in ensemble
 
 Hyperparameters are the ones you tune; parameters are automatically optimized.
@@ -31,7 +31,7 @@ Grid search exhaustively evaluates all combinations of hyperparameters from disc
 **Algorithm:**
 1. Define a grid of hyperparameter values
 2. Train a model for each combination
-3. Evaluate using cross-validation
+3. Evaluate using [cross-validation](/cross-validation-eng.html)
 4. Select combination with best CV score
 
 **Example:**
@@ -65,7 +65,7 @@ Random search samples hyperparameter combinations randomly from the search space
 1. Define ranges for each hyperparameter
 2. Sample random combinations (often more efficiently distributed)
 3. Train a model for each sample
-4. Evaluate using cross-validation
+4. Evaluate using [cross-validation](/cross-validation-eng.html)
 5. Select sample with best CV score
 
 **Number of iterations:** Much fewer than grid search for same hyperparameter count
@@ -94,7 +94,7 @@ Sample 50 random combinations instead of 1000+
 
 ## Bayesian Optimization
 
-Bayesian optimization uses a probabilistic model to intelligently sample the hyperparameter space.
+[Bayesian](/bayesian-inference-eng.html) optimization uses a probabilistic model to intelligently sample the hyperparameter space.
 
 **Core idea:** Build a surrogate model (usually a Gaussian Process) that predicts model performance from hyperparameters, then use this model to decide which hyperparameters to try next.
 
@@ -148,12 +148,12 @@ Hyperband accelerates hyperparameter search using early stopping and resource al
 - Round 5: Keep top 1, train for 81 epochs
 
 **BOHB (Bayesian Optimization + Hyperband):**
-- Combines Bayesian optimization with Hyperband
+- Combines [Bayesian](/bayesian-inference-eng.html) optimization with Hyperband
 - Uses TPE to select which configurations to promote
 - Very efficient for expensive hyperparameter searches
 
 **Advantages:**
-- Much faster than Bayesian optimization alone
+- Much faster than [Bayesian](/bayesian-inference-eng.html) optimization alone
 - Intelligent allocation of compute
 - Can run many evaluations in parallel
 - Minimal manual tuning required
@@ -163,7 +163,7 @@ Hyperband accelerates hyperparameter search using early stopping and resource al
 Optuna is a modern hyperparameter optimization framework emphasizing ease of use.
 
 **Features:**
-- Sophisticated Bayesian optimization (TPE, CMA-ES)
+- Sophisticated [Bayesian](/bayesian-inference-eng.html) optimization (TPE, CMA-ES)
 - Define search space in Python naturally
 - Automatic pruning (early stopping unpromising trials)
 - Parallel and distributed optimization
@@ -199,9 +199,9 @@ study.optimize(objective, n_trials=100)
 Ray Tune is a scalable hyperparameter tuning framework designed for distributed computing.
 
 **Features:**
-- Distributed training across clusters
+- [Distributed training](/distributed-training-eng.html) across clusters
 - Integration with deep learning frameworks
-- Multiple tuning algorithms (Bayesian, PBT, Population Based Training)
+- Multiple tuning algorithms ([Bayesian](/bayesian-inference-eng.html), PBT, Population Based Training)
 - Checkpointing and fault tolerance
 - Population Based Training (PBT): evolve hyperparameters during training
 
@@ -225,8 +225,8 @@ Ray Tune is a scalable hyperparameter tuning framework designed for distributed 
 
 ### 3. Importance Ranking
 - Prioritize hyperparameters by sensitivity
-- Learning rate often most important
-- Batch size, regularization strength next
+- [Learning rate](/learning-rate-scheduling-eng.html) often most important
+- Batch size, [regularization](/regularization-eng.html) strength next
 - Model architecture details last
 
 ### 4. Cross-Validation is Essential
@@ -237,7 +237,7 @@ Ray Tune is a scalable hyperparameter tuning framework designed for distributed 
 ### 5. Parallel Search
 - Evaluate multiple configurations simultaneously
 - Grid and random search parallelize perfectly
-- Bayesian optimization parallelizes partially
+- [Bayesian](/bayesian-inference-eng.html) optimization parallelizes partially
 - Use all available compute resources
 
 ### 6. Early Stopping
@@ -249,18 +249,18 @@ Ray Tune is a scalable hyperparameter tuning framework designed for distributed 
 ## Typical Hyperparameter Ranges
 
 **Neural Networks:**
-- Learning rate: 1e-5 to 1e-1 (log scale)
+- [Learning rate](/learning-rate-scheduling-eng.html): 1e-5 to 1e-1 (log scale)
 - Batch size: 16 to 256
-- Dropout: 0.2 to 0.5
-- L2 regularization: 1e-6 to 1e-3
+- [Dropout](/dropout-eng.html): 0.2 to 0.5
+- [L2 regularization](/regularization-eng.html): 1e-6 to 1e-3
 
 **Decision Trees:**
 - Max depth: 3 to 20
 - Min samples per leaf: 1 to 20
-- Criterion: gini or entropy
+- Criterion: gini or [entropy](/information-theory-eng.html)
 
 **Gradient Boosting:**
-- Learning rate: 0.001 to 0.3
+- [Learning rate](/learning-rate-scheduling-eng.html): 0.001 to 0.3
 - Number of estimators: 100 to 1000
 - Max depth: 3 to 10
 - Subsample: 0.5 to 1.0
@@ -271,11 +271,11 @@ Ray Tune is a scalable hyperparameter tuning framework designed for distributed 
 2. Split data into train/validation/test before tuning
 3. Choose search strategy (random > grid for high dimensions)
 4. Set reasonable ranges based on domain knowledge
-5. Use cross-validation for honest evaluation
+5. Use [cross-validation](/cross-validation-eng.html) for honest evaluation
 6. Parallelize when possible
 7. Monitor progress and convergence
 8. Document best hyperparameters
 9. Report test set performance (never use for tuning)
 10. Consider computational cost vs improvement
 
-Hyperparameter tuning is essential but should not consume all computational budget. Allocate resources to data quality, feature engineering, and tuning appropriately.
+Hyperparameter tuning is essential but should not consume all computational budget. Allocate resources to data quality, [feature engineering](/feature-engineering-eng.html), and tuning appropriately.

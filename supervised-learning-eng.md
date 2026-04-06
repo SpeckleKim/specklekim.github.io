@@ -10,7 +10,7 @@ Supervised learning is the foundation of modern machine learning, where models l
 
 ## What is Supervised Learning?
 
-In supervised learning, we have a dataset of input-output pairs (X, y), where X represents features and y represents the target label or value. The model learns a mapping function f: X → y that generalizes well to new, unseen examples. This contrasts with unsupervised learning, where we only have inputs without explicit labels.
+In supervised learning, we have a dataset of input-output pairs (X, y), where X represents features and y represents the target label or value. The model learns a mapping function f: X → y that generalizes well to new, unseen examples. This contrasts with [unsupervised learning](/unsupervised-learning-eng.html), where we only have inputs without explicit labels.
 
 ### Core Principle
 The learning objective is to minimize the error between predictions and actual values. During training, the model adjusts its parameters to reduce this error, ideally capturing underlying patterns in the data.
@@ -23,7 +23,7 @@ The two primary tasks in supervised learning address different prediction goals:
 - Email spam detection (spam vs. not spam)
 - Image recognition (dog, cat, bird, etc.)
 - Disease diagnosis (positive, negative)
-- Sentiment analysis (positive, negative, neutral)
+- [Sentiment analysis](/sentiment-analysis-eng.html) (positive, negative, neutral)
 
 Classification outputs are class labels, and success is measured by accuracy, precision, recall, or F1-score.
 
@@ -40,21 +40,21 @@ Regression outputs are real numbers, and success is measured by Mean Squared Err
 ### Linear Regression
 Linear regression models the relationship between features and target as a linear equation: y = w₁x₁ + w₂x₂ + ... + wₙxₙ + b. It's interpretable, computationally efficient, and serves as a baseline. However, it assumes linear relationships, which often don't hold in real data.
 
-**Variants:** Ridge regression adds L2 regularization to prevent overfitting. Lasso regression uses L1 regularization, which can perform feature selection by shrinking some weights to zero.
+**Variants:** Ridge regression adds [L2 regularization](/regularization-eng.html) to prevent overfitting. Lasso regression uses [L1 regularization](/regularization-eng.html), which can perform feature selection by shrinking some weights to zero.
 
 ### Logistic Regression
 Despite its name, logistic regression is a classification algorithm. It applies the logistic sigmoid function to linear regression outputs, mapping values to probabilities between 0 and 1. It's widely used for binary classification and interpretable, making it popular in healthcare and finance.
 
 ### Decision Trees
-Decision trees recursively split data into subsets based on feature values, creating a tree structure. Each internal node represents a decision, each branch represents an outcome, and each leaf represents a class prediction. Trees are interpretable and handle non-linear relationships well, but tend to overfit without pruning.
+[Decision trees](/decision-trees-eng.html) recursively split data into subsets based on feature values, creating a tree structure. Each internal node represents a decision, each branch represents an outcome, and each leaf represents a class prediction. Trees are interpretable and handle non-linear relationships well, but tend to overfit without pruning.
 
-**Ensemble variants:** Random Forests combine multiple decision trees, improving accuracy and reducing overfitting. Gradient Boosting (XGBoost, LightGBM) sequentially builds trees, each correcting previous errors, achieving state-of-the-art performance on many datasets.
+**Ensemble variants:** [Random Forests](/decision-trees-eng.html) combine multiple [decision trees](/decision-trees-eng.html), improving accuracy and reducing overfitting. [Gradient Boosting](/gradient-boosting-eng.html) ([XGBoost](/gradient-boosting-eng.html), [LightGBM](/gradient-boosting-eng.html)) sequentially builds trees, each correcting previous errors, achieving state-of-the-art performance on many datasets.
 
 ### Support Vector Machines (SVM)
 SVMs find the optimal hyperplane that maximizes the margin between classes. Using kernel tricks, they can handle non-linear problems by implicitly mapping data to higher-dimensional spaces. SVMs work well with high-dimensional data and smaller datasets, though they scale poorly to very large datasets.
 
 ### K-Nearest Neighbors (KNN)
-KNN is a lazy learning algorithm that classifies new examples by voting from their k nearest training neighbors. It's simple, requires no training, but computationally expensive during prediction. Distance metrics like Euclidean distance determine "nearness."
+[KNN](/knn-eng.html) is a lazy learning algorithm that classifies new examples by voting from their k nearest training neighbors. It's simple, requires no training, but computationally expensive during prediction. Distance metrics like Euclidean distance determine "nearness."
 
 ## The Training Process
 
@@ -68,27 +68,27 @@ Select relevant features, create new features from existing ones, and normalize/
 Divide data into training, validation, and test sets (typically 70-80% training, 10-15% validation, 10-15% test). This prevents data leakage and enables honest performance evaluation.
 
 ### Step 4: Model Training
-The algorithm learns from training data by optimizing parameters. For example, gradient descent iteratively updates weights to reduce loss.
+The algorithm learns from training data by optimizing parameters. For example, [gradient descent](/calculus-eng.html) iteratively updates weights to reduce loss.
 
 ### Step 5: Hyperparameter Tuning
-Adjust hyperparameters (learning rate, tree depth, regularization strength) using validation data. Grid search or random search systematically explores hyperparameter combinations.
+Adjust hyperparameters ([learning rate](/learning-rate-scheduling-eng.html), tree depth, [regularization](/regularization-eng.html) strength) using validation data. Grid search or random search systematically explores hyperparameter combinations.
 
 ### Step 6: Evaluation and Testing
 Assess final model performance on the held-out test set using appropriate metrics.
 
 ## Loss Functions
 
-Loss functions quantify prediction error:
+[Loss functions](/loss-functions-eng.html) quantify prediction error:
 
 **Mean Squared Error (MSE):** Averages squared differences between predictions and ground truth, emphasizing large errors. Used for regression.
 
-**Cross-Entropy Loss:** Measures divergence between predicted and actual probability distributions. Standard for classification, especially with neural networks.
+**Cross-Entropy Loss:** Measures divergence between predicted and actual [probability](/probability-eng.html) distributions. Standard for classification, especially with [neural networks](/neural-eng.html).
 
 **Hinge Loss:** Used by SVMs, encourages correct classification with margin.
 
 **Mean Absolute Error (MAE):** Averages absolute differences, more robust to outliers than MSE.
 
-The choice of loss function affects model behavior—MSE penalizes outliers more heavily, while MAE treats all errors equally.
+The choice of [loss function](/loss-functions-eng.html) affects model behavior—MSE penalizes outliers more heavily, while MAE treats all errors equally.
 
 ## Evaluation Metrics
 
@@ -113,9 +113,9 @@ The choice of loss function affects model behavior—MSE penalizes outliers more
 **Overfitting** occurs when a model learns training data too well, including noise and quirks that don't generalize. The model has high training accuracy but poor test accuracy. Causes include:
 - Model complexity too high relative to training data
 - Insufficient training data
-- No regularization
+- No [regularization](/regularization-eng.html)
 
-Prevention strategies: Use simpler models, collect more data, apply regularization (L1, L2, dropout), use early stopping, or increase training data diversity.
+Prevention strategies: Use simpler models, collect more data, apply [regularization](/regularization-eng.html) (L1, L2, [dropout](/dropout-eng.html)), use early stopping, or increase training data diversity.
 
 **Underfitting** occurs when the model is too simple to capture underlying patterns. Both training and test accuracy are poor. Causes include:
 - Model complexity too low
@@ -126,7 +126,7 @@ Solutions: Use more complex models, engineer better features, train longer, or c
 
 ## The Balance
 
-The goal is the sweet spot: a model complex enough to capture patterns but simple enough to generalize. This is achieved through proper train-validation-test splits, cross-validation, and careful hyperparameter tuning.
+The goal is the sweet spot: a model complex enough to capture patterns but simple enough to generalize. This is achieved through proper train-validation-test splits, [cross-validation](/cross-validation-eng.html), and careful [hyperparameter tuning](/hyperparameter-tuning-eng.html).
 
 Supervised learning powers countless applications today—from medical diagnosis to autonomous vehicles—making it essential knowledge for any AI practitioner.
 

@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-The Markov Decision Process (MDP) provides the mathematical framework underlying reinforcement learning. It formalizes the sequential decision-making problem where an agent interacts with an environment, receiving observations and rewards. Understanding MDPs is essential for grasping RL algorithms.
+The Markov Decision Process (MDP) provides the mathematical framework underlying [reinforcement learning](/rl-eng.html). It formalizes the sequential decision-making problem where an agent interacts with an environment, receiving observations and rewards. Understanding MDPs is essential for grasping RL algorithms.
 
 ## Key Components
 
@@ -16,7 +16,7 @@ The Markov Decision Process (MDP) provides the mathematical framework underlying
 
 **Actions (A):** Possible decisions available to the agent. From each state, specific actions may be legal. Action space defines the agent's control capabilities.
 
-**Transitions:** Deterministic or stochastic dynamics. Transition function P(s'|s,a) gives probability of next state s' given current state s and action a. Environment dynamics often unknown; agent learns from experience.
+**Transitions:** Deterministic or stochastic dynamics. Transition function P(s'|s,a) gives [probability](/probability-eng.html) of next state s' given current state s and action a. Environment dynamics often unknown; agent learns from experience.
 
 **Rewards (R):** Scalar feedback signals. Reward function r(s,a) specifies immediate payoff for action a in state s. Agent objective: maximize cumulative reward over time.
 
@@ -70,7 +70,7 @@ These equations decompose long-term rewards into immediate reward plus discounte
 
 ## Policies
 
-Policy π specifies action selection: π(a|s) = probability of action a in state s.
+Policy π specifies action selection: π(a|s) = [probability](/probability-eng.html) of action a in state s.
 
 **Deterministic Policy:** π(a|s) ∈ {0,1}—always selects specific action
 

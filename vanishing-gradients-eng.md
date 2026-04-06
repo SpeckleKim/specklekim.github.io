@@ -6,7 +6,7 @@ lang: en
 
 # Vanishing & Exploding Gradients: Understanding Deep Network Training Dynamics
 
-The vanishing and exploding gradient problems are fundamental challenges in training deep neural networks. Understanding these problems and their solutions is essential for building effective deep learning systems. These issues occur because gradients can become exponentially smaller or larger as they propagate backward through many layers.
+The vanishing and exploding gradient problems are fundamental challenges in training deep [neural networks](/neural-eng.html). Understanding these problems and their solutions is essential for building effective deep learning systems. These issues occur because gradients can become exponentially smaller or larger as they propagate backward through many layers.
 
 ## Problem Definition
 
@@ -17,7 +17,7 @@ The vanishing and exploding gradient problems are fundamental challenges in trai
 - Particularly problematic in deep networks (20+ layers)
 
 **Exploding Gradients**:
-- Gradients grow exponentially through backpropagation
+- Gradients grow exponentially through [backpropagation](/backpropagation-eng.html)
 - Training becomes unstable, loss diverges
 - Weight updates become extremely large
 - Often manifested as NaN or infinite loss values
@@ -33,14 +33,14 @@ If |∂W/∂W_prev| > 1 for many layers: exploding (> > 1)^depth → ∞
 
 ## Why It Happens: The Sigmoid Problem
 
-The sigmoid activation function is the primary culprit in early deep learning:
+The sigmoid [activation function](/activation-functions-eng.html) is the primary culprit in early deep learning:
 
 ```
 σ(x) = 1 / (1 + e^(-x))
 dσ/dx = σ(x)(1 - σ(x))  [range: 0 to 0.25]
 ```
 
-Maximum derivative is 0.25. During backprop through multiple sigmoid layers:
+Maximum derivative is 0.25. During [backprop](/backpropagation-eng.html) through multiple sigmoid layers:
 
 ```
 Gradient through sigmoid: 0.25 (at best)
@@ -65,7 +65,7 @@ With sigmoid: each term ≤ 0.25, product vanishes exponentially
 With poor initialization: weights too small/large, amplifies the problem
 ```
 
-The fundamental issue: backpropagation through many layers multiplies many Jacobian terms, which can become arbitrarily small or large.
+The fundamental issue: [backpropagation](/backpropagation-eng.html) through many layers multiplies many Jacobian terms, which can become arbitrarily small or large.
 
 ## Solution 1: ReLU and Modern Activations
 
@@ -110,7 +110,7 @@ Poor initialization (W ~ N(0, 1)) makes gradient problems worse even with ReLU.
 
 ## Solution 3: Residual Connections (Skip Connections)
 
-Skip connections create direct gradient highways through the network:
+[Skip connections](/residual-connections-eng.html) create direct gradient highways through the network:
 
 ```
 Modern block: y = F(x) + x  [instead of y = F(x)]
@@ -123,9 +123,9 @@ Revolutionary impact:
 - Direct path bypasses many layers
 - Allows training of networks with 100+ layers
 - Enables residual networks (ResNets) to work effectively
-- Transformer architecture also uses skip connections extensively
+- [Transformer](/llm-eng.html) architecture also uses [skip connections](/residual-connections-eng.html) extensively
 
-Mathematical insight: Skip connections essentially add an identity term to the Jacobian product, preventing exponential decay.
+Mathematical insight: [Skip connections](/residual-connections-eng.html) essentially add an identity term to the Jacobian product, preventing exponential decay.
 
 ## Solution 4: Gradient Clipping
 
@@ -169,7 +169,7 @@ GRU and other gating mechanisms provide similar benefits.
 
 ## Solution 6: Batch Normalization
 
-Batch norm stabilizes training and improves gradient flow:
+[Batch norm](/batch-normalization-eng.html) stabilizes training and improves gradient flow:
 
 ```
 Normalized output: y = γ * (x - μ_batch) / σ_batch + β
@@ -185,18 +185,18 @@ Impact on gradient flow:
 - Normalizes input to each layer
 - Prevents activations from saturating (especially for sigmoid)
 - Makes gradients more stable throughout network
-- Enables training of deeper networks without skip connections
+- Enables training of deeper networks without [skip connections](/residual-connections-eng.html)
 
 ## Comparison of Solutions
 
 | Solution | Solves | Implementation | Modern | Notes |
 |----------|--------|----------------|--------|-------|
-| ReLU | Vanishing | Activation function | Essential | Default choice |
-| He init | Both | Weight initialization | Essential | Required with ReLU |
-| Skip connections | Both | Architecture | Essential | ResNets, Transformers |
+| ReLU | Vanishing | [Activation function](/activation-functions-eng.html) | Essential | Default choice |
+| He init | Both | [Weight initialization](/weight-initialization-eng.html) | Essential | Required with ReLU |
+| [Skip connections](/residual-connections-eng.html) | Both | Architecture | Essential | ResNets, [Transformers](/llm-eng.html) |
 | Gradient clipping | Exploding | Training code | RNNs | Simple safety valve |
 | LSTM gates | Vanishing (RNN) | Cell design | Useful | Specific to RNNs |
-| Batch norm | Both (indirect) | Layer | Common | Powerful normalizer |
+| [Batch norm](/batch-normalization-eng.html) | Both (indirect) | Layer | Common | Powerful normalizer |
 | Proper warmup | Both | Scheduler | Modern | Works with other solutions |
 
 ## Practical Guidelines
@@ -226,15 +226,15 @@ for layer in network:
 # Not: (0.1, 10, 1000, ...)  [exploding]
 ```
 
-If gradients are vanishing: Use ReLU, check initialization, add skip connections.
-If gradients are exploding: Use gradient clipping, check learning rate.
+If gradients are vanishing: Use ReLU, check initialization, add [skip connections](/residual-connections-eng.html).
+If gradients are exploding: Use gradient clipping, check [learning rate](/learning-rate-scheduling-eng.html).
 
 ## Modern Architecture Perspective
 
 Contemporary architectures avoid these problems through design:
 
-- **Transformers**: Layer norm, residual connections, attention mechanism
-- **ResNets**: Skip connections at every block
+- **Transformers**: [Layer norm](/layer-normalization-eng.html), [residual connections](/residual-connections-eng.html), [attention mechanism](/attention-mechanism-eng.html)
+- **ResNets**: [Skip connections](/residual-connections-eng.html) at every block
 - **Dense connections**: DenseNet connects every layer to every other layer
 - **Batch normalization**: Standard in CNNs, reduces gradient issues
 
@@ -242,7 +242,7 @@ These design choices are not coincidental—they solve gradient flow problems.
 
 ## Conclusion
 
-Vanishing and exploding gradients were significant barriers to training deep networks. Modern solutions—particularly ReLU activations, proper initialization, skip connections, and batch normalization—have made these problems largely solvable.
+Vanishing and exploding gradients were significant barriers to training deep networks. Modern solutions—particularly ReLU activations, proper initialization, [skip connections](/residual-connections-eng.html), and [batch normalization](/batch-normalization-eng.html)—have made these problems largely solvable.
 
 Understanding the root causes (sigmoid saturation, exponential gradient product) provides insight into why these solutions work. The field has essentially standardized on approaches that maintain consistent gradient flow through all layers, enabling the training of networks with hundreds of layers.
 

@@ -6,7 +6,7 @@ lang: en
 
 # Calculus & Optimization for AI
 
-Calculus is the mathematics of change. In machine learning, calculus enables us to understand how model outputs change with respect to parameters, which is essential for training neural networks and optimizing any machine learning model. Optimization—finding parameters that minimize error—is at the heart of learning.
+Calculus is the mathematics of change. In machine learning, calculus enables us to understand how model outputs change with respect to parameters, which is essential for training [neural networks](/neural-eng.html) and optimizing any machine learning model. Optimization—finding parameters that minimize error—is at the heart of learning.
 
 ## Derivatives and Rates of Change
 
@@ -35,7 +35,7 @@ In machine learning, we work with functions of multiple variables: f(x₁, x₂,
 - ∂f/∂w = -2x(y - (w·x + b))
 - ∂f/∂b = -2(y - (w·x + b))
 
-In neural networks, we compute thousands of partial derivatives to understand how a single weight affects the final loss.
+In [neural networks](/neural-eng.html), we compute thousands of partial derivatives to understand how a single weight affects the final loss.
 
 ## The Chain Rule and Backpropagation
 
@@ -43,7 +43,7 @@ The **chain rule** enables us to compute derivatives of composite functions: **d
 
 Graphically, the chain rule says: "effect on output = effect through intermediate variable × effect on intermediate variable."
 
-**Backpropagation** applies the chain rule systematically to compute gradients in neural networks:
+**Backpropagation** applies the chain rule systematically to compute gradients in [neural networks](/neural-eng.html):
 
 1. Forward pass: compute predictions layer by layer
 2. Backward pass: compute gradients flowing backward through layers
@@ -71,8 +71,8 @@ This is the directional analog of the derivative, telling us how fast f decrease
 
 Where:
 - θ are the parameters (weights and biases)
-- L is the loss function (error to minimize)
-- α is the learning rate (step size)
+- L is the [loss function](/loss-functions-eng.html) (error to minimize)
+- α is the [learning rate](/learning-rate-scheduling-eng.html) (step size)
 - ∇L(θ) is the gradient of loss with respect to parameters
 
 **Learning rate matters:**
@@ -81,7 +81,7 @@ Where:
 
 **Batch gradient descent**: Compute gradient using all training data, then update once per epoch. Slow but stable.
 
-**Stochastic gradient descent (SGD)**: Compute gradient using one data point, update immediately. Fast and noisy, adds implicit regularization.
+**Stochastic gradient descent (SGD)**: Compute gradient using one data point, update immediately. Fast and noisy, adds implicit [regularization](/regularization-eng.html).
 
 **Mini-batch gradient descent**: Compute gradient using mini-batch of data (e.g., 32 samples), update once per batch. Balances speed and stability.
 
@@ -103,16 +103,16 @@ Where β (typically 0.9) controls how much previous velocity matters. Momentum:
 
 A function is **convex** if any line segment between two points on the function stays above the function. Convex functions have a single global minimum.
 
-**Why convex matters**: Gradient descent converges to the global optimum for convex functions. Non-convex functions (like those with neural networks) can get stuck in local minima.
+**Why convex matters**: Gradient descent converges to the global optimum for convex functions. Non-convex functions (like those with [neural networks](/neural-eng.html)) can get stuck in local minima.
 
 **Global minimum**: Lowest point across entire domain—the true optimum.
 
 **Local minimum**: Lowest point in a neighborhood—gradient descent may get stuck here.
 
-Neural networks are non-convex, so gradient descent finds local minima, not guaranteed global optima. Yet in practice, local minima often provide excellent solutions due to:
+[Neural networks](/neural-eng.html) are non-convex, so gradient descent finds local minima, not guaranteed global optima. Yet in practice, local minima often provide excellent solutions due to:
 - High dimensionality effects
-- Implicit regularization from SGD
-- Careful initialization and hyperparameter tuning
+- Implicit [regularization](/regularization-eng.html) from [SGD](/optimizers-eng.html)
+- Careful initialization and [hyperparameter tuning](/hyperparameter-tuning-eng.html)
 
 ## Saddle Points and Critical Points
 
@@ -140,14 +140,14 @@ More expensive (computing Hessian) but requires fewer iterations. Rarely used in
 
 ## Applications in Neural Network Training
 
-**Parameter updates**: Every weight and bias update in a neural network uses calculus to determine the direction and magnitude of change.
+**Parameter updates**: Every weight and bias update in a [neural network](/neural-eng.html) uses calculus to determine the direction and magnitude of change.
 
-**Hyperparameter sensitivity**: Calculus helps us understand how changing learning rate, batch size, or architecture affects training dynamics.
+**Hyperparameter sensitivity**: Calculus helps us understand how changing [learning rate](/learning-rate-scheduling-eng.html), batch size, or architecture affects training dynamics.
 
-**Regularization**: L1 and L2 regularization add terms to the loss whose gradients penalize large weights.
+**Regularization**: L1 and [L2 regularization](/regularization-eng.html) add terms to the loss whose gradients penalize large weights.
 
 **Batch normalization**: Uses derivatives to understand how internal representations change during training.
 
-**Layer-wise learning**: Calculus analysis reveals which layers train fastest and why deep networks can suffer from vanishing/exploding gradients.
+**Layer-wise learning**: Calculus analysis reveals which layers train fastest and why deep networks can suffer from [vanishing](/vanishing-gradients-eng.html)/[exploding gradients](/vanishing-gradients-eng.html).
 
 Without calculus, we'd be stuck guessing how to adjust parameters. With it, we have a systematic way to improve any differentiable model toward better solutions. This is the secret to the success of deep learning.

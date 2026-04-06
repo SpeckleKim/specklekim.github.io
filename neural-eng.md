@@ -31,45 +31,45 @@ Deep networks enable learning of increasingly abstract representations, with low
 
 ## Activation Functions
 
-Activation functions introduce non-linearity, enabling networks to learn complex mappings:
+[Activation functions](/activation-functions-eng.html) introduce non-linearity, enabling networks to learn complex mappings:
 
 - **Sigmoid**: σ(x) = 1/(1+e^(-x)) - Outputs values between 0 and 1; commonly used in binary classification
 - **Tanh**: tanh(x) = (e^x - e^(-x))/(e^x + e^(-x)) - Outputs values between -1 and 1; often preferred over sigmoid
-- **ReLU (Rectified Linear Unit)**: ReLU(x) = max(0,x) - Simple, efficient, and helps mitigate vanishing gradient problem
+- **ReLU (Rectified Linear Unit)**: ReLU(x) = max(0,x) - Simple, efficient, and helps mitigate [vanishing gradient](/vanishing-gradients-eng.html) problem
 - **GELU (Gaussian Error Linear Unit)**: Smooth approximation providing better performance in modern architectures
-- **Softmax**: Converts logits to probability distributions for multi-class classification
+- **Softmax**: Converts logits to [probability](/probability-eng.html) distributions for multi-class classification
 
-The choice of activation function significantly impacts training dynamics and model performance.
+The choice of [activation function](/activation-functions-eng.html) significantly impacts training dynamics and model performance.
 
 ## Backpropagation and Gradient Descent
 
-Backpropagation is the fundamental algorithm for training neural networks. It computes gradients of the loss function with respect to network weights using the chain rule of calculus, enabling efficient parameter updates.
+[Backpropagation](/backpropagation-eng.html) is the fundamental algorithm for training neural networks. It computes gradients of the [loss function](/loss-functions-eng.html) with respect to network weights using the chain rule of [calculus](/calculus-eng.html), enabling efficient parameter updates.
 
-Gradient descent optimization algorithms use these gradients to update weights:
+[Gradient descent](/calculus-eng.html) optimization algorithms use these gradients to update weights:
 - **Stochastic Gradient Descent (SGD)**: Updates weights for each sample; noisy but computationally efficient
 - **Mini-batch Gradient Descent**: Updates using small batches; balances efficiency and stability
 - **Momentum**: Accumulates gradients to accelerate convergence in consistent directions
 - **Adam (Adaptive Moment Estimation)**: Adapts learning rates per parameter; widely used in modern deep learning
 - **RMSprop**: Maintains exponential moving average of squared gradients
 
-Modern optimizers with adaptive learning rates have largely replaced basic SGD in practical applications.
+Modern [optimizers](/optimizers-eng.html) with adaptive learning rates have largely replaced basic [SGD](/optimizers-eng.html) in practical applications.
 
 ## CNN Architectures (Image Processing)
 
-Convolutional Neural Networks (CNNs) are specialized for processing grid-like data, particularly images. Key components include:
+[Convolutional Neural Networks](/cnn-deep-dive-eng.html) (CNNs) are specialized for processing grid-like data, particularly images. Key components include:
 
 - **Convolutional Layers**: Apply learnable filters to extract local features through convolution operations
 - **Pooling Layers**: Reduce spatial dimensions and create translation invariance (max pooling, average pooling)
 - **Fully Connected Layers**: Integrate features for final classification
 - **Weight Sharing**: Reduces parameters by applying the same filters across the image
 
-Landmark architectures include AlexNet (2012), VGG Networks, ResNet with skip connections enabling training of very deep networks, Inception Networks with parallel convolutional paths, and EfficientNet balancing accuracy and computational efficiency.
+Landmark architectures include AlexNet (2012), VGG Networks, ResNet with [skip connections](/residual-connections-eng.html) enabling training of very deep networks, Inception Networks with parallel convolutional paths, and EfficientNet balancing accuracy and computational efficiency.
 
-CNNs achieve remarkable performance in image classification, object detection, semantic segmentation, and medical imaging analysis.
+CNNs achieve remarkable performance in image classification, [object detection](/object-detection-eng.html), [semantic segmentation](/image-segmentation-eng.html), and medical imaging analysis.
 
 ## RNN and LSTM (Sequence Processing)
 
-Recurrent Neural Networks (RNNs) process sequential data by maintaining hidden states that propagate through time steps. However, vanilla RNNs suffer from vanishing gradients when learning long-term dependencies.
+Recurrent Neural Networks (RNNs) process sequential data by maintaining hidden states that propagate through time steps. However, vanilla RNNs suffer from [vanishing gradients](/vanishing-gradients-eng.html) when learning long-term dependencies.
 
 Long Short-Term Memory (LSTM) networks address this through gating mechanisms:
 - **Forget Gate**: Controls information removal from cell state
@@ -77,30 +77,30 @@ Long Short-Term Memory (LSTM) networks address this through gating mechanisms:
 - **Output Gate**: Controls hidden state exposure to next layers
 - **Cell State**: Carries information across multiple time steps with minimal degradation
 
-Gated Recurrent Units (GRUs) provide a simpler alternative with similar performance. These architectures excel in machine translation, speech recognition, time series forecasting, and natural language processing.
+Gated Recurrent Units (GRUs) provide a simpler alternative with similar performance. These architectures excel in [machine translation](/machine-translation-eng.html), speech recognition, time series forecasting, and natural language processing.
 
 ## Attention Mechanism and Transformers
 
-The attention mechanism allows networks to dynamically focus on relevant parts of input, computing query-key-value representations:
+The [attention mechanism](/attention-mechanism-eng.html) allows networks to dynamically focus on relevant parts of input, computing query-key-value representations:
 
 **Self-Attention**: Computes relationships between all positions in a sequence, enabling parallel processing of sequences.
 
-**Transformers** (Vaswani et al., 2017) replace recurrence entirely with attention mechanisms:
-- Multi-head attention: Parallel attention computations with different representation subspaces
+**Transformers** (Vaswani et al., 2017) replace recurrence entirely with [attention mechanisms](/attention-mechanism-eng.html):
+- [Multi-head attention](/multi-head-attention-eng.html): Parallel attention computations with different representation subspaces
 - Position-wise feed-forward networks: Non-linear transformations applied to each position
-- Positional encoding: Encodes sequence position information
+- [Positional encoding](/positional-encoding-eng.html): Encodes sequence position information
 - Encoder-Decoder architecture: Processes input sequences and generates output sequences
 
-Transformers achieve state-of-the-art performance in natural language processing, machine translation, and increasingly in vision and audio domains.
+[Transformers](/llm-eng.html) achieve state-of-the-art performance in natural language processing, [machine translation](/machine-translation-eng.html), and increasingly in vision and audio domains.
 
 ## Graph Neural Networks
 
-Graph Neural Networks (GNNs) process graph-structured data where nodes and edges carry information. Key variants include:
+[Graph Neural Networks](/graph-theory-eng.html) (GNNs) process graph-structured data where nodes and edges carry information. Key variants include:
 
 - **Graph Convolutional Networks (GCN)**: Aggregate information from neighboring nodes iteratively
 - **GraphSAGE**: Samples neighbors for scalable graph learning
 - **Graph Attention Networks (GAT)**: Use attention to weight neighbor contributions
-- **Message Passing Neural Networks**: Generalize GNN operations as message passing between nodes
+- **Message Passing Neural Networks**: Generalize [GNN](/graph-theory-eng.html) operations as message passing between nodes
 
 Applications span molecular property prediction, recommendation systems, knowledge graph completion, and social network analysis.
 
@@ -110,9 +110,9 @@ Applications span molecular property prediction, recommendation systems, knowled
 
 **Batch Normalization**: Normalizes layer inputs to stabilize training, enabling higher learning rates and improving generalization.
 
-**Layer Normalization**: Normalizes across features rather than batches; preferred in sequence models and transformers.
+**Layer Normalization**: Normalizes across features rather than batches; preferred in sequence models and [transformers](/llm-eng.html).
 
-**Learning Rate Scheduling**: Adjusts learning rate during training (exponential decay, cosine annealing, warm restarts) to escape local optima and refine solutions.
+**Learning Rate Scheduling**: Adjusts [learning rate](/learning-rate-scheduling-eng.html) during training (exponential decay, cosine annealing, warm restarts) to escape local optima and refine solutions.
 
 **Early Stopping**: Monitors validation performance and terminates training when no improvement occurs, preventing overfitting.
 
@@ -122,9 +122,9 @@ Applications span molecular property prediction, recommendation systems, knowled
 
 ## Challenges and Limitations
 
-**Vanishing Gradients**: In deep networks, gradients become exponentially smaller when backpropagating through layers, slowing learning. Skip connections and careful activation functions mitigate this.
+**Vanishing Gradients**: In deep networks, gradients become exponentially smaller when backpropagating through layers, slowing learning. [Skip connections](/residual-connections-eng.html) and careful [activation functions](/activation-functions-eng.html) mitigate this.
 
-**Overfitting**: Networks memorize training data rather than learning generalizable patterns. Solutions include regularization, dropout, and training data augmentation.
+**Overfitting**: Networks memorize training data rather than learning generalizable patterns. Solutions include [regularization](/regularization-eng.html), [dropout](/dropout-eng.html), and training [data augmentation](/data-augmentation-eng.html).
 
 **Interpretability**: Deep networks operate as "black boxes"—understanding which features are learned and why decisions are made remains challenging. Attention visualization and gradient-based methods provide partial solutions.
 
@@ -136,35 +136,35 @@ Applications span molecular property prediction, recommendation systems, knowled
 
 ## State-of-the-Art Developments (2024-2025)
 
-**Large Language Models**: Transformer-based models with billions to trillions of parameters demonstrate remarkable few-shot learning and reasoning capabilities.
+**Large Language Models**: [Transformer](/llm-eng.html)-based models with billions to trillions of parameters demonstrate remarkable few-shot learning and reasoning capabilities.
 
-**Vision Transformers**: Apply transformer architecture to vision, achieving competitive performance with CNNs while offering better scalability and transfer learning properties.
+**Vision Transformers**: Apply [transformer](/llm-eng.html) architecture to vision, achieving competitive performance with CNNs while offering better scalability and [transfer learning](/transfer-learning-eng.html) properties.
 
 **Multimodal Models**: Integrate text, image, audio, and video understanding in unified architectures, enabling cross-modal reasoning.
 
-**Efficient Architectures**: Quantization, pruning, and knowledge distillation enable deployment of powerful models on resource-constrained devices.
+**Efficient Architectures**: [Quantization](/quantization-eng.html), pruning, and [knowledge distillation](/knowledge-distillation-eng.html) enable deployment of powerful models on resource-constrained devices.
 
 **Few-Shot and Zero-Shot Learning**: Modern models generalize from minimal examples or verbal descriptions, reducing data collection requirements.
 
-**Explainable AI**: Attention mechanisms, saliency maps, and mechanistic interpretability research improve neural network transparency.
+**Explainable AI**: [Attention mechanisms](/attention-mechanism-eng.html), saliency maps, and mechanistic interpretability research improve neural network transparency.
 
 ## Applications of Neural Networks
 
-**Natural Language Processing**: Machine translation, sentiment analysis, question answering, text summarization, and conversational AI.
+**Natural Language Processing**: [Machine translation](/machine-translation-eng.html), [sentiment analysis](/sentiment-analysis-eng.html), [question answering](/question-answering-eng.html), [text summarization](/text-summarization-eng.html), and conversational AI.
 
-**Computer Vision**: Image classification, object detection, segmentation, facial recognition, and medical image analysis.
+**Computer Vision**: Image classification, [object detection](/object-detection-eng.html), segmentation, [facial recognition](/face-recognition-eng.html), and medical image analysis.
 
 **Speech Recognition**: Audio-to-text conversion, speaker identification, and voice-based interfaces.
 
 **Recommendation Systems**: Personalized content and product recommendations in e-commerce, streaming, and social media.
 
-**Time Series Analysis**: Stock price prediction, weather forecasting, anomaly detection, and demand forecasting.
+**Time Series Analysis**: Stock price prediction, weather forecasting, [anomaly detection](/anomaly-detection-eng.html), and demand forecasting.
 
 **Robotics**: Perception, motion planning, and control for autonomous systems and manipulation tasks.
 
 ## Conclusion
 
-Neural networks have evolved from simple perceptrons to sophisticated architectures capable of remarkable performances across diverse domains. The integration of attention mechanisms, architectural innovations, and advanced training techniques continues to push the boundaries of artificial intelligence.
+Neural networks have evolved from simple perceptrons to sophisticated architectures capable of remarkable performances across diverse domains. The integration of [attention mechanisms](/attention-mechanism-eng.html), architectural innovations, and advanced training techniques continues to push the boundaries of [artificial intelligence](/ai-eng.html).
 
 The future of neural networks lies in developing more efficient, interpretable, and robust models that require less data while achieving better generalization. As research progresses, neural networks will continue augmenting human intelligence and solving increasingly complex real-world challenges.
 

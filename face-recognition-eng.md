@@ -20,7 +20,7 @@ Localizing faces in images precedes recognition. Modern detectors handle:
 - **Challenging Lighting:** Shadows, glare, low light
 
 **Methods:**
-- **CNN-Based:** Faster R-CNN, RetinaFace
+- **CNN-Based:** Faster R-[CNN](/cnn-deep-dive-eng.html), RetinaFace
 - **One-Stage:** YOLO variants adapted for faces
 - **Efficient:** Lightweight detectors for mobile deployment
 
@@ -52,7 +52,7 @@ Pioneering metric learning approach:
 - **Triplet Loss:** Minimizes distance between same-person pairs, maximizes between different-person pairs
 - **Embedding Space:** 128-dimensional space where Euclidean distance indicates similarity
 - **Training Strategy:** Hard negative mining focuses on challenging examples
-- **Remarkable Results:** Sub-human error rates on LFW (Labeled Faces in the Wild) benchmark
+- **Remarkable Results:** Sub-human error rates on LFW (Labeled Faces in the Wild) [benchmark](/benchmarks-eng.html)
 
 **Triplet Loss Formula:**
 ```
@@ -89,7 +89,7 @@ Distinguishing real faces from spoofing attacks:
 
 **Presentation Attacks:**
 - Photos, videos, 3D masks
-- Sophisticated deepfake videos
+- Sophisticated [deepfake](/deepfakes-eng.html) videos
 
 **Detection Methods:**
 - **Texture Analysis:** Real faces have different texture properties
@@ -150,5 +150,5 @@ Face recognition raises significant concerns:
 
 ## Conclusion
 
-Face recognition achieved remarkable accuracy through metric learning and deep neural networks. FaceNet and ArcFace established foundations for modern systems. However, ethical concerns regarding privacy, bias, and surveillance require careful consideration. Responsible deployment demands diverse training data, fairness audits, and regulatory compliance alongside technical excellence.
+Face recognition achieved remarkable accuracy through metric learning and deep [neural networks](/neural-eng.html). FaceNet and ArcFace established foundations for modern systems. However, ethical concerns regarding privacy, bias, and surveillance require careful consideration. Responsible deployment demands diverse training data, [fairness](/ai-bias-eng.html) audits, and regulatory compliance alongside technical excellence.
 

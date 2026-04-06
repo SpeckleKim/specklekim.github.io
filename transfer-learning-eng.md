@@ -25,7 +25,7 @@ Domain adaptation addresses the problem when source and target domains differ si
 
 **Covariate Shift**: Input distribution P(X) changes but P(Y|X) remains similar. Solutions include:
 - Importance reweighting
-- Batch normalization to normalize feature distributions
+- [Batch normalization](/batch-normalization-eng.html) to normalize feature distributions
 
 **Label Shift**: P(Y) changes but P(X|Y) is stable. Requires output space adaptation through:
 - Label smoothing
@@ -56,21 +56,21 @@ Domain adaptation addresses the problem when source and target domains differ si
 
 ## Pre-trained Models and Benchmarks
 
-**ImageNet Pre-training** (Computer Vision):
+**ImageNet Pre-training** ([Computer Vision](/cv-eng.html)):
 - Trained on 1.2 million labeled images across 1000 classes
-- ResNet, VGG, EfficientNet, Vision Transformers commonly pre-trained
+- ResNet, VGG, EfficientNet, [Vision Transformers](/vision-transformers-eng.html) commonly pre-trained
 - Features learned are highly transferable to medical imaging, remote sensing, autonomous driving
 
 **BERT** (Natural Language Processing):
 - Pre-trained on massive text corpora using masked language modeling
-- Bidirectional transformer encoder captures rich contextual representations
-- Fine-tuned for classification, named entity recognition, question answering
+- Bidirectional [transformer](/llm-eng.html) encoder captures rich contextual representations
+- Fine-tuned for classification, [named entity recognition](/ner-eng.html), [question answering](/question-answering-eng.html)
 - Variants: RoBERTa, ALBERT, DistilBERT with different size/speed tradeoffs
 
 **GPT Models** (Language Generation):
 - Pre-trained on diverse internet text using causal language modeling
-- GPT-2/3/4 demonstrate strong zero-shot and few-shot transfer capabilities
-- Fine-tuning enables specialized applications in code generation, summarization
+- [GPT](/gpt-eng.html)-2/3/4 demonstrate strong zero-shot and few-shot transfer capabilities
+- Fine-tuning enables specialized applications in [code generation](/code-generation-eng.html), [summarization](/text-summarization-eng.html)
 
 **Domain-Specific Pre-training**:
 - BioBERT for biomedical text
@@ -118,8 +118,8 @@ Negative transfer occurs when transfer learning hurts performance compared to tr
 
 **Mitigation Strategies**:
 - Use intermediate pre-training on bridging datasets
-- Apply stronger regularization during fine-tuning
-- Use ensemble methods combining transfer and training from scratch
+- Apply stronger [regularization](/regularization-eng.html) during fine-tuning
+- Use [ensemble methods](/ensemble-methods-eng.html) combining transfer and training from scratch
 - Validate systematically across source-target domain combinations
 
 ## Practical Transfer Learning Strategies
@@ -139,7 +139,7 @@ Negative transfer occurs when transfer learning hurts performance compared to tr
 5. Apply early stopping
 
 **Layer-wise Learning Rate Decay**:
-- Set learning rate highest for new layers
+- Set [learning rate](/learning-rate-scheduling-eng.html) highest for new layers
 - Progressively lower for older pre-trained layers
 - Prevents catastrophic forgetting while enabling adaptation
 
@@ -158,18 +158,18 @@ Negative transfer occurs when transfer learning hurts performance compared to tr
 
 **Medical Imaging**: Pre-trained on ImageNet, models transfer effectively to CT, MRI, X-ray analysis despite visual differences.
 
-**Natural Language Processing**: Entire industry built on transfer learning. Fine-tuned BERT models power production systems at scale.
+**Natural Language Processing**: Entire industry built on transfer learning. Fine-tuned [BERT](/bert-eng.html) models power production systems at scale.
 
 **Reinforcement Learning**: Pre-trained vision models accelerate learning of control policies; pre-trained policies transfer between similar environments.
 
 ## Limitations and Challenges
 
-- **Requires Labeled Source Data**: Cannot leverage unlabeled large datasets (partially addressed by self-supervised learning)
+- **Requires Labeled Source Data**: Cannot leverage unlabeled large datasets (partially addressed by [self-supervised learning](/self-supervised-learning-eng.html))
 - **Domain Gap**: Significant differences between source and target require careful handling
 - **Computational Cost**: While faster than training from scratch, fine-tuning still expensive for very large models
 - **Ethical Considerations**: Pre-trained models may encode biases from source domain, requiring careful evaluation
 
 ## Conclusion
 
-Transfer learning has become indispensable in applied machine learning, enabling practical systems with limited data and resources. From computer vision to NLP, the ability to leverage pre-trained models dramatically accelerates development while often achieving better performance than training from scratch. Understanding when and how to apply transfer learning effectively is essential for modern AI practitioners.
+Transfer learning has become indispensable in applied machine learning, enabling practical systems with limited data and resources. From [computer vision](/cv-eng.html) to NLP, the ability to leverage pre-trained models dramatically accelerates development while often achieving better performance than training from scratch. Understanding when and how to apply transfer learning effectively is essential for modern AI practitioners.
 

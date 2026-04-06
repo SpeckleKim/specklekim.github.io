@@ -6,11 +6,11 @@ lang: en
 
 # Dropout & Regularization in Deep Learning
 
-Dropout is one of the simplest yet most effective regularization techniques in deep learning. Introduced by Hinton et al., it prevents co-adaptation of neurons by randomly deactivating units during training, forcing the network to learn redundant representations.
+Dropout is one of the simplest yet most effective [regularization](/regularization-eng.html) techniques in deep learning. Introduced by Hinton et al., it prevents co-adaptation of neurons by randomly deactivating units during training, forcing the network to learn redundant representations.
 
 ## The Dropout Mechanism
 
-During training, dropout randomly sets a fraction (p) of activations to zero with probability p:
+During training, dropout randomly sets a fraction (p) of activations to zero with [probability](/probability-eng.html) p:
 
 ```
 y = x * mask,  where mask ~ Bernoulli(1-p)
@@ -21,7 +21,7 @@ Key insight: The network is forced to learn distributed representations where no
 ## Training vs Inference
 
 **Training Phase:**
-- Randomly drop units with probability p
+- Randomly drop units with [probability](/probability-eng.html) p
 - Effective network size varies per iteration
 - Creates implicit ensemble of sub-networks
 - Requires careful scaling (typically scaled by 1/(1-p))
@@ -52,10 +52,10 @@ Choosing the right dropout rate is crucial:
 
 Too high dropout rate:
 - Underfitting, insufficient learning
-- Weak final models despite regularization
+- Weak final models despite [regularization](/regularization-eng.html)
 
 Too low dropout rate:
-- Insufficient regularization
+- Insufficient [regularization](/regularization-eng.html)
 - Overfitting continues
 
 ## Spatial Dropout
@@ -70,7 +70,7 @@ Preserves spatial structure within each channel
 
 Benefits:
 - Preserves spatial information structure
-- More effective regularization for CNNs
+- More effective [regularization](/regularization-eng.html) for CNNs
 - Prevents co-adaptation of spatially adjacent features
 
 ## DropConnect
@@ -83,8 +83,8 @@ y = f(x * (W ⊙ mask))  where mask ~ Bernoulli(1-p) on weights
 
 Characteristics:
 - Creates different effective network topology
-- Similar regularization effect to dropout
-- Can be viewed as L2 regularization on weights
+- Similar [regularization](/regularization-eng.html) effect to dropout
+- Can be viewed as [L2 regularization](/regularization-eng.html) on weights
 - Computationally more expensive than standard dropout
 
 ## DropBlock
@@ -99,7 +99,7 @@ Works better than spatial dropout for some tasks
 
 Advantages:
 - Prevents information leakage through remaining features
-- Better performance on computer vision tasks
+- Better performance on [computer vision](/cv-eng.html) tasks
 - Removes semantic information blocks rather than random units
 
 ## R-Drop (Regularized Dropout)
@@ -134,16 +134,16 @@ This ensemble view explains dropout's effectiveness:
 ## Practical Considerations
 
 **Where to place dropout:**
-- After activation functions, before next layer
+- After [activation functions](/activation-functions-eng.html), before next layer
 - Not at input layer boundaries usually
 - After dense layers in fully connected networks
 - After pooling in CNNs
 
 **Interactions with other techniques:**
-- Batch normalization: some debate on exact placement
-- Learning rate: dropout may require slightly higher LR
+- [Batch normalization](/batch-normalization-eng.html): some debate on exact placement
+- [Learning rate](/learning-rate-scheduling-eng.html): dropout may require slightly higher LR
 - Model capacity: larger models benefit more from dropout
-- Data augmentation: dropout complements other regularization
+- [Data augmentation](/data-augmentation-eng.html): dropout complements other [regularization](/regularization-eng.html)
 
 ## Dropout Variants
 
@@ -151,8 +151,8 @@ This ensemble view explains dropout's effectiveness:
 |---------|--------|----------|-----------|
 | Standard | Activations | Dense networks | Simple, effective |
 | Spatial | Feature maps | CNNs | Preserves locality |
-| DropConnect | Weights | All architectures | Like L2 regularization |
-| DropBlock | Regions | Computer vision | Blocks semantic units |
+| DropConnect | Weights | All architectures | Like [L2 regularization](/regularization-eng.html) |
+| DropBlock | Regions | [Computer vision](/cv-eng.html) | Blocks semantic units |
 | R-Drop | Inference | NLP, robust models | Ensemble consistency |
 
 ## Implementation Details
@@ -174,11 +174,11 @@ Common mistakes:
 
 ## Dropout and Regularization Strength
 
-Dropout provides implicit regularization:
-- Acts as stochastic regularization method
-- Equivalent to L2 regularization under certain conditions
+Dropout provides implicit [regularization](/regularization-eng.html):
+- Acts as stochastic [regularization](/regularization-eng.html) method
+- Equivalent to [L2 regularization](/regularization-eng.html) under certain conditions
 - Can replace explicit L1/L2 penalties
-- Works well in combination with explicit regularization
+- Works well in combination with explicit [regularization](/regularization-eng.html)
 
 ## When to Use Dropout
 
@@ -190,12 +190,12 @@ Dropout is most beneficial when:
 
 Less critical when:
 - Dataset is very large and diverse
-- Using strong data augmentation
-- Using other regularization (batch norm, L1/L2)
+- Using strong [data augmentation](/data-augmentation-eng.html)
+- Using other [regularization](/regularization-eng.html) ([batch norm](/batch-normalization-eng.html), L1/L2)
 - Model is already capacity-limited
 
 ## Conclusion
 
-Dropout remains a cornerstone regularization technique due to its simplicity, effectiveness, and theoretical elegance. Understanding its ensemble interpretation provides insight into why randomly deactivating neurons during training leads to better generalization. Modern variants like R-Drop and DropBlock extend the basic mechanism to handle specific architectural requirements, making dropout adaptable to contemporary deep learning challenges.
+Dropout remains a cornerstone [regularization](/regularization-eng.html) technique due to its simplicity, effectiveness, and theoretical elegance. Understanding its ensemble interpretation provides insight into why randomly deactivating neurons during training leads to better generalization. Modern variants like R-Drop and DropBlock extend the basic mechanism to handle specific architectural requirements, making dropout adaptable to contemporary deep learning challenges.
 
 The key to successful dropout is choosing appropriate rates for different layers and understanding that it trades training accuracy for better generalization—a worthy trade-off for most deep learning applications.

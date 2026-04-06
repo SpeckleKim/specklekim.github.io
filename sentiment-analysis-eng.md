@@ -27,24 +27,24 @@ Popular lexicons include SentiWordNet, VADER (Valence Aware Dictionary and sEnti
 
 ## Machine Learning Approaches
 
-Supervised machine learning improves upon lexicon-based methods by learning from labeled training data. Feature engineering typically extracts:
+Supervised machine learning improves upon lexicon-based methods by learning from labeled training data. [Feature engineering](/feature-engineering-eng.html) typically extracts:
 
 - **Bag-of-words**: Word frequency or presence indicators
 - **N-grams**: Sequential word combinations capturing phrases
 - **Part-of-speech tags**: Grammatical information emphasizing opinion-relevant words
 - **Syntactic patterns**: Structural relationships between words
 
-Classical algorithms (Naive Bayes, SVM, Logistic Regression) achieve reasonable performance with careful feature engineering. However, feature selection remains labor-intensive and domain-dependent.
+Classical algorithms ([Naive Bayes](/naive-bayes-eng.html), [SVM](/svm-eng.html), Logistic Regression) achieve reasonable performance with careful [feature engineering](/feature-engineering-eng.html). However, feature selection remains labor-intensive and domain-dependent.
 
 ## Deep Learning for Sentiment Analysis
 
-Neural networks automatically learn feature representations from raw text:
+[Neural networks](/neural-eng.html) automatically learn feature representations from raw text:
 
-**Convolutional Neural Networks (CNNs)** apply filters to capture local patterns and n-gram-like structures. A CNN slides convolutional filters over word sequences, producing feature maps that highlight important phrases. Pooling layers aggregate information, and fully connected layers perform classification.
+**Convolutional Neural Networks (CNNs)** apply filters to capture local patterns and n-gram-like structures. A [CNN](/cnn-deep-dive-eng.html) slides convolutional filters over word sequences, producing feature maps that highlight important phrases. Pooling layers aggregate information, and fully connected layers perform classification.
 
 **Recurrent Neural Networks (RNNs/LSTMs)** process sequences sequentially, maintaining hidden states that capture context. LSTMs handle long-range dependencies better than vanilla RNNs, remembering important earlier information when processing later text. Bidirectional LSTMs process text both forward and backward, capturing broader context.
 
-**Transformer-based models** like BERT, RoBERTa, and DistilBERT achieve state-of-the-art performance through pre-training on massive text corpora. Fine-tuning these models on sentiment datasets requires minimal labeled data and produces highly accurate classifiers.
+**Transformer-based models** like [BERT](/bert-eng.html), RoBERTa, and DistilBERT achieve state-of-the-art performance through pre-training on massive text corpora. Fine-tuning these models on sentiment datasets requires minimal labeled data and produces highly accurate classifiers.
 
 ## Aspect-Based Sentiment Analysis
 
@@ -55,7 +55,7 @@ Tasks include:
 - **Aspect sentiment classification**: Determining sentiment toward specific aspects
 - **Aspect-sentiment pairs**: Joint extraction of aspects and their sentiments
 
-Neural approaches use attention mechanisms to align opinion expressions with their targets, improving interpretability and accuracy.
+Neural approaches use [attention mechanisms](/attention-mechanism-eng.html) to align opinion expressions with their targets, improving interpretability and accuracy.
 
 ## Fine-Grained Sentiment Analysis
 
@@ -65,7 +65,7 @@ Beyond binary or ternary classification, fine-grained sentiment analysis assigns
 
 ## Multimodal Sentiment Analysis
 
-Modern sentiment analysis increasingly handles multimodal content combining text, images, and audio. Vision-and-language models fuse visual and textual information, recognizing that memes, product photos, and emoticons contribute to overall sentiment. Audio sentiment uses prosodic features (pitch, tone, speaking rate) alongside transcribed text for richer understanding of spoken opinions.
+Modern sentiment analysis increasingly handles [multimodal](/multimodal-llm-eng.html) content combining text, images, and audio. Vision-and-language models fuse visual and textual information, recognizing that memes, product photos, and emoticons contribute to overall sentiment. Audio sentiment uses prosodic features (pitch, tone, speaking rate) alongside transcribed text for richer understanding of spoken opinions.
 
 ## Practical Applications
 
@@ -87,4 +87,4 @@ Modern sentiment analysis increasingly handles multimodal content combining text
 
 **Multilingual challenges** require adapting methods across different languages, some with limited training resources.
 
-Sentiment analysis continues evolving toward more nuanced, context-aware, and multimodal approaches while addressing biases, fairness, and the gap between automatic and human judgment.
+Sentiment analysis continues evolving toward more nuanced, context-aware, and [multimodal](/multimodal-llm-eng.html) approaches while addressing biases, [fairness](/ai-bias-eng.html), and the gap between automatic and human judgment.

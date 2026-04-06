@@ -10,7 +10,7 @@ Tokenization is the foundational process of converting raw text into discrete un
 
 ## The Problem with Raw Text
 
-Neural networks cannot directly process raw text strings. They require numerical representations. Before we can embed or transform text, we must first decide what constitutes a meaningful unit: Is it a word? A character? A subword? This decision has cascading effects on model performance, vocabulary size, and multilingual capability.
+[Neural networks](/neural-eng.html) cannot directly process raw text strings. They require numerical representations. Before we can embed or transform text, we must first decide what constitutes a meaningful unit: Is it a word? A character? A subword? This decision has cascading effects on model performance, [vocabulary](/tokenizer-design-eng.html) size, and multilingual capability.
 
 ## Word-Level Tokenization
 
@@ -26,8 +26,8 @@ The simplest approach splits text at whitespace and punctuation:
 - Works well for well-formatted English text
 
 **Disadvantages:**
-- Large vocabulary size (100,000+ tokens for English)
-- Cannot handle out-of-vocabulary (OOV) words
+- Large [vocabulary](/tokenizer-design-eng.html) size (100,000+ tokens for English)
+- Cannot handle out-of-[vocabulary](/tokenizer-design-eng.html) (OOV) words
 - Treats morphological variants as separate tokens ("running," "run," "runs")
 - Poor for languages without clear word boundaries (Chinese, Japanese)
 
@@ -40,7 +40,7 @@ This approach treats every character as a token:
 ```
 
 **Advantages:**
-- Minimal vocabulary (typically 100-200 tokens)
+- Minimal [vocabulary](/tokenizer-design-eng.html) (typically 100-200 tokens)
 - Can represent any text without OOV issues
 - Language-agnostic
 
@@ -65,18 +65,18 @@ Merge next frequent pair ("e", "ll"): ["h", "ell", "o"]
 Final: ["h", "ell", "o"]
 ```
 
-Used in GPT models. Creates a compact vocabulary (typically 50K tokens) while maintaining reasonable sequence length.
+Used in [GPT](/gpt-eng.html) models. Creates a compact [vocabulary](/tokenizer-design-eng.html) (typically 50K tokens) while maintaining reasonable sequence length.
 
 ### WordPiece
 
-Google's WordPiece algorithm greedily constructs the longest token that exists in a pre-built vocabulary:
+Google's WordPiece algorithm greedily constructs the longest token that exists in a pre-built [vocabulary](/tokenizer-design-eng.html):
 
 ```
 "playing" → ["play", "##ing"]
 "unseeded" → ["un", "##seed", "##ed"]
 ```
 
-The "##" prefix indicates subword continuations. Used in BERT, which is why BERT vocabularies contain many "##" tokens. Vocabulary size typically 30K tokens.
+The "##" prefix indicates subword continuations. Used in [BERT](/bert-eng.html), which is why BERT vocabularies contain many "##" tokens. [Vocabulary](/tokenizer-design-eng.html) size typically 30K tokens.
 
 ### Unigram Language Model
 
@@ -86,7 +86,7 @@ This probabilistic approach treats tokenization as a maximum likelihood problem:
 P("hello" → ["h", "e", "l", "l", "o"]) vs P("hello" → ["he", "llo"])
 ```
 
-Selects the tokenization that maximizes overall probability under a unigram language model.
+Selects the tokenization that maximizes overall [probability](/probability-eng.html) under a unigram language model.
 
 ### SentencePiece
 
@@ -101,9 +101,9 @@ Used in T5, mBART, and XLNet. Particularly effective for multilingual models.
 
 ## Vocabulary Size Tradeoffs
 
-Choosing vocabulary size requires balancing several factors:
+Choosing [vocabulary](/tokenizer-design-eng.html) size requires balancing several factors:
 
-| Vocabulary Size | Impact |
+| [Vocabulary](/tokenizer-design-eng.html) Size | Impact |
 |---|---|
 | **Small (10K)** | Shorter sequences, smaller embeddings, but frequent OOV and information loss |
 | **Medium (30-50K)** | Sweet spot for most models; reasonable sequence length and memory usage |
@@ -119,7 +119,7 @@ Different languages have vastly different optimal tokenization strategies:
 
 **Combining Scripts** (Transliteration, code-mixing): Standard tokenizers fail; SentencePiece's byte-level approach handles this better
 
-Multilingual models typically use unified vocabularies (e.g., mBERT's 119K vocabulary covers 104 languages).
+Multilingual models typically use unified vocabularies (e.g., mBERT's 119K [vocabulary](/tokenizer-design-eng.html) covers 104 languages).
 
 ## Tokenization and Model Performance
 
@@ -131,7 +131,7 @@ Tokenization choice influences downstream performance:
 4. **Fine-tuning**: Some tokenization choices benefit specific downstream tasks
 5. **Rare Words**: Subword tokenization better handles domain-specific terminology (medical, technical)
 
-Research shows that optimal vocabulary size varies by language and task: English benefits from 30-50K, Japanese from 50-100K, and morphologically rich languages from smaller vocabularies (16-32K) with more aggressive subword splitting.
+Research shows that optimal [vocabulary](/tokenizer-design-eng.html) size varies by language and task: English benefits from 30-50K, Japanese from 50-100K, and morphologically rich languages from smaller vocabularies (16-32K) with more aggressive subword splitting.
 
 ## Modern Tokenization Strategies
 
@@ -146,7 +146,7 @@ Contemporary models employ hybrid approaches:
 When building NLP systems:
 
 1. Match tokenizer to model: Use the exact tokenizer released with pretrained models
-2. Monitor OOV rates: High OOV suggests vocabulary mismatch
+2. Monitor OOV rates: High OOV suggests [vocabulary](/tokenizer-design-eng.html) mismatch
 3. Consider downstream task: Translation benefits from morphological awareness; classification may tolerate aggressive subword splitting
 4. Evaluate on real data: Tokenization performance varies dramatically across domains
 5. Handle special tokens: Proper handling of `[CLS]`, `[SEP]`, `[PAD]`, etc. is crucial

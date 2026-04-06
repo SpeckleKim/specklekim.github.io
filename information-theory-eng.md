@@ -10,13 +10,13 @@ Information theory is the mathematical foundation for understanding data, uncert
 
 ## Entropy: Measuring Uncertainty
 
-Entropy quantifies the expected amount of information in a random variable. For a discrete variable X with probability distribution P:
+Entropy quantifies the expected amount of information in a random variable. For a discrete variable X with [probability](/probability-eng.html) distribution P:
 
 **H(X) = -∑ P(x) log₂ P(x)**
 
-Higher entropy means more unpredictability. A fair coin has maximum entropy (1 bit), while a certain outcome has zero entropy. In machine learning, entropy guides decision trees: we split features that reduce entropy most, capturing the most informative decisions.
+Higher entropy means more unpredictability. A fair coin has maximum entropy (1 bit), while a certain outcome has zero entropy. In machine learning, entropy guides [decision trees](/decision-trees-eng.html): we split features that reduce entropy most, capturing the most informative decisions.
 
-Consider a biased coin landing heads with probability 0.9. Its entropy is:
+Consider a biased coin landing heads with [probability](/probability-eng.html) 0.9. Its entropy is:
 - H = -0.9 log₂(0.9) - 0.1 log₂(0.1) ≈ 0.47 bits
 
 This is much lower than a fair coin (1 bit), reflecting our greater certainty about outcomes.
@@ -29,15 +29,15 @@ Cross-entropy measures the average length of messages needed to encode data from
 
 Where P is the true distribution and Q is our model's predicted distribution. When P = Q, cross-entropy equals entropy (optimal encoding). When they differ, we need extra bits.
 
-In classification, cross-entropy loss compares true class labels (P) with predicted probabilities (Q). A model predicting 0.9 probability for the correct class achieves -log(0.9) ≈ 0.105 loss, while predicting 0.1 incurs -log(0.1) ≈ 2.30 loss—heavily penalizing confident wrong predictions.
+In classification, cross-entropy loss compares true class labels (P) with predicted probabilities (Q). A model predicting 0.9 [probability](/probability-eng.html) for the correct class achieves -log(0.9) ≈ 0.105 loss, while predicting 0.1 incurs -log(0.1) ≈ 2.30 loss—heavily penalizing confident wrong predictions.
 
 ## KL Divergence: Asymmetric Distance
 
-The Kullback-Leibler (KL) divergence measures how one probability distribution diverges from another:
+The Kullback-Leibler (KL) divergence measures how one [probability](/probability-eng.html) distribution diverges from another:
 
 **D_KL(P||Q) = ∑ P(x) log(P(x)/Q(x))**
 
-This is **asymmetric**: D_KL(P||Q) ≠ D_KL(Q||P). Forward KL (used in variational inference) penalizes Q placing probability where P has none. Reverse KL penalizes Q missing probability mass where P concentrates.
+This is **asymmetric**: D_KL(P||Q) ≠ D_KL(Q||P). Forward KL (used in variational inference) penalizes Q placing [probability](/probability-eng.html) where P has none. Reverse KL penalizes Q missing [probability](/probability-eng.html) mass where P concentrates.
 
 Key insight: KL divergence decomposes as H(P, Q) - H(P). Minimizing cross-entropy is equivalent to minimizing KL divergence plus a constant term. This explains why cross-entropy loss is ubiquitous: it naturally aligns model predictions with true distributions.
 
@@ -57,7 +57,7 @@ Information gain measures how much a feature reduces entropy when splitting data
 
 **IG(S, A) = H(S) - ∑(|S_v|/|S|) * H(S_v)**
 
-Where S is the dataset, A is the attribute we split on, and S_v are subsets after splitting. Decision trees greedily select splits maximizing information gain, recursively partitioning data into increasingly pure classes.
+Where S is the dataset, A is the attribute we split on, and S_v are subsets after splitting. [Decision trees](/decision-trees-eng.html) greedily select splits maximizing information gain, recursively partitioning data into increasingly pure classes.
 
 For example, splitting a balanced dataset of 100 samples (50 positive, 50 negative) with H(S) = 1 bit on a feature creating two pure subsets (all positive, all negative) yields:
 - IG = 1 - 0 = 1 bit
@@ -66,7 +66,7 @@ Maximum information gain occurs with perfect splits. In practice, we choose spli
 
 ## Cross-Entropy Loss in Deep Learning
 
-Neural networks for classification minimize cross-entropy loss:
+[Neural networks](/neural-eng.html) for classification minimize cross-entropy loss:
 
 **Loss = -∑ y_i log(ŷ_i)**
 
@@ -82,22 +82,22 @@ Binary cross-entropy for logistic regression uses the same principle with one ou
 
 ## Relationship to ML Loss Functions
 
-Information theory elegantly unifies diverse loss functions:
+Information theory elegantly unifies diverse [loss functions](/loss-functions-eng.html):
 
 1. **Regression (MSE)**: Equivalent to maximum likelihood under Gaussian noise with fixed variance
 2. **Classification (Cross-entropy)**: Assumes categorical distribution, directly implementing Shannon's compression principle
 3. **Divergence-based losses** (JS divergence, Wasserstein): Measure distributional mismatch
 4. **Contrastive losses**: Implicitly maximize mutual information between related samples
 
-Understanding losses through information theory reveals why they work. Cross-entropy incentivizes models to learn true data distributions. KL divergence explains regularization—constraining model distributions toward priors.
+Understanding losses through information theory reveals why they work. Cross-entropy incentivizes models to learn true data distributions. KL divergence explains [regularization](/regularization-eng.html)—constraining model distributions toward priors.
 
 ## Data Compression and Optimal Codes
 
 Shannon's source coding theorem states: the expected message length cannot be shorter than entropy H(X), but can approach it arbitrarily closely with optimal encoding.
 
-This connects directly to deep learning. A model learning data distribution effectively compresses it. By minimizing cross-entropy loss, we're finding codes requiring fewest bits. Regularization prevents overfitting by limiting code complexity—a model using fewer parameters is like enforcing longer message lengths.
+This connects directly to deep learning. A model learning data distribution effectively compresses it. By minimizing cross-entropy loss, we're finding codes requiring fewest bits. [Regularization](/regularization-eng.html) prevents overfitting by limiting code complexity—a model using fewer parameters is like enforcing longer message lengths.
 
-The compression principle explains why neural networks generalize: they must capture essential patterns in data to compress it. Noise-specific patterns require more bits to encode and are naturally discarded during training.
+The compression principle explains why [neural networks](/neural-eng.html) generalize: they must capture essential patterns in data to compress it. Noise-specific patterns require more bits to encode and are naturally discarded during training.
 
 ## Rate-Distortion Theory and Representation Learning
 
@@ -110,7 +110,7 @@ Information bottleneck framework applies this to deep learning: hidden layers ba
 1. **Feature Engineering**: Select features maximizing mutual information with targets
 2. **Model Selection**: Compare models via their cross-entropy loss on test sets
 3. **Regularization**: Penalize model complexity (higher entropy) to prevent overfitting
-4. **Calibration**: Post-training probability calibration uses KL divergence to align predictions with empirical frequencies
+4. **Calibration**: Post-training [probability](/probability-eng.html) calibration uses KL divergence to align predictions with empirical frequencies
 5. **Dataset Design**: Maximize entropy diversity in training data for better generalization
 
 ## Conclusion

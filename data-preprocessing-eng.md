@@ -20,7 +20,7 @@ Missing values (NULL, NaN) are ubiquitous in real-world datasets:
 - **Deletion**: Remove rows/columns with missing values (simple but loses information)
 - **Imputation**: Replace with statistical values (mean, median, mode)
 - **Forward fill/Backward fill**: Use previous/next values (for time series)
-- **Advanced imputation**: KNN, regression, matrix factorization (preserve relationships)
+- **Advanced imputation**: [KNN](/knn-eng.html), regression, matrix factorization (preserve relationships)
 - **Multiple imputation**: Generate multiple complete datasets, analyze all, combine results
 
 **Considerations**:
@@ -48,7 +48,7 @@ Outliers are extreme values that deviate from the rest:
 
 ### Normalization
 
-Scaling features to comparable ranges improves gradient descent and regularization:
+Scaling features to comparable ranges improves [gradient descent](/calculus-eng.html) and [regularization](/regularization-eng.html):
 
 **Methods**:
 - **Min-Max Scaling**: X_scaled = (X - min) / (max - min), range [0, 1]
@@ -57,9 +57,9 @@ Scaling features to comparable ranges improves gradient descent and regularizati
 - **Log Scaling**: For skewed distributions, apply log(1 + X)
 
 **When to normalize**:
-- Always for: gradient-based methods (neural networks, SVM, logistic regression)
+- Always for: gradient-based methods ([neural networks](/neural-eng.html), [SVM](/svm-eng.html), logistic regression)
 - Optional for: tree-based models (they're scale-invariant)
-- Critical for: distance metrics (KNN, K-means)
+- Critical for: distance metrics ([KNN](/knn-eng.html), K-means)
 
 ### Categorical Encoding
 
@@ -69,9 +69,9 @@ Converting categorical variables to numerical:
 
 **Label Encoding**: Map categories to integers 0, 1, 2... (for tree models only)
 
-**Target Encoding**: Replace category with target variable mean (requires cross-validation to avoid leakage)
+**Target Encoding**: Replace category with target variable mean (requires [cross-validation](/cross-validation-eng.html) to avoid leakage)
 
-**Embedding**: Learn dense vectors for categories (for neural networks)
+**Embedding**: Learn dense vectors for categories (for [neural networks](/neural-eng.html))
 
 **Ordinal Encoding**: For ordered categories (small, medium, large → 1, 2, 3)
 

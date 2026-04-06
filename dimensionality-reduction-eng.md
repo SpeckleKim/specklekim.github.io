@@ -10,7 +10,7 @@ lang: en
 
 As the number of features in a dataset increases, machine learning models face a growing challenge known as the curse of dimensionality. This phenomenon manifests in several ways: the volume of feature space grows exponentially, making data points increasingly sparse; the distance between points becomes increasingly uniform, reducing the discriminative power of distance-based metrics; and models require exponentially more data to maintain statistical significance.
 
-Practically, this means that a dataset with 1,000 samples becomes inadequate for training models in 100-dimensional space. More features don't always mean better performance—often the opposite occurs. Training becomes slower, overfitting increases, and visualization becomes impossible. Yet many real-world problems have naturally high-dimensional representations: image pixels, text word embeddings, genomic sequences, and sensor arrays.
+Practically, this means that a dataset with 1,000 samples becomes inadequate for training models in 100-dimensional space. More features don't always mean better performance—often the opposite occurs. Training becomes slower, overfitting increases, and visualization becomes impossible. Yet many real-world problems have naturally high-dimensional representations: image pixels, text [word embeddings](/word-embeddings-eng.html), genomic sequences, and sensor arrays.
 
 Dimensionality reduction addresses this fundamental challenge by discovering lower-dimensional representations that preserve essential information while discarding noise and redundancy. Rather than naively selecting a subset of features, sophisticated reduction techniques extract the underlying structure of data.
 
@@ -85,7 +85,7 @@ The algorithm minimizes the Kullback-Leibler (KL) divergence between similarity 
 - **Computationally expensive**: O(n²) complexity makes it impractical for very large datasets
 - **Not suitable for new data**: cannot efficiently embed new points without recomputation
 
-t-SNE has become iconic in machine learning for visualizing embeddings from neural networks, revealing semantic structure in language models, and exploratory data analysis.
+t-SNE has become iconic in machine learning for visualizing embeddings from [neural networks](/neural-eng.html), revealing semantic structure in language models, and exploratory data analysis.
 
 ## UMAP: Scalable Nonlinear Reduction
 
@@ -112,11 +112,11 @@ UMAP has rapidly become the preferred tool for exploratory data analysis and vis
 
 ## Autoencoders for Dimensionality Reduction
 
-While PCA, t-SNE, and UMAP are specialized techniques, autoencoders represent a neural network approach to learning dimensionality reduction automatically from data.
+While PCA, t-SNE, and UMAP are specialized techniques, autoencoders represent a [neural network](/neural-eng.html) approach to learning dimensionality reduction automatically from data.
 
 ### Architecture
 
-An autoencoder is a neural network with three parts: encoder, bottleneck, and decoder.
+An autoencoder is a [neural network](/neural-eng.html) with three parts: encoder, bottleneck, and decoder.
 
 The encoder transforms high-dimensional input x into a low-dimensional latent representation z:
 **z = f_encode(x)**
@@ -142,7 +142,7 @@ The bottleneck layer constrains information flow, forcing the network to learn a
 - Can incorporate various architectural constraints
 
 **Disadvantages:**
-- Requires careful hyperparameter tuning
+- Requires careful [hyperparameter tuning](/hyperparameter-tuning-eng.html)
 - Less interpretable than PCA
 - More computationally expensive to train
 
@@ -158,14 +158,14 @@ An important distinction exists between two dimensionality reduction philosophie
 **Feature Extraction** creates new features from combinations of originals. Methods include:
 - PCA, Kernel PCA: linear/nonlinear combinations
 - t-SNE, UMAP: learned neighborhood embeddings
-- Autoencoders: neural network learned combinations
+- Autoencoders: [neural network](/neural-eng.html) learned combinations
 
 Feature selection maintains interpretability but may miss important combinations. Feature extraction finds optimal combinations but loses interpretability of individual features. The choice depends on whether explaining predictions or maximizing performance is more important.
 
 ## Applications in Practice
 
 ### Data Visualization and Exploration
-Visualizing 100-dimensional embeddings from neural networks in 2D/3D reveals semantic structure. t-SNE and UMAP have become standard tools in exploratory data analysis, showing how models organize information.
+Visualizing 100-dimensional embeddings from [neural networks](/neural-eng.html) in 2D/3D reveals semantic structure. t-SNE and UMAP have become standard tools in exploratory data analysis, showing how models organize information.
 
 ### Preprocessing for Machine Learning
 Reducing dimensions before training downstream models improves computational efficiency, reduces overfitting, and can sometimes improve generalization. PCA preprocessing is particularly common in imaging and signal processing.

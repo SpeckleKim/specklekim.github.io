@@ -6,7 +6,7 @@ lang: en
 
 # Probability & Statistics for AI
 
-Probability and statistics form the mathematical backbone of machine learning. From decision-making under uncertainty to training probabilistic models, understanding probability distributions, Bayesian inference, and statistical hypothesis testing is crucial for effective AI development.
+Probability and statistics form the mathematical backbone of machine learning. From decision-making under uncertainty to training probabilistic models, understanding probability distributions, [Bayesian inference](/bayesian-inference-eng.html), and statistical hypothesis testing is crucial for effective AI development.
 
 ## Probability Basics
 
@@ -45,7 +45,7 @@ Bayes' Theorem enables **Bayesian inference**: updating beliefs given new eviden
 
 ## Common Probability Distributions
 
-**Gaussian (Normal) Distribution**: The most important distribution in AI and statistics. Defined by mean μ and variance σ². Bell-shaped curve describes phenomena like heights, measurement errors, and neural network activations.
+**Gaussian (Normal) Distribution**: The most important distribution in AI and statistics. Defined by mean μ and variance σ². Bell-shaped curve describes phenomena like heights, measurement errors, and [neural network](/neural-eng.html) activations.
 
 **Bernoulli Distribution**: Models binary outcomes (heads/tails, true/false). Parameterized by p (probability of success). Used in binary classification.
 
@@ -57,7 +57,7 @@ Bayes' Theorem enables **Bayesian inference**: updating beliefs given new eviden
 
 **Uniform Distribution**: Equal probability for all outcomes in a range. Used as a default prior when lacking domain knowledge.
 
-Many AI algorithms assume data comes from specific distributions (e.g., Gaussian Naive Bayes assumes features follow Gaussian distributions).
+Many AI algorithms assume data comes from specific distributions (e.g., Gaussian [Naive Bayes](/naive-bayes-eng.html) assumes features follow Gaussian distributions).
 
 ## Expectation and Variance
 
@@ -88,13 +88,13 @@ Often we maximize log-likelihood (numerically stable): **θ_MLE = argmax_θ Σ l
 **Why use MLE?**
 - Principled approach to parameter estimation
 - Under certain conditions, MLE estimators are consistent and asymptotically normal
-- Powers logistic regression, Gaussian Naive Bayes, and many other models
+- Powers logistic regression, Gaussian [Naive Bayes](/naive-bayes-eng.html), and many other models
 
 ## Maximum A Posteriori (MAP)
 
 MAP combines likelihood with prior knowledge: **θ_MAP = argmax_θ P(θ|D) = argmax_θ P(D|θ)·P(θ)**
 
-This is Bayesian inference: balancing what the data says (likelihood) with what we believed before (prior).
+This is [Bayesian inference](/bayesian-inference-eng.html): balancing what the data says (likelihood) with what we believed before (prior).
 
 When prior P(θ) is uniform, MAP equals MLE. Strong priors can prevent overfitting by pulling estimates toward expected values.
 
@@ -115,16 +115,16 @@ If p-value < α, we reject H₀. Small p-values provide evidence against the nul
 
 ## Applications in Machine Learning
 
-**Classification**: Use Bayes' Theorem for probabilistic classifiers. Naive Bayes assumes feature independence given the class.
+**Classification**: Use Bayes' Theorem for probabilistic classifiers. [Naive Bayes](/naive-bayes-eng.html) assumes feature independence given the class.
 
 **Regression**: MLE estimation fits parameters of linear and logistic regression models.
 
-**Uncertainty quantification**: Bayesian models output probability distributions over predictions, not just point estimates.
+**Uncertainty quantification**: [Bayesian](/bayesian-inference-eng.html) models output probability distributions over predictions, not just point estimates.
 
-**Model selection**: Cross-validation and information criteria (AIC, BIC) use likelihood-based reasoning.
+**Model selection**: [Cross-validation](/cross-validation-eng.html) and information criteria (AIC, BIC) use likelihood-based reasoning.
 
-**Generative models**: VAEs and GANs explicitly model probability distributions of data.
+**Generative models**: VAEs and [GANs](/gan-eng.html) explicitly model probability distributions of data.
 
-**Reinforcement learning**: MDP theory is fundamentally probabilistic; agents reason about state transitions and rewards probabilistically.
+**Reinforcement learning**: [MDP](/mdp-eng.html) theory is fundamentally probabilistic; agents reason about state transitions and rewards probabilistically.
 
 Probability and statistics transform uncertain, incomplete information into principled decisions. They enable machines to learn from data while quantifying confidence in their predictions.

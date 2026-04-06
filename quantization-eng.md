@@ -6,7 +6,7 @@ lang: en
 
 # Model Quantization
 
-Model quantization is a technique that reduces the numerical precision of model weights and activations, drastically decreasing model size and computational requirements while maintaining performance. This is essential for deploying large language models on resource-constrained devices.
+Model quantization is a technique that reduces the numerical precision of model weights and activations, drastically decreasing model size and computational requirements while maintaining performance. This is essential for deploying [large language models](/llm-eng.html) on resource-constrained devices.
 
 ## The Need for Quantization
 
@@ -34,7 +34,7 @@ Where scale and zero_point are calibration parameters determined from the range 
 
 Post-training quantization applies quantization after the model is fully trained, requiring no retraining:
 
-1. **Calibration**: Run the model on a representative dataset to collect statistics about weight and activation distributions
+1. **Calibration**: Run the model on a representative dataset to collect [statistics](/probability-eng.html) about weight and activation distributions
 2. **Scale Computation**: Calculate optimal scale and zero_point for each layer or tensor
 3. **Quantization**: Convert weights and activations to lower precision
 4. **Evaluation**: Test quantized model on validation data to verify performance
@@ -76,10 +76,10 @@ AWQ represents the current state-of-the-art for INT4 quantization, balancing eff
 
 ## GGUF Format and Quantization Variants
 
-GGUF (GPT-Generated Unified Format) is a file format designed for efficient inference:
+GGUF ([GPT](/gpt-eng.html)-Generated Unified Format) is a file format designed for efficient inference:
 
 - **Multiple quantization levels**: GGUF supports various bit-widths (2-bit, 3-bit, 4-bit, 5-bit, 6-bit, 8-bit)
-- **CPU inference**: GGUF models can run efficiently on CPU without GPU
+- **CPU inference**: GGUF models can run efficiently on CPU without [GPU](/gpu-hardware-eng.html)
 - **Portability**: Standardized format allows models to run across different frameworks
 - **Wider adoption**: Enabled by popular tools like llama.cpp and Ollama
 
@@ -87,15 +87,15 @@ GGUF quantization is less aggressive than GPTQ (typically focuses on 4-5 bit) bu
 
 ## bitsandbytes: GPU Quantization
 
-Bitsandbytes library enables quantization for GPU inference:
+Bitsandbytes library enables quantization for [GPU](/gpu-hardware-eng.html) inference:
 
-- **8-bit quantization**: Reduced memory for LLM.int8() quantization during inference
+- **8-bit quantization**: Reduced memory for [LLM](/llm-eng.html).int8() quantization during inference
 - **4-bit quantization**: Further reduced memory using nf4 (nested float 4) format
 - **No training required**: Works on already-trained models
 - **QLoRA integration**: Enables parameter-efficient fine-tuning of quantized models
-- **Seamless integration**: Works directly with Hugging Face transformers library
+- **Seamless integration**: Works directly with Hugging Face [transformers](/llm-eng.html) library
 
-Bitsandbytes is widely used in practice for fine-tuning and inference on GPU hardware.
+Bitsandbytes is widely used in practice for fine-tuning and inference on [GPU](/gpu-hardware-eng.html) hardware.
 
 ## Accuracy vs. Efficiency Tradeoff
 
@@ -104,7 +104,7 @@ The fundamental challenge in quantization is balancing compression and accuracy:
 | Bit-width | Memory Savings | Typical Accuracy Drop | Speed | Use Case |
 |-----------|-----------------|----------------------|-------|----------|
 | FP32      | 1x              | 0%                   | Baseline | Reference |
-| INT8      | 4x              | 1-2%                 | 2-3x  | Server/GPU |
+| INT8      | 4x              | 1-2%                 | 2-3x  | Server/[GPU](/gpu-hardware-eng.html) |
 | INT4      | 8x              | 3-8%                 | 4-8x  | Mobile/CPU |
 | INT2      | 16x             | 10-20%               | 10-15x | Extreme edge |
 
@@ -122,4 +122,4 @@ Larger models (13B+) tolerate quantization better than smaller models. Task-spec
 
 **Benchmarking**: Always test quantized models on your specific task before production deployment to measure actual accuracy impact and latency improvements.
 
-Quantization has become essential infrastructure for practical LLM deployment, enabling powerful models to run on diverse hardware from GPUs to mobile devices.
+Quantization has become essential infrastructure for practical [LLM](/llm-eng.html) deployment, enabling powerful models to run on diverse hardware from GPUs to mobile devices.

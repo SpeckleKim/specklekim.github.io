@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Mixed precision training combines different numerical precision formats during neural network training. Instead of using 32-bit floating point (FP32) for all operations, mixed precision training strategically uses 16-bit formats (FP16 or BF16) for certain computations while maintaining FP32 for others. This approach dramatically reduces memory consumption and increases training speed with minimal impact on model accuracy.
+Mixed precision training combines different numerical precision formats during [neural network](/neural-eng.html) training. Instead of using 32-bit floating point (FP32) for all operations, mixed precision training strategically uses 16-bit formats (FP16 or BF16) for certain computations while maintaining FP32 for others. This approach dramatically reduces memory consumption and increases training speed with minimal impact on model accuracy.
 
 ## Precision Formats: FP32, FP16, and BF16
 
@@ -37,7 +37,7 @@ Mixed precision training combines different numerical precision formats during n
 **Memory Reduction**:
 - Activations stored in FP16/BF16: 50% reduction
 - Gradients in FP16/BF16: 50% reduction
-- Optimizer states in FP32: necessary for stability
+- [Optimizer](/optimizers-eng.html) states in FP32: necessary for stability
 - Overall: 20-50% memory reduction (depends on architecture)
 
 **Computation Speed**:
@@ -152,7 +152,7 @@ optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 **Learning Rate**:
 - May need adjustment compared to FP32 training
 - Often slightly lower learning rates work better
-- Learning rate scaling techniques (linear warmup) recommended
+- [Learning rate](/learning-rate-scheduling-eng.html) scaling techniques (linear warmup) recommended
 
 **Gradient Clipping**:
 - Norm-based clipping helps prevent overflow
@@ -160,8 +160,8 @@ optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 - Prevents extreme gradient values
 
 **Batch Normalization**:
-- Keep batch norm computations in FP32
-- Helps maintain statistics accuracy
+- Keep [batch norm](/batch-normalization-eng.html) computations in FP32
+- Helps maintain [statistics](/probability-eng.html) accuracy
 - Modern frameworks do this automatically
 
 **Initialization**:
@@ -179,12 +179,12 @@ optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 **Master Weight Copies**:
 - Keep master weights in FP32
 - Forward/backward in FP16
-- Optimizer updates FP32 master, copy to FP16 for next iteration
+- [Optimizer](/optimizers-eng.html) updates FP32 master, copy to FP16 for next iteration
 
 **Precision Tuning**:
 - Some operations more sensitive than others
 - Softmax typically requires FP32 for stability
-- Layer norm often benefits from higher precision
+- [Layer norm](/layer-normalization-eng.html) often benefits from higher precision
 - PyTorch's `cast_to_lowest_precision` parameter allows fine control
 
 ## Compatibility and Limitations
@@ -196,8 +196,8 @@ optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 - Intel Habana Gaudi
 
 **Model Architecture Sensitivity**:
-- Standard architectures (ResNet, Transformer, VGG): work great
-- Models with very deep layers or skip connections: sometimes need extra care
+- Standard architectures (ResNet, [Transformer](/llm-eng.html), VGG): work great
+- Models with very deep layers or [skip connections](/residual-connections-eng.html): sometimes need extra care
 - Custom operations may not have optimized FP16 kernels
 
 **Training Dynamics**:
@@ -222,10 +222,10 @@ Speedup ≈ 2.5x to 4x (real-world)
 ## When to Use Mixed Precision Training
 
 **Use When**:
-- GPU with Tensor Cores available (V100 or newer NVIDIA)
+- [GPU](/gpu-hardware-eng.html) with Tensor Cores available (V100 or newer NVIDIA)
 - Training time is critical
 - Memory is a bottleneck
-- Model is large (BERT, ResNet-50, etc.)
+- Model is large ([BERT](/bert-eng.html), ResNet-50, etc.)
 - Batch sizes can be increased
 
 **Skip When**:

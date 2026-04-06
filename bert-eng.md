@@ -6,7 +6,7 @@ lang: en
 
 # BERT & Masked Language Modeling: A Paradigm Shift
 
-BERT (Bidirectional Encoder Representations from Transformers) fundamentally changed how we approach NLP. Rather than training models for specific tasks, BERT showed that massive pretraining on unlabeled data, followed by simple fine-tuning, could achieve state-of-the-art results across virtually every downstream task. This paradigm—pretrain, then fine-tune—became the foundation of modern NLP.
+BERT (Bidirectional Encoder Representations from [Transformers](/llm-eng.html)) fundamentally changed how we approach NLP. Rather than training models for specific tasks, BERT showed that massive pretraining on unlabeled data, followed by simple fine-tuning, could achieve state-of-the-art results across virtually every downstream task. This paradigm—pretrain, then fine-tune—became the foundation of modern NLP.
 
 ## The Bidirectionality Insight
 
@@ -96,7 +96,7 @@ Output: [CLS] representation fed to binary classifier
 
 **Contribution to downstream tasks:**
 NSP helps with tasks requiring sentence relationships:
-- Question answering (question relates to context)
+- [Question answering](/question-answering-eng.html) (question relates to context)
 - Natural language inference (premise relates to hypothesis)
 - Paraphrase detection (sentences semantically similar)
 
@@ -104,7 +104,7 @@ Later research (RoBERTa) showed NSP's contribution is modest, and many models dr
 
 ## BERT Architecture
 
-BERT is a transformer encoder stack:
+BERT is a [transformer](/llm-eng.html) encoder stack:
 
 ```
 Input Layer (Tokenization + Embedding)
@@ -120,11 +120,11 @@ Output Layer (Embeddings for each token position)
 
 **Key components:**
 
-1. **WordPiece Tokenization**: Subword tokenization with vocabulary of ~30K
+1. **WordPiece Tokenization**: Subword [tokenization](/tokenization-eng.html) with [vocabulary](/tokenizer-design-eng.html) of ~30K
 2. **Token Embeddings**: Each token → dense vector
 3. **Segment Embeddings**: Token-level embedding indicating which sentence (A or B)
 4. **Position Embeddings**: Absolute position (1 to max_length)
-5. **Transformer Layers**: Self-attention and feed-forward networks
+5. **Transformer Layers**: [Self-attention](/self-attention-eng.html) and feed-forward networks
 6. **Layer Normalization**: Stabilizes training
 
 **BERT sizes:**
@@ -176,7 +176,7 @@ BERT learns to span the answer within the passage.
 1. Initialize with pretrained BERT weights
 2. Add task-specific layer(s)
 3. Train on labeled task data (typically 5-10 epochs)
-4. Learning rate: small (2e-5 to 5e-5) to preserve pretrained knowledge
+4. [Learning rate](/learning-rate-scheduling-eng.html): small (2e-5 to 5e-5) to preserve pretrained knowledge
 
 ## BERT Variants and Improvements
 
@@ -195,7 +195,7 @@ RoBERTa improved BERT through:
 
 ALBERT introduced parameter sharing for efficiency:
 - **Factorized embeddings**: Separate embedding and hidden dimensions (smaller embedding, full-size hidden)
-- **Cross-layer parameter sharing**: All transformer layers share parameters
+- **Cross-layer parameter sharing**: All [transformer](/llm-eng.html) layers share parameters
 - **Result:** 10x fewer parameters than BERT-Large, similar performance
 
 ### DeBERTa (Microsoft)
@@ -203,7 +203,7 @@ ALBERT introduced parameter sharing for efficiency:
 DeBERTa improved attention:
 - **Disentangled attention**: Separate position and content attention
 - **Enhanced mask decoder**: Better handling of masked tokens
-- **Result:** State-of-the-art on GLUE benchmark (beating RoBERTa)
+- **Result:** State-of-the-art on GLUE [benchmark](/benchmarks-eng.html) (beating RoBERTa)
 
 ### ELECTRA (Google)
 
@@ -235,10 +235,10 @@ Minimal task-specific architecture. Often just a linear layer on pretrained repr
 ### 4. **Exceptional Performance**
 
 BERT achieved state-of-the-art on:
-- GLUE (General Language Understanding Evaluation) benchmark
-- SQuAD (question answering)
-- NER (named entity recognition)
-- Sentiment analysis
+- GLUE (General Language Understanding Evaluation) [benchmark](/benchmarks-eng.html)
+- SQuAD ([question answering](/question-answering-eng.html))
+- [NER](/ner-eng.html) ([named entity recognition](/ner-eng.html))
+- [Sentiment analysis](/sentiment-analysis-eng.html)
 - And many more
 
 ### 5. **Accessibility**
@@ -264,7 +264,7 @@ These limitations motivated development of:
 
 ## Modern Impact
 
-In 2024, BERT's direct influence has diminished as newer models (GPT-4, Claude, Llama) dominate. However:
+In 2024, BERT's direct influence has diminished as newer models ([GPT](/gpt-eng.html)-4, Claude, Llama) dominate. However:
 
 1. **Conceptual foundation**: Pretrain-then-fine-tune is still dominant paradigm
 2. **Encoder-only models**: Still used for efficiency-critical applications

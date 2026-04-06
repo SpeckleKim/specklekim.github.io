@@ -14,7 +14,7 @@ AI code generation enables models to write, debug, and optimize code automatical
 
 ### Large Language Models
 
-General-purpose LLMs fine-tuned on code:
+General-purpose [LLMs](/llm-eng.html) fine-tuned on code:
 - **GPT-4**: Strong general code generation, multilingual
 - **Claude**: Good at explanations alongside code
 - **GPT-3.5**: Fast, adequate for simple tasks
@@ -24,13 +24,13 @@ General-purpose LLMs fine-tuned on code:
 Models trained primarily on code:
 - **CodeLlama**: Meta's code-specialized LLaMA variant
 - **StarCoder**: BigCode's multi-language code model
-- **Codex**: OpenAI's predecessor to GPT-4
+- **Codex**: OpenAI's predecessor to [GPT](/gpt-eng.html)-4
 
 ### Model Comparison
 
 | Model | Strength | Weakness |
 |-------|----------|----------|
-| GPT-4 | Reasoning, complex logic | Slow, expensive |
+| [GPT](/gpt-eng.html)-4 | Reasoning, complex logic | Slow, expensive |
 | Claude | Clarity, safety | Still prone to errors |
 | CodeLlama | Speed, size options | Specialized |
 | StarCoder | Open-source, reproducible | Smaller than proprietary |
@@ -39,10 +39,10 @@ Models trained primarily on code:
 
 ### HumanEval
 
-Standard benchmark for code generation:
+Standard [benchmark](/benchmarks-eng.html) for code generation:
 - 164 Python functions
 - Requires Pass@1, Pass@10 metrics
-- Top models: GPT-4 (92%), Claude (88%), CodeLlama (53%)
+- Top models: [GPT](/gpt-eng.html)-4 (92%), Claude (88%), CodeLlama (53%)
 
 ### MBPP
 
@@ -173,7 +173,7 @@ for i in range(len(list1)):
             ...
 ```
 
-**Mitigation**: Specify performance requirements, benchmark.
+**Mitigation**: Specify performance requirements, [benchmark](/benchmarks-eng.html).
 
 ## Best Practices
 

@@ -8,35 +8,35 @@ lang: en
 
 ## What is Autoregressive Generation?
 
-Autoregressive models generate text one token at a time, where each new token is predicted based on all previously generated tokens. This sequential approach mimics how humans naturally generate language—predicting the next word based on context. The probability distribution is factorized as P(x) = ∏ P(x_t | x_{<t}), meaning the model learns to predict the next token given the entire history.
+Autoregressive models generate text one token at a time, where each new token is predicted based on all previously generated tokens. This sequential approach mimics how humans naturally generate language—predicting the next word based on context. The [probability](/probability-eng.html) distribution is factorized as P(x) = ∏ P(x_t | x_{<t}), meaning the model learns to predict the next token given the entire history.
 
-This approach contrasts with other generative paradigms like masked language modeling (BERT) or non-autoregressive generation (which predicts all tokens simultaneously). The autoregressive framework provides a natural training objective through language modeling: predict the next token given the previous sequence.
+This approach contrasts with other generative paradigms like masked language modeling ([BERT](/bert-eng.html)) or non-autoregressive generation (which predicts all tokens simultaneously). The autoregressive framework provides a natural training objective through language modeling: predict the next token given the previous sequence.
 
 ## The GPT Family Evolution
 
 ### GPT-1 (2018)
-OpenAI's first generative pre-trained transformer demonstrated that unsupervised pretraining on large text corpora followed by task-specific fine-tuning could achieve strong performance across various NLP tasks. With 117 million parameters, GPT-1 showed that language models could be effectively applied to classification, entailment, similarity, and question-answering tasks with minimal architectural changes.
+OpenAI's first generative pre-trained [transformer](/llm-eng.html) demonstrated that unsupervised pretraining on large text corpora followed by task-specific fine-tuning could achieve strong performance across various NLP tasks. With 117 million parameters, GPT-1 showed that language models could be effectively applied to classification, entailment, similarity, and question-answering tasks with minimal architectural changes.
 
 ### GPT-2 (2019)
-GPT-2 scaled up to 1.5 billion parameters and introduced a critical insight: large language models could perform impressive "zero-shot" transfer learning without explicit task-specific fine-tuning. The model demonstrated genuine emergent abilities like translation, question-answering, and summarization when prompted appropriately. GPT-2 showcased the potential of scale as a fundamental principle in language modeling.
+GPT-2 scaled up to 1.5 billion parameters and introduced a critical insight: [large language models](/llm-eng.html) could perform impressive "zero-shot" [transfer learning](/transfer-learning-eng.html) without explicit task-specific fine-tuning. The model demonstrated genuine [emergent abilities](/emergent-abilities-eng.html) like translation, question-answering, and [summarization](/text-summarization-eng.html) when prompted appropriately. GPT-2 showcased the potential of scale as a fundamental principle in language modeling.
 
 ### GPT-3 (2020)
 With 175 billion parameters, GPT-3 represented a leap in model scale and capability. It demonstrated strong few-shot learning—the ability to learn new tasks from just a handful of examples provided in the prompt. GPT-3 introduced in-context learning as a primary interaction paradigm, reducing the need for task-specific fine-tuning.
 
 ### GPT-4 (2023)
-Building on the scaling paradigm, GPT-4 improved reasoning capabilities, reduced hallucinations, and better handled edge cases. It demonstrated multimodal understanding (text and images) and showed improved performance on complex reasoning tasks including mathematics and coding.
+Building on the scaling paradigm, GPT-4 improved reasoning capabilities, reduced [hallucinations](/hallucination-eng.html), and better handled edge cases. It demonstrated [multimodal](/multimodal-llm-eng.html) understanding (text and images) and showed improved performance on complex reasoning tasks including mathematics and coding.
 
 ## Decoder-Only Architecture
 
-GPT models use a decoder-only Transformer architecture, consisting of:
+GPT models use a decoder-only [Transformer](/llm-eng.html) architecture, consisting of:
 
 - **Token Embeddings**: Each token is mapped to a high-dimensional vector
 - **Positional Encodings**: Information about token positions is added to embeddings
-- **Transformer Blocks**: Stacked layers of multi-head self-attention and feed-forward networks
+- **Transformer Blocks**: Stacked layers of multi-head [self-attention](/self-attention-eng.html) and feed-forward networks
 - **Causal Masking**: Attention is restricted to previous tokens only, preventing the model from "looking ahead"
 - **Layer Normalization & Residual Connections**: Stabilize training of deep networks
 
-The decoder-only design differs from encoder-decoder models (seq2seq) which process input sequences fully before generating output. In decoder-only models, generation is purely sequential and autoregressive.
+The decoder-only design differs from encoder-decoder models ([seq2seq](/seq2seq-eng.html)) which process input sequences fully before generating output. In decoder-only models, generation is purely sequential and autoregressive.
 
 ## In-Context Learning
 
@@ -63,7 +63,7 @@ The model learns the task definition from the context and generates the appropri
 
 ## Emergent Abilities
 
-Large language models exhibit "emergent abilities"—capabilities that appear suddenly as scale increases beyond certain thresholds. Examples include:
+[Large language models](/llm-eng.html) exhibit "[emergent abilities](/emergent-abilities-eng.html)"—capabilities that appear suddenly as scale increases beyond certain thresholds. Examples include:
 
 - **Arithmetic Reasoning**: Small models fail at even simple math; large models solve multi-step problems
 - **Code Generation**: Models suddenly produce working code at sufficient scale
@@ -74,7 +74,7 @@ These abilities are often surprising and unpredictable, suggesting that scale al
 
 ## The Impact of Scaling
 
-Research has identified consistent scaling laws relating model size, training data size, and compute to downstream performance. The scaling law roughly follows: Loss ∝ N^(-α), where N is model size and α ≈ 0.07. This suggests that larger models with more data consistently achieve lower loss.
+Research has identified consistent [scaling laws](/scaling-laws-eng.html) relating model size, training data size, and compute to downstream performance. The [scaling law](/scaling-laws-eng.html) roughly follows: Loss ∝ N^(-α), where N is model size and α ≈ 0.07. This suggests that larger models with more data consistently achieve lower loss.
 
 Key insights from scaling:
 - **Larger is better**: Scaling model size, data, and compute improves performance
@@ -86,4 +86,4 @@ This understanding has driven the race toward ever-larger models, though with di
 
 ## Conclusion
 
-GPT models represent a paradigm shift in natural language processing, moving from task-specific models trained from scratch toward general-purpose foundation models capable of handling diverse tasks through in-context learning. The decoder-only architecture combined with massive scale has proven remarkably effective, with improvements continuing to emerge as models grow larger. Understanding autoregressive generation, scaling laws, and emergent abilities is essential for working with modern large language models.
+GPT models represent a paradigm shift in natural language processing, moving from task-specific models trained from scratch toward general-purpose foundation models capable of handling diverse tasks through in-context learning. The decoder-only architecture combined with massive scale has proven remarkably effective, with improvements continuing to emerge as models grow larger. Understanding autoregressive generation, [scaling laws](/scaling-laws-eng.html), and [emergent abilities](/emergent-abilities-eng.html) is essential for working with modern [large language models](/llm-eng.html).

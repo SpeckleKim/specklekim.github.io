@@ -20,7 +20,7 @@ Policy gradient methods directly optimize policies by computing gradients of exp
 
 This elegant result shows how to compute policy gradients using log-probabilities and Q-values. Enables efficient policy optimization without model knowledge.
 
-**Intuition:** Increase probability of high-value actions, decrease low-value ones.
+**Intuition:** Increase [probability](/probability-eng.html) of high-value actions, decrease low-value ones.
 
 ## REINFORCE
 
@@ -78,10 +78,10 @@ Modern state-of-the-art policy gradient method:
 L(θ) = E[min(r_t(θ)Â_t, clip(r_t(θ),1-ε,1+ε)Â_t)]
 ```
 
-Where r_t(θ) = π_θ(a|s) / π_old(a|s) is probability ratio, Â_t is advantage.
+Where r_t(θ) = π_θ(a|s) / π_old(a|s) is [probability](/probability-eng.html) ratio, Â_t is advantage.
 
 **Why Clipping:**
-Without clipping, gradient encourages large probability ratio jumps. Clipping bounds ratio to [1-ε, 1+ε], constraining policy change per update.
+Without clipping, gradient encourages large [probability](/probability-eng.html) ratio jumps. Clipping bounds ratio to [1-ε, 1+ε], constraining policy change per update.
 
 **Practical Benefits:**
 - Stable, reliable learning
@@ -115,7 +115,7 @@ subject to E[KL(π_old || π_θ)] ≤ δ
 
 ## Advantage Estimation (GAE)
 
-Generalized Advantage Estimation balances bias-variance trade-off:
+Generalized Advantage Estimation balances [bias-variance](/bias-variance-eng.html) trade-off:
 
 ```
 Â_t = Σ_{l=0}^∞ (γλ)^l δ_t^{V}
@@ -128,7 +128,7 @@ Where δ_t^{V} = r_t + γV(s_{t+1}) - V(s_t) is TD residual.
 - λ = 1: Use full trajectory (high variance, low bias)
 - λ ∈ (0,1): Weighted combination
 
-GAE enables flexible bias-variance control, improving practical performance.
+GAE enables flexible [bias-variance](/bias-variance-eng.html) control, improving practical performance.
 
 ## Actor-Only Policy Gradient
 
@@ -145,7 +145,7 @@ Without baseline (value function):
 ## Continuous vs Discrete Actions
 
 **Discrete Actions:**
-- Policy outputs probability distribution over actions
+- Policy outputs [probability](/probability-eng.html) distribution over actions
 - Natural for categorical distributions
 
 **Continuous Actions:**
@@ -155,14 +155,14 @@ Without baseline (value function):
 ## Practical Considerations
 
 **Hyperparameter Sensitivity:**
-- Learning rate crucial; affects convergence speed and stability
+- [Learning rate](/learning-rate-scheduling-eng.html) crucial; affects convergence speed and stability
 - Number of policy update steps
 - Advantage estimation lambda (GAE)
 - Clipping epsilon (PPO)
 
 **Implementation Details:**
 - Normalize advantages: Improves stability and generalization
-- Entropy bonus: Encourages exploration, prevents premature convergence
+- [Entropy](/information-theory-eng.html) bonus: Encourages exploration, prevents premature convergence
 - Value function loss: Minimize (V_θ(s) - target)²
 
 ## Limitations

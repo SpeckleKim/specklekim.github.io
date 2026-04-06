@@ -19,7 +19,7 @@ Gradient boosting builds an ensemble of weak learners sequentially, where each l
 4. Update predictions by adding the weighted new learner's output
 5. Repeat until convergence or maximum iterations
 
-The "gradient" refers to using gradients of a loss function to identify where predictions are failing, guiding subsequent models to focus on difficult cases.
+The "gradient" refers to using gradients of a [loss function](/loss-functions-eng.html) to identify where predictions are failing, guiding subsequent models to focus on difficult cases.
 
 ## XGBoost: The Competition Winner
 
@@ -33,7 +33,7 @@ XGBoost (eXtreme Gradient Boosting) introduced several innovations that made gra
 - **Weighted Quantile Sketch:** Efficient split finding
 
 **Why It Dominated:**
-XGBoost's combination of speed, accuracy, and interpretability made it the go-to algorithm for Kaggle competitions and enterprise applications. Its GPU acceleration support enabled training on massive datasets.
+XGBoost's combination of speed, accuracy, and interpretability made it the go-to algorithm for Kaggle competitions and enterprise applications. Its [GPU](/gpu-hardware-eng.html) acceleration support enabled training on massive datasets.
 
 ## LightGBM: Speed and Efficiency
 
@@ -59,7 +59,7 @@ LightGBM (Light Gradient Boosting Machine) optimizes training speed without sacr
 
 **Practical Advantages:**
 - Dramatically lower memory footprint
-- Parallel and GPU learning support
+- Parallel and [GPU](/gpu-hardware-eng.html) learning support
 - Native support for categorical features
 - Excellent for large datasets (millions of rows)
 
@@ -74,7 +74,7 @@ CatBoost (Categorical Boosting) addresses a critical gap: handling categorical f
 - Faster training for datasets with many categories
 
 **Technical Innovations:**
-- **Ordered Boosting:** Uses ordered target statistics to reduce target leakage
+- **Ordered Boosting:** Uses ordered target [statistics](/probability-eng.html) to reduce target leakage
 - **Permutation-Invariant:** More robust to feature order
 - **Symmetric Trees:** All leaves at same depth, more interpretable
 
@@ -99,7 +99,7 @@ CatBoost (Categorical Boosting) addresses a critical gap: handling categorical f
 **Subsampling:**
 - Column subsampling (0.5-0.8): Reduce feature dimensionality
 - Row subsampling (0.5-0.8): Add stochasticity
-- Higher subsampling = more regularization
+- Higher subsampling = more [regularization](/regularization-eng.html)
 
 **Regularization:**
 - L1/L2 penalties control feature weights
@@ -107,11 +107,11 @@ CatBoost (Categorical Boosting) addresses a critical gap: handling categorical f
 - Gamma: Minimum loss reduction for split
 
 **Tuning Workflow:**
-1. Start with moderate learning rate (0.05-0.1)
+1. Start with moderate [learning rate](/learning-rate-scheduling-eng.html) (0.05-0.1)
 2. Find optimal number of boosting rounds (early stopping)
 3. Tune tree depth and subsampling
-4. Fine-tune regularization parameters
-5. Reduce learning rate and increase rounds
+4. Fine-tune [regularization](/regularization-eng.html) parameters
+5. Reduce [learning rate](/learning-rate-scheduling-eng.html) and increase rounds
 
 ## Why Gradient Boosting Dominates Tabular Data
 
@@ -138,12 +138,12 @@ CatBoost (Categorical Boosting) addresses a critical gap: handling categorical f
 **When to Use Gradient Boosting:**
 - Structured/tabular data with clear relationships
 - Moderate to large datasets
-- Competitions and benchmarks
+- Competitions and [benchmarks](/benchmarks-eng.html)
 - Production systems requiring reliability
 
 **Potential Limitations:**
 - Careful tuning required for optimal performance
-- Risk of overfitting without proper regularization
+- Risk of overfitting without proper [regularization](/regularization-eng.html)
 - Less effective on very high-dimensional data
 - Limited benefit on unstructured data (images, text)
 
@@ -156,4 +156,4 @@ CatBoost (Categorical Boosting) addresses a critical gap: handling categorical f
 
 Gradient boosting has earned its place as the industry standard for tabular data. XGBoost provides reliability and proven effectiveness, LightGBM offers unmatched speed for large-scale data, and CatBoost specializes in categorical feature handling. Understanding when and how to apply each framework is essential for modern machine learning practitioners.
 
-The key to success lies in thoughtful hyperparameter tuning, proper validation strategies, and understanding your specific data characteristics. Start simple, validate rigorously, and let the data guide your choice of framework.
+The key to success lies in thoughtful [hyperparameter tuning](/hyperparameter-tuning-eng.html), proper validation strategies, and understanding your specific data characteristics. Start simple, validate rigorously, and let the data guide your choice of framework.

@@ -35,7 +35,7 @@ Gradient-weighted Class Activation Mapping:
 
 ### Attention Visualization
 
-Visualize attention weights in transformers:
+Visualize attention weights in [transformers](/llm-eng.html):
 - Which tokens does model focus on?
 - Reveals model reasoning for NLP tasks
 - Built-in interpretability
@@ -60,7 +60,7 @@ Work with any model type:
 
 Leverage model structure:
 - Grad-CAM for CNNs
-- Attention weights for transformers
+- Attention weights for [transformers](/llm-eng.html)
 - Tree-based feature importance
 - Advantage: Efficiency, accuracy
 

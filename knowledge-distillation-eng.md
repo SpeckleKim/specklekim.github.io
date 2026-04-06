@@ -36,7 +36,7 @@ Student Network (Small, Fast)
 
 **Hard Targets**: Traditional training uses one-hot encoded labels (0 or 1 for each class).
 
-**Soft Targets**: Knowledge distillation uses probability distributions from the teacher:
+**Soft Targets**: Knowledge distillation uses [probability](/probability-eng.html) distributions from the teacher:
 
 ```
 Soft Target = softmax(z_teacher / T)
@@ -46,11 +46,11 @@ Where T is the temperature parameter. Soft targets contain information about rel
 
 **Temperature Parameter**:
 - T = 1: Standard softmax (hard targets)
-- T > 1: Softens probability distribution, emphasizing relationships between classes
+- T > 1: Softens [probability](/probability-eng.html) distribution, emphasizing relationships between classes
 - Typical range: T = 3-20 depending on task complexity
 - Higher T makes all class probabilities more similar, revealing fine-grained relationships
 
-**Intuition**: Instead of teaching "the answer is 'dog'", distillation teaches "the answer is 'dog' with 0.8 probability, 'wolf' with 0.15, 'cat' with 0.03"—revealing that wolf-ness is more similar to dog-ness than cat-ness.
+**Intuition**: Instead of teaching "the answer is 'dog'", distillation teaches "the answer is 'dog' with 0.8 [probability](/probability-eng.html), 'wolf' with 0.15, 'cat' with 0.03"—revealing that wolf-ness is more similar to dog-ness than cat-ness.
 
 ## Distillation Loss
 
@@ -61,7 +61,7 @@ L_total = α × L_CE(y, σ(z_s)) + (1-α) × L_KL(σ(z_t/T), σ(z_s/T))
 ```
 
 **Components**:
-- First term: Cross-entropy on hard labels (standard task loss)
+- First term: Cross-[entropy](/information-theory-eng.html) on hard labels (standard task loss)
 - Second term: Kullback-Leibler divergence between teacher and student distributions
 - α: Weight balancing the two objectives (typically 0.5-0.9)
 - Temperature T: Same value used for both distributions
@@ -88,14 +88,14 @@ L_total = α × L_CE(y, σ(z_s)) + (1-α) × L_KL(σ(z_t/T), σ(z_s/T))
 ## Real-world Model Compression Examples
 
 **DistilBERT**:
-- 40% size reduction from BERT-base
+- 40% size reduction from [BERT](/bert-eng.html)-base
 - Maintains 97% of language understanding capability
 - 60% faster inference
 - Achieved by distillation plus layer pruning
 
 **TinyBERT**:
 - Multiple distillation layers (embedded learning)
-- 7-13x smaller than BERT, 9-15x faster
+- 7-13x smaller than [BERT](/bert-eng.html), 9-15x faster
 - Still retains ~99% of performance
 - Uses both response and feature-based distillation
 
@@ -118,9 +118,9 @@ L_total = α × L_CE(y, σ(z_s)) + (1-α) × L_KL(σ(z_t/T), σ(z_s/T))
 ## Applications in Edge Deployment
 
 **Mobile Devices**:
-- Real-time object detection (YOLO student from YOLO teacher)
+- Real-time [object detection](/object-detection-eng.html) (YOLO student from YOLO teacher)
 - On-device NLP (DistilBERT for mobile apps)
-- Facial recognition with reduced latency
+- [Facial recognition](/face-recognition-eng.html) with reduced latency
 
 **IoT Devices**:
 - Compressed models fit in limited memory (kilobytes to megabytes)
@@ -130,7 +130,7 @@ L_total = α × L_CE(y, σ(z_s)) + (1-α) × L_KL(σ(z_t/T), σ(z_s/T))
 **Autonomous Systems**:
 - Vehicles need real-time inference with limited hardware
 - Distilled models enable low-latency decision-making
-- Combined with quantization for extreme compression
+- Combined with [quantization](/quantization-eng.html) for extreme compression
 
 ## Advanced Distillation Techniques
 

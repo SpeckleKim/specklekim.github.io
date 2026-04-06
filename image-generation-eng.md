@@ -14,7 +14,7 @@ AI image generation has transformed creative workflows and accessibility of visu
 
 ### DALL-E 1 (2021)
 
-OpenAI's original DALL-E demonstrated the viability of generating complex images from natural language descriptions. Operating at 256×256 resolution, it used a discrete variational autoencoder (dVAE) to compress images into tokens, then applied a transformer to learn the mapping between text and image tokens.
+OpenAI's original DALL-E demonstrated the viability of generating complex images from natural language descriptions. Operating at 256×256 resolution, it used a discrete [variational autoencoder](/vae-eng.html) (dVAE) to compress images into tokens, then applied a [transformer](/llm-eng.html) to learn the mapping between text and image tokens.
 
 Key contributions:
 - Proved text-to-image generation at meaningful scale
@@ -25,9 +25,9 @@ Key contributions:
 
 Marked a substantial quality jump through architectural innovations:
 
-**CLIP-based Architecture:** Uses OpenAI's CLIP to encode text into a 1024-dimensional representation. These embeddings capture semantic meaning better than earlier tokenization approaches.
+**CLIP-based Architecture:** Uses OpenAI's CLIP to encode text into a 1024-dimensional representation. These embeddings capture semantic meaning better than earlier [tokenization](/tokenization-eng.html) approaches.
 
-**Diffusion Decoder:** Replaces the original autoregressive decoder with a diffusion model operating in image space, dramatically improving quality and enabling guided generation.
+**Diffusion Decoder:** Replaces the original autoregressive decoder with a [diffusion model](/diffusion-models-eng.html) operating in image space, dramatically improving quality and enabling guided generation.
 
 **Advanced Upsampling:** Progressive diffusion-based upsampling from 64×64 to 1024×1024 resolution while maintaining coherence and detail.
 
@@ -43,7 +43,7 @@ Achieves improved instruction-following and visual quality through:
 
 **Better CLIP Integration:** Enhanced understanding of nuanced text descriptions and rare concepts through improved embedding spaces.
 
-**Reduced Repetition:** Better diversity in generated samples avoiding characteristic GAN-like repetition patterns.
+**Reduced Repetition:** Better diversity in generated samples avoiding characteristic [GAN](/gan-eng.html)-like repetition patterns.
 
 **Improved Safety:** Built-in safeguards against generating harmful, sensitive, or copyright-infringing content.
 
@@ -51,7 +51,7 @@ Achieves improved instruction-following and visual quality through:
 
 ## Stable Diffusion: Open-Source Democratization
 
-Stability AI's Stable Diffusion made high-quality text-to-image generation accessible by operating in latent space, requiring significantly less GPU memory than alternatives.
+Stability AI's Stable Diffusion made high-quality text-to-image generation accessible by operating in latent space, requiring significantly less [GPU](/gpu-hardware-eng.html) memory than alternatives.
 
 **Key innovations:**
 - **Latent Diffusion:** Diffusion in compressed feature space (8× or 16× reduction in dimensionality)
@@ -162,7 +162,7 @@ Most commercial systems support:
 
 ### Misuse Prevention
 
-- Deepfake and misinformation generation risks
+- [Deepfake](/deepfakes-eng.html) and misinformation generation risks
 - Safety filters to prevent harmful content
 - Watermarking to identify AI-generated images
 - Disclosure requirements for synthetic media

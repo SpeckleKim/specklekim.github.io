@@ -6,7 +6,7 @@ lang: en
 
 # Emergent Abilities in LLMs
 
-One of the most fascinating discoveries in large language models is the emergence of unexpected abilities at certain scale thresholds. These "emergent abilities" appear suddenly during scaling—seemingly absent in smaller models but robustly present in larger ones. This phenomenon challenges our understanding of how language models acquire capabilities and raises profound questions about model development.
+One of the most fascinating discoveries in [large language models](/llm-eng.html) is the emergence of unexpected abilities at certain scale thresholds. These "emergent abilities" appear suddenly during scaling—seemingly absent in smaller models but robustly present in larger ones. This phenomenon challenges our understanding of how language models acquire capabilities and raises profound questions about model development.
 
 ## Defining Emergent Abilities
 
@@ -18,7 +18,7 @@ An emergent ability is formally defined as:
 4. **Unpredicted**: The ability wasn't explicitly trained for; the model "figured it out"
 
 Key distinction:
-- **Smooth scaling**: Ability improves gradually (scaling law)
+- **Smooth scaling**: Ability improves gradually ([scaling law](/scaling-laws-eng.html))
 - **Emergence**: Ability appears suddenly (phase transition)
 
 ## Classic Examples
@@ -111,26 +111,26 @@ Skeptics argue:
    - Same underlying ability may or may not "emerge" depending on measurement
    - Switching metrics (perplexity vs. accuracy) changes emergence observation
 
-3. **Benchmark saturation**: Early benchmarks are too easy for large models
+3. **Benchmark saturation**: Early [benchmarks](/benchmarks-eng.html) are too easy for large models
    - Smaller models plateau at ceiling
    - Larger models show more granular performance
    - Looks like emergence but may be artifacts
 
-**Key paper**: Schaeffer et al. (2023) - "Are Emergent Abilities of Large Language Models a Mirage?"
+**Key paper**: Schaeffer et al. (2023) - "Are Emergent Abilities of [Large Language Models](/llm-eng.html) a Mirage?"
 
 ### Current Consensus
 
 Research suggests **both are true**:
 
 1. **Some emergence is real**: Capabilities like multi-step reasoning likely require scale
-2. **Some emergence is measurement artifact**: Evaluation metrics hide gradual improvement
+2. **Some emergence is measurement artifact**: [Evaluation metrics](/evaluation-metrics-eng.html) hide gradual improvement
 3. **Nuance matters**: Whether emergence is "real" depends on definition and measurement
 4. **Better metrics needed**: We need finer-grained evaluation to distinguish
 
 Most researchers now focus on:
 - Using continuous metrics (loss, perplexity) alongside accuracy
 - Studying learning dynamics, not just final performance
-- Designing benchmarks that reveal gradual scaling, not just thresholds
+- Designing [benchmarks](/benchmarks-eng.html) that reveal gradual scaling, not just thresholds
 
 ## Mechanisms Behind Emergence
 
@@ -193,9 +193,9 @@ If abilities emerge at specific thresholds:
 
 ### 2. Task Design
 Emergence suggests we should:
-- Design benchmarks to reveal gradual scaling (not just pass/fail)
+- Design [benchmarks](/benchmarks-eng.html) to reveal gradual scaling (not just pass/fail)
 - Separate memorization from generalization
-- Use multiple evaluation metrics
+- Use multiple [evaluation metrics](/evaluation-metrics-eng.html)
 
 ### 3. Scaling Strategy
 Teams can plan scaling with emergence in mind:
@@ -242,7 +242,7 @@ Despite progress, we don't fully understand emergence:
 
 ## Conclusion
 
-Emergent abilities in LLMs—from chain-of-thought reasoning to in-context learning to translation—represent one of AI's most intriguing phenomena. Whether emergence is truly discontinuous or partially a measurement artifact remains debated, but the phenomenon itself is real and important.
+Emergent abilities in [LLMs](/llm-eng.html)—from chain-of-thought reasoning to in-context learning to translation—represent one of AI's most intriguing phenomena. Whether emergence is truly discontinuous or partially a measurement artifact remains debated, but the phenomenon itself is real and important.
 
 Understanding emergence reshapes how we think about model development: capabilities aren't necessarily smooth functions of scale, unexpected abilities can suddenly appear, and our evaluation methods significantly influence what we observe.
 

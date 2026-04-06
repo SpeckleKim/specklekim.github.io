@@ -18,7 +18,7 @@ NVIDIA's GPU architecture revolves around two key computational units:
 
 **CUDA Cores** are general-purpose processing units designed for parallel computation. Each CUDA core can execute simple arithmetic operations independently, making them ideal for massively parallel workloads. A modern GPU contains thousands of CUDA cores organized into streaming multiprocessors (SMs).
 
-**Tensor Cores** are specialized processors designed specifically for matrix operations, the fundamental building block of neural networks. A tensor core can perform fused multiply-accumulate (FMA) operations on small matrices in a single clock cycle. For example, an NVIDIA A100 has 108 tensor cores per SM with support for various precision levels (FP32, FP16, TF32, INT8).
+**Tensor Cores** are specialized processors designed specifically for matrix operations, the fundamental building block of [neural networks](/neural-eng.html). A tensor core can perform fused multiply-accumulate (FMA) operations on small matrices in a single clock cycle. For example, an NVIDIA A100 has 108 tensor cores per SM with support for various precision levels (FP32, FP16, TF32, INT8).
 
 The ratio of tensor cores to CUDA cores has been increasing with each GPU generation, reflecting the AI-centric evolution of hardware design.
 
@@ -51,8 +51,8 @@ The H100 pushed boundaries further:
 - 80GB HBM3 memory with 3.2TB/s bandwidth
 - 4x matrix engines per SM for higher tensor throughput
 - DPX (Distributed Processing eXecution) for sparse tensor operations
-- Transformer Engine with automatic mixed precision
-- Significantly faster for LLM training and inference
+- [Transformer](/llm-eng.html) Engine with automatic [mixed precision](/mixed-precision-eng.html)
+- Significantly faster for [LLM](/llm-eng.html) training and inference
 
 ### Other Architectures
 
@@ -66,7 +66,7 @@ The H100 pushed boundaries further:
 
 Tensor Processing Units are application-specific integrated circuits (ASICs) designed for TensorFlow workloads:
 - TPUv4: Up to 275 teraFLOPS for matrix multiplication
-- Excels at dense, regular computations (especially transformer models)
+- Excels at dense, regular computations (especially [transformer](/llm-eng.html) models)
 - Integrated with GCP for seamless scaling
 - More power-efficient than GPUs for specific workloads
 

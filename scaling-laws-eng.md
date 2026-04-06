@@ -208,7 +208,7 @@ Based on current knowledge:
 
 ### Medium term (5-10 years)
 - Architecture innovations may change scaling exponents
-- Mixture of experts may improve efficiency
+- [Mixture of experts](/moe-eng.html) may improve efficiency
 - Specialized models may outperform scaling general models
 
 ### Long term (10+ years)

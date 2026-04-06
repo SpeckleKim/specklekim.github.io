@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Distributed training parallelizes neural network training across multiple GPUs, TPUs, or machines to reduce training time and enable training of models too large for single-device memory. As models grow from millions to billions of parameters, distributed training has become essential for practical deep learning. This guide covers the fundamental strategies, communication patterns, and modern systems enabling efficient distributed training.
+Distributed training parallelizes [neural network](/neural-eng.html) training across multiple GPUs, TPUs, or machines to reduce training time and enable training of models too large for single-device memory. As models grow from millions to billions of parameters, distributed training has become essential for practical deep learning. This guide covers the fundamental strategies, communication patterns, and modern systems enabling efficient distributed training.
 
 ## Fundamental Training Parallelization Strategies
 
@@ -19,13 +19,13 @@ There are three primary approaches to distribute training, often combined:
 - Each device processes different batch of data
 - Gradients aggregated across devices (AllReduce)
 - Simplest approach, scales well up to ~8 GPUs
-- Limited by model size fitting on single GPU
+- Limited by model size fitting on single [GPU](/gpu-hardware-eng.html)
 
 **Model Parallelism**:
 - Split model across devices
 - Each device holds subset of model parameters
 - Activations/gradients passed between devices
-- Enables training of large models exceeding single GPU memory
+- Enables training of large models exceeding single [GPU](/gpu-hardware-eng.html) memory
 - Higher communication overhead, more complex
 
 **Pipeline Parallelism**:
@@ -78,7 +78,7 @@ Linear scaling (efficiency = 1) is ideal but rarely achieved beyond 8 devices.
 - Requires communication for every matrix multiplication
 - Fine-grained parallelism
 
-**Sequence Parallelism** (for Transformers):
+**Sequence Parallelism** (for [Transformers](/llm-eng.html)):
 - Split along sequence dimension
 - Different devices process different tokens
 - Reduces memory per device proportionally to sequence length
@@ -100,7 +100,7 @@ Device 2: _ → _ → F(1) → F(2) → F(3) → B(1)
 (F=forward, B=backward, numbers indicate micro-batch)
 ```
 
-Ideal: Later devices already processing next micro-batch while earlier devices backprop.
+Ideal: Later devices already processing next micro-batch while earlier devices [backprop](/backpropagation-eng.html).
 
 ## Modern Distributed Training Frameworks
 
@@ -108,11 +108,11 @@ Ideal: Later devices already processing next micro-batch while earlier devices b
 - Breaks model into shards, each shard on one device
 - Forward pass: gather shard parameters, compute, discard after use
 - Backward pass: gather shard parameters again, compute gradients, discard
-- Optimizer state per shard (not replicated)
+- [Optimizer](/optimizers-eng.html) state per shard (not replicated)
 - Reduces memory from 3N to 3+N/K (where K = number of devices)
 
 **DeepSpeed ZeRO** (Microsoft):
-- **Stage 1**: Shard optimizer states (4x reduction)
+- **Stage 1**: Shard [optimizer](/optimizers-eng.html) states (4x reduction)
 - **Stage 2**: Shard gradients additionally (2x reduction)
 - **Stage 3**: Shard parameters additionally (K× reduction)
 - Combined: ~16x memory reduction with 8 devices
@@ -122,7 +122,7 @@ Ideal: Later devices already processing next micro-batch while earlier devices b
 - Combines pipeline and tensor parallelism
 - Pipeline parallelism: stages on different devices
 - Tensor parallelism: within each stage, split matrices
-- Extremely efficient for training large language models
+- Extremely efficient for training [large language models](/llm-eng.html)
 
 ## Communication Patterns
 
@@ -186,7 +186,7 @@ Round 3: 2→3→0→1→2
 **Batch Size Scaling**:
 - When doubling devices, double batch size
 - Maintains computation/communication ratio
-- Requires adjusting learning rate (learning rate scaling)
+- Requires adjusting [learning rate](/learning-rate-scheduling-eng.html) (learning rate scaling)
 - Linear scaling rule: lr_new = lr_old × (batch_size_new / batch_size_old)
 
 ## Practical Considerations
@@ -198,12 +198,12 @@ Round 3: 2→3→0→1→2
 
 **Convergence**:
 - Larger batch sizes can hurt convergence
-- LARS optimizer: Layer-wise Adaptive Rate Scaling
-- Adjusts learning rate per layer based on gradient/weight ratio
+- LARS [optimizer](/optimizers-eng.html): Layer-wise Adaptive Rate Scaling
+- Adjusts [learning rate](/learning-rate-scheduling-eng.html) per layer based on gradient/weight ratio
 - Enables large batch training with stable convergence
 
 **Fault Tolerance**:
-- Periodic checkpointing of model and optimizer state
+- Periodic checkpointing of model and [optimizer](/optimizers-eng.html) state
 - Recovery from device failures requires resuming from last checkpoint
 - Checkpoint frequency: trade-off between storage and recovery time
 

@@ -6,11 +6,11 @@ lang: en
 
 # Activation Functions: Introducing Nonlinearity
 
-Activation functions are nonlinear transformations applied to neuron outputs. Without them, stacking layers would produce only linear transformations, limiting neural networks to learning linear relationships. Activation functions enable networks to learn complex, nonlinear patterns.
+Activation functions are nonlinear transformations applied to neuron outputs. Without them, stacking layers would produce only linear transformations, limiting [neural networks](/neural-eng.html) to learning linear relationships. Activation functions enable networks to learn complex, nonlinear patterns.
 
 ## Why Nonlinearity Matters
 
-A neural network without activation functions is just matrix multiplication—multiple linear transformations compose into a single linear transformation. This makes deep networks equivalent to shallow ones, unable to express the complexity needed for real-world problems.
+A [neural network](/neural-eng.html) without activation functions is just matrix multiplication—multiple linear transformations compose into a single linear transformation. This makes deep networks equivalent to shallow ones, unable to express the complexity needed for real-world problems.
 
 Activation functions introduce nonlinearity, allowing networks to bend, twist, and reshape decision boundaries. This enables learning arbitrary functions.
 
@@ -20,11 +20,11 @@ The sigmoid function maps inputs to a range of (0, 1):
 
 `σ(x) = 1 / (1 + e^(-x))`
 
-**Characteristics**: Smooth gradient, output interpretable as probability.
+**Characteristics**: Smooth gradient, output interpretable as [probability](/probability-eng.html).
 
-**Drawbacks**: Vanishing gradient problem in deep networks. Outputs not centered at zero, which slows learning. Heavy computation due to exponential.
+**Drawbacks**: [Vanishing gradient](/vanishing-gradients-eng.html) problem in deep networks. Outputs not centered at zero, which slows learning. Heavy computation due to exponential.
 
-**Use case**: Binary classification output layers, where probability interpretation is valuable.
+**Use case**: Binary classification output layers, where [probability](/probability-eng.html) interpretation is valuable.
 
 ## Tanh Function
 
@@ -34,7 +34,7 @@ Tanh (hyperbolic tangent) maps inputs to (-1, 1):
 
 **Characteristics**: Zero-centered output (faster convergence), stronger gradients than sigmoid.
 
-**Drawbacks**: Still suffers from vanishing gradients in very deep networks.
+**Drawbacks**: Still suffers from [vanishing gradients](/vanishing-gradients-eng.html) in very deep networks.
 
 **Use case**: Hidden layers, particularly in RNNs and older architectures.
 
@@ -44,7 +44,7 @@ ReLU is the most popular activation function:
 
 `ReLU(x) = max(0, x)`
 
-**Characteristics**: Simple, fast computation. No vanishing gradient for positive values. Trains deep networks effectively.
+**Characteristics**: Simple, fast computation. No [vanishing gradient](/vanishing-gradients-eng.html) for positive values. Trains deep networks effectively.
 
 **Drawbacks**: "Dying ReLU" problem—neurons can get stuck outputting zero. Not differentiable at x=0 (practically ignored).
 
@@ -80,11 +80,11 @@ GELU weights inputs by the cumulative Gaussian distribution:
 
 `GELU(x) = x * Φ(x)` where Φ is the cumulative normal distribution
 
-**Characteristics**: Smooth approximation to ReLU. Popular in modern transformers and large models.
+**Characteristics**: Smooth approximation to ReLU. Popular in modern [transformers](/llm-eng.html) and large models.
 
 **Drawbacks**: More computational cost. Complex to implement without libraries.
 
-**Use case**: Transformer models (BERT, GPT), state-of-the-art architectures.
+**Use case**: [Transformer](/llm-eng.html) models ([BERT](/bert-eng.html), [GPT](/gpt-eng.html)), state-of-the-art architectures.
 
 ## Swish Function
 
@@ -112,7 +112,7 @@ Mish is a smooth, non-monotonic activation:
 
 ## Softmax Function
 
-Softmax converts a vector to a probability distribution:
+Softmax converts a vector to a [probability](/probability-eng.html) distribution:
 
 `softmax(x_i) = e^(x_i) / Σ(e^(x_j))`
 
@@ -127,7 +127,7 @@ Softmax converts a vector to a probability distribution:
 **For hidden layers**:
 - Start with ReLU: fast, effective, low computation
 - Try Leaky ReLU if ReLU causes issues
-- Use GELU in transformers
+- Use GELU in [transformers](/llm-eng.html)
 - Consider Swish for empirical improvements
 
 **For output layers**:
@@ -135,8 +135,8 @@ Softmax converts a vector to a probability distribution:
 - Softmax for multi-class classification
 - Linear for regression
 
-**Modern trends**: GELU dominates in large language models and transformers. ReLU remains standard in convolutional networks. Swish and Mish gain traction in cutting-edge work.
+**Modern trends**: GELU dominates in [large language models and transformers](/llm-eng.html). ReLU remains standard in convolutional networks. Swish and Mish gain traction in cutting-edge work.
 
 ## Summary
 
-Choosing the right activation function impacts learning speed, convergence, and final performance. Modern networks predominantly use ReLU variants for hidden layers and problem-specific functions for outputs. GELU has become the standard in transformer-based models, reflecting the shift in deep learning paradigms.
+Choosing the right activation function impacts learning speed, convergence, and final performance. Modern networks predominantly use ReLU variants for hidden layers and problem-specific functions for outputs. GELU has become the standard in [transformer](/llm-eng.html)-based models, reflecting the shift in deep learning paradigms.

@@ -6,11 +6,11 @@ lang: en
 
 # Attention Mechanism: Why the Decoder Can't Look Away
 
-The attention mechanism represents one of the most important innovations in deep learning, transforming NLP from sequence-to-sequence models to the modern transformer era. It elegantly solves a fundamental problem: how can a model focus on relevant parts of input when generating output?
+The attention mechanism represents one of the most important innovations in deep learning, transforming NLP from [sequence-to-sequence models](/seq2seq-eng.html) to the modern [transformer](/llm-eng.html) era. It elegantly solves a fundamental problem: how can a model focus on relevant parts of input when generating output?
 
 ## The Motivation: Information Loss
 
-Basic seq2seq models bottleneck information through a single context vector:
+Basic [seq2seq](/seq2seq-eng.html) models bottleneck information through a single context vector:
 
 ```
 Input: "The quick brown fox jumped over the lazy dog"
@@ -97,7 +97,7 @@ Just a single learned matrix W. Simpler, often faster.
 
 ## Scaled Dot-Product Attention
 
-The modern standard (used in transformers):
+The modern standard (used in [transformers](/llm-eng.html)):
 
 **Score:** score(Q, K) = (Q K^T) / √d_k
 
@@ -155,7 +155,7 @@ Typical architecture: 8-12 heads, each with d_model/num_heads dimensions.
 
 ## Self-Attention: Token Attends to Token
 
-In self-attention, a token attends to all other tokens in the same sequence:
+In [self-attention](/self-attention-eng.html), a token attends to all other tokens in the same sequence:
 
 ```
 Input sequence: "The cat sat on the mat"
@@ -169,7 +169,7 @@ For "cat":
 Q, K, V all come from the same sequence!
 ```
 
-Self-attention is bidirectional (a token sees all positions) and is the foundation of transformers.
+[Self-attention](/self-attention-eng.html) is bidirectional (a token sees all positions) and is the foundation of [transformers](/llm-eng.html).
 
 ## Cross-Attention: Query from One Source, Key/Value from Another
 
@@ -217,14 +217,14 @@ when processing "merger", can attend to "bank" (7 positions back)
 RNNs struggled with such long dependencies.
 
 ### 4. **Parallelization**
-Self-attention allows parallel processing (unlike RNNs which are sequential):
+[Self-attention](/self-attention-eng.html) allows parallel processing (unlike RNNs which are sequential):
 
 ```
 RNN: token_1 → token_2 → token_3 (sequential, can't parallelize)
 Self-Attention: All tokens processed in parallel with attention
 ```
 
-Transformers achieve massive speedups through parallelization.
+[Transformers](/llm-eng.html) achieve massive speedups through parallelization.
 
 ### 5. **Position Flexibility**
 Unlike RNNs biased toward recent tokens, attention treats all positions equally. Information content matters more than position.
@@ -232,10 +232,10 @@ Unlike RNNs biased toward recent tokens, attention treats all positions equally.
 ## Attention in Practice
 
 ### Dropout and Regularization
-Attention weights can overfit to training data. Attention dropout (randomly zeroing attention weights) helps.
+Attention weights can overfit to training data. Attention [dropout](/dropout-eng.html) (randomly zeroing attention weights) helps.
 
 ### Residual Connections
-Modern attention includes residual connections:
+Modern attention includes [residual connections](/residual-connections-eng.html):
 ```
 output = Attention(input) + input
 ```
@@ -259,7 +259,7 @@ output = LayerNorm(Attention(LayerNorm(input)) + input)
 
 ## Conclusion
 
-Attention mechanisms transformed deep learning for NLP by eliminating the information bottleneck of fixed context vectors. By learning to focus on relevant information, models dramatically improved performance on translation, summarization, and virtually all sequence tasks.
+Attention mechanisms transformed deep learning for NLP by eliminating the information bottleneck of fixed context vectors. By learning to focus on relevant information, models dramatically improved performance on translation, [summarization](/text-summarization-eng.html), and virtually all sequence tasks.
 
-The elegance of attention—computing a learned weighted average—hides profound implications. It shows that models can learn what to focus on, solving the hard problem of relevance. The path from seq2seq models with attention to transformers with multi-head self-attention demonstrates that this core idea—"letting models pay attention"—was so powerful that it became central to modern AI. Understanding attention is essential for understanding modern NLP and large language models.
+The elegance of attention—computing a learned weighted average—hides profound implications. It shows that models can learn what to focus on, solving the hard problem of relevance. The path from [seq2seq](/seq2seq-eng.html) models with attention to [transformers](/llm-eng.html) with multi-head [self-attention](/self-attention-eng.html) demonstrates that this core idea—"letting models pay attention"—was so powerful that it became central to modern AI. Understanding attention is essential for understanding modern NLP and [large language models](/llm-eng.html).
 

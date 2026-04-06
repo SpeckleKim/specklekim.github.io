@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Decision trees are fundamental supervised learning algorithms that recursively partition feature space to make predictions. They work by asking simple yes/no questions about features, creating a tree-like model of decisions. Random forests extend this by combining multiple trees to reduce overfitting and improve generalization.
+Decision trees are fundamental [supervised learning](/supervised-learning-eng.html) algorithms that recursively partition feature space to make predictions. They work by asking simple yes/no questions about features, creating a tree-like model of decisions. Random forests extend this by combining multiple trees to reduce overfitting and improve generalization.
 
 ## Decision Tree Construction
 
@@ -24,20 +24,20 @@ A decision tree grows from top to bottom (top-down induction). At each node, we 
 
 ### Information Gain
 
-Information gain measures how much a split reduces uncertainty. It's calculated as the difference between parent node entropy and weighted average of children entropy.
+Information gain measures how much a split reduces uncertainty. It's calculated as the difference between parent node [entropy](/information-theory-eng.html) and weighted average of children entropy.
 
 **Formula:**
 ```
 Information Gain = H(Parent) - Σ(|Child|/|Parent|) × H(Child)
 ```
 
-Where H is entropy: `H = -Σ p_i × log₂(p_i)`
+Where H is [entropy](/information-theory-eng.html): `H = -Σ p_i × log₂(p_i)`
 
 Splits with higher information gain are preferred because they create more pure (homogeneous) child nodes.
 
 ## Gini Impurity
 
-Gini impurity is an alternative to entropy. It measures the probability of incorrectly classifying a random sample if we assigned a label randomly according to class distribution.
+Gini impurity is an alternative to [entropy](/information-theory-eng.html). It measures the [probability](/probability-eng.html) of incorrectly classifying a random sample if we assigned a label randomly according to class distribution.
 
 **Formula:**
 ```
@@ -138,4 +138,4 @@ Features that frequently provide large information gains rank higher. This helps
 
 ## Summary
 
-Decision trees provide an intuitive, interpretable foundation for understanding data. Random forests dramatically improve their performance through ensemble learning, decorrelation, and bootstrap sampling. They remain among the most practical and effective algorithms for tabular data across industry applications.
+Decision trees provide an intuitive, interpretable foundation for understanding data. Random forests dramatically improve their performance through [ensemble learning](/ensemble-methods-eng.html), decorrelation, and bootstrap sampling. They remain among the most practical and effective algorithms for tabular data across industry applications.

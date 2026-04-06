@@ -56,20 +56,20 @@ Dilated convolutions enable large receptive fields without computational explosi
 
 ## Tacotron and Sequence-to-Sequence Models
 
-Tacotron (2017) introduced sequence-to-sequence modeling for TTS:
+Tacotron (2017) introduced [sequence-to-sequence](/seq2seq-eng.html) modeling for TTS:
 
 **Architecture:**
 - Encoder: Processes text characters into representations
-- Attention mechanism: Aligns text characters to acoustic frames
+- [Attention mechanism](/attention-mechanism-eng.html): Aligns text characters to acoustic frames
 - Decoder: Generates mel-spectrogram frame-by-frame
 - Vocoder: Converts mel-spectrogram to waveform
 
-The attention mechanism enables automatic alignment between text and speech, eliminating need for forced alignment.
+The [attention mechanism](/attention-mechanism-eng.html) enables automatic alignment between text and speech, eliminating need for forced alignment.
 
 **Tacotron 2** improved upon the original by:
 - Using pre-trained character embeddings
-- Improved attention mechanisms (location-sensitive attention)
-- Zoneout regularization for better training
+- Improved [attention mechanisms](/attention-mechanism-eng.html) (location-sensitive attention)
+- Zoneout [regularization](/regularization-eng.html) for better training
 - Higher quality mel-spectrogram generation
 
 The two-stage pipeline (Tacotron + Vocoder) became standard for neural TTS.
@@ -78,11 +78,11 @@ The two-stage pipeline (Tacotron + Vocoder) became standard for neural TTS.
 
 FastSpeech (2019) replaced autoregressive generation with feed-forward networks:
 
-**Key Insight:** Speech synthesis is a sequence-to-sequence task that need not be autoregressive. Predicting all outputs in parallel is much faster.
+**Key Insight:** Speech synthesis is a [sequence-to-sequence](/seq2seq-eng.html) task that need not be autoregressive. Predicting all outputs in parallel is much faster.
 
 **Innovations:**
 - Length regulator: Controls duration of each phoneme
-- Feed-forward transformer: Predicts mel-spectrogram in parallel
+- Feed-forward [transformer](/llm-eng.html): Predicts mel-spectrogram in parallel
 - Fully parallel generation: All frames generated simultaneously
 
 **Benefits:**
@@ -99,16 +99,16 @@ Converting mel-spectrograms to raw waveforms requires neural vocoders:
 
 **WaveGlow:** Glow-based architecture for fast, high-quality vocoding.
 
-**HiFi-GAN:** GAN-based vocoder with adversarial training, producing extremely high quality (24kHz) audio efficiently.
+**HiFi-GAN:** [GAN](/gan-eng.html)-based vocoder with adversarial training, producing extremely high quality (24kHz) audio efficiently.
 
-**Glow-TTS:** Combines normalizing flows with TTS for improved generation speed and quality.
+**Glow-TTS:** Combines [normalizing flows](/flow-models-eng.html) with TTS for improved generation speed and quality.
 
 ## VALL-E: Zero-Shot Voice Cloning
 
 Microsoft's VALL-E (2023) represents a breakthrough in zero-shot voice cloning:
 
 **Architecture:**
-- Transformer-based encoder-decoder
+- [Transformer](/llm-eng.html)-based encoder-decoder
 - Operates on audio tokens from quantized audio codes
 - Conditions generation on reference voice samples
 
@@ -211,7 +211,7 @@ Benefits:
 
 **Streaming Generation:** Generating speech progressively for lower latency
 
-**Singing Synthesis:** Extending TTS to music generation
+**Singing Synthesis:** Extending TTS to [music generation](/music-generation-eng.html)
 
 **Accent and Dialect Control:** Fine-grained prosodic control
 

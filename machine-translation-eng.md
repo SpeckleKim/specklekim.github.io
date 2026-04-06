@@ -45,7 +45,7 @@ Statistical MT dominated the 2000s-2010s. It learns translation patterns from pa
 
 **Alignment Model**: Identifies word correspondences between source and target, capturing which source words align to which target words.
 
-**Decoding**: Searches for the target sequence maximizing P(target | source). Uses beam search due to computational complexity.
+**Decoding**: Searches for the target sequence maximizing P(target | source). Uses [beam search](/decoding-strategies-eng.html) due to computational complexity.
 
 **Advantages:**
 - Reduces human effort compared to rule-based MT
@@ -55,12 +55,12 @@ Statistical MT dominated the 2000s-2010s. It learns translation patterns from pa
 **Disadvantages:**
 - Still limited by explicit linguistic knowledge (separate language and translation models)
 - Struggles with long-distance dependencies and reordering
-- Requires careful feature engineering
+- Requires careful [feature engineering](/feature-engineering-eng.html)
 - Translation quality plateaus with more data
 
 ## Neural Machine Translation (NMT)
 
-Neural Machine Translation, introduced around 2014, uses deep neural networks to model translation end-to-end. The dominant architecture is encoder-decoder with attention.
+Neural Machine Translation, introduced around 2014, uses deep [neural networks](/neural-eng.html) to model translation end-to-end. The dominant architecture is encoder-decoder with attention.
 
 **Sequence-to-Sequence + Attention:**
 
@@ -68,22 +68,22 @@ Neural Machine Translation, introduced around 2014, uses deep neural networks to
 2. **Attention Mechanism**: Dynamically focuses on relevant source tokens when generating each target token
 3. **Decoder**: Another LSTM/GRU generates target sentence token-by-token, using attention-weighted source context
 
-The attention mechanism was crucial—it allows the decoder to "look back" at source words instead of compressing all source information into a single vector.
+The [attention mechanism](/attention-mechanism-eng.html) was crucial—it allows the decoder to "look back" at source words instead of compressing all source information into a single vector.
 
 **Advantages:**
 - End-to-end learning; no separate language and translation models
 - Handles long-range dependencies better than phrase-based models
-- Attention mechanism provides interpretability
-- Single neural network replaces complex statistical pipeline
+- [Attention mechanism](/attention-mechanism-eng.html) provides interpretability
+- Single [neural network](/neural-eng.html) replaces complex statistical pipeline
 
 **Limitations:**
 - Still based on RNNs; sequential processing is slow for training and inference
-- Struggles with very long sequences due to vanishing gradients
-- Limited context window due to recurrent architecture
+- Struggles with very long sequences due to [vanishing gradients](/vanishing-gradients-eng.html)
+- Limited [context window](/context-window-eng.html) due to recurrent architecture
 
 ## Transformer-Based Machine Translation
 
-Transformers, introduced in "Attention is All You Need" (2017), revolutionized NMT by replacing recurrence with pure attention mechanisms.
+[Transformers](/llm-eng.html), introduced in "Attention is All You Need" (2017), revolutionized NMT by replacing recurrence with pure [attention mechanisms](/attention-mechanism-eng.html).
 
 **Architecture:**
 - **Multi-Head Attention**: Captures multiple aspects of source-target relationships
@@ -93,23 +93,23 @@ Transformers, introduced in "Attention is All You Need" (2017), revolutionized N
 
 **Advantages:**
 - Parallel processing: unlike RNNs, can process all tokens simultaneously
-- Long-range dependencies: self-attention directly models relationships between distant tokens
+- Long-range dependencies: [self-attention](/self-attention-eng.html) directly models relationships between distant tokens
 - Highly parallelizable: enables efficient training on massive datasets using GPUs/TPUs
 - Interpretable attention: can visualize which source words influenced each target word
 
-Transformer-based systems achieved significant improvements over RNN-based NMT, becoming the de facto standard in industry and research.
+[Transformer](/llm-eng.html)-based systems achieved significant improvements over RNN-based NMT, becoming the de facto standard in industry and research.
 
 ## Multilingual Machine Translation Models
 
 Modern MT systems often support many language pairs with a single model:
 
-**mBART (Multilingual BART)**: A sequence-to-sequence transformer pretrained on denoising objectives across 50+ languages. It can translate between any pair from its 50+ languages.
+**mBART (Multilingual BART)**: A [sequence-to-sequence](/seq2seq-eng.html) [transformer](/llm-eng.html) pretrained on denoising objectives across 50+ languages. It can translate between any pair from its 50+ languages.
 
 **NLLB (No Language Left Behind)**: Meta's model supporting 202 languages (as of 2023). Trained on massive amounts of unlabeled data with self-supervised objectives, enabling translation for low-resource languages.
 
 **Advantages:**
 - Single model serves many language pairs, reducing storage and deployment costs
-- Transfer learning: knowledge from high-resource pairs helps low-resource languages
+- [Transfer learning](/transfer-learning-eng.html): knowledge from high-resource pairs helps low-resource languages
 - Enables zero-shot translation between language pairs without direct parallel data
 
 **Challenges:**
@@ -172,4 +172,4 @@ Future directions:
 
 ## Conclusion
 
-Machine translation has undergone a radical transformation, from labor-intensive rule-based systems to end-to-end neural networks. Modern transformers with multilingual pretraining achieve remarkable quality across diverse language pairs, with metrics like COMET providing better alignment with human judgment. Challenges remain in low-resource languages, domain adaptation, and rare phenomenon handling, but the trajectory is clear: neural approaches continue to improve, and translation technology is becoming increasingly accessible, democratizing cross-language communication globally.
+Machine translation has undergone a radical transformation, from labor-intensive rule-based systems to end-to-end [neural networks](/neural-eng.html). Modern [transformers](/llm-eng.html) with multilingual pretraining achieve remarkable quality across diverse language pairs, with metrics like COMET providing better alignment with human judgment. Challenges remain in low-resource languages, domain adaptation, and rare phenomenon handling, but the trajectory is clear: neural approaches continue to improve, and translation technology is becoming increasingly accessible, democratizing cross-language communication globally.

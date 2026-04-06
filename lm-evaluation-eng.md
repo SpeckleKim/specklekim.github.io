@@ -10,15 +10,15 @@ Evaluating language model quality is fundamental to NLP research and deployment.
 
 ## Perplexity: Information-Theoretic Foundation
 
-Perplexity measures how well a probability model predicts a test set, computed as the exponential of cross-entropy loss. Lower perplexity indicates the model assigns higher probability to observed sequences. For a test set of N tokens, perplexity equals 2^(cross-entropy).
+Perplexity measures how well a [probability](/probability-eng.html) model predicts a test set, computed as the exponential of cross-[entropy](/information-theory-eng.html) loss. Lower perplexity indicates the model assigns higher [probability](/probability-eng.html) to observed sequences. For a test set of N tokens, perplexity equals 2^(cross-entropy).
 
-Perplexity has theoretical elegance: it directly relates to information theory principles. However, it correlates imperfectly with downstream task performance. A model with lower perplexity may perform worse on classification or generation tasks, revealing the gap between language modeling and practical objectives.
+Perplexity has theoretical elegance: it directly relates to [information theory](/information-theory-eng.html) principles. However, it correlates imperfectly with downstream task performance. A model with lower perplexity may perform worse on classification or generation tasks, revealing the gap between language modeling and practical objectives.
 
 ## BLEU Score: Machine Translation Standard
 
 BLEU (Bilingual Evaluation Understudy) measures n-gram overlap between system output and reference translations. For each n-gram size (1-4), BLEU computes precision: the fraction of system n-grams appearing in references. A brevity penalty adjusts for translations that are systematically shorter than references.
 
-BLEU has dominated machine translation evaluation due to simplicity and reproducibility. However, it exhibits notable limitations:
+BLEU has dominated [machine translation](/machine-translation-eng.html) evaluation due to simplicity and reproducibility. However, it exhibits notable limitations:
 
 - Insensitivity to synonymy and paraphrases
 - Reference dependency (single references often insufficient)
@@ -31,7 +31,7 @@ Despite these limitations, BLEU remains widely reported for comparing systems on
 
 ROUGE (Recall-Oriented Understudy for Gisting Evaluation) measures n-gram recall between summaries. ROUGE-N compares n-grams, ROUGE-L uses longest common subsequences (capturing word order), and ROUGE-W incorporates weighted longest common subsequences.
 
-ROUGE-1 and ROUGE-L show stronger correlation with human judgments for summarization than BLEU for translation. However, ROUGE still misses semantic comprehension, capturing surface-level overlap rather than whether summaries convey equivalent information.
+ROUGE-1 and ROUGE-L show stronger correlation with human judgments for [summarization](/text-summarization-eng.html) than BLEU for translation. However, ROUGE still misses semantic comprehension, capturing surface-level overlap rather than whether summaries convey equivalent information.
 
 ## METEOR: Enhanced Alignment-Based Metrics
 
@@ -49,7 +49,7 @@ BERTScore demonstrates superior correlation with human judgment compared to BLEU
 
 BLEURT (Better Language Evaluation Using Ranking Tuples) trains a regression model on human judgment annotations to predict quality directly. The model combines multiple signals: learned representations, reference overlap, language modeling loss, and task-specific features.
 
-BLEURT achieves strong correlation with human judgments across diverse tasks (translation, summarization, question answering). As a learned metric, it reduces metric game-ability compared to hand-crafted metrics but requires substantial labeled data and may not generalize to novel domains.
+BLEURT achieves strong correlation with human judgments across diverse tasks (translation, [summarization](/text-summarization-eng.html), [question answering](/question-answering-eng.html)). As a learned metric, it reduces metric game-ability compared to hand-crafted metrics but requires substantial labeled data and may not generalize to novel domains.
 
 ## Task-Specific Metrics
 
@@ -65,13 +65,13 @@ Different NLP tasks require specialized evaluation:
 
 Comprehensive evaluation requires multiple datasets and tasks:
 
-**GLUE (General Language Understanding Evaluation)** bundles nine English tasks: sentiment analysis, similarity, paraphrase detection, and natural language inference. Models are evaluated by overall performance across tasks.
+**GLUE (General Language Understanding Evaluation)** bundles nine English tasks: [sentiment analysis](/sentiment-analysis-eng.html), similarity, paraphrase detection, and natural language inference. Models are evaluated by overall performance across tasks.
 
-**SuperGLUE** extends GLUE with more challenging tasks for state-of-the-art models: multi-sentence reasoning, coreference resolution, and question answering requiring commonsense reasoning.
+**SuperGLUE** extends GLUE with more challenging tasks for state-of-the-art models: multi-sentence reasoning, coreference resolution, and [question answering](/question-answering-eng.html) requiring commonsense reasoning.
 
 **MMLU (Massive Multitask Language Understanding)** evaluates models on 57,000 questions spanning 57 subjects (science, history, law, medicine). It assesses breadth of knowledge and reasoning across domains.
 
-**HumanEval** evaluates code generation by checking whether generated programs satisfy hidden test cases. It captures functional correctness beyond surface similarity, addressing code-specific requirements.
+**HumanEval** evaluates [code generation](/code-generation-eng.html) by checking whether generated programs satisfy hidden test cases. It captures functional correctness beyond surface similarity, addressing code-specific requirements.
 
 ## Human Evaluation: The Gold Standard
 
@@ -93,7 +93,7 @@ Effective human evaluation requires careful annotation protocols, multiple annot
 
 **Reference dependency**: Metrics relying on human-written references assume references capture valid outputs. Creative generation, multiple valid answers, or novel phrasing receive penalization despite quality.
 
-**LLM-as-judge approaches** use large language models to evaluate text quality, leveraging their broad knowledge and reasoning capabilities. These approaches promise improved correlation with human judgment but introduce new concerns about model bias and hallucination.
+**LLM-as-judge approaches** use [large language models](/llm-eng.html) to evaluate text quality, leveraging their broad knowledge and reasoning capabilities. These approaches promise improved correlation with human judgment but introduce new concerns about model bias and [hallucination](/hallucination-eng.html).
 
 ## Modern Trends
 

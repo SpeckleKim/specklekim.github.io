@@ -6,7 +6,7 @@ lang: en
 
 # Weight Initialization: Setting the Foundation for Deep Learning
 
-Weight initialization is a critical yet often overlooked aspect of training deep neural networks. Poor initialization can lead to slow convergence, stuck gradients, or complete training failure, while proper initialization accelerates learning and improves final model performance.
+Weight initialization is a critical yet often overlooked aspect of training deep [neural networks](/neural-eng.html). Poor initialization can lead to slow convergence, stuck gradients, or complete training failure, while proper initialization accelerates learning and improves final model performance.
 
 ## Why Initialization Matters
 
@@ -14,7 +14,7 @@ Training a deep network from random initialization resembles navigating a comple
 
 1. **Speed of convergence**: Good initialization dramatically reduces training time
 2. **Final model quality**: Affects whether network reaches optimal solution
-3. **Stability**: Prevents gradient explosion or vanishing
+3. **Stability**: Prevents gradient explosion or [vanishing](/vanishing-gradients-eng.html)
 4. **Reproducibility**: Different initializations lead to different solutions for non-convex problems
 
 Without careful initialization, networks may get stuck in poor local minima or fail to train at all.
@@ -39,7 +39,7 @@ Simply drawing from a normal distribution N(0, 1) creates problems in deep netwo
 - **Gradient flow**: Gradients vanish in deep networks
 - **Variance mismatch**: Network output variance changes per layer
 
-Consider a layer: y = σ(Wx + b). If W ~ N(0, 1) and x has variance 1, then y has exploding/vanishing variance depending on layer depth.
+Consider a layer: y = σ(Wx + b). If W ~ N(0, 1) and x has variance 1, then y has exploding/[vanishing](/vanishing-gradients-eng.html) variance depending on layer depth.
 
 ## Xavier/Glorot Initialization
 
@@ -57,7 +57,7 @@ Key idea: Scale initialization variance based on fan-in (n_in) and fan-out (n_ou
 - Variance of pre-activation = 1
 - Maintain backward gradient variance ≈ 1
 
-**Best for**: Sigmoid and tanh activation functions
+**Best for**: Sigmoid and tanh [activation functions](/activation-functions-eng.html)
 
 **Limitation**: Assumes linear activation between layers (approximately true for sigmoid/tanh, not for ReLU)
 
@@ -113,7 +113,7 @@ LSUV fine-tunes initialization after computing through network:
 Advantages:
 - Empirically superior to standard methods
 - Addresses actual variance after nonlinearities
-- Works better across different activation functions
+- Works better across different [activation functions](/activation-functions-eng.html)
 - More expensive (requires forward passes during init)
 
 ## Initialization for Different Activation Functions
@@ -129,17 +129,17 @@ Advantages:
 
 ## Residual Networks and Initialization
 
-For networks with skip connections (ResNets):
+For networks with [skip connections](/residual-connections-eng.html) (ResNets):
 - Standard He initialization still works
-- Skip connections ameliorate vanishing gradient problem
+- [Skip connections](/residual-connections-eng.html) ameliorate [vanishing gradient](/vanishing-gradients-eng.html) problem
 - Allows training of very deep networks
 - But initialization still matters for early training stability
 
 ## Batch Normalization Interaction
 
-With batch normalization:
+With [batch normalization](/batch-normalization-eng.html):
 - Initialization becomes less critical
-- Batch norm absorbs scaling effects
+- [Batch norm](/batch-normalization-eng.html) absorbs scaling effects
 - Can use wider initialization ranges
 - Still good practice to use He or Xavier
 
@@ -149,7 +149,7 @@ Current best practices:
 1. **Use He for ReLU networks**: Default choice for modern architectures
 2. **Use proper scaling**: Don't just use N(0, 1)
 3. **Validate empirically**: Check activation distributions early in training
-4. **Consider architecture**: Transformers, skip connections, normalization layers affect needs
+4. **Consider architecture**: [Transformers](/llm-eng.html), [skip connections](/residual-connections-eng.html), normalization layers affect needs
 5. **Don't overthink it**: Most modern frameworks default to good initialization
 
 ## Common Initialization Mistakes
@@ -157,16 +157,16 @@ Current best practices:
 - Using N(0, 1) without scaling
 - Same initialization for all layers
 - Not adjusting for ReLU vs sigmoid
-- Ignoring batch norm's effects
+- Ignoring [batch norm](/batch-normalization-eng.html)'s effects
 - Initializing biases randomly (usually b = 0)
 - Not understanding the underlying motivation
 
 ## Practical Initialization Checklist
 
 When implementing a new architecture:
-1. Choose activation function(s) used
+1. Choose [activation function](/activation-functions-eng.html)(s) used
 2. Select appropriate initialization method
-3. Run network and check first-layer activation statistics
+3. Run network and check first-layer activation [statistics](/probability-eng.html)
 4. Verify that activations don't explode/vanish
 5. Monitor gradient norms during early training
 6. Adjust if necessary (scale variance, try different method)
@@ -187,6 +187,6 @@ for layer in network:
 
 ## Conclusion
 
-Weight initialization is not just a technical detail—it's foundational to successful deep learning. Xavier and He initialization provide theoretically motivated approaches that prevent common pathologies. Understanding the reasoning behind different initialization schemes—accounting for layer depth, activation functions, and network architecture—enables practitioners to make informed choices.
+Weight initialization is not just a technical detail—it's foundational to successful deep learning. Xavier and He initialization provide theoretically motivated approaches that prevent common pathologies. Understanding the reasoning behind different initialization schemes—accounting for layer depth, [activation functions](/activation-functions-eng.html), and network architecture—enables practitioners to make informed choices.
 
-Modern frameworks make good initialization the default, but understanding these principles helps debug training failures and design better architectures. The key insight remains: properly scale random weights based on network structure and activation functions to maintain stable forward and backward information flow.
+Modern frameworks make good initialization the default, but understanding these principles helps debug training failures and design better architectures. The key insight remains: properly scale random weights based on network structure and [activation functions](/activation-functions-eng.html) to maintain stable forward and backward information flow.

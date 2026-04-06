@@ -100,7 +100,7 @@ Decompose weight tensors into smaller factors:
 ### TensorFlow Lite
 
 Google's lightweight inference engine:
-- Converter optimizes models for mobile (quantization, pruning)
+- Converter optimizes models for mobile ([quantization](/quantization-eng.html), pruning)
 - Native support for Android, iOS
 - Supports models from TensorFlow, PyTorch (via ONNX)
 - 3-4x smaller than full TensorFlow
@@ -134,7 +134,7 @@ Apple's on-device ML framework:
 ### MediaPipe
 
 Google's multimedia ML framework:
-- Pre-built solutions: pose detection, hand tracking, object detection
+- Pre-built solutions: pose detection, hand tracking, [object detection](/object-detection-eng.html)
 - Optimized for real-time mobile inference
 - Cross-platform (Android, iOS, web)
 - Highly usable for production
@@ -146,7 +146,7 @@ Google's multimedia ML framework:
 **Apple Neural Engine**: 16-core NPU in M-series, A-series
 - 100x more efficient than CPU for ML
 - Specialized for INT8 operations
-- Often faster than GPU for small models
+- Often faster than [GPU](/gpu-hardware-eng.html) for small models
 
 **Qualcomm Hexagon NPU**: In Snapdragon processors
 - Integer and fixed-point computation
@@ -161,10 +161,10 @@ Google's multimedia ML framework:
 ### Embedded Accelerators
 
 **TPU Lite**: Smaller TPU for edge deployment
-- Better power efficiency than GPU
+- Better power efficiency than [GPU](/gpu-hardware-eng.html)
 - Smaller batch sizes than cloud TPUs
 
-**NVIDIA Jetson**: GPU-based edge computing
+**NVIDIA Jetson**: [GPU](/gpu-hardware-eng.html)-based edge computing
 - Full CUDA support for complex models
 - Overkill for simple inference
 - Good for robotics, autonomous vehicles
@@ -180,9 +180,9 @@ Quantize already-trained model without retraining:
 
 ### Quantization-Aware Training
 
-Simulate quantization during training:
+Simulate [quantization](/quantization-eng.html) during training:
 - Model learns to handle lower precision
-- Better accuracy than post-training quantization
+- Better accuracy than post-training [quantization](/quantization-eng.html)
 - Requires retraining
 
 ### Model Architecture Search for Edge
@@ -190,7 +190,7 @@ Simulate quantization during training:
 AutoML techniques to find edge-optimized architectures:
 - MobileNet, ShuffleNet: designed for mobile
 - EfficientNet: scale compound (width, depth, resolution)
-- MobileViT: vision transformers for mobile
+- MobileViT: [vision transformers](/vision-transformers-eng.html) for mobile
 
 ### Dynamic Input Resolution
 
@@ -204,7 +204,7 @@ Accept variable input sizes:
 Fine-tune models with user data:
 - Adapt to specific user/context
 - Preserve privacy (no uploading user data)
-- Federated learning: train on multiple devices, aggregate updates
+- [Federated learning](/privacy-ai-eng.html): train on multiple devices, aggregate updates
 
 **Challenges**:
 - Limited computational resources
@@ -240,7 +240,7 @@ Fine-tune models with user data:
 
 - How to update models? OTA updates?
 - Version management
-- A/B testing on device
+- [A/B testing](/ab-testing-ml-eng.html) on device
 
 ## Production Examples
 

@@ -8,13 +8,13 @@ lang: en
 
 ## What is Hallucination?
 
-In large language models, **hallucination** refers to the phenomenon where a model generates plausible-sounding but false, fabricated, or ungrounded information. The model produces text that appears coherent and well-formed but doesn't correspond to reality, violates facts, or contradicts provided context.
+In [large language models](/llm-eng.html), **hallucination** refers to the phenomenon where a model generates plausible-sounding but false, fabricated, or ungrounded information. The model produces text that appears coherent and well-formed but doesn't correspond to reality, violates facts, or contradicts provided context.
 
-Unlike a human who knows the limits of their knowledge, LLMs lack explicit reasoning about what they do or don't know. They optimize for prediction probability, not factual accuracy, making hallucination inevitable without careful mitigation.
+Unlike a human who knows the limits of their knowledge, [LLMs](/llm-eng.html) lack explicit reasoning about what they do or don't know. They optimize for prediction [probability](/probability-eng.html), not factual accuracy, making hallucination inevitable without careful mitigation.
 
 ### Why This Matters
 
-Hallucinations undermine trust in AI systems. A model that confidently cites non-existent papers, invents statistics, or claims false biographical details is unreliable for critical applications. Understanding hallucination is essential for responsible deployment.
+Hallucinations undermine trust in AI systems. A model that confidently cites non-existent papers, invents [statistics](/probability-eng.html), or claims false biographical details is unreliable for critical applications. Understanding hallucination is essential for responsible deployment.
 
 ## Types of Hallucination
 
@@ -39,7 +39,7 @@ The model generates text that **cannot be verified or is false** relative to wor
 **Examples:**
 - "Dr. Sarah Chen published a paper on quantum computing in Nature magazine in 2022" (person/paper may not exist)
 - "The capital of Freedonia is New Libertyville" (Freedonia is fictional)
-- "GPT-8 was released in March 2024" (false claim about AI models)
+- "[GPT](/gpt-eng.html)-8 was released in March 2024" (false claim about AI models)
 
 Extrinsic hallucinations are harder to detect because the model isn't explicitly violating context—it's fabricating from broader knowledge gaps or misconceptions.
 
@@ -47,7 +47,7 @@ Extrinsic hallucinations are harder to detect because the model isn't explicitly
 
 ### Training Objective Mismatch
 
-Language models optimize for **next-token prediction probability**, not factual accuracy. The model learns patterns that produce fluent text, but fluency ≠ truth. A coherent sentence about a non-existent entity achieves high probability by statistical patterns without requiring real-world knowledge.
+Language models optimize for **next-token prediction probability**, not factual accuracy. The model learns patterns that produce fluent text, but fluency ≠ truth. A coherent sentence about a non-existent entity achieves high [probability](/probability-eng.html) by statistical patterns without requiring real-world knowledge.
 
 ### Knowledge Gaps and Confusion
 
@@ -162,7 +162,7 @@ Use Natural Language Inference (NLI) models to check if claims in output are ent
 
 ### The Knowledge Problem
 
-Models need broad knowledge to be useful, but broad knowledge includes hallucinations. Constraining knowledge (via RAG) helps but makes models less flexible.
+Models need broad knowledge to be useful, but broad knowledge includes hallucinations. Constraining knowledge (via [RAG](/rag-eng.html)) helps but makes models less flexible.
 
 ### Uncertainty Quantification
 
@@ -170,7 +170,7 @@ Models confidently hallucinate. They don't distinguish "I'm confident and right"
 
 ### Measuring Hallucination
 
-No single metric captures all aspects. Evaluation is often task-specific. A metric for summarization may not work for dialogue, translation, or code generation.
+No single metric captures all aspects. Evaluation is often task-specific. A metric for [summarization](/text-summarization-eng.html) may not work for dialogue, translation, or [code generation](/code-generation-eng.html).
 
 ### The Honesty Gap
 
@@ -178,7 +178,7 @@ Even with fine-tuning, models may hallucinate less but still lack true honesty a
 
 ## Best Practices for Practitioners
 
-1. **Choose the right tool**: If factuality is critical, use RAG with trusted sources rather than relying on model knowledge alone.
+1. **Choose the right tool**: If factuality is critical, use [RAG](/rag-eng.html) with trusted sources rather than relying on model knowledge alone.
 
 2. **Set expectations**: Users should understand models can hallucinate. Appropriate disclaimers matter.
 

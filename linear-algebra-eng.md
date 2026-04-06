@@ -6,13 +6,13 @@ lang: en
 
 # Linear Algebra for AI
 
-Linear algebra is the foundation of machine learning and artificial intelligence. Nearly every ML algorithm, from neural networks to recommendation systems, relies on linear algebra operations. Understanding vectors, matrices, and their transformations is essential for building, training, and optimizing AI models.
+Linear algebra is the foundation of machine learning and [artificial intelligence](/ai-eng.html). Nearly every ML algorithm, from [neural networks](/neural-eng.html) to recommendation systems, relies on linear algebra operations. Understanding vectors, matrices, and their transformations is essential for building, training, and optimizing AI models.
 
 ## Vectors and Matrices
 
 A **vector** is an ordered list of numbers arranged in a column (or row). In AI, vectors represent data points, features, or embeddings. For example, an image can be represented as a vector of pixel intensities.
 
-A **matrix** is a rectangular grid of numbers with rows and columns. Matrices represent transformations, datasets, or weight parameters in neural networks. An m×n matrix has m rows and n columns.
+A **matrix** is a rectangular grid of numbers with rows and columns. Matrices represent transformations, datasets, or weight parameters in [neural networks](/neural-eng.html). An m×n matrix has m rows and n columns.
 
 ```
 Vector v = [3, 1, 4]
@@ -25,7 +25,7 @@ Matrix A = [[1, 2],
 
 **Matrix Addition and Subtraction**: Element-wise operations between matrices of the same dimensions.
 
-**Matrix Multiplication**: The dot product of rows and columns. If A is m×n and B is n×p, then AB is m×p. This is fundamental in neural networks where we multiply input vectors by weight matrices.
+**Matrix Multiplication**: The dot product of rows and columns. If A is m×n and B is n×p, then AB is m×p. This is fundamental in [neural networks](/neural-eng.html) where we multiply input vectors by weight matrices.
 
 **Transpose**: Flipping a matrix across its diagonal. Written as A^T, swapping rows and columns. Essential in many ML formulas and optimization algorithms.
 
@@ -91,7 +91,7 @@ Linear transformations using matrices enable:
 - **Projection**: mapping to lower dimensions
 - **Composition**: chaining multiple transformations
 
-Neural networks learn weight matrices that transform embeddings at each layer, ultimately learning task-relevant representations.
+[Neural networks](/neural-eng.html) learn weight matrices that transform embeddings at each layer, ultimately learning task-relevant representations.
 
 ## Linear Algebra in Neural Networks
 
@@ -99,7 +99,7 @@ Neural networks learn weight matrices that transform embeddings at each layer, u
 
 **Backpropagation**: Computing gradients uses the chain rule and matrix operations. The Jacobian matrix (matrix of partial derivatives) is central to understanding how gradients flow backward.
 
-**Optimization**: Gradient descent updates are linear algebra operations: W ← W - α·∇W, where ∇W is the gradient matrix and α is learning rate.
+**Optimization**: [Gradient descent](/calculus-eng.html) updates are linear algebra operations: W ← W - α·∇W, where ∇W is the gradient matrix and α is [learning rate](/learning-rate-scheduling-eng.html).
 
 ## Why Master Linear Algebra?
 

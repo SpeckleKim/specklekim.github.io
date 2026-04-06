@@ -72,7 +72,7 @@ Where f_i are feature functions that can capture emissions (token→label) and t
 
 A popular and effective approach combines BiLSTM with CRF:
 
-1. **Embedding Layer**: Maps tokens to word embeddings (pretrained or learned)
+1. **Embedding Layer**: Maps tokens to [word embeddings](/word-embeddings-eng.html) (pretrained or learned)
 2. **BiLSTM**: Bidirectional LSTM processes tokens forward and backward, capturing context
 3. **CRF Layer**: Models label sequences with transitions, enforcing valid tag sequences
 
@@ -80,14 +80,14 @@ The BiLSTM learns rich contextual representations while the CRF layer ensures st
 
 ## BERT for Named Entity Recognition
 
-BERT provides contextualized token representations from bidirectional transformers. For NER, the approach is:
+[BERT](/bert-eng.html) provides contextualized token representations from bidirectional [transformers](/llm-eng.html). For NER, the approach is:
 
-1. **Tokenize**: Split text into BERT wordpiece tokens
-2. **Get Representations**: Pass through pretrained BERT layers
-3. **Token Classification**: Add a classification layer on top of BERT token representations
+1. **Tokenize**: Split text into [BERT](/bert-eng.html) wordpiece tokens
+2. **Get Representations**: Pass through pretrained [BERT](/bert-eng.html) layers
+3. **Token Classification**: Add a classification layer on top of [BERT](/bert-eng.html) token representations
 4. **Fine-tune**: Train on NER task labels
 
-BERT's contextualized embeddings naturally handle word boundaries, polysemy, and long-range dependencies better than static embeddings. Fine-tuned BERT models achieve state-of-the-art NER performance, often exceeding 90% F1 on standard benchmarks.
+[BERT](/bert-eng.html)'s contextualized embeddings naturally handle word boundaries, polysemy, and long-range dependencies better than static embeddings. Fine-tuned BERT models achieve state-of-the-art NER performance, often exceeding 90% F1 on standard [benchmarks](/benchmarks-eng.html).
 
 ## spaCy for NER
 
@@ -135,4 +135,4 @@ Entities mentioned in documents can serve as features for classification and ret
 
 ## Conclusion
 
-Named Entity Recognition is a foundational NLP task enabling extraction of structured information from text. From early rule-based and statistical approaches through modern neural architectures, NER has evolved to leverage deep contextualized representations. Contemporary BERT-based and transformer models achieve excellent performance, while practical tools like spaCy provide efficient, production-ready solutions. Understanding NER principles and tools is essential for information extraction, knowledge graph construction, and numerous downstream NLP applications.
+Named Entity Recognition is a foundational NLP task enabling extraction of structured information from text. From early rule-based and statistical approaches through modern neural architectures, NER has evolved to leverage deep contextualized representations. Contemporary [BERT](/bert-eng.html)-based and [transformer](/llm-eng.html) models achieve excellent performance, while practical tools like spaCy provide efficient, production-ready solutions. Understanding NER principles and tools is essential for information extraction, knowledge graph construction, and numerous downstream NLP applications.

@@ -6,7 +6,7 @@ lang: en
 
 # Convex Optimization for AI
 
-Convex optimization is the mathematical backbone of machine learning. From neural network training to support vector machines, optimization problems are central to AI. This guide explores the theory and practical applications of convex optimization.
+Convex optimization is the mathematical backbone of machine learning. From [neural network](/neural-eng.html) training to [support vector machines](/svm-eng.html), optimization problems are central to AI. This guide explores the theory and practical applications of convex optimization.
 
 ## Convex Sets: Foundational Geometry
 
@@ -41,7 +41,7 @@ Intuitively, the function lies below any chord connecting two points on its grap
 - Norms: ||x||₂, ||x||₁ (L1 and L2 norms)
 - Exponential: f(x) = eᵃˣ
 - Log-sum-exp: f(x) = log(∑ eˣⁱ)
-- Negative entropy: f(x) = ∑ xᵢ log(xᵢ)
+- Negative [entropy](/information-theory-eng.html): f(x) = ∑ xᵢ log(xᵢ)
 
 **Operations preserving convexity:**
 - Non-negative weighted sum: if f, g convex and α, β ≥ 0, then αf + βg is convex
@@ -130,7 +130,7 @@ This enables solving the dual instead, sometimes more computationally efficient.
 
 ## Applications in Support Vector Machines
 
-SVM is a canonical application of convex optimization.
+[SVM](/svm-eng.html) is a canonical application of convex optimization.
 
 **SVM primal problem** (linear case):
 minimize (1/2)||w||² + C∑ξᵢ
@@ -161,7 +161,7 @@ Only a subset (support vectors) determine w, enabling efficient sparse solutions
 **Regularized loss minimization:**
 minimize ∑ loss(yᵢ, fθ(xᵢ)) + λR(θ)
 
-Where R(θ) is a regularization term. This is equivalent to constrained optimization:
+Where R(θ) is a [regularization](/regularization-eng.html) term. This is equivalent to constrained optimization:
 minimize ∑ loss(yᵢ, fθ(xᵢ))
 subject to: ||θ||² ≤ t
 
@@ -211,10 +211,10 @@ Convex optimization assumes:
 1. Convex objective function
 2. Convex feasible set
 
-Many real problems violate these: deep neural network training is highly non-convex. Local minima matter when the landscape is non-convex.
+Many real problems violate these: deep [neural network](/neural-eng.html) training is highly non-convex. Local minima matter when the landscape is non-convex.
 
-However, neural networks often have favorable geometry: many local minima are near global optima. Moreover, modern techniques (normalization, regularization) implicitly enforce structure.
+However, [neural networks](/neural-eng.html) often have favorable geometry: many local minima are near global optima. Moreover, modern techniques (normalization, [regularization](/regularization-eng.html)) implicitly enforce structure.
 
 ## Conclusion
 
-Convex optimization provides a rigorous mathematical framework guaranteeing convergence to global optima under mild conditions. Understanding convex sets, functions, and duality informs algorithm design and problem formulation. From SVMs to federated learning to large-scale ML systems, convex optimization principles underpin successful algorithms. While modern deep learning extends beyond convex problems, convex theory remains foundational for understanding optimization in AI systems.
+Convex optimization provides a rigorous mathematical framework guaranteeing convergence to global optima under mild conditions. Understanding convex sets, functions, and duality informs algorithm design and problem formulation. From SVMs to [federated learning](/privacy-ai-eng.html) to large-scale ML systems, convex optimization principles underpin successful algorithms. While modern deep learning extends beyond convex problems, convex theory remains foundational for understanding optimization in AI systems.

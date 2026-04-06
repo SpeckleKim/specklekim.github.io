@@ -121,8 +121,8 @@ they can share the same physical pages!
 ```
 
 Benefits:
-- **Memory efficiency**: 5-10x improvement (60-75% GPU memory savings)
-- **Higher throughput**: Batch more sequences with same GPU memory
+- **Memory efficiency**: 5-10x improvement (60-75% [GPU](/gpu-hardware-eng.html) memory savings)
+- **Higher throughput**: Batch more sequences with same [GPU](/gpu-hardware-eng.html) memory
 - **Reduced latency**: Faster token generation
 - **Prefix sharing**: Reuse computation for common prefixes
 
@@ -162,13 +162,13 @@ Continuous batching (dynamic batching) improves throughput:
 
 **Static batching (traditional):**
 - Wait for all sequences to complete current iteration
-- Idle GPU while waiting for slowest sequence
+- Idle [GPU](/gpu-hardware-eng.html) while waiting for slowest sequence
 - Inefficient for variable-length sequences
 
 **Continuous batching (streaming):**
 - As soon as one sequence completes, remove it and add a new one
 - Never wait for slowest sequence
-- GPU stays highly utilized
+- [GPU](/gpu-hardware-eng.html) stays highly utilized
 
 Implementation strategy:
 ```
@@ -195,19 +195,19 @@ Throughput improvement: 2-4x compared to static batching.
 ### Quantized KV-Cache
 - Store keys/values in int8 or lower precision
 - 50% memory reduction (fp16 → int8)
-- Minimal quality loss with proper quantization
+- Minimal quality loss with proper [quantization](/quantization-eng.html)
 - Reduces memory to bottleneck other components
 
 ## Constraints and Scaling
 
 KV-cache constraints determine model deployment:
 
-1. **Memory ceiling**: Limited GPU memory restricts max batch size
+1. **Memory ceiling**: Limited [GPU](/gpu-hardware-eng.html) memory restricts max batch size
 2. **Latency-throughput trade-off**: More batching → higher throughput but worse latency
 3. **Sequence length limits**: Longer sequences need more cache
 4. **Flash attention limitations**: Even with fast kernels, cache limits throughput
 
-Modern LLM services balance these through:
+Modern [LLM](/llm-eng.html) services balance these through:
 - Smart batching schedules
 - Request queue management
 - Priority scheduling (shorter sequences first)
@@ -215,6 +215,6 @@ Modern LLM services balance these through:
 
 ## Conclusion
 
-KV-cache transforms autoregressive decoding from O(n²) to O(n), making generation practical. Innovations like PagedAttention, continuous batching, and speculative decoding push efficiency further. Understanding cache management is essential for deploying LLMs at scale, predicting inference costs, and optimizing token throughput.
+KV-cache transforms autoregressive decoding from O(n²) to O(n), making generation practical. Innovations like PagedAttention, continuous batching, and speculative decoding push efficiency further. Understanding cache management is essential for deploying [LLMs](/llm-eng.html) at scale, predicting inference costs, and optimizing token throughput.
 
-The difference between naïve and optimized inference can be orders of magnitude in throughput and latency—making KV-cache one of the highest-impact optimizations in modern LLM deployment.
+The difference between naïve and optimized inference can be orders of magnitude in throughput and latency—making KV-cache one of the highest-impact optimizations in modern [LLM](/llm-eng.html) deployment.

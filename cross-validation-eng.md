@@ -77,9 +77,9 @@ Use statistical tests (e.g., paired t-test on fold scores) to determine if diffe
 ### Nested Cross-Validation
 When both selecting hyperparameters AND comparing models, use nested CV to prevent data leakage:
 - **Outer CV** (e.g., 5-fold): For model comparison
-- **Inner CV** (e.g., 5-fold): For hyperparameter tuning within each outer fold
+- **Inner CV** (e.g., 5-fold): For [hyperparameter tuning](/hyperparameter-tuning-eng.html) within each outer fold
 
-The outer folds are completely untouched during hyperparameter optimization, ensuring unbiased comparison.
+The outer folds are completely untouched during [hyperparameter optimization](/hyperparameter-tuning-eng.html), ensuring unbiased comparison.
 
 ## Information Criteria: AIC and BIC
 

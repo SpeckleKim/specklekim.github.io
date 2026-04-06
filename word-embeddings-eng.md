@@ -21,7 +21,7 @@ mouse: [0, 0, 1, 0, 0]
 
 **Limitations:**
 - **Sparsity**: Only one non-zero element; computationally wasteful
-- **High dimensionality**: Vocabulary size determines vector dimension
+- **High dimensionality**: [Vocabulary](/tokenizer-design-eng.html) size determines vector dimension
 - **No semantic information**: Orthogonal vectors mean no similarity signal
 - **Poor generalization**: Can't represent unknown words
 
@@ -55,10 +55,10 @@ Predict: {"on", "the", "cat", "mat"} (from a window of ±2)
 The model learns word vectors that minimize prediction error. Words with similar contexts learn similar vectors.
 
 **Training:**
-1. Take word from corpus with context window (e.g., ±5 words)
-2. Feed word vector through shallow neural network
-3. Predict probability distribution over context words
-4. Backprop to update word vectors
+1. Take word from corpus with [context window](/context-window-eng.html) (e.g., ±5 words)
+2. Feed word vector through shallow [neural network](/neural-eng.html)
+3. Predict [probability](/probability-eng.html) distribution over context words
+4. [Backprop](/backpropagation-eng.html) to update word vectors
 5. Repeat for billions of word-context pairs
 
 **Advantages:**
@@ -86,7 +86,7 @@ CBOW averages context vectors and predicts the center word.
 
 ## GloVe: Global Vectors
 
-Stanford's GloVe combines insights from matrix factorization and local context windows. It explicitly captures global co-occurrence statistics:
+Stanford's GloVe combines insights from matrix factorization and local context windows. It explicitly captures global co-occurrence [statistics](/probability-eng.html):
 
 **Motivation:**
 - Word2Vec uses only local context windows (miss global patterns)
@@ -95,7 +95,7 @@ Stanford's GloVe combines insights from matrix factorization and local context w
 
 **Algorithm:**
 1. Construct word co-occurrence matrix from corpus
-2. Model predicts word-context co-occurrence probability
+2. Model predicts word-context co-occurrence [probability](/probability-eng.html)
 3. Weighted least-squares optimization learns vectors
 4. Vectors capture both global patterns and local context
 
@@ -115,7 +115,7 @@ Each word is represented as sum of its character n-gram vectors.
 
 **Advantages:**
 - Handles morphologically rich languages
-- Better for rare and out-of-vocabulary words
+- Better for rare and out-of-[vocabulary](/tokenizer-design-eng.html) words
 - Captures character-level patterns ("running" and "runner" share morphological substrings)
 
 **Disadvantage:**
@@ -146,7 +146,7 @@ ELMo uses bidirectional LSTM trained on language modeling to generate representa
 
 ## Embedding Visualization
 
-Embeddings can be visualized using dimensionality reduction (t-SNE, UMAP):
+Embeddings can be visualized using [dimensionality reduction](/dimensionality-reduction-eng.html) (t-SNE, UMAP):
 
 ```
 Semantic clusters emerge naturally:
@@ -155,7 +155,7 @@ Semantic clusters emerge naturally:
 - Related concepts group nearby
 ```
 
-This visualization reveals that meaningful semantic structure emerges from simple co-occurrence statistics.
+This visualization reveals that meaningful semantic structure emerges from simple co-occurrence [statistics](/probability-eng.html).
 
 ## Analogy Tasks
 
@@ -198,14 +198,14 @@ Traditional word embeddings have limitations:
 - Rare words get poor representations
 - Don't capture pragmatic meaning
 
-These limitations motivated contextual embeddings (ELMo, BERT), which learn task and context-specific representations.
+These limitations motivated contextual embeddings (ELMo, [BERT](/bert-eng.html)), which learn task and context-specific representations.
 
 ## Modern Embedding Landscape
 
 Contemporary NLP typically doesn't use Word2Vec/GloVe directly; instead:
-- BERT generates contextualized embeddings
-- Sentence-BERT (SBERT) computes semantically meaningful sentence vectors
-- Specialized models for specific domains (clinical BERT, scientific BERT)
+- [BERT](/bert-eng.html) generates contextualized embeddings
+- Sentence-[BERT](/bert-eng.html) (SBERT) computes semantically meaningful sentence vectors
+- Specialized models for specific domains (clinical [BERT](/bert-eng.html), scientific BERT)
 - Retrieval models use embedding space for semantic search
 
 However, Word2Vec and GloVe remain valuable:
@@ -216,5 +216,5 @@ However, Word2Vec and GloVe remain valuable:
 
 ## Conclusion
 
-Word embeddings revolutionized NLP by showing that meaning emerges from distributional patterns in large text corpora. Word2Vec's efficiency and simplicity made embeddings practical at scale, while GloVe and FastText showed how to incorporate global statistics and morphological structure. The progression from one-hot to Word2Vec to contextual embeddings shows NLP's fundamental trajectory: increasingly sophisticated representations that capture richer linguistic information. Understanding embedding-based methods provides essential foundation for modern transformer-based models.
+Word embeddings revolutionized NLP by showing that meaning emerges from distributional patterns in large text corpora. Word2Vec's efficiency and simplicity made embeddings practical at scale, while GloVe and FastText showed how to incorporate global [statistics](/probability-eng.html) and morphological structure. The progression from one-hot to Word2Vec to contextual embeddings shows NLP's fundamental trajectory: increasingly sophisticated representations that capture richer linguistic information. Understanding embedding-based methods provides essential foundation for modern [transformer](/llm-eng.html)-based models.
 

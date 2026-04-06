@@ -8,7 +8,7 @@ lang: en
 
 ## What is Context Window?
 
-The context window, or context length, defines the maximum number of tokens an LLM can process at once. This is one of the most fundamental constraints in modern language models. Early transformers like BERT had context windows of 512 tokens, while GPT-2 introduced 1,024 tokens. Today's models range from 4K to over 1M tokens, but this limitation remains a critical design consideration.
+The context window, or context length, defines the maximum number of tokens an [LLM](/llm-eng.html) can process at once. This is one of the most fundamental constraints in modern language models. Early [transformers](/llm-eng.html) like [BERT](/bert-eng.html) had context windows of 512 tokens, while [GPT](/gpt-eng.html)-2 introduced 1,024 tokens. Today's models range from 4K to over 1M tokens, but this limitation remains a critical design consideration.
 
 ### Why Context Matters
 
@@ -19,13 +19,13 @@ A larger context window enables:
 - **Better summarization**: Capture nuance across longer sequences
 - **Complex reasoning**: Hold more intermediate steps in working memory
 
-However, context size has computational costs. Attention mechanisms scale quadratically (O(n²)) with sequence length, making large context windows expensive during both training and inference.
+However, context size has computational costs. [Attention mechanisms](/attention-mechanism-eng.html) scale quadratically (O(n²)) with sequence length, making large context windows expensive during both training and inference.
 
 ## The Challenge: Why Not Just Increase Context?
 
 ### Computational Complexity
 
-Standard transformer attention requires computing similarity scores between all pairs of tokens. For a 1M token context, this means roughly 10^12 operations per attention head—computationally prohibitive on consumer hardware. This O(n²) scaling is the fundamental bottleneck.
+Standard [transformer](/llm-eng.html) attention requires computing similarity scores between all pairs of tokens. For a 1M token context, this means roughly 10^12 operations per attention head—computationally prohibitive on consumer hardware. This O(n²) scaling is the fundamental bottleneck.
 
 ### Training Constraints
 
@@ -33,7 +33,7 @@ Most models train with shorter contexts (2K-4K tokens) due to memory and time li
 
 ### Position Interpolation Problem
 
-Transformers learn absolute positional embeddings during training. When you try to extend context beyond training length, models encounter positions they've never seen. Naively extending causes catastrophic performance drops.
+[Transformers](/llm-eng.html) learn absolute [positional embeddings](/positional-encoding-eng.html) during training. When you try to extend context beyond training length, models encounter positions they've never seen. Naively extending causes catastrophic performance drops.
 
 ## Scaling Techniques
 
@@ -43,7 +43,7 @@ RoPE encodes positions as rotation angles in complex space, allowing smoother ex
 
 ### Attention Variants
 
-**Linear Attention**: Approximates standard attention with linear complexity (O(n)) by using kernelized functions or recurrent formulations. Models like Mamba and Liquid Transformers explore this direction.
+**Linear Attention**: Approximates standard attention with linear complexity (O(n)) by using kernelized functions or recurrent formulations. Models like Mamba and Liquid [Transformers](/llm-eng.html) explore this direction.
 
 **Sparse Attention**: Only compute attention between nearby tokens and global tokens (Longformer, BigBird). A token at position i attends to positions i-w to i+w (local window) plus select global tokens.
 
@@ -76,7 +76,7 @@ This happens because:
 
 Mitigation strategies:
 - Place most important information first or last
-- Use retrieval augmentation (RAG) to select only relevant documents
+- Use retrieval augmentation ([RAG](/rag-eng.html)) to select only relevant documents
 - Implement hierarchical processing with summaries
 - Tune attention through instruction following
 
@@ -94,13 +94,13 @@ When using long-context models:
 
 - **Inference speed**: Long contexts slow down token generation linearly or worse
 - **Cost**: Pricing proportional to context length makes long contexts expensive
-- **Hardware requirements**: Even inference needs substantial GPU memory for multi-100K contexts
+- **Hardware requirements**: Even inference needs substantial [GPU](/gpu-hardware-eng.html) memory for multi-100K contexts
 
 ## Future Directions
 
 Research continues on:
 - **Efficient attention**: Reducing O(n²) scaling through algorithmic innovation
-- **Hierarchical processing**: Multi-level summarization for massive documents
+- **Hierarchical processing**: Multi-level [summarization](/text-summarization-eng.html) for massive documents
 - **Adaptive context**: Models that determine optimal context length per task
 - **Hybrid approaches**: Combining dense and sparse attention intelligently
 

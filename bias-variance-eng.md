@@ -24,8 +24,8 @@ Bias arises from incorrect assumptions about the underlying problem:
 
 **Low-bias models** are flexible enough to capture complex relationships. Examples:
 - High-degree polynomials
-- Deep neural networks
-- Decision trees with many splits
+- Deep [neural networks](/neural-eng.html)
+- [Decision trees](/decision-trees-eng.html) with many splits
 
 ## Variance: Sensitivity to Data
 
@@ -42,9 +42,9 @@ Variance increases when:
 - Overfitting (model too complex for the data)
 
 **High-variance models** fit the training data very closely but fail on new data:
-- Very deep neural networks on small datasets
+- Very deep [neural networks](/neural-eng.html) on small datasets
 - High-degree polynomial fits
-- Decision trees that aren't pruned
+- [Decision trees](/decision-trees-eng.html) that aren't pruned
 - Models with many hyperparameters that are heavily tuned
 
 ## The Decomposition: Total Error
@@ -127,21 +127,21 @@ The optimal complexity is where validation error is minimized.
 ### How to Fix High Bias
 - Increase model complexity
 - Add more features
-- Train longer (for neural networks)
+- Train longer (for [neural networks](/neural-eng.html))
 - Use a more expressive model class
 
 ### How to Fix High Variance
 - Reduce model complexity
 - Collect more training data
-- Apply regularization (L1, L2, dropout)
-- Use ensemble methods
+- Apply [regularization](/regularization-eng.html) (L1, L2, [dropout](/dropout-eng.html))
+- Use [ensemble methods](/ensemble-methods-eng.html)
 - Feature selection to reduce dimensionality
 
 ## The Data Size Effect
 
 Model complexity should scale with dataset size. With limited data, even complex models have high variance because they overfit. With abundant data, complex models can be justified.
 
-This is why transfer learning works: pretraining on large datasets followed by fine-tuning on small datasets reduces variance by starting from low-variance learned representations.
+This is why [transfer learning](/transfer-learning-eng.html) works: pretraining on large datasets followed by fine-tuning on small datasets reduces variance by starting from low-variance learned representations.
 
 ## Example: Polynomial Fitting
 
@@ -155,7 +155,7 @@ The degree-3 polynomial often generalizes best despite not fitting the training 
 
 ## Cross-Validation and the Tradeoff
 
-Cross-validation helps navigate the bias-variance tradeoff by:
+[Cross-validation](/cross-validation-eng.html) helps navigate the bias-variance tradeoff by:
 - **Estimating variance**: If CV fold scores vary widely, your model has high variance
 - **Detecting overfitting**: If training accuracy >> CV accuracy, overfitting (high variance) is occurring
 - **Comparing models**: CV helps identify the complexity level that minimizes total error
@@ -167,6 +167,6 @@ Cross-validation helps navigate the bias-variance tradeoff by:
 3. The optimal model is rarely the one that fits training data best
 4. Validation/test performance is more important than training performance
 5. Match model complexity to data quantity and problem complexity
-6. Regularization is the primary tool for reducing variance without reducing model capacity
+6. [Regularization](/regularization-eng.html) is the primary tool for reducing variance without reducing model capacity
 
 The bias-variance tradeoff explains why "more complex = better" is false in machine learning. The best models balance simplicity and expressiveness.

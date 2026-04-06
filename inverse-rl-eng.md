@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Inverse Reinforcement Learning (IRL) reverses the typical RL problem: given demonstrations of expert behavior, infer the reward function. Rather than hand-engineering reward functions (often difficult, error-prone), IRL learns from human expertise. Applications span autonomous driving, robotic manipulation, and imitation learning.
+Inverse [Reinforcement Learning](/rl-eng.html) (IRL) reverses the typical RL problem: given demonstrations of expert behavior, infer the reward function. Rather than hand-engineering reward functions (often difficult, error-prone), IRL learns from human expertise. Applications span autonomous driving, robotic manipulation, and imitation learning.
 
 ## Problem Formulation
 
@@ -20,7 +20,7 @@ Inverse Reinforcement Learning (IRL) reverses the typical RL problem: given demo
 
 ## Maximum Entropy IRL
 
-**Core Principle:** Among all reward functions consistent with demonstrations, choose maximum entropy policy.
+**Core Principle:** Among all reward functions consistent with demonstrations, choose maximum [entropy](/information-theory-eng.html) policy.
 
 **Intuition:** Don't assume expert is optimizing any single reward function; assume observed actions are randomized among good-enough policies.
 
@@ -83,7 +83,7 @@ min_θ max_D E_expert[log D(τ)] + E_π_θ[log(1-D(τ))]
 
 ## Behavioral Cloning Baseline
 
-**Simplest Approach:** Supervised learning from demonstrations.
+**Simplest Approach:** [Supervised learning](/supervised-learning-eng.html) from demonstrations.
 ```
 min_θ ||π_θ(a|s) - π_expert(a|s)||²
 ```
@@ -144,7 +144,7 @@ min_θ ||π_θ(a|s) - π_expert(a|s)||²
 
 **Bayesian IRL:** Posterior distribution over rewards. Captures ambiguity.
 
-**Deep IRL:** Neural networks learn reward functions directly from raw observations.
+**Deep IRL:** [Neural networks](/neural-eng.html) learn reward functions directly from raw observations.
 
 **Multi-Objective IRL:** Learn multiple competing objectives from demonstrations.
 
@@ -152,7 +152,7 @@ min_θ ||π_θ(a|s) - π_expert(a|s)||²
 
 ## Deep Learning Integration
 
-**DeepIRL:** Using neural networks for reward function:
+**DeepIRL:** Using [neural networks](/neural-eng.html) for reward function:
 ```
 R_θ(s,a) = neural_net_θ(s,a)
 ```
@@ -198,5 +198,5 @@ Learns from high-dimensional observations directly. Enables end-to-end learning.
 
 ## Conclusion
 
-Inverse RL provides framework for learning reward functions from demonstrations, addressing the reward specification problem. Maximum Entropy IRL provides principled approach; GAIL offers practical, efficient learning. These methods enable agents to learn from human expertise, crucial for safety-critical and preference-sensitive applications. As AI systems become more autonomous, learning human values through IRL becomes increasingly important.
+Inverse RL provides framework for learning reward functions from demonstrations, addressing the reward specification problem. Maximum [Entropy](/information-theory-eng.html) IRL provides principled approach; GAIL offers practical, efficient learning. These methods enable agents to learn from human expertise, crucial for safety-critical and preference-sensitive applications. As AI systems become more autonomous, learning human values through IRL becomes increasingly important.
 

@@ -97,9 +97,9 @@ lr(t) = (t / N_warmup) * lr_max,  for t < N_warmup
 Why warmup helps:
 - Allows network to adjust weights with small steps initially
 - Prevents divergence from poor initialization
-- Stabilizes training, especially with batch norm
-- Particularly important for Transformers
-- Common in deep learning with batch normalization
+- Stabilizes training, especially with [batch norm](/batch-normalization-eng.html)
+- Particularly important for [Transformers](/llm-eng.html)
+- Common in deep learning with [batch normalization](/batch-normalization-eng.html)
 
 **Warmup duration**: Typically 5-10% of total training steps
 
@@ -115,14 +115,14 @@ Total: 1 cycle over full training
 
 Implementation details:
 - Momentum inversely varies with learning rate
-- Works with momentum-based optimizers (SGD with momentum, Adam variant)
+- Works with momentum-based [optimizers](/optimizers-eng.html) ([SGD](/optimizers-eng.html) with momentum, [Adam](/optimizers-eng.html) variant)
 - Can use fraction parameter for uneven cycle (e.g., 30% increase, 70% decrease)
 
 Advantages:
 - Excellent empirical results
 - Simple two-phase approach
-- Regularization effect from learning rate variation
-- Reduces need for extensive hyperparameter tuning
+- [Regularization](/regularization-eng.html) effect from learning rate variation
+- Reduces need for extensive [hyperparameter tuning](/hyperparameter-tuning-eng.html)
 
 ## Cyclical Learning Rate
 
@@ -151,7 +151,7 @@ Some schedulers adapt based on training progress:
 
 **Validation-based**: Monitor validation loss, reduce when plateaus
 **Loss-based**: Reduce when training loss stops improving
-**Gradient-based**: Adapt based on gradient statistics
+**Gradient-based**: Adapt based on gradient [statistics](/probability-eng.html)
 
 These require monitoring during training (not just schedule based on time).
 
@@ -223,7 +223,7 @@ When choosing a learning rate schedule:
 | Step Decay | Discrete | Good | Low | CNNs, standard tasks |
 | Exponential | Smooth | Good | Medium | Long training |
 | Cosine | Smooth | Excellent | Medium | Modern deep learning |
-| Warmup+Cosine | Smooth | Excellent | Medium | Transformers, large models |
+| Warmup+Cosine | Smooth | Excellent | Medium | [Transformers](/llm-eng.html), large models |
 | OneCycleLR | Smooth | Excellent | Low | Fast training, small data |
 | Cyclical | Periodic | Good | Medium | Exploration needed |
 | Warm Restarts | Periodic | Good | Medium | Long training, multiple goals |
@@ -232,7 +232,7 @@ When choosing a learning rate schedule:
 
 - **Batch size interaction**: Larger batches often need larger learning rates
 - **Model architecture**: Deeper models may need more careful scheduling
-- **Optimizer choice**: Different optimizers (SGD, Adam) may need different schedules
+- **Optimizer choice**: Different [optimizers](/optimizers-eng.html) ([SGD](/optimizers-eng.html), [Adam](/optimizers-eng.html)) may need different schedules
 - **Data augmentation**: Stronger augmentation may allow higher learning rates
 - **Convergence monitoring**: Track both training and validation metrics
 
@@ -240,7 +240,7 @@ When choosing a learning rate schedule:
 
 - Starting with too high learning rate (will diverge)
 - Not adjusting schedule when changing batch size
-- Using schedule designed for one optimizer with different optimizer
+- Using schedule designed for one [optimizer](/optimizers-eng.html) with different optimizer
 - Not considering warmup for complex architectures
 - Forgetting that schedule affects final model quality, not just convergence
 - Setting learning rate too low (underutilizes training time)
@@ -249,4 +249,4 @@ When choosing a learning rate schedule:
 
 Learning rate scheduling transforms training from a compromise (single rate) into an optimized process. Modern approaches like cosine annealing with warmup have become standard in state-of-the-art deep learning. The key insight is matching the learning rate to training phase: large exploratory steps early, refined smaller steps later.
 
-Whether using classical step decay or contemporary cyclical methods, thoughtful learning rate scheduling is essential for reaching optimal solutions efficiently. Combined with good initialization and regularization, it forms the foundation of successful deep learning training.
+Whether using classical step decay or contemporary cyclical methods, thoughtful learning rate scheduling is essential for reaching optimal solutions efficiently. Combined with good initialization and [regularization](/regularization-eng.html), it forms the foundation of successful deep learning training.

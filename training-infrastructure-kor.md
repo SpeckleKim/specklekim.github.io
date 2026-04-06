@@ -8,15 +8,15 @@ lang: ko
 
 ## 소개
 
-대형 AI 모델 학습은 특화된 인프라가 필요합니다: 분산 GPU 클러스터, 최적화된 네트워킹, 결함 내성, 모니터링. 현대 대형 모델(LLM, 확산 모델)은 수천 개의 GPU가 여러 데이터 센터에서 필요하며, 조정된 학습 및 효율적인 통신이 필요합니다. 인프라 이해는 규모 있는 모델을 학습하는 모든 사람에게 중요합니다.
+대형 AI 모델 학습은 특화된 인프라가 필요합니다: 분산 [GPU](/gpu-hardware-kor.html) 클러스터, 최적화된 네트워킹, 결함 내성, 모니터링. 현대 대형 모델([LLM](/llm-kor.html), [확산 모델](/diffusion-models-kor.html))은 수천 개의 GPU가 여러 데이터 센터에서 필요하며, 조정된 학습 및 효율적인 통신이 필요합니다. 인프라 이해는 규모 있는 모델을 학습하는 모든 사람에게 중요합니다.
 
 ## GPU 클러스터 아키텍처
 
 ### 단일 머신 설정
 
 **일반적인 고성능 머신**:
-- 8x A100 또는 H100 GPU
-- GPU 간 NVLink 상호연결 (A100에서 방향당 425 GB/s)
+- 8x A100 또는 H100 [GPU](/gpu-hardware-kor.html)
+- [GPU](/gpu-hardware-kor.html) 간 NVLink 상호연결 (A100에서 방향당 425 GB/s)
 - 2TB+ CPU RAM
 - 100TB+ NVMe 저장소
 - 이중 10GbE 네트워크 인터페이스
@@ -41,7 +41,7 @@ lang: ko
 
 ### NVLink
 
-NVIDIA의 고대역폭 GPU-대-GPU 연결:
+NVIDIA의 고대역폭 [GPU](/gpu-hardware-kor.html)-대-GPU 연결:
 - A100: 400 GB/s (NVLink 4로 600 GB/s)
 - H100: 900 GB/s
 - 규모 있는 올-리듀스 작업 가능
@@ -67,7 +67,7 @@ NVIDIA의 고대역폭 GPU-대-GPU 연결:
 
 ### PyTorch 분산 데이터 병렬 (DDP)
 
-GPU 전체에서 단순 데이터 병렬성:
+[GPU](/gpu-hardware-kor.html) 전체에서 단순 데이터 병렬성:
 
 ```python
 model = MyModel()
@@ -82,11 +82,11 @@ ddp_model = DistributedDataParallel(model)
 4. 경사 동기화를 위해 올-리듀스
 5. 모델 가중치 동일하게 업데이트
 
-**제한**: 모델이 단일 GPU 메모리에 맞아야 함.
+**제한**: 모델이 단일 [GPU](/gpu-hardware-kor.html) 메모리에 맞아야 함.
 
 ### 텐서 병렬성
 
-모델 파라미터를 GPU 간에 분할:
+모델 파라미터를 [GPU](/gpu-hardware-kor.html) 간에 분할:
 
 ```
 계층 1: [param_split_1][param_split_2][param_split_3]
@@ -99,7 +99,7 @@ ddp_model = DistributedDataParallel(model)
 
 ### 파이프라인 병렬성
 
-모델 계층을 GPU 간에 분할:
+모델 계층을 [GPU](/gpu-hardware-kor.html) 간에 분할:
 
 ```
 GPU1: [계층1, 계층2]
@@ -110,7 +110,7 @@ GPU3: [계층5, 계층6]
 - 매우 깊은 모델에 좋음
 - GPU는 순차적으로 다른 계층 처리
 - 신중한 배칭 전략 필요 (GPipe, Megatron)
-- GPU 유휴 시간 가능성
+- [GPU](/gpu-hardware-kor.html) 유휴 시간 가능성
 
 ### Mixture of Experts (MoE)
 
@@ -215,7 +215,7 @@ N+1 계층의 경사 계산
 
 ### 혼합 인스턴스 유형
 
-다른 GPU 유형 사용:
+다른 [GPU](/gpu-hardware-kor.html) 유형 사용:
 - 덜 요구하는 작업에 이전 A100
 - 최첨단 연구에 최신 H100
 - 시간 당 비용 감소
@@ -238,7 +238,7 @@ N+1 계층의 경사 계산
 
 ### GPU 사용률
 
-실제 GPU 계산 추적:
+실제 [GPU](/gpu-hardware-kor.html) 계산 추적:
 - 이상적: 85-95% 사용률 (항상 계산)
 - 낮은 사용률: 데이터 로딩 또는 동기화의 병목
 - 도구: nvidia-smi, PyTorch 프로파일러
@@ -269,19 +269,19 @@ GPU는 열을 발생:
 
 **AWS**: A100/H100이 있는 EC2 인스턴스, 좋은 스팟 가격
 
-**Google Cloud**: TPU 클러스터 및 GPU 옵션, JAX/TensorFlow와 통합
+**Google Cloud**: TPU 클러스터 및 [GPU](/gpu-hardware-kor.html) 옵션, JAX/TensorFlow와 통합
 
-**Azure**: GPU 클러스터, PyTorch 생태계와 통합
+**Azure**: [GPU](/gpu-hardware-kor.html) 클러스터, PyTorch 생태계와 통합
 
-**Lambda Labs**: GPU 렌탈, 간단한 인터페이스, 실험에 좋음
+**Lambda Labs**: [GPU](/gpu-hardware-kor.html) 렌탈, 간단한 인터페이스, 실험에 좋음
 
 ## 미래 방향
 
 - **포토닉 상호연결**: 전기 InfiniBand를 광학으로 대체
 - **고급 냉각**: 액체 냉각으로 더 높은 밀도 가능
 - **소프트웨어 정의 네트워크**: 더 유연한 통신 패턴
-- **이질적 계산**: 작업별로 최적화된 GPU, TPU, CPU 혼합
+- **이질적 계산**: 작업별로 최적화된 [GPU](/gpu-hardware-kor.html), TPU, CPU 혼합
 
 ## 결론
 
-현대 AI 학습은 알고리즘처럼 심각하게 인프라를 생각해야 합니다. 규모 있는 성공적인 학습은 분산 학습 패턴, 통신 최적화, 결함 내성의 이해가 필요합니다. 모델이 커질수록 인프라는 가능성과 비용 효율성에 점점 더 중요해집니다.
+현대 AI 학습은 알고리즘처럼 심각하게 인프라를 생각해야 합니다. 규모 있는 성공적인 학습은 [분산 학습](/distributed-training-kor.html) 패턴, 통신 최적화, 결함 내성의 이해가 필요합니다. 모델이 커질수록 인프라는 가능성과 비용 효율성에 점점 더 중요해집니다.

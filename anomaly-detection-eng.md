@@ -57,7 +57,7 @@ Anomaly detection is crucial for identifying unusual events, fraudulent activiti
 
 ## One-Class SVM
 
-One-Class SVM finds minimal hypersphere containing majority of data. Points outside hypersphere are anomalies.
+One-Class [SVM](/svm-eng.html) finds minimal hypersphere containing majority of data. Points outside hypersphere are anomalies.
 
 **Core Idea:**
 - Learn decision boundary around normal data
@@ -123,7 +123,7 @@ Autoencoders learn compressed representations of normal data, reconstructing it 
 
 **Advantages:**
 - Handles complex, high-dimensional patterns
-- Learns automatically without manual feature engineering
+- Learns automatically without manual [feature engineering](/feature-engineering-eng.html)
 - Can process sequential data (LSTM autoencoders)
 - Flexible architecture for different data types
 
@@ -138,7 +138,7 @@ Autoencoders learn compressed representations of normal data, reconstructing it 
 **Fraud Detection:**
 - Credit card transactions: detect unusual amounts, merchants, timing
 - Combines multiple signals: location, purchase history, user behavior
-- Often uses ensemble methods combining multiple algorithms
+- Often uses [ensemble methods](/ensemble-methods-eng.html) combining multiple algorithms
 - Real-time detection critical for customer experience
 
 **Manufacturing Quality Control:**
@@ -205,7 +205,7 @@ Autoencoders learn compressed representations of normal data, reconstructing it 
 **Curse of Dimensionality:**
 - Distance metrics become unreliable in high dimensions
 - Many algorithms scale poorly
-- Feature selection or dimensionality reduction helps
+- Feature selection or [dimensionality reduction](/dimensionality-reduction-eng.html) helps
 - Isolation Forest and autoencoders more resilient
 
 **Unlabeled Data:**

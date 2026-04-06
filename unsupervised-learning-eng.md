@@ -6,18 +6,18 @@ lang: en
 
 # Unsupervised Learning: Discovering Patterns Without Labels
 
-Unsupervised learning explores data without predefined labels, aiming to discover hidden structures, patterns, and relationships. Unlike supervised learning where we guide the model with correct answers, unsupervised learning lets data reveal its own story. This is often our first step in understanding a new dataset.
+Unsupervised learning explores data without predefined labels, aiming to discover hidden structures, patterns, and relationships. Unlike [supervised learning](/supervised-learning-eng.html) where we guide the model with correct answers, unsupervised learning lets data reveal its own story. This is often our first step in understanding a new dataset.
 
 ## What is Unsupervised Learning?
 
-Unsupervised learning works with unlabeled data—we have inputs X but no corresponding outputs y. The algorithm discovers inherent patterns, groupings, or representations. It's exploratory by nature, revealing data properties that humans might not have anticipated. Common tasks include clustering similar examples, reducing dimensionality, and finding anomalies.
+Unsupervised learning works with unlabeled data—we have inputs X but no corresponding outputs y. The algorithm discovers inherent patterns, groupings, or representations. It's exploratory by nature, revealing data properties that humans might not have anticipated. Common tasks include [clustering](/clustering-eng.html) similar examples, reducing dimensionality, and finding anomalies.
 
 ### Key Motivation
 Obtaining labels is expensive and time-consuming. Unsupervised learning enables us to extract value from vast amounts of readily available unlabeled data. It also serves as preprocessing for downstream supervised tasks.
 
 ## Clustering: Grouping Similar Data
 
-Clustering partitions data into groups where similar examples cluster together.
+[Clustering](/clustering-eng.html) partitions data into groups where similar examples cluster together.
 
 ### K-Means Clustering
 K-means divides data into k clusters by minimizing within-cluster variance. It iteratively assigns points to the nearest centroid, then recalculates centroids. Simple and scalable, K-means works well on spherical clusters but struggles with non-convex shapes or varying cluster sizes.
@@ -34,7 +34,7 @@ DBSCAN groups points based on density, naturally handling clusters of arbitrary 
 **Challenge:** Sensitive to epsilon (neighborhood radius) and minimum points parameters.
 
 ### Hierarchical Clustering
-Hierarchical clustering builds a tree of nested clusters (dendrogram). Two approaches exist:
+Hierarchical [clustering](/clustering-eng.html) builds a tree of nested clusters (dendrogram). Two approaches exist:
 
 **Agglomerative (bottom-up):** Start with each point as its own cluster, iteratively merge closest clusters. Computationally more expensive but often more interpretable.
 
@@ -46,7 +46,7 @@ Hierarchical clustering builds a tree of nested clusters (dendrogram). Two appro
 
 ## Dimensionality Reduction
 
-Real-world data often has high dimensionality (thousands of features). Dimensionality reduction compresses data while preserving important information, improving visualization and computational efficiency.
+Real-world data often has high dimensionality (thousands of features). [Dimensionality reduction](/dimensionality-reduction-eng.html) compresses data while preserving important information, improving visualization and computational efficiency.
 
 ### Principal Component Analysis (PCA)
 PCA identifies principal components—orthogonal directions capturing maximum variance. By projecting data onto the first few principal components, we reduce dimensionality while retaining most information.
@@ -63,25 +63,25 @@ t-SNE preserves local data structure in lower dimensions, excellent for visualiz
 **Weakness:** Computationally expensive, non-deterministic, doesn't scale to very large datasets well.
 
 ### Autoencoders
-Neural networks with bottleneck architectures learn compressed representations. An encoder compresses input to a latent vector; a decoder reconstructs from this vector. The bottleneck forces the network to capture essential features.
+[Neural networks](/neural-eng.html) with bottleneck architectures learn compressed representations. An encoder compresses input to a latent vector; a decoder reconstructs from this vector. The bottleneck forces the network to capture essential features.
 
 **Flexibility:** Can learn non-linear transformations, applicable to images, text, and more.
 
 ## Density Estimation
 
-Density estimation models the probability distribution of data.
+Density estimation models the [probability](/probability-eng.html) distribution of data.
 
 ### Gaussian Mixture Models (GMM)
 GMM assumes data is generated from a mixture of Gaussian distributions. Each component represents a potential cluster with its own mean and covariance. The EM (Expectation-Maximization) algorithm learns component parameters.
 
-**Use:** Soft clustering (probabilistic assignments), density estimation.
+**Use:** Soft [clustering](/clustering-eng.html) (probabilistic assignments), density estimation.
 
 **Advantage:** Provides uncertainty estimates; more flexible than K-means.
 
 ### Kernel Density Estimation (KDE)
 KDE estimates density by placing a kernel (smooth function) at each data point and summing. It's non-parametric, assuming no specific distribution form.
 
-**Application:** Estimating probability distributions, detecting anomalies.
+**Application:** Estimating [probability](/probability-eng.html) distributions, detecting anomalies.
 
 ## Association Rules and Market Basket Analysis
 
@@ -89,7 +89,7 @@ Association rules discover relationships between items in transactional data. Th
 
 **Metrics:**
 - **Support:** Frequency of an itemset relative to all transactions
-- **Confidence:** Probability of buying item B given item A was bought
+- **Confidence:** [Probability](/probability-eng.html) of buying item B given item A was bought
 - **Lift:** Ratio of observed confidence to expected confidence
 
 **Algorithm:** Apriori algorithm efficiently finds frequent itemsets, generating rules from them.
@@ -98,7 +98,7 @@ Association rules discover relationships between items in transactional data. Th
 
 ## Anomaly Detection
 
-Anomaly detection identifies rare, unusual, or suspicious instances differing from normal behavior. Critical for fraud detection, system monitoring, and quality control.
+[Anomaly detection](/anomaly-detection-eng.html) identifies rare, unusual, or suspicious instances differing from normal behavior. Critical for fraud detection, system monitoring, and quality control.
 
 ### Isolation Forests
 Isolation forests use random feature selection and splitting to isolate anomalies. Anomalies are isolated more quickly (shorter paths) than normal points, making them identifiable.
@@ -111,15 +111,15 @@ LOF compares point density to neighbors' density. Points in low-density regions 
 **Strength:** Detects local anomalies effectively; works on non-uniformly distributed data.
 
 ### One-Class SVM
-One-Class SVM learns a boundary around normal data. Points outside become anomalies.
+One-Class [SVM](/svm-eng.html) learns a boundary around normal data. Points outside become anomalies.
 
 ## Self-Organizing Maps (SOM)
 
-Self-Organizing Maps are neural networks that learn to represent input space on a lower-dimensional map while preserving topological properties. Each neuron corresponds to a position in the map; nearby neurons have similar weight vectors.
+Self-Organizing Maps are [neural networks](/neural-eng.html) that learn to represent input space on a lower-dimensional map while preserving topological properties. Each neuron corresponds to a position in the map; nearby neurons have similar weight vectors.
 
 **Process:** Initialize map neurons randomly, iteratively present data, update winning neuron and neighbors based on input, shrink neighborhood over time.
 
-**Application:** Visualization, clustering, feature extraction.
+**Application:** Visualization, [clustering](/clustering-eng.html), feature extraction.
 
 **Strength:** Preserves topology; useful for visualizing high-dimensional data relationships.
 
@@ -127,7 +127,7 @@ Self-Organizing Maps are neural networks that learn to represent input space on 
 
 **Marketing:** Customer segmentation reveals groups with similar purchasing behavior, enabling targeted campaigns.
 
-**Biology:** Gene expression clustering reveals disease subtypes; protein structure analysis discovers patterns.
+**Biology:** Gene expression [clustering](/clustering-eng.html) reveals disease subtypes; protein structure analysis discovers patterns.
 
 **Image Processing:** Compression, edge detection, feature extraction for downstream tasks.
 
@@ -143,9 +143,9 @@ Self-Organizing Maps are neural networks that learn to represent input space on 
 
 **Parameter Sensitivity:** Many algorithms require choosing parameters (k in K-means, epsilon in DBSCAN) without clear guidance.
 
-**Scalability:** Some algorithms like hierarchical clustering become computationally prohibitive on large datasets.
+**Scalability:** Some algorithms like hierarchical [clustering](/clustering-eng.html) become computationally prohibitive on large datasets.
 
 **Interpretability:** Discovered patterns may not align with human intuition or business needs.
 
-Unsupervised learning is invaluable for exploration, feature engineering, and preprocessing. Combined with supervised learning, it forms a complete ML toolkit for real-world problems.
+Unsupervised learning is invaluable for exploration, [feature engineering](/feature-engineering-eng.html), and preprocessing. Combined with [supervised learning](/supervised-learning-eng.html), it forms a complete ML toolkit for real-world problems.
 

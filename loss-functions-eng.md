@@ -56,7 +56,7 @@ For binary classification:
 
 `BCE = -(1/m) * Σ[y*log(ŷ) + (1-y)*log(1-ŷ)]`
 
-**Characteristics**: Penalizes confident wrong predictions heavily. Natural for probability-based outputs.
+**Characteristics**: Penalizes confident wrong predictions heavily. Natural for [probability](/probability-eng.html)-based outputs.
 
 **Advantages**: Aligns with probabilistic interpretation. Strong gradients far from target.
 
@@ -92,11 +92,11 @@ where γ is a focusing parameter.
 
 **Disadvantages**: Hyperparameter γ to tune. More complex.
 
-**Use case**: Imbalanced datasets. Object detection where background dominates.
+**Use case**: Imbalanced datasets. [Object detection](/object-detection-eng.html) where background dominates.
 
 ## Hinge Loss
 
-Hinge loss is standard for support vector machines and margin-based learning:
+Hinge loss is standard for [support vector machines](/svm-eng.html) and margin-based learning:
 
 `Hinge = (1/m) * Σ max(0, 1 - y_true * y_pred)`
 
@@ -106,7 +106,7 @@ Hinge loss is standard for support vector machines and margin-based learning:
 
 **Disadvantages**: Non-smooth at margin. Not directly probabilistic.
 
-**Use case**: SVM-like problems. Learning with explicit margins.
+**Use case**: [SVM](/svm-eng.html)-like problems. Learning with explicit margins.
 
 ## Contrastive Loss
 
@@ -122,7 +122,7 @@ where d is distance and y indicates if pair is similar.
 
 **Disadvantages**: Requires paired data. Computationally expensive.
 
-**Use case**: Siamese networks. Face recognition. Similarity learning.
+**Use case**: Siamese networks. [Face recognition](/face-recognition-eng.html). Similarity learning.
 
 ## Triplet Loss
 
@@ -140,7 +140,7 @@ Triplet loss compares anchor, positive, and negative examples:
 
 ## CTC Loss (Connectionist Temporal Classification)
 
-CTC loss handles sequence-to-sequence problems where alignment is unknown:
+CTC loss handles [sequence-to-sequence](/seq2seq-eng.html) problems where alignment is unknown:
 
 `CTC = -log(Σ_paths P(path | inputs))`
 
@@ -150,16 +150,16 @@ CTC loss handles sequence-to-sequence problems where alignment is unknown:
 
 **Disadvantages**: Complex to implement. Slower than aligned loss.
 
-**Use case**: Speech recognition. OCR. Tasks where label alignment is unknown.
+**Use case**: Speech recognition. [OCR](/ocr-eng.html). Tasks where label alignment is unknown.
 
 ## Custom Losses
 
 Domain-specific losses can be designed for specialized objectives. Examples include:
 
-- **Dice Loss**: Useful in semantic segmentation with class imbalance
-- **IoU Loss**: Matches evaluation metric in object detection
+- **Dice Loss**: Useful in [semantic segmentation](/image-segmentation-eng.html) with class imbalance
+- **IoU Loss**: Matches evaluation metric in [object detection](/object-detection-eng.html)
 - **Perceptual Loss**: Uses pre-trained networks to measure semantic similarity
-- **Adversarial Loss**: Used in GANs to measure discriminator vs. generator
+- **Adversarial Loss**: Used in [GANs](/gan-eng.html) to measure discriminator vs. generator
 
 **Design principles**: Match loss to evaluation metric when possible. Ensure gradients are informative.
 
@@ -171,14 +171,14 @@ Domain-specific losses can be designed for specialized objectives. Examples incl
 - Custom range: Adjusted MSE/MAE
 
 **Classification**:
-- Binary: Binary cross-entropy
-- Multi-class: Categorical cross-entropy
+- Binary: Binary cross-[entropy](/information-theory-eng.html)
+- Multi-class: Categorical cross-[entropy](/information-theory-eng.html)
 - Imbalanced: Focal loss
 - Metric learning: Contrastive or triplet
 
 **Sequence tasks**:
 - Alignment unknown: CTC loss
-- Word-level: Cross-entropy
+- Word-level: Cross-[entropy](/information-theory-eng.html)
 - Custom alignment: Custom CTC variants
 
 ## Summary

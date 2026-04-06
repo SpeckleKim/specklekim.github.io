@@ -6,7 +6,7 @@ lang: en
 
 # Positional Encoding
 
-Self-attention is permutation-invariant: it treats the input sequence the same regardless of token order. While this property enables parallelization, it means the model must be explicitly told about positions. Positional encoding solves this fundamental challenge by incorporating position information into the sequence representation.
+[Self-attention](/self-attention-eng.html) is permutation-invariant: it treats the input sequence the same regardless of token order. While this property enables parallelization, it means the model must be explicitly told about positions. Positional encoding solves this fundamental challenge by incorporating position information into the sequence representation.
 
 ## Why Position Matters
 
@@ -14,7 +14,7 @@ Consider two sentences with identical tokens:
 - "Dog bites man"
 - "Man bites dog"
 
-Without position information, the model cannot distinguish these sentences. Self-attention alone operates on content, not structure. Position encoding ensures the model learns order-dependent relationships.
+Without position information, the model cannot distinguish these sentences. [Self-attention](/self-attention-eng.html) alone operates on content, not structure. Position encoding ensures the model learns order-dependent relationships.
 
 Key insights:
 1. **Position information is essential**: Not just for language understanding
@@ -23,7 +23,7 @@ Key insights:
 
 ## Sinusoidal Positional Encoding
 
-The original transformer uses sinusoidal functions:
+The original [transformer](/llm-eng.html) uses sinusoidal functions:
 
 ```
 PE(pos, 2i) = sin(pos / 10000^(2i/d_model))
@@ -65,7 +65,7 @@ Advantages:
 - No frequency engineering needed
 
 Disadvantages:
-- Fixed vocabulary: only learn positions up to max_seq_len during training
+- Fixed [vocabulary](/tokenizer-design-eng.html): only learn positions up to max_seq_len during training
 - Cannot extrapolate: fails on longer sequences at test time
 - Memory overhead: additional embedding matrix
 
@@ -86,10 +86,10 @@ Key properties:
 4. **Sparse and efficient**: No additional embeddings to compute
 5. **Interpretable**: Clear relationship between distance and attention
 
-ALiBi has become increasingly popular in modern LLMs because it:
+ALiBi has become increasingly popular in modern [LLMs](/llm-eng.html) because it:
 - Extrapolates naturally to longer sequences
 - Uses less memory
-- Requires no position vocabulary
+- Requires no position [vocabulary](/tokenizer-design-eng.html)
 
 ## Rotary Position Embeddings (RoPE)
 
@@ -112,7 +112,7 @@ Key properties:
 RoPE is now widely adopted in models like LLaMA, because:
 - Excellent length extrapolation properties
 - Mathematically elegant
-- Efficient GPU implementation
+- Efficient [GPU](/gpu-hardware-eng.html) implementation
 - Strong empirical performance
 
 ## Comparing Encoding Methods
@@ -131,7 +131,7 @@ RoPE is now widely adopted in models like LLaMA, because:
 ### During Training
 - Models typically trained on fixed context length (512, 2048, 4096 tokens)
 - Position encodings generated for [0, context_length)
-- Gradient updates only affect context window
+- Gradient updates only affect [context window](/context-window-eng.html)
 
 ### During Inference
 - Fixed position encoding for pre-trained models
@@ -169,6 +169,6 @@ Different strategies:
 
 ## Conclusion
 
-Positional encoding transforms permutation-invariant self-attention into an order-aware mechanism. From sinusoidal functions to learned embeddings to modern RoPE, the field continues exploring better position representations. ALiBi and RoPE represent recent progress: eliminating learnable position embeddings while maintaining or improving extrapolation capabilities.
+Positional encoding transforms permutation-invariant [self-attention](/self-attention-eng.html) into an order-aware mechanism. From sinusoidal functions to learned embeddings to modern RoPE, the field continues exploring better position representations. ALiBi and RoPE represent recent progress: eliminating learnable position embeddings while maintaining or improving extrapolation capabilities.
 
 Choosing appropriate positional encoding is critical for model capability, especially when handling sequences longer than training context. Understanding the trade-offs between simplicity, efficiency, and expressiveness guides informed design decisions.

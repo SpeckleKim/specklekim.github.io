@@ -6,7 +6,7 @@ lang: en
 
 # Sequence-to-Sequence Models: The Foundation of Neural Translation
 
-Sequence-to-sequence (seq2seq) models form the foundation of many contemporary NLP applications. From machine translation to summarization to dialogue systems, seq2seq architectures have become ubiquitous. These models take variable-length input sequences and generate variable-length output sequences, making them flexible and powerful.
+Sequence-to-sequence (seq2seq) models form the foundation of many contemporary NLP applications. From [machine translation](/machine-translation-eng.html) to [summarization](/text-summarization-eng.html) to dialogue systems, seq2seq architectures have become ubiquitous. These models take variable-length input sequences and generate variable-length output sequences, making them flexible and powerful.
 
 ## The Seq2Seq Problem
 
@@ -156,11 +156,11 @@ When generating French "rapide" (quick):
 Attention focuses on English "quick"
 ```
 
-Rather than using only final encoder state, attention allows decoder to "look back" at input tokens weighted by relevance. This will be fully explored in the attention mechanism article.
+Rather than using only final encoder state, attention allows decoder to "look back" at input tokens weighted by relevance. This will be fully explored in the [attention mechanism](/attention-mechanism-eng.html) article.
 
 ## Beam Search Decoding
 
-At test time, greedy decoding (always selecting highest probability token) is suboptimal:
+At test time, greedy decoding (always selecting highest [probability](/probability-eng.html) token) is suboptimal:
 
 ```
 Greedy might select: "The cat is..."
@@ -168,7 +168,7 @@ Better solution:     "A cat is..."
 But greedy locked in "The" at step 1
 ```
 
-Beam search maintains multiple hypotheses:
+[Beam search](/decoding-strategies-eng.html) maintains multiple hypotheses:
 
 ```
 Step 1: Keep top-k=3 hypotheses
@@ -187,7 +187,7 @@ Beam size tradeoff:
 
 ### Machine Translation
 
-The original motivation for seq2seq. Neural machine translation (NMT) dramatically outperformed phrase-based statistical approaches.
+The original motivation for seq2seq. Neural [machine translation](/machine-translation-eng.html) (NMT) dramatically outperformed phrase-based statistical approaches.
 
 ```
 Input (English):  "The meeting is scheduled for tomorrow."
@@ -196,7 +196,7 @@ Output (Spanish): "La reunión está programada para mañana."
 
 ### Abstractive Summarization
 
-Summarization as sequence-to-sequence task:
+[Summarization](/text-summarization-eng.html) as sequence-to-sequence task:
 
 ```
 Input: Full article (hundreds of tokens)
@@ -246,19 +246,19 @@ Modern variants improve basic seq2seq:
 4. **Training inefficiency**: Cannot parallelize at input level (sequential RNN processing)
 5. **Context fragility**: Small changes in input can dramatically alter output
 
-These limitations motivated attention mechanisms and eventually led to transformer architectures.
+These limitations motivated [attention mechanisms](/attention-mechanism-eng.html) and eventually led to [transformer](/llm-eng.html) architectures.
 
 ## Historical Impact
 
 Seq2seq models (with attention) dominated NLP from 2014-2018. They achieved:
-- Breakthrough performance on machine translation
-- State-of-the-art results on summarization
-- Strong baselines for question answering
+- Breakthrough performance on [machine translation](/machine-translation-eng.html)
+- State-of-the-art results on [summarization](/text-summarization-eng.html)
+- Strong baselines for [question answering](/question-answering-eng.html)
 - Foundation for modern dialogue systems
 
-The architecture proved so flexible that it inspired transformer-based variants and remains foundational to understanding modern NLP architectures.
+The architecture proved so flexible that it inspired [transformer](/llm-eng.html)-based variants and remains foundational to understanding modern NLP architectures.
 
 ## Conclusion
 
-Sequence-to-sequence models solved a fundamental problem: how to process variable-length inputs to variable-length outputs using neural networks. The encoder-decoder framework, while challenged by transformers for some tasks, remains conceptually central to understanding generative NLP. Teacher forcing, beam search, and attention mechanisms are crucial techniques emerging from seq2seq research. Contemporary models build on these foundations, even if specific RNN-based seq2seq architectures are less common in 2024. Understanding seq2seq is essential for grasping modern NLP and generative AI.
+Sequence-to-sequence models solved a fundamental problem: how to process variable-length inputs to variable-length outputs using [neural networks](/neural-eng.html). The encoder-decoder framework, while challenged by [transformers](/llm-eng.html) for some tasks, remains conceptually central to understanding generative NLP. Teacher forcing, [beam search](/decoding-strategies-eng.html), and [attention mechanisms](/attention-mechanism-eng.html) are crucial techniques emerging from seq2seq research. Contemporary models build on these foundations, even if specific RNN-based seq2seq architectures are less common in 2024. Understanding seq2seq is essential for grasping modern NLP and generative AI.
 

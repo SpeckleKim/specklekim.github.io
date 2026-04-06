@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Q-Learning is a foundational model-free reinforcement learning algorithm learning optimal action values without requiring environment model. Deep Q-Networks extend this to high-dimensional state spaces through neural networks. Both remain highly influential in practical RL applications.
+Q-Learning is a foundational model-free [reinforcement learning](/rl-eng.html) algorithm learning optimal action values without requiring environment model. Deep Q-Networks extend this to high-dimensional state spaces through [neural networks](/neural-eng.html). Both remain highly influential in practical RL applications.
 
 ## Q-Values and Q-Tables
 
@@ -54,7 +54,7 @@ Separate behavior policy (exploration) from target policy (greedy). Enables lear
 
 ## Experience Replay
 
-**Problem:** Sequential experiences are highly correlated, violating i.i.d. assumption of supervised learning.
+**Problem:** Sequential experiences are highly correlated, violating i.i.d. assumption of [supervised learning](/supervised-learning-eng.html).
 
 **Solution:** Store transitions in replay buffer, sample minibatches for updates:
 
@@ -133,7 +133,7 @@ Significantly outperforms vanilla DQN.
 
 ## Exploration vs Exploitation
 
-**ε-Greedy:** Take random action with probability ε, else greedy.
+**ε-Greedy:** Take random action with [probability](/probability-eng.html) ε, else greedy.
 - Simple, effective for many problems
 - ε-decay: Decrease ε over time for more exploitation
 
@@ -145,7 +145,7 @@ Significantly outperforms vanilla DQN.
 ## Practical Considerations
 
 **Hyperparameters:**
-- Learning rate α: Controls update step size
+- [Learning rate](/learning-rate-scheduling-eng.html) α: Controls update step size
 - Discount γ: Weights future vs immediate rewards
 - Replay buffer size: Memory for past experiences
 - Target network update frequency
@@ -174,5 +174,5 @@ Significantly outperforms vanilla DQN.
 
 ## Conclusion
 
-Q-Learning provides foundation for model-free RL. DQN successfully scaled Q-Learning to high-dimensional states through neural networks and stabilization techniques. Double DQN and Dueling DQN addressed specific issues. Rainbow integrated multiple improvements into unified architecture. These methods established deep RL and remain influential despite newer policy gradient methods.
+Q-Learning provides foundation for model-free RL. DQN successfully scaled Q-Learning to high-dimensional states through [neural networks](/neural-eng.html) and stabilization techniques. Double DQN and Dueling DQN addressed specific issues. Rainbow integrated multiple improvements into unified architecture. These methods established deep RL and remain influential despite newer [policy gradient methods](/policy-gradient-eng.html).
 

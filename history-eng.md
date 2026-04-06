@@ -24,11 +24,11 @@ Turing's paper also introduced:
 
 ### Early Foundations (1943-1955)
 - **McCulloch & Pitts (1943)**: Created the first artificial neuron model
-- **Donald Hebb (1949)**: Proposed learning rules for neural networks
-- **SNARC (1951)**: First neural network computer using 3,000 vacuum tubes
+- **Donald Hebb (1949)**: Proposed learning rules for [neural networks](/neural-eng.html)
+- **SNARC (1951)**: First [neural network](/neural-eng.html) computer using 3,000 vacuum tubes
 - **Dartmouth Workshop (1956)**: Official birth of AI as a field
 
-The Dartmouth Summer Research Project brought together pioneers including Marvin Minsky, John McCarthy, Claude Shannon, and Nathaniel Rochester. McCarthy coined the term "Artificial Intelligence" at this workshop, and the group optimistically believed human-level AI might be achieved within a generation.
+The Dartmouth Summer Research Project brought together pioneers including Marvin Minsky, John McCarthy, Claude Shannon, and Nathaniel Rochester. McCarthy coined the term "[Artificial Intelligence](/ai-eng.html)" at this workshop, and the group optimistically believed human-level AI might be achieved within a generation.
 
 ## Early Enthusiasm and First AI Winter (1960s-1970s)
 
@@ -43,7 +43,7 @@ Following Turing's vision, researchers demonstrated that machines could accompli
 
 ### Microworlds and Limitations
 AI researchers focused on restricted domains where they could achieve success:
-- **SAINT**: Solved calculus integration problems
+- **SAINT**: Solved [calculus](/calculus-eng.html) integration problems
 - **ANALOGY**: Solved geometric analogy problems
 - **STUDENT**: Solved algebra word problems
 - **Blocks World**: Classic domain for robotics and vision
@@ -51,11 +51,11 @@ AI researchers focused on restricted domains where they could achieve success:
 ### The First AI Winter (1966-1973)
 Optimism gave way to disappointment as researchers encountered fundamental barriers:
 
-**Machine Translation Failure**: Early machine translation projects failed catastrophically. Translating "time flies like an arrow" requires understanding concepts and context that simple algorithms couldn't access.
+**Machine Translation Failure**: Early [machine translation](/machine-translation-eng.html) projects failed catastrophically. Translating "time flies like an arrow" requires understanding concepts and context that simple algorithms couldn't access.
 
 **Combinatorial Explosion**: AI programs explored solution spaces exponentially, rendering them impractical for larger problems. What worked in microworlds failed in the real world.
 
-**Perceptrons Limitation**: Marvin Minsky and Seymour Papert's 1969 book "Perceptrons" proved that single-layer neural networks couldn't solve certain fundamental problems, dampening neural network research for nearly two decades.
+**Perceptrons Limitation**: Marvin Minsky and Seymour Papert's 1969 book "Perceptrons" proved that single-layer [neural networks](/neural-eng.html) couldn't solve certain fundamental problems, dampening [neural network](/neural-eng.html) research for nearly two decades.
 
 **Unfulfilled Promises**: Overoptimistic predictions about AI timelines proved wrong, leading to funding cuts and reduced research interest.
 
@@ -86,8 +86,8 @@ Expert systems proved inflexible and expensive to maintain. Knowledge bases coul
 The field shifted from rule-based to data-driven approaches:
 
 - **Support Vector Machines (SVMs)**: Theoretical foundations and practical algorithms emerged
-- **Ensemble Methods**: Random forests and boosting achieved superior performance
-- **Probabilistic Models**: Bayesian networks and Hidden Markov Models for reasoning under uncertainty
+- **Ensemble Methods**: [Random forests](/decision-trees-eng.html) and boosting achieved superior performance
+- **Probabilistic Models**: [Bayesian](/bayesian-inference-eng.html) networks and Hidden Markov Models for reasoning under uncertainty
 
 ### Speech Recognition
 Hidden Markov Models transformed speech recognition from fragile ad hoc systems to robust statistical models that achieved commercial success.
@@ -95,50 +95,50 @@ Hidden Markov Models transformed speech recognition from fragile ad hoc systems 
 ### The Internet and Big Data
 Web-scale data provided unprecedented training opportunities:
 - **Search Engines**: Google, Yahoo used machine learning for ranking and recommendation
-- **Spam Filtering**: Bayesian classifiers effectively combated email spam
+- **Spam Filtering**: [Bayesian](/bayesian-inference-eng.html) classifiers effectively combated email spam
 - **Recommendation Systems**: Netflix, Amazon, and others deployed collaborative filtering
 
 ### Neural Networks Return (1986-1995)
-Backpropagation, rediscovered independently by multiple researchers, enabled training deeper networks. Geoffrey Hinton's work on deep belief networks hinted at what was possible with scale.
+[Backpropagation](/backpropagation-eng.html), rediscovered independently by multiple researchers, enabled training deeper networks. Geoffrey Hinton's work on deep belief networks hinted at what was possible with scale.
 
 ## Deep Learning Revolution (2012-2020)
 
 ### AlexNet and ImageNet (2012)
-Yann LeCun, Geoffrey Hinton, and Yoshua Bengio's deep convolutional neural network (AlexNet) achieved unprecedented performance in the ImageNet competition, dramatically outperforming traditional computer vision methods.
+Yann LeCun, Geoffrey Hinton, and Yoshua Bengio's deep [convolutional neural network](/cnn-deep-dive-eng.html) (AlexNet) achieved unprecedented performance in the ImageNet competition, dramatically outperforming traditional [computer vision](/cv-eng.html) methods.
 
 **Impact:**
 - Demonstrated that deep learning with GPUs could scale to solve real problems
 - Sparked decades of deep learning research
-- Transformed computer vision from engineered features to learned representations
+- Transformed [computer vision](/cv-eng.html) from engineered features to learned representations
 
 ### Breakthrough Years (2012-2016)
 - **VGGNet (2014)**: Deeper architectures yielded better results
-- **ResNet (2015)**: Skip connections enabled training even deeper networks (152+ layers)
-- **AlphaGo (2016)**: DeepMind's deep reinforcement learning defeated world champion Lee Sedol at Go, capturing global attention
+- **ResNet (2015)**: [Skip connections](/residual-connections-eng.html) enabled training even deeper networks (152+ layers)
+- **AlphaGo (2016)**: DeepMind's deep [reinforcement learning](/rl-eng.html) defeated world champion Lee Sedol at Go, capturing global attention
 
 ### Speech and Language (2011-2017)
-- **Deep Speech (2014)**: Deep neural networks achieved human-level speech recognition
-- **Word2Vec (2013)**: Showed that neural networks could learn meaningful word representations
-- **Sequence-to-Sequence Models (2014)**: Enabled machine translation using neural networks
+- **Deep Speech (2014)**: Deep [neural networks](/neural-eng.html) achieved human-level speech recognition
+- **Word2Vec (2013)**: Showed that [neural networks](/neural-eng.html) could learn meaningful word representations
+- **Sequence-to-Sequence Models (2014)**: Enabled [machine translation](/machine-translation-eng.html) using [neural networks](/neural-eng.html)
 
 ## The Transformer Era and Foundation Models (2017-2023)
 
 ### Transformers (2017)
-"Attention Is All You Need" introduced the Transformer architecture, revolutionizing natural language processing:
+"Attention Is All You Need" introduced the [Transformer](/llm-eng.html) architecture, revolutionizing natural language processing:
 
-**Key Innovation**: Attention mechanisms allowed models to focus on relevant parts of input sequences, enabling parallel processing and scaling to massive models.
+**Key Innovation**: [Attention mechanisms](/attention-mechanism-eng.html) allowed models to focus on relevant parts of input sequences, enabling parallel processing and scaling to massive models.
 
 ### The GPT Progression
 - **BERT (2018)**: Bidirectional representations transformed language understanding tasks
 - **GPT-2 (2019)**: Demonstrated impressive text generation with 1.5 billion parameters
 - **GPT-3 (2020)**: Scaled to 175 billion parameters, showed remarkable few-shot learning abilities
-- **GPT-4 (2023)**: Multimodal capabilities, improved reasoning, broader knowledge
+- **GPT-4 (2023)**: [Multimodal](/multimodal-llm-eng.html) capabilities, improved reasoning, broader knowledge
 
 ### Parallel Breakthroughs
-- **DALL-E (2021)**: Text-to-image generation
+- **DALL-E (2021)**: Text-to-[image generation](/image-generation-eng.html)
 - **AlphaFold (2020)**: Protein structure prediction breakthrough
-- **Codex/GitHub Copilot (2021)**: AI-assisted code generation
-- **Flamingo/GPT-4V (2022-2023)**: Multimodal understanding of images and text
+- **Codex/GitHub Copilot (2021)**: AI-assisted [code generation](/code-generation-eng.html)
+- **Flamingo/GPT-4V (2022-2023)**: [Multimodal](/multimodal-llm-eng.html) understanding of images and text
 
 ### Competing Large Language Models (2023-2025)
 - **Claude (Anthropic, 2023)**: Focus on helpfulness, harmlessness, honesty
@@ -149,21 +149,21 @@ Yann LeCun, Geoffrey Hinton, and Yoshua Bengio's deep convolutional neural netwo
 ## The Current Era: Foundation Models and Regulation (2023-2025)
 
 ### ChatGPT's Impact (2022-2023)
-OpenAI's ChatGPT brought large language models to mainstream consciousness, achieving 100 million users faster than any previous technology. This sparked:
+OpenAI's ChatGPT brought [large language models](/llm-eng.html) to mainstream consciousness, achieving 100 million users faster than any previous technology. This sparked:
 - Widespread public awareness of AI capabilities
-- Serious discussions about AI safety and alignment
+- Serious discussions about [AI safety](/ai-safety-eng.html) and alignment
 - Unprecedented investment in AI startups
-- Calls for AI regulation worldwide
+- Calls for [AI regulation](/ai-regulation-eng.html) worldwide
 
 ### The Generative AI Explosion
 - **Text Generation**: ChatGPT, Claude, Bard, Perplexity for writing and analysis
 - **Image Generation**: DALL-E 3, Midjourney, Stable Diffusion for creative work
 - **Code Generation**: GitHub Copilot, Amazon CodeWhisperer for programming
-- **Multimodal**: GPT-4 Vision, Claude Vision for understanding images
+- **Multimodal**: [GPT](/gpt-eng.html)-4 Vision, Claude Vision for understanding images
 - **Video**: Text-to-video models (Runway, Pika, OpenAI Sora) emerging
 
 ### AI Regulation and Governance (2023-2025)
-- **EU AI Act (2024)**: First comprehensive AI regulation framework
+- **EU AI Act (2024)**: First comprehensive [AI regulation](/ai-regulation-eng.html) framework
 - **US Executive Order (2023)**: Guidelines for AI research and deployment
 - **International Alignment**: OECD, UN discussions on AI governance
 - **Industry Standards**: Calls for model cards, liability frameworks, audit processes
@@ -174,33 +174,33 @@ OpenAI's ChatGPT brought large language models to mainstream consciousness, achi
 - Cross-domain knowledge application
 - Image understanding and generation
 - Mathematical reasoning
-- Code generation and debugging
+- [Code generation](/code-generation-eng.html) and debugging
 
 **Persistent Challenges:**
-- Hallucinations and false confidence
+- [Hallucinations](/hallucination-eng.html) and false confidence
 - Limited genuine reasoning (primarily pattern matching)
-- Context window limitations
+- [Context window](/context-window-eng.html) limitations
 - Absence of true uncertainty quantification
-- Reproducibility and explainability issues
+- Reproducibility and [explainability](/xai-eng.html) issues
 
 ### Key Events 2023-2025
-- **Anthropic's Claude 3 Family (2024)**: Multimodal, improved reasoning
+- **Anthropic's Claude 3 Family (2024)**: [Multimodal](/multimodal-llm-eng.html), improved reasoning
 - **OpenAI GPT-4 Turbo (2023)**: Larger context windows
 - **Open-Source Movement**: LLAMA 2, Mistral, Mixtral democratizing AI
 - **Multimodal Integration**: Seamless image+text understanding
 - **Specialized Domains**: AI for science (biology, chemistry, physics)
-- **Safety Research**: Growing focus on AI alignment and control
+- **Safety Research**: Growing focus on [AI alignment](/ai-alignment-eng.html) and control
 - **Economic Impact**: Measurable productivity gains and job displacement
 
 ## Emerging Trends and Future Directions
 
 ### Scaling Laws
-Empirical scaling laws show that language model performance improves predictably with size, compute, and data. This has driven continued investment in larger models despite environmental concerns.
+Empirical [scaling laws](/scaling-laws-eng.html) show that language model performance improves predictably with size, compute, and data. This has driven continued investment in larger models despite environmental concerns.
 
 ### Efficiency and On-Device AI
 Rising computational costs prompt research into:
-- Model compression and quantization
-- Knowledge distillation
+- Model compression and [quantization](/quantization-eng.html)
+- [Knowledge distillation](/knowledge-distillation-eng.html)
 - On-device inference for privacy and latency
 
 ### Multimodal AI
@@ -208,19 +208,19 @@ Models that seamlessly process text, images, audio, and video are becoming stand
 
 ### AI Agents and Reasoning
 - Chain-of-thought prompting reveals reasoning capabilities
-- Tool use and retrieval-augmented generation
+- [Tool use](/tool-use-eng.html) and [retrieval-augmented generation](/rag-eng.html)
 - Planning and long-horizon reasoning remain challenging
 
 ### Biological Inspiration
 - Neuromorphic computing mimicking brain structure
-- Spiking neural networks
+- Spiking [neural networks](/neural-eng.html)
 - Biologically-plausible learning algorithms
 
 ## Conclusion
 
 The history of AI reveals cycles of enthusiasm, disappointment, and breakthrough. From Turing's philosophical foundation through expert systems to deep learning, each phase brought fundamental insights about intelligence, computation, and learning.
 
-The current era of foundation models represents a genuine transition point. Large language models exhibit capabilities that were considered purely theoretical only a few years ago. However, critical challenges remain:
+The current era of foundation models represents a genuine transition point. [Large language models](/llm-eng.html) exhibit capabilities that were considered purely theoretical only a few years ago. However, critical challenges remain:
 
 - **Alignment and Safety**: Ensuring advanced AI systems pursue human-compatible goals
 - **Scalable Oversight**: Developing methods to oversee systems more capable than humans

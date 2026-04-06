@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-AI music generation represents the latest frontier in generative AI, extending beyond text, image, and video to create original musical compositions. Unlike text or image generation where quality is often judged visually, music evaluation involves complex human preferences about melody, harmony, rhythm, and emotional resonance. Recent advances in large language models applied to music have demonstrated surprising capability to generate coherent, engaging music.
+AI music generation represents the latest frontier in generative AI, extending beyond text, image, and video to create original musical compositions. Unlike text or [image generation](/image-generation-eng.html) where quality is often judged visually, music evaluation involves complex human preferences about melody, harmony, rhythm, and emotional resonance. Recent advances in [large language models](/llm-eng.html) applied to music have demonstrated surprising capability to generate coherent, engaging music.
 
 ## Music Representation
 
@@ -31,7 +31,7 @@ MIDI (Musical Instrument Digital Interface) represents music as discrete note ev
 - Loses tonal qualities and timbre
 - Cannot represent expressive variations like vibrato
 - Limited to monophonic or clearly separated voices
-- Artificial quantization of timing
+- Artificial [quantization](/quantization-eng.html) of timing
 
 ### Audio Waveform Representation
 
@@ -106,11 +106,11 @@ Suno AI provides commercially accessible music generation:
 
 ## Udio: Latent Diffusion for Music
 
-Udio applies diffusion models to music generation:
+Udio applies [diffusion models](/diffusion-models-eng.html) to music generation:
 
 **Architecture:**
 - Text encoder for music description
-- Diffusion model operating in compressed audio latent space
+- [Diffusion model](/diffusion-models-eng.html) operating in compressed audio latent space
 - Iterative generation and refinement
 - Multi-stage conditioning
 

@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Training large AI models requires specialized infrastructure: distributed GPU clusters, optimized networking, fault tolerance, and monitoring. Modern large models (LLMs, diffusion models) require thousands of GPUs across multiple data centers, coordinated training, and efficient communication. Understanding infrastructure is crucial for anyone training models at scale.
+Training large AI models requires specialized infrastructure: distributed [GPU](/gpu-hardware-eng.html) clusters, optimized networking, fault tolerance, and monitoring. Modern large models ([LLMs](/llm-eng.html), [diffusion models](/diffusion-models-eng.html)) require thousands of GPUs across multiple data centers, coordinated training, and efficient communication. Understanding infrastructure is crucial for anyone training models at scale.
 
 ## GPU Cluster Architecture
 
@@ -41,7 +41,7 @@ Training large AI models requires specialized infrastructure: distributed GPU cl
 
 ### NVLink
 
-NVIDIA's high-bandwidth GPU-to-GPU connection:
+NVIDIA's high-bandwidth [GPU](/gpu-hardware-eng.html)-to-GPU connection:
 - A100: 400 GB/s (600 GB/s with NVLink 4)
 - H100: 900 GB/s
 - Enables all-reduce operations at scale
@@ -76,13 +76,13 @@ ddp_model = DistributedDataParallel(model)
 ```
 
 **How it works**:
-1. Copy model to each GPU
-2. Each GPU processes different batch
+1. Copy model to each [GPU](/gpu-hardware-eng.html)
+2. Each [GPU](/gpu-hardware-eng.html) processes different batch
 3. Compute gradients locally
 4. All-reduce to synchronize gradients
 5. Update model weights identically
 
-**Limitations**: Model must fit in single GPU memory.
+**Limitations**: Model must fit in single [GPU](/gpu-hardware-eng.html) memory.
 
 ### Tensor Parallelism
 
@@ -93,7 +93,7 @@ Layer 1: [param_split_1][param_split_2][param_split_3]
          GPU1            GPU2           GPU3
 ```
 
-- Useful for models too large for single GPU
+- Useful for models too large for single [GPU](/gpu-hardware-eng.html)
 - Requires fine-grained synchronization
 - Trade-off: communication overhead vs model size
 
@@ -110,7 +110,7 @@ GPU3: [Layer5, Layer6]
 - Good for very deep models
 - GPUs process different layers sequentially
 - Requires careful batching strategy (GPipe, Megatron)
-- Can lead to GPU idle time
+- Can lead to [GPU](/gpu-hardware-eng.html) idle time
 
 ### Mixture of Experts (MoE)
 
@@ -124,7 +124,7 @@ Input -> Router -> Expert 1 -> Output
 
 - Sparse computation: activates subset of parameters per input
 - Scales parameter count without proportional compute
-- Successfully used in Switch Transformers, Grok models
+- Successfully used in Switch [Transformers](/llm-eng.html), Grok models
 - Reduces training efficiency slightly (expert imbalance)
 
 ## Communication Optimization
@@ -215,7 +215,7 @@ Cheaper preemptible VMs (70-80% discount):
 
 ### Mixed Instance Types
 
-Use different GPU types:
+Use different [GPU](/gpu-hardware-eng.html) types:
 - Older A100s for less demanding work
 - Newer H100s for frontline research
 - Reduces per-hour costs
@@ -238,7 +238,7 @@ Dynamically adjust cluster size:
 
 ### GPU Utilization
 
-Track actual GPU computation:
+Track actual [GPU](/gpu-hardware-eng.html) computation:
 - Ideal: 85-95% utilization (always computing)
 - Low utilization: bottleneck in data loading or synchronization
 - Tools: nvidia-smi, PyTorch profiler
@@ -269,11 +269,11 @@ Track loss curves across checkpoints:
 
 **AWS**: EC2 instances with A100/H100, good spot pricing
 
-**Google Cloud**: TPU clusters and GPU options, integrates with JAX/TensorFlow
+**Google Cloud**: TPU clusters and [GPU](/gpu-hardware-eng.html) options, integrates with JAX/TensorFlow
 
-**Azure**: GPU clusters, integrates with PyTorch ecosystem
+**Azure**: [GPU](/gpu-hardware-eng.html) clusters, integrates with PyTorch ecosystem
 
-**Lambda Labs**: GPU rental, simple interface, good for experimentation
+**Lambda Labs**: [GPU](/gpu-hardware-eng.html) rental, simple interface, good for experimentation
 
 ## Future Directions
 
@@ -284,4 +284,4 @@ Track loss curves across checkpoints:
 
 ## Conclusion
 
-Modern AI training requires thinking about infrastructure as seriously as algorithms. Successful training at scale demands understanding distributed training patterns, communication optimization, and fault tolerance. As models grow larger, infrastructure becomes increasingly important for feasibility and cost-effectiveness.
+Modern AI training requires thinking about infrastructure as seriously as algorithms. Successful training at scale demands understanding [distributed training](/distributed-training-eng.html) patterns, communication optimization, and fault tolerance. As models grow larger, infrastructure becomes increasingly important for feasibility and cost-effectiveness.

@@ -6,13 +6,13 @@ lang: en
 
 # LoRA & Parameter-Efficient Fine-Tuning
 
-Parameter-Efficient Fine-Tuning (PEFT) methods address a critical practical challenge: full fine-tuning of large language models is computationally prohibitive. LoRA (Low-Rank Adaptation) has emerged as the dominant approach, enabling cost-effective adaptation of massive models.
+Parameter-Efficient Fine-Tuning (PEFT) methods address a critical practical challenge: full fine-tuning of [large language models](/llm-eng.html) is computationally prohibitive. LoRA (Low-Rank Adaptation) has emerged as the dominant approach, enabling cost-effective adaptation of massive models.
 
 ## The Full Fine-Tuning Bottleneck
 
 Full fine-tuning updates all model parameters, requiring:
-- **Memory**: Storing optimizer states and gradients for all parameters. A 7B model needs 70+ GB RAM
-- **Computation**: Backpropagation through all layers for every training sample
+- **Memory**: Storing [optimizer](/optimizers-eng.html) states and gradients for all parameters. A 7B model needs 70+ GB RAM
+- **Computation**: [Backpropagation](/backpropagation-eng.html) through all layers for every training sample
 - **Time**: Days or weeks of training even with expensive hardware
 - **Infrastructure**: Requires enterprise-grade GPUs (H100s, A100s)
 
@@ -53,25 +53,25 @@ This approach maintains compatibility with existing inference code while drastic
 
 QLoRA extends LoRA to quantized models, enabling even more aggressive compression:
 
-**Key innovation**: Combine LoRA with 4-bit quantization
+**Key innovation**: Combine LoRA with 4-bit [quantization](/quantization-eng.html)
 - Quantize the base model to 4-bit (reducing size from 28GB to 3.5GB)
 - Add LoRA adapters for fine-tuning
-- Fine-tune using 8-bit optimizer state
+- Fine-tune using 8-bit [optimizer](/optimizers-eng.html) state
 
-**Results**: A 7B model requires only 7GB GPU memory for QLoRA fine-tuning, making it accessible on consumer GPUs.
+**Results**: A 7B model requires only 7GB [GPU](/gpu-hardware-eng.html) memory for QLoRA fine-tuning, making it accessible on consumer GPUs.
 
 QLoRA achieves performance comparable to full fine-tuning with less than 5% of the memory required, making large-scale model adaptation practical for individual researchers.
 
 ## Adapters: Modular Fine-Tuning
 
-Adapters introduce learnable modules between transformer layers:
+Adapters introduce learnable modules between [transformer](/llm-eng.html) layers:
 
 ```
 x' = Adapter(x) + x  # Residual connection
 ```
 
 **Architecture**:
-- Small bottleneck layers inserted into transformer blocks
+- Small bottleneck layers inserted into [transformer](/llm-eng.html) blocks
 - Down-project to lower dimension (e.g., 64), process, then up-project back
 - Typically 0.5-3% additional parameters
 
@@ -88,7 +88,7 @@ Prefix tuning adds learnable tokens to the beginning of each sequence:
 
 **Key idea**: Only the prompt prefix is learnable, not the model weights
 - Prepend k learnable tokens to the input
-- These "soft prompts" are optimized through gradient descent
+- These "soft prompts" are optimized through [gradient descent](/calculus-eng.html)
 - Model weights remain frozen
 
 **Characteristics**:
@@ -96,7 +96,7 @@ Prefix tuning adds learnable tokens to the beginning of each sequence:
 - Works like in-context learning but optimized
 - Can be task-specific or instruction-conditioned
 
-Prefix tuning is especially effective for prompt-based learning and works well with prompt engineering techniques.
+Prefix tuning is especially effective for prompt-based learning and works well with [prompt engineering](/prompt-eng.html) techniques.
 
 ## IA3: Infused Adapter by Inhibition
 
@@ -120,7 +120,7 @@ IA3 is useful when maximum parameter efficiency is critical, though it's less co
 |--------|-------------|----------------|-------------|---------------|----------|
 | Full Fine-tune | 28GB | 70GB+ | Highest | No | Research/unlimited budget |
 | LoRA | 12MB | 7GB | High | Good | General purpose, single task |
-| QLoRA | 12MB | 7GB | High | Good | Limited GPU, consumer devices |
+| QLoRA | 12MB | 7GB | High | Good | Limited [GPU](/gpu-hardware-eng.html), consumer devices |
 | Adapters | 100MB | 10GB | High | Excellent | Multi-task learning |
 | Prefix Tuning | <10MB | 7GB | Medium | Good | Prompt-based learning |
 | IA3 | <5MB | 7GB | Low | Poor | Extreme efficiency needed |
@@ -147,13 +147,13 @@ model = get_peft_model(base_model, config)
 - Start with rank=8 and adjust based on task complexity
 - Higher rank = more expressiveness but more parameters
 - Target key modules: query/value projections capture most adaptation
-- Combine with quantization for memory-constrained scenarios
+- Combine with [quantization](/quantization-eng.html) for memory-constrained scenarios
 
 ## When to Use Each Method
 
 **LoRA**: Default choice for most fine-tuning scenarios; excellent balance of efficiency and effectiveness.
 
-**QLoRA**: When GPU memory is severely limited; maintains performance with 10-20x less memory.
+**QLoRA**: When [GPU](/gpu-hardware-eng.html) memory is severely limited; maintains performance with 10-20x less memory.
 
 **Adapters**: Multi-task or multi-domain scenarios; modularity is more important than parameter efficiency.
 

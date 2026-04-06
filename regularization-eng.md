@@ -38,10 +38,10 @@ Loss_L2 = Σ(actual - predicted)² + λ Σ(w²)
 
 **Effect on model:**
 - All weights reduced proportionally
-- Smoother decision boundaries in neural networks
+- Smoother decision boundaries in [neural networks](/neural-eng.html)
 - Computationally efficient (closed-form solutions exist for linear models)
 
-In neural networks, L2 is also called **weight decay** because it decays weights toward zero during training.
+In [neural networks](/neural-eng.html), L2 is also called **weight decay** because it decays weights toward zero during training.
 
 ## L1 Regularization (Lasso)
 
@@ -107,7 +107,7 @@ Loss = Loss_data + λ[(1-α) Σ(w²)/2 + α Σ(|w|)]
 
 ## Dropout: Regularization for Neural Networks
 
-Dropout is a stochastic regularization technique specific to neural networks:
+[Dropout](/dropout-eng.html) is a stochastic regularization technique specific to [neural networks](/neural-eng.html):
 
 **During training:**
 - Randomly "drop" (set to zero) a fraction p of neurons in each layer
@@ -127,14 +127,14 @@ Dropout is a stochastic regularization technique specific to neural networks:
 **Common dropout rates:**
 - Input layer: 0.1-0.2
 - Hidden layers: 0.3-0.5
-- Output layer: Usually no dropout
+- Output layer: Usually no [dropout](/dropout-eng.html)
 
 **When to use:**
 - Standard practice in all modern deep learning
 - Especially important with limited data
 - Most effective when network is very deep
 
-Dropout is remarkably effective and simple—add it to nearly all neural networks.
+[Dropout](/dropout-eng.html) is remarkably effective and simple—add it to nearly all [neural networks](/neural-eng.html).
 
 ## Early Stopping: Regularization Through Timing
 
@@ -164,7 +164,7 @@ Early stopping monitors validation error during training and stops when it start
 
 ## Data Augmentation as Regularization
 
-Data augmentation artificially increases dataset size by applying transformations:
+[Data augmentation](/data-augmentation-eng.html) artificially increases dataset size by applying transformations:
 
 **Computer Vision:**
 - Rotations, flips, crops, brightness changes
@@ -188,14 +188,14 @@ Data augmentation artificially increases dataset size by applying transformation
 
 ## Batch Normalization as Regularization
 
-Batch normalization normalizes layer inputs to have zero mean and unit variance:
+[Batch normalization](/batch-normalization-eng.html) normalizes layer inputs to have zero mean and unit variance:
 
 ```
 x_normalized = (x - batch_mean) / sqrt(batch_variance + ε)
 ```
 
 **Regularization effect:**
-- Noise from mini-batch statistics adds stochastic perturbation
+- Noise from mini-batch [statistics](/probability-eng.html) adds stochastic perturbation
 - Reduces internal covariate shift
 - Has implicit regularization effect (smoother loss landscape)
 - Larger batch sizes reduce regularization effect
@@ -203,9 +203,9 @@ x_normalized = (x - batch_mean) / sqrt(batch_variance + ε)
 **Benefits:**
 - Speeds up training (allows higher learning rates)
 - Improves gradient flow in deep networks
-- Acts as regularization (reduces need for dropout)
+- Acts as regularization (reduces need for [dropout](/dropout-eng.html))
 
-**Note:** Batch norm's regularization effect diminishes with large batch sizes, where batch statistics become stable.
+**Note:** [Batch norm](/batch-normalization-eng.html)'s regularization effect diminishes with large batch sizes, where batch [statistics](/probability-eng.html) become stable.
 
 ## Practical Regularization Strategy
 
@@ -229,6 +229,6 @@ x_normalized = (x - batch_mean) / sqrt(batch_variance + ε)
 - **Too much regularization:** Model underfits (high bias)
 - **Tuning λ on test set:** Makes test estimates invalid
 - **Forgetting normalization:** Regularization assumes features are scaled similarly
-- **Dropout at test time:** Must scale activations by (1-p) or use inverse dropout
+- **Dropout at test time:** Must scale activations by (1-p) or use inverse [dropout](/dropout-eng.html)
 
 The goal of regularization is not perfect training accuracy, but good generalization. A slightly undertrained model that generalizes well beats a perfectly trained model that doesn't.

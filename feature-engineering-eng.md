@@ -93,8 +93,8 @@ Feature engineering is often cited as the most important aspect of applied machi
 - Useful for price, income, count data
 
 **When to Scale:**
-- Always for distance-based algorithms (KNN, K-Means, SVM)
-- For gradient-based algorithms (linear regression, neural networks)
+- Always for distance-based algorithms ([KNN](/knn-eng.html), K-Means, [SVM](/svm-eng.html))
+- For gradient-based algorithms (linear regression, [neural networks](/neural-eng.html))
 - Less critical for tree-based models (they're scale-invariant)
 - Improves convergence and prevents feature dominance
 
@@ -150,8 +150,8 @@ Feature engineering is often cited as the most important aspect of applied machi
 
 **Embedded Methods (During Training):**
 - Feature importance from tree models
-- L1 regularization (Lasso) naturally zeros out features
-- XGBoost feature importance
+- [L1 regularization](/regularization-eng.html) (Lasso) naturally zeros out features
+- [XGBoost](/gradient-boosting-eng.html) feature importance
 - Better than filters, less expensive than wrappers
 - Model-specific but often generalizable
 

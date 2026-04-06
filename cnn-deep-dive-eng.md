@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Convolutional Neural Networks (CNNs) revolutionized computer vision by introducing parameter sharing and hierarchical feature extraction. Unlike fully connected networks, CNNs leverage the spatial structure of images through convolution operations, making them highly efficient for visual tasks.
+Convolutional [Neural Networks](/neural-eng.html) (CNNs) revolutionized [computer vision](/cv-eng.html) by introducing parameter sharing and hierarchical feature extraction. Unlike fully connected networks, CNNs leverage the spatial structure of images through convolution operations, making them highly efficient for visual tasks.
 
 ## The Convolution Operation
 
@@ -33,11 +33,11 @@ Filters are learnable kernels that detect specific patterns. Early layers learn 
 
 ## Pooling Operations
 
-Pooling layers downsample feature maps by taking aggregate statistics from small regions:
+Pooling layers downsample feature maps by taking aggregate [statistics](/probability-eng.html) from small regions:
 
 - **Max Pooling**: Extracts maximum value (most common)
 - **Average Pooling**: Computes mean value
-- **Stochastic Pooling**: Randomly samples based on probability
+- **Stochastic Pooling**: Randomly samples based on [probability](/probability-eng.html)
 
 Pooling reduces computation, prevents overfitting, and increases robustness to small spatial translations.
 
@@ -56,11 +56,11 @@ Feature maps at different depths reveal hierarchical learning. Shallow layers de
 
 ## Famous Architectures Overview
 
-**AlexNet (2012)**: Pioneering deep CNN with 8 layers. Demonstrated that deep networks with ReLU and dropout outperformed shallow approaches.
+**AlexNet (2012)**: Pioneering deep CNN with 8 layers. Demonstrated that deep networks with ReLU and [dropout](/dropout-eng.html) outperformed shallow approaches.
 
 **VGGNet (2014)**: Emphasized depth through small 3×3 filters. Simpler, more uniform architecture than AlexNet.
 
-**ResNet (2015)**: Introduced residual connections enabling very deep networks (50-152 layers). Skip connections solve vanishing gradient problem.
+**ResNet (2015)**: Introduced [residual connections](/residual-connections-eng.html) enabling very deep networks (50-152 layers). [Skip connections](/residual-connections-eng.html) solve [vanishing gradient](/vanishing-gradients-eng.html) problem.
 
 **Inception/GoogLeNet (2014)**: Multi-scale feature extraction using parallel pathways of different filter sizes.
 
@@ -70,9 +70,9 @@ Feature maps at different depths reveal hierarchical learning. Shallow layers de
 
 ## Modern Trends
 
-Contemporary architectures focus on efficiency (MobileNets, ShuffleNets), hybrid approaches (combining CNNs with attention), and Vision Transformers. Yet convolutions remain fundamental—even transformer-based vision models often incorporate convolutional components.
+Contemporary architectures focus on efficiency (MobileNets, ShuffleNets), hybrid approaches (combining CNNs with attention), and [Vision Transformers](/vision-transformers-eng.html). Yet convolutions remain fundamental—even [transformer](/llm-eng.html)-based vision models often incorporate convolutional components.
 
 ## Conclusion
 
-CNNs succeed because they incorporate domain knowledge: spatial locality, translation invariance, and hierarchical composition. Understanding convolution, filters, padding, pooling, and receptive fields provides the foundation for modern computer vision. These concepts remain relevant even as architectures evolve.
+CNNs succeed because they incorporate domain knowledge: spatial locality, translation invariance, and hierarchical composition. Understanding convolution, filters, padding, pooling, and receptive fields provides the foundation for modern [computer vision](/cv-eng.html). These concepts remain relevant even as architectures evolve.
 

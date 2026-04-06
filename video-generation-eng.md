@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-AI video generation represents the frontier of generative modeling, extending capabilities from static images to temporal sequences. Unlike image generation where a single snapshot suffices, video generation must maintain consistency, coherence, and believable physics across hundreds or thousands of frames—a dramatically more complex challenge.
+AI video generation represents the frontier of generative modeling, extending capabilities from static images to temporal sequences. Unlike [image generation](/image-generation-eng.html) where a single snapshot suffices, video generation must maintain consistency, coherence, and believable physics across hundreds or thousands of frames—a dramatically more complex challenge.
 
 ## The Temporal Challenge
 
@@ -24,7 +24,7 @@ Video generation requires maintaining:
 
 **Continuity:** Action progression must feel natural, avoiding abrupt scene cuts or physical impossibilities.
 
-These constraints multiply the difficulty compared to static image generation.
+These constraints multiply the difficulty compared to static [image generation](/image-generation-eng.html).
 
 ## Temporal Modeling Approaches
 
@@ -65,7 +65,7 @@ Modern architectures use:
 
 **3D Convolutions:** Standard 2D convolutions extended to include temporal dimension, capturing spatiotemporal patterns directly.
 
-**Temporal Attention:** Self-attention mechanisms operating across frames, allowing distant frames to influence each other directly.
+**Temporal Attention:** Self-[attention mechanisms](/attention-mechanism-eng.html) operating across frames, allowing distant frames to influence each other directly.
 
 **Optical Flow:** Predicting motion between frames to constrain consistency and reduce redundancy.
 
@@ -73,7 +73,7 @@ Modern architectures use:
 
 Sora represents a significant advancement in video generation through:
 
-**Unified Architecture:** A single diffusion model trained on videos of various resolutions, aspect ratios, and durations. Sora can generate everything from short clips to minute-long videos.
+**Unified Architecture:** A single [diffusion model](/diffusion-models-eng.html) trained on videos of various resolutions, aspect ratios, and durations. Sora can generate everything from short clips to minute-long videos.
 
 **Prompt Understanding:** Excellent comprehension of complex written descriptions including camera movements, character interactions, and environmental details.
 
@@ -226,7 +226,7 @@ Unrealistic motion or impossible interactions:
 
 **Copyright and Training Data:** Videos used for training raise attribution questions
 
-**Misuse Potential:** Deepfake videos and misinformation generation
+**Misuse Potential:** [Deepfake](/deepfakes-eng.html) videos and misinformation generation
 
 **Disclosure Requirements:** Need for clear labeling of synthetic videos
 
@@ -234,4 +234,4 @@ Unrealistic motion or impossible interactions:
 
 ## Conclusion
 
-AI video generation stands at an earlier development stage than image generation, with massive room for improvement. Sora, Runway, and Pika demonstrate that generation quality sufficient for creative use is achievable. As these systems mature, they will likely become primary tools for visual content creation, while raising important questions about authenticity, consent, and appropriate use that society must address thoughtfully.
+AI video generation stands at an earlier development stage than [image generation](/image-generation-eng.html), with massive room for improvement. Sora, Runway, and Pika demonstrate that generation quality sufficient for creative use is achievable. As these systems mature, they will likely become primary tools for visual content creation, while raising important questions about authenticity, consent, and appropriate use that society must address thoughtfully.

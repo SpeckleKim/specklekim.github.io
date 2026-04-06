@@ -74,7 +74,7 @@ Clean training data:
 ### In-Processing
 
 Modify training objective:
-- Add fairness constraint to loss function
+- Add fairness constraint to [loss function](/loss-functions-eng.html)
 - Adversarial debiasing: add fairness penalty
 - Trade-off: Usually reduces overall accuracy slightly
 

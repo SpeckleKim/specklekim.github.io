@@ -112,30 +112,30 @@ Asynchronous parallel version:
 
 ## SAC (Soft Actor-Critic)
 
-Entropy-regularized approach for robustness:
+[Entropy](/information-theory-eng.html)-regularized approach for robustness:
 
-**Key Insight:** Maximize expected return AND entropy to encourage exploration:
+**Key Insight:** Maximize expected return AND [entropy](/information-theory-eng.html) to encourage exploration:
 
 ```
 J(π) = E[r(s,a) + αH(π(·|s))]
 ```
 
-Where H is policy entropy, α is temperature controlling exploration intensity.
+Where H is policy [entropy](/information-theory-eng.html), α is temperature controlling exploration intensity.
 
 **Mechanism:**
-1. Soft value function incorporates entropy: V_soft = Q - α log π
+1. Soft value function incorporates [entropy](/information-theory-eng.html): V_soft = Q - α log π
 2. Policy trained to maximize soft Q-value
 3. Q-networks updated toward soft Bellman target
 
 **Benefits:**
-- More stable learning through entropy regularization
+- More stable learning through [entropy](/information-theory-eng.html) [regularization](/regularization-eng.html)
 - Better exploration-exploitation balance
 - Robust to hyperparameters
 - Effective for continuous control
 
 ## TD3 (Twin Delayed Deep Deterministic Policy Gradient)
 
-Addressing overestimation in deterministic policy gradient:
+Addressing overestimation in deterministic [policy gradient](/policy-gradient-eng.html):
 
 **Three Key Improvements:**
 
@@ -185,7 +185,7 @@ While A2C is on-policy, many actor-critic methods use off-policy:
 **Mitigation:**
 - Target networks: Separate networks for computing targets
 - Advantage clipping: Bound advantage estimates
-- Value normalization: Normalize returns before Q-learning
+- Value normalization: Normalize returns before [Q-learning](/q-learning-eng.html)
 
 ## Practical Considerations
 
@@ -231,5 +231,5 @@ While A2C is on-policy, many actor-critic methods use off-policy:
 
 ## Conclusion
 
-Actor-critic methods unify policy optimization with value-based learning. A2C and A3C demonstrated practical effectiveness; SAC introduced entropy regularization; TD3 addressed overestimation. These methods dominate modern deep RL, particularly for continuous control. Their flexibility, sample efficiency, and theoretical grounding make them go-to approaches for many applications.
+Actor-critic methods unify policy optimization with value-based learning. A2C and A3C demonstrated practical effectiveness; SAC introduced [entropy](/information-theory-eng.html) [regularization](/regularization-eng.html); TD3 addressed overestimation. These methods dominate modern deep RL, particularly for continuous control. Their flexibility, sample efficiency, and theoretical grounding make them go-to approaches for many applications.
 

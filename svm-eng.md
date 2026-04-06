@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Support Vector Machines (SVMs) are powerful supervised learning algorithms for classification and regression. They find the optimal hyperplane that maximizes the margin between classes, making them particularly effective for binary and multi-class problems. SVMs are versatile, handling both linearly and non-linearly separable data through kernel methods.
+Support Vector Machines (SVMs) are powerful [supervised learning](/supervised-learning-eng.html) algorithms for classification and regression. They find the optimal hyperplane that maximizes the margin between classes, making them particularly effective for binary and multi-class problems. SVMs are versatile, handling both linearly and non-linearly separable data through kernel methods.
 
 ## Linear SVM
 
@@ -44,7 +44,7 @@ Real-world data is rarely perfectly separable. The soft margin formulation allow
 Minimize: (1/2)||w||² + C × Σ ξ_i
 ```
 
-Where ξ_i are slack variables allowing violations, and C is a regularization parameter:
+Where ξ_i are slack variables allowing violations, and C is a [regularization](/regularization-eng.html) parameter:
 - Large C: Penalizes misclassification heavily (less tolerance for errors)
 - Small C: Allows more violations (more tolerance)
 
@@ -76,7 +76,7 @@ Most versatile, handles complex non-linear patterns. Parameter γ controls influ
 ```
 K(x_i, x_j) = tanh(k × (x_i · x_j) + c)
 ```
-Similar behavior to neural networks.
+Similar behavior to [neural networks](/neural-eng.html).
 
 ### How Kernels Work
 
@@ -111,7 +111,7 @@ The ε-insensitive loss ignores small errors within the tube, reducing sensitivi
 - **Effective in high dimensions**: Good for problems with many features
 - **Memory efficient**: Decision depends only on support vectors
 - **Versatile**: Handles classification, regression, and ranking
-- **Strong theoretical foundation**: Convex optimization with global optimum
+- **Strong theoretical foundation**: [Convex optimization](/convex-optimization-eng.html) with global optimum
 - **Robust to outliers**: Soft margin and support vector mechanism
 - **Non-linear capability**: Kernel trick handles complex relationships
 - **Unique solution**: No local minima, always finds global optimum
@@ -134,12 +134,12 @@ The ε-insensitive loss ignores small errors within the tube, reducing sensitivi
 
 **vs. Neural Networks:**
 - SVM better for small-to-medium datasets
-- Neural networks scale better, more flexible
+- [Neural networks](/neural-eng.html) scale better, more flexible
 - SVM less prone to local minima
 
 **vs. Random Forests:**
 - SVM better for high dimensions
-- Random Forests more interpretable, handle mixed features
+- [Random Forests](/decision-trees-eng.html) more interpretable, handle mixed features
 - Comparable accuracy on tabular data
 
 ## Practical Tips
@@ -150,7 +150,7 @@ The ε-insensitive loss ignores small errors within the tube, reducing sensitivi
 
 **Parameter tuning:**
 - Grid search or randomized search for C and γ
-- Cross-validation to prevent overfitting
+- [Cross-validation](/cross-validation-eng.html) to prevent overfitting
 
 **Class imbalance:**
 - Adjust class weights: `class_weight = 'balanced'`

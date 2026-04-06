@@ -8,9 +8,9 @@ lang: en
 
 ## Reinforcement Learning from Human Feedback
 
-**Reinforcement Learning from Human Feedback (RLHF)** is a technique that uses human preferences to fine-tune language models beyond what supervised learning alone can achieve. Rather than providing ground-truth labels, humans simply choose which output they prefer, and the model learns to maximize these preferences.
+**Reinforcement Learning from Human Feedback (RLHF)** is a technique that uses human preferences to fine-tune language models beyond what [supervised learning](/supervised-learning-eng.html) alone can achieve. Rather than providing ground-truth labels, humans simply choose which output they prefer, and the model learns to maximize these preferences.
 
-This approach bridges a critical gap: supervised learning optimizes for predicting text, but users care about helpfulness, harmlessness, and honesty—dimensions that are difficult to capture with simple labels.
+This approach bridges a critical gap: [supervised learning](/supervised-learning-eng.html) optimizes for predicting text, but users care about helpfulness, harmlessness, and honesty—dimensions that are difficult to capture with simple labels.
 
 ## The RLHF Pipeline
 
@@ -54,7 +54,7 @@ The KL divergence constraint prevents the model from diverging too far from the 
 - Collect trajectories (prompt → generated output)
 - Compute reward and advantage estimates using the reward model and a value function
 - Optimize policy to maximize reward while staying close to the original policy
-- Typically requires thousands of GPU hours even on moderate-sized models
+- Typically requires thousands of [GPU](/gpu-hardware-eng.html) hours even on moderate-sized models
 
 ### 4. Iteration and Refinement
 
@@ -85,7 +85,7 @@ A critical challenge: the policy might find ways to exploit the reward model wit
 **Solutions**:
 - Validate reward model predictions with human raters
 - Use multiple reward models trained independently
-- Include explicit penalties in the loss (e.g., length regularization)
+- Include explicit penalties in the loss (e.g., length [regularization](/regularization-eng.html))
 - Use diverse training objectives
 
 ### Generalization
@@ -149,7 +149,7 @@ RLHF is computationally expensive:
 Researchers are exploring techniques to improve sample efficiency, such as:
 - Offline RL methods
 - Batch generation and replay buffers
-- More efficient policy gradient algorithms
+- More efficient [policy gradient](/policy-gradient-eng.html) algorithms
 
 ### Instability
 
@@ -188,12 +188,12 @@ RLHF doesn't scale linearly with model size:
 
 Rather than training a separate reward model, directly optimize the policy using preference data:
 - Compare pairs of outputs for the same prompt
-- Maximize probability of preferred output relative to dispreferred output
+- Maximize [probability](/probability-eng.html) of preferred output relative to dispreferred output
 - Simpler, fewer hyperparameters, faster training
 
 ### Identity Preference Optimization (IPO)
 
-Builds on DPO with theoretical improvements:
+Builds on [DPO](/dpo-eng.html) with theoretical improvements:
 - Better handling of preference strength
 - More stable training dynamics
 - Improved convergence properties

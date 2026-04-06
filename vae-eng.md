@@ -16,7 +16,7 @@ Variational Autoencoders (VAEs) represent a probabilistic approach to generative
 
 A standard autoencoder consists of two parts:
 
-**Encoder:** Compresses high-dimensional input data into a low-dimensional latent representation z. The encoder typically uses neural networks to learn this mapping deterministically.
+**Encoder:** Compresses high-dimensional input data into a low-dimensional latent representation z. The encoder typically uses [neural networks](/neural-eng.html) to learn this mapping deterministically.
 
 **Decoder:** Reconstructs the original input from the latent code, learning the inverse mapping. The goal is to minimize reconstruction loss between original and reconstructed data.
 
@@ -61,7 +61,7 @@ This joint objective balances two goals: accurate reconstruction and maintaining
 
 ## Understanding KL Divergence
 
-The Kullback-Leibler (KL) divergence measures how one probability distribution differs from another. In VAEs:
+The Kullback-Leibler (KL) divergence measures how one [probability](/probability-eng.html) distribution differs from another. In VAEs:
 
 ```
 KL(q(z|x) || p(z)) = -0.5 * Σ(1 + log(σ²) - μ² - σ²)
@@ -74,11 +74,11 @@ The KL term acts as a regularizer, preventing the posterior distribution from de
 
 ## VAE vs GAN
 
-Both VAEs and GANs generate realistic samples but use fundamentally different approaches:
+Both VAEs and [GANs](/gan-eng.html) generate realistic samples but use fundamentally different approaches:
 
 **VAEs:**
-- Explicitly model probability distributions
-- Training is stable with clear loss function
+- Explicitly model [probability](/probability-eng.html) distributions
+- Training is stable with clear [loss function](/loss-functions-eng.html)
 - Blurrier generated images (due to reconstruction loss)
 - Easier to interpret latent space
 
@@ -124,7 +124,7 @@ Higher β values force the model to learn disentangled latent factors where diff
 - Efficient inference through amortized encoding
 
 **Limitations:**
-- Reconstructed samples often blurrier than GAN outputs
+- Reconstructed samples often blurrier than [GAN](/gan-eng.html) outputs
 - The KL term can become inactive (KL collapse), reducing latent space utilization
 - Posterior collapse: posterior distribution converges to prior, losing information
 - Less effective for capturing sharp image details
@@ -137,8 +137,8 @@ Higher β values force the model to learn disentangled latent factors where diff
 
 **Sequential VAE:** Extends VAE to temporal sequences for video or time-series generation
 
-**VQ-VAE:** Uses vector quantization in the latent space for discrete representations
+**VQ-VAE:** Uses vector [quantization](/quantization-eng.html) in the latent space for discrete representations
 
 ## Conclusion
 
-Variational Autoencoders revolutionized generative modeling by providing a principled, probabilistic framework that balances reconstruction and regularization. While recent diffusion models have achieved superior image quality, VAEs remain valuable for interpretability, likelihood computation, and disentangled representation learning. Understanding VAEs is essential for comprehending modern generative models and the theoretical foundations of probabilistic deep learning.
+Variational Autoencoders revolutionized generative modeling by providing a principled, probabilistic framework that balances reconstruction and [regularization](/regularization-eng.html). While recent [diffusion models](/diffusion-models-eng.html) have achieved superior image quality, VAEs remain valuable for interpretability, likelihood computation, and disentangled representation learning. Understanding VAEs is essential for comprehending modern generative models and the theoretical foundations of probabilistic deep learning.

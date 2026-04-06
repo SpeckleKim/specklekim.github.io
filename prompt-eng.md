@@ -6,11 +6,11 @@ lang: en
 
 # Prompt Engineering: The Art of Communicating with AI
 
-Prompt engineering has become one of the most critical skills in the AI era. As large language models (LLMs) become more capable and accessible, the ability to craft effective prompts determines whether you get mediocre responses or exceptional results. This comprehensive guide explores the principles, techniques, and best practices of prompt engineering.
+Prompt engineering has become one of the most critical skills in the AI era. As [large language models](/llm-eng.html) ([LLMs](/llm-eng.html)) become more capable and accessible, the ability to craft effective prompts determines whether you get mediocre responses or exceptional results. This comprehensive guide explores the principles, techniques, and best practices of prompt engineering.
 
 ## What is Prompt Engineering?
 
-Prompt engineering is the practice of designing and refining inputs (prompts) to maximize the quality, relevance, and usefulness of outputs from AI models, particularly large language models. It bridges the gap between what you want from an AI system and how to effectively communicate those desires.
+Prompt engineering is the practice of designing and refining inputs (prompts) to maximize the quality, relevance, and usefulness of outputs from AI models, particularly [large language models](/llm-eng.html). It bridges the gap between what you want from an AI system and how to effectively communicate those desires.
 
 Unlike traditional programming, where precise instructions must be explicitly coded, prompt engineering works with natural language to guide AI behavior. It's both an art and a science—requiring creativity, experimentation, and understanding of how language models process information.
 
@@ -127,13 +127,13 @@ Structured outputs are essential for programmatic processing and integration wit
 
 ## Retrieval-Augmented Generation (RAG) Prompting
 
-RAG combines prompts with external knowledge retrieval:
+[RAG](/rag-eng.html) combines prompts with external knowledge retrieval:
 
 1. **Retrieve** relevant information from a knowledge base
 2. **Augment** the prompt with retrieved context
 3. **Generate** response using both original prompt and context
 
-This overcomes LLM limitations like outdated training data and hallucinates facts.
+This overcomes [LLM](/llm-eng.html) limitations like outdated training data and hallucinates facts.
 
 Example:
 ```
@@ -187,14 +187,14 @@ Step 4: "Outline operational and marketing strategies"
 - PromptBase: Marketplace for prompt templates
 
 **Monitoring and Evaluation**
-- RAGAS: Evaluate RAG system performance
+- RAGAS: Evaluate [RAG](/rag-eng.html) system performance
 - Promptfoo: Framework for testing and comparing prompts
-- DeepEval: Quality assessment for LLM outputs
+- DeepEval: Quality assessment for [LLM](/llm-eng.html) outputs
 
 **Development Tools**
-- LiteLLM: Unified interface for multiple LLM providers
+- LiteLLM: Unified interface for multiple [LLM](/llm-eng.html) providers
 - Instructor: Pydantic-based structured output library
-- Llama Index: Data framework for LLM applications
+- Llama Index: Data framework for [LLM](/llm-eng.html) applications
 
 ## Future of Prompt Engineering
 
@@ -212,7 +212,7 @@ As models become more sophisticated, the fundamentals of clear communication and
 
 Prompt engineering is not a fixed skill but a dynamic discipline that evolves with AI capabilities. The most successful practitioners combine deep understanding of language models with creative problem-solving and systematic experimentation.
 
-Whether you're building AI applications, automating workflows, or exploring the capabilities of large language models, mastering prompt engineering will amplify your ability to leverage these powerful tools effectively.
+Whether you're building AI applications, automating workflows, or exploring the capabilities of [large language models](/llm-eng.html), mastering prompt engineering will amplify your ability to leverage these powerful tools effectively.
 
 Start with clear instructions, iterate based on results, and remember: the better you communicate with AI, the better it can assist you.
 

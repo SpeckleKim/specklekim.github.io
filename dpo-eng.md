@@ -6,11 +6,11 @@ lang: en
 
 # DPO (Direct Preference Optimization)
 
-Direct Preference Optimization (DPO) is a modern alignment technique that trains language models to follow human preferences without requiring a separate reward model. Unlike RLHF, which involves complex multi-stage training pipelines, DPO directly optimizes the model using preference data.
+Direct Preference Optimization (DPO) is a modern alignment technique that trains language models to follow human preferences without requiring a separate reward model. Unlike [RLHF](/rlhf-eng.html), which involves complex multi-stage training pipelines, DPO directly optimizes the model using preference data.
 
 ## The RLHF Bottleneck
 
-Traditional Reinforcement Learning from Human Feedback (RLHF) requires three distinct stages: supervised fine-tuning, reward model training, and RL training. This multi-stage approach introduces several challenges:
+Traditional [Reinforcement Learning from Human Feedback](/rlhf-eng.html) ([RLHF](/rlhf-eng.html)) requires three distinct stages: supervised fine-tuning, reward model training, and RL training. This multi-stage approach introduces several challenges:
 
 - **Computational overhead**: Training separate models and running RL algorithms is expensive and time-consuming
 - **Reward model instability**: The learned reward model may not accurately reflect true human preferences
@@ -39,7 +39,7 @@ This formulation directly incorporates the preference signal into the language m
 
 ## Implicit Reward Model
 
-One elegant aspect of DPO is that a reward model emerges implicitly. The log probability difference between the model and reference model becomes an implicit reward signal:
+One elegant aspect of DPO is that a reward model emerges implicitly. The log [probability](/probability-eng.html) difference between the model and reference model becomes an implicit reward signal:
 
 ```
 r(x, y) ≈ β log(π(y|x) / π_ref(y|x))
@@ -55,15 +55,15 @@ The DPO training procedure is straightforward:
 2. **Reference Model**: Initialize with a supervised fine-tuned model (SFT model)
 3. **Forward Pass**: Compute log probabilities for both preferred and dispreferred responses
 4. **Loss Computation**: Calculate the DPO loss using the preference formulation
-5. **Gradient Update**: Update the model weights to increase preferred response probability
+5. **Gradient Update**: Update the model weights to increase preferred response [probability](/probability-eng.html)
 
-The training is batched similarly to standard language model fine-tuning, making it compatible with existing infrastructure and distributed training setups.
+The training is batched similarly to standard language model fine-tuning, making it compatible with existing infrastructure and [distributed training](/distributed-training-eng.html) setups.
 
 ## DPO Variants and Extensions
 
 The success of DPO inspired several variants addressing different challenges:
 
-**IPO (Identity Policy Optimization)**: Introduces a modified loss function that better preserves the reference model's behavior while optimizing preferences, reducing KL divergence.
+**IPO (Identity Policy Optimization)**: Introduces a modified [loss function](/loss-functions-eng.html) that better preserves the reference model's behavior while optimizing preferences, reducing KL divergence.
 
 **KTO (Kahneman-Tversky Optimization)**: Incorporates prospect theory principles, treating wins (preferred) and losses (dispreferred) asymmetrically based on human cognitive biases.
 
@@ -74,7 +74,7 @@ The success of DPO inspired several variants addressing different challenges:
 ## Comparison with RLHF
 
 ### DPO Advantages:
-- **Simplicity**: Single-stage training vs. three-stage RLHF pipeline
+- **Simplicity**: Single-stage training vs. three-stage [RLHF](/rlhf-eng.html) pipeline
 - **Stability**: No separate reward model means fewer sources of training instability
 - **Sample efficiency**: Can achieve better results with fewer preference examples
 - **Computational cost**: Lower memory and computational requirements
@@ -84,17 +84,17 @@ The success of DPO inspired several variants addressing different challenges:
 - **Interpretability**: Explicit reward model provides direct feedback signal
 - **Flexibility**: RL framework allows for fine-grained control over exploration
 
-In practice, DPO often outperforms RLHF despite (or because of) its simplicity. The direct optimization of preferences appears to be more effective than learning an intermediate reward model.
+In practice, DPO often outperforms [RLHF](/rlhf-eng.html) despite (or because of) its simplicity. The direct optimization of preferences appears to be more effective than learning an intermediate reward model.
 
 ## Practical Advantages
 
-**Reduced Infrastructure Complexity**: DPO eliminates the need for separate reward model training infrastructure, making it accessible to smaller teams and organizations.
+**Reduced Infrastructure Complexity**: DPO eliminates the need for separate reward model [training infrastructure](/training-infrastructure-eng.html), making it accessible to smaller teams and organizations.
 
 **Faster Iteration**: With a single training loop, experimenting with different preference datasets is quicker and more efficient.
 
 **Better Scalability**: DPO scales more efficiently to longer sequences and larger models since it doesn't require tracking multiple models simultaneously.
 
-**Empirical Performance**: Models trained with DPO consistently achieve higher scores on preference benchmarks and human evaluation compared to RLHF baselines.
+**Empirical Performance**: Models trained with DPO consistently achieve higher scores on preference [benchmarks](/benchmarks-eng.html) and human evaluation compared to [RLHF](/rlhf-eng.html) baselines.
 
 ## Implementation Considerations
 

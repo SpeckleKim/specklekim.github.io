@@ -14,7 +14,7 @@ Internal covariate shift occurs when the distribution of inputs to a layer chang
 
 Example: If initial layer weights change significantly, the activation distribution entering the second layer transforms. The second layer must re-adapt its weights to this new distribution.
 
-This shifting distribution slows learning and requires careful hyperparameter tuning (lower learning rates).
+This shifting distribution slows learning and requires careful [hyperparameter tuning](/hyperparameter-tuning-eng.html) (lower learning rates).
 
 ## Batch Normalization Algorithm
 
@@ -36,45 +36,45 @@ The parameters γ (scale) and β (shift) are learned during training, allowing t
 
 BatchNorm behaves differently during training and inference:
 
-**During training**: Uses statistics from the current mini-batch.
+**During training**: Uses [statistics](/probability-eng.html) from the current mini-batch.
 
-**During inference**: Uses running statistics (exponential moving averages computed during training) to normalize:
+**During inference**: Uses running [statistics](/probability-eng.html) (exponential moving averages computed during training) to normalize:
 - `x_normalized = (x - running_mean) / √(running_var + ε)`
 
-This is critical: using batch statistics during inference would be wrong since test batches may have different distributions.
+This is critical: using batch [statistics](/probability-eng.html) during inference would be wrong since test batches may have different distributions.
 
 ## Running Statistics
 
-During training, exponential moving averages accumulate batch statistics:
+During training, exponential moving averages accumulate batch [statistics](/probability-eng.html):
 
 `running_mean = momentum * running_mean + (1 - momentum) * batch_mean`
 `running_var = momentum * running_var + (1 - momentum) * batch_var`
 
-With momentum=0.99, recent batches heavily influence the running statistics while maintaining stability.
+With momentum=0.99, recent batches heavily influence the running [statistics](/probability-eng.html) while maintaining stability.
 
-These accumulated statistics become the parameters used during inference.
+These accumulated [statistics](/probability-eng.html) become the parameters used during inference.
 
 ## Benefits of Batch Normalization
 
 **Faster convergence**: Reduces internal covariate shift, allowing higher learning rates without instability.
 
-**Regularization effect**: Randomness from batch statistics acts as implicit regularization, often reducing overfitting.
+**Regularization effect**: Randomness from batch [statistics](/probability-eng.html) acts as implicit [regularization](/regularization-eng.html), often reducing overfitting.
 
 **Reduces sensitivity to weight initialization**: Networks are less dependent on careful initialization since normalizing layers restabilize activations.
 
-**Enables higher learning rates**: More stable gradient flow allows more aggressive learning rate schedules.
+**Enables higher learning rates**: More stable gradient flow allows more aggressive [learning rate](/learning-rate-scheduling-eng.html) schedules.
 
-**Simplified hyperparameter tuning**: BatchNorm reduces the need for careful learning rate and initialization tuning.
+**Simplified hyperparameter tuning**: BatchNorm reduces the need for careful [learning rate](/learning-rate-scheduling-eng.html) and initialization tuning.
 
 ## Batch Normalization in CNNs
 
-In convolutional neural networks, BatchNorm is typically applied after convolutions and before activations:
+In [convolutional neural networks](/cnn-deep-dive-eng.html), BatchNorm is typically applied after convolutions and before activations:
 
 `Conv → BatchNorm → ReLU → Pool`
 
-BatchNorm operates on each channel independently, computing statistics across the spatial dimensions and batch dimension.
+BatchNorm operates on each channel independently, computing [statistics](/probability-eng.html) across the spatial dimensions and batch dimension.
 
-For a batch of shape (batch_size, height, width, channels), statistics are computed over axes (batch, height, width), leaving channel-wise statistics.
+For a batch of shape (batch_size, height, width, channels), [statistics](/probability-eng.html) are computed over axes (batch, height, width), leaving channel-wise statistics.
 
 ## Batch Normalization in RNNs
 
@@ -85,13 +85,13 @@ Solutions:
 - **Weight Normalization**: Reparameterizes weights directly.
 - **Recurrent BatchNorm**: Applies BatchNorm to recurrent connections carefully.
 
-Layer norm has become more popular than BatchNorm in RNNs and Transformers.
+[Layer norm](/layer-normalization-eng.html) has become more popular than BatchNorm in RNNs and [Transformers](/llm-eng.html).
 
 ## Alternatives to Batch Normalization
 
 **Layer Normalization**: Normalizes per example across features:
 - Batch-size independent (good for small batches)
-- Works well in RNNs and Transformers
+- Works well in RNNs and [Transformers](/llm-eng.html)
 - Standard in modern architectures
 
 **Group Normalization**: Normalizes across groups of channels:
@@ -106,9 +106,9 @@ Layer norm has become more popular than BatchNorm in RNNs and Transformers.
 
 ## Challenges with Batch Normalization
 
-**Batch size dependency**: Small batch sizes lead to noisy statistics. Performance degrades with tiny batches (batch_size < 16).
+**Batch size dependency**: Small batch sizes lead to noisy [statistics](/probability-eng.html). Performance degrades with tiny batches (batch_size < 16).
 
-**Training-inference mismatch**: The discrepancy between using batch statistics vs. running statistics can sometimes hurt performance.
+**Training-inference mismatch**: The discrepancy between using batch [statistics](/probability-eng.html) vs. running statistics can sometimes hurt performance.
 
 **Computational overhead**: BatchNorm adds memory and computation (typically ~30% overhead).
 
@@ -118,14 +118,14 @@ Layer norm has become more popular than BatchNorm in RNNs and Transformers.
 
 1. **Always use for large networks**: Deep networks benefit significantly.
 
-2. **Careful with small batches**: Use alternative normalization (GroupNorm, LayerNorm) if batch size < 32.
+2. **Careful with small batches**: Use alternative normalization (GroupNorm, [LayerNorm](/layer-normalization-eng.html)) if batch size < 32.
 
 3. **Momentum value**: 0.9 or 0.99 are typical. Higher momentum keeps longer history.
 
-4. **Remove with other regularization**: If using dropout heavily, BatchNorm's regularization effect may be redundant.
+4. **Remove with other regularization**: If using [dropout](/dropout-eng.html) heavily, BatchNorm's [regularization](/regularization-eng.html) effect may be redundant.
 
-5. **Modern preference**: Many recent architectures use LayerNorm or GroupNorm instead of BatchNorm.
+5. **Modern preference**: Many recent architectures use [LayerNorm](/layer-normalization-eng.html) or GroupNorm instead of BatchNorm.
 
 ## Summary
 
-Batch normalization is a powerful technique that normalizes intermediate activations, addressing internal covariate shift. It enables faster, more stable training and has become standard in modern deep learning. Understanding the distinction between training and inference modes, and knowing when alternatives like layer normalization are more appropriate, is essential for effective deep learning practice. While BatchNorm isn't universally applied anymore (modern transformers prefer LayerNorm), it remains crucial for understanding how networks learn and stabilize.
+Batch normalization is a powerful technique that normalizes intermediate activations, addressing internal covariate shift. It enables faster, more stable training and has become standard in modern deep learning. Understanding the distinction between training and inference modes, and knowing when alternatives like [layer normalization](/layer-normalization-eng.html) are more appropriate, is essential for effective deep learning practice. While BatchNorm isn't universally applied anymore (modern [transformers](/llm-eng.html) prefer [LayerNorm](/layer-normalization-eng.html)), it remains crucial for understanding how networks learn and stabilize.

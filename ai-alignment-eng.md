@@ -32,7 +32,7 @@ Verify system actually does what specified:
 
 AI trained with explicit constitution:
 - System of principles (don't deceive, be helpful, etc.)
-- Train model using RLHF with constitution as guide
+- Train model using [RLHF](/rlhf-eng.html) with constitution as guide
 - Model learns to critique own behavior
 
 ### RLHF (Reinforcement Learning from Human Feedback)
@@ -44,7 +44,7 @@ Align model with human preferences:
 
 ### Debate
 
-Multi-agent debate to reach truth:
+[Multi-agent](/multi-agent-eng.html) debate to reach truth:
 - Agent A argues one position
 - Agent B argues opposite
 - Neutral judge evaluates arguments
@@ -62,7 +62,7 @@ Decompose complex values into simpler ones:
 ### Mechanistic Interpretability
 
 Understand how models work internally:
-- Reverse-engineer circuits in neural networks
+- Reverse-engineer circuits in [neural networks](/neural-eng.html)
 - Understand what features neurons encode
 - Predict and control model behavior
 

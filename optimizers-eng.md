@@ -6,7 +6,7 @@ lang: en
 
 # Optimizers: Gradient-Based Learning Algorithms
 
-Optimizers update model parameters based on gradients to minimize the loss function. Choosing the right optimizer affects convergence speed, stability, and generalization. Understanding their properties helps match algorithms to problems.
+Optimizers update model parameters based on gradients to minimize the [loss function](/loss-functions-eng.html). Choosing the right optimizer affects convergence speed, stability, and generalization. Understanding their properties helps match algorithms to problems.
 
 ## Stochastic Gradient Descent (SGD)
 
@@ -18,7 +18,7 @@ SGD is the foundational optimizer, updating parameters in the opposite direction
 
 **Advantages**: Interpretable updates. Generalization often better than adaptive methods. Universal baseline.
 
-**Disadvantages**: Slow convergence. Requires careful learning rate tuning. High sensitivity to learning rate.
+**Disadvantages**: Slow convergence. Requires careful [learning rate](/learning-rate-scheduling-eng.html) tuning. High sensitivity to learning rate.
 
 **Use case**: Classical baseline. Problems with sufficient data.
 
@@ -33,7 +33,7 @@ Momentum accumulates gradient information over time, accelerating convergence:
 
 **Advantages**: Faster convergence than vanilla SGD. Better with momentum=0.9.
 
-**Disadvantages**: Additional hyperparameter β. Still requires learning rate tuning.
+**Disadvantages**: Additional hyperparameter β. Still requires [learning rate](/learning-rate-scheduling-eng.html) tuning.
 
 **Use case**: Most problems. Standard for classical deep learning.
 
@@ -50,22 +50,22 @@ Nesterov improves momentum by looking ahead:
 
 **Disadvantages**: Slightly complex implementation. Minimal practical improvement over momentum.
 
-**Use case**: When momentum is insufficient. Some computer vision tasks.
+**Use case**: When momentum is insufficient. Some [computer vision](/cv-eng.html) tasks.
 
 ## Adagrad
 
-Adagrad adapts the learning rate per parameter based on gradient history:
+Adagrad adapts the [learning rate](/learning-rate-scheduling-eng.html) per parameter based on gradient history:
 
 `g_accumulated = g_accumulated + (dL/dW)²`
 `W_new = W_old - (learning_rate / √g_accumulated) * dL/dW`
 
-**Characteristics**: Learning rate decays over time. Parameter-specific learning rates.
+**Characteristics**: [Learning rate](/learning-rate-scheduling-eng.html) decays over time. Parameter-specific learning rates.
 
 **Advantages**: Works well with sparse gradients. Less tuning needed.
 
-**Disadvantages**: Learning rate monotonically decreases. May become too small.
+**Disadvantages**: [Learning rate](/learning-rate-scheduling-eng.html) monotonically decreases. May become too small.
 
-**Use case**: Sparse data. NLP with sparse word embeddings.
+**Use case**: Sparse data. NLP with sparse [word embeddings](/word-embeddings-eng.html).
 
 ## RMSprop
 
@@ -74,13 +74,13 @@ RMSprop addresses Adagrad's decay by using exponential moving average of squared
 `v = β*v + (1-β)*(dL/dW)²`
 `W_new = W_old - (learning_rate / √v) * dL/dW`
 
-**Characteristics**: Adaptive learning rate without monotonic decay.
+**Characteristics**: Adaptive [learning rate](/learning-rate-scheduling-eng.html) without monotonic decay.
 
 **Advantages**: Works well in practice. Handles non-stationary problems.
 
 **Disadvantages**: Hyperparameter β to tune. Less theoretically justified.
 
-**Use case**: Recurrent neural networks. General-purpose adaptive optimization.
+**Use case**: Recurrent [neural networks](/neural-eng.html). General-purpose adaptive optimization.
 
 ## Adam (Adaptive Moment Estimation)
 
@@ -106,7 +106,7 @@ AdamW decouples weight decay from gradient-based updates:
 
 `W_new = W_old - learning_rate * m_corrected / (√v_corrected + ε) - learning_rate * λ * W_old`
 
-**Characteristics**: Proper L2 regularization. Fixes issues with Adam + weight decay.
+**Characteristics**: Proper [L2 regularization](/regularization-eng.html). Fixes issues with Adam + weight decay.
 
 **Advantages**: Better generalization than Adam. Standard in modern deep learning.
 
@@ -116,7 +116,7 @@ AdamW decouples weight decay from gradient-based updates:
 
 ## LAMB (Layer-wise Adaptive Moments optimizer for Batch training)
 
-LAMB extends AdamW with layer-wise learning rate adaptation:
+LAMB extends AdamW with layer-wise [learning rate](/learning-rate-scheduling-eng.html) adaptation:
 
 `update = m_corrected / (√v_corrected + ε)`
 `trust_ratio = ||W|| / ||update||` (layer-wise adaptation)
@@ -126,18 +126,18 @@ LAMB extends AdamW with layer-wise learning rate adaptation:
 
 **Advantages**: Enables large batch training. Scales to massive datasets.
 
-**Disadvantages**: Complex. Layer-wise statistics overhead.
+**Disadvantages**: Complex. Layer-wise [statistics](/probability-eng.html) overhead.
 
-**Use case**: Large-batch distributed training. Natural language processing at scale.
+**Use case**: Large-batch [distributed training](/distributed-training-eng.html). Natural language processing at scale.
 
 ## Learning Rate and Convergence
 
-Learning rate is critical across all optimizers:
+[Learning rate](/learning-rate-scheduling-eng.html) is critical across all optimizers:
 - **Too high**: Divergence, oscillations, instability
 - **Too low**: Slow convergence, getting stuck in local minima
 - **Sweet spot**: Fast convergence with stability
 
-**Learning rate schedules** reduce learning rate over time:
+**Learning rate schedules** reduce [learning rate](/learning-rate-scheduling-eng.html) over time:
 - **Step decay**: Reduce by factor periodically
 - **Exponential decay**: Exponential reduction
 - **Cosine annealing**: Smooth cosine-based reduction

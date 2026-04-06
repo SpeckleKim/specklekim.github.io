@@ -203,7 +203,7 @@ Agent continues
 
 ### Research Task
 
-Goal: "Summarize latest advances in transformer architectures"
+Goal: "Summarize latest advances in [transformer](/llm-eng.html) architectures"
 
 ```
 1. Search for recent papers (arXiv, Google Scholar)
@@ -256,7 +256,7 @@ Human-in-loop on sensitive decisions.
 
 ### CrewAI
 
-Framework for multi-agent orchestration:
+Framework for [multi-agent](/multi-agent-eng.html) orchestration:
 - Define agents with specific roles
 - Assign tasks to agents
 - Agents collaborate to solve problems
@@ -273,7 +273,7 @@ Microsoft framework for conversational agents:
 
 LangChain's graph-based workflow engine:
 - Model workflows as graphs
-- Nodes: LLM calls or tools
+- Nodes: [LLM](/llm-eng.html) calls or tools
 - Edges: transitions between nodes
 - Cycles and branching supported
 
@@ -281,7 +281,7 @@ LangChain's graph-based workflow engine:
 
 | Framework | Strength | Use Case |
 |-----------|----------|----------|
-| CrewAI | Role-based agents | Multi-agent tasks |
+| CrewAI | Role-based agents | [Multi-agent](/multi-agent-eng.html) tasks |
 | AutoGen | Conversations | Dialog-heavy workflows |
 | LangGraph | Graph visualization | Complex workflows |
 | Custom | Full control | Specific requirements |

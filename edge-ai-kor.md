@@ -100,7 +100,7 @@ FP32에서 낮은 정밀도로 수치 정밀도 감소:
 ### TensorFlow Lite
 
 Google의 경량 추론 엔진:
-- 컨버터가 모바일용 모델 최적화 (양자화, 가지치기)
+- 컨버터가 모바일용 모델 최적화 ([양자화](/quantization-kor.html), 가지치기)
 - Android, iOS 기본 지원
 - TensorFlow, PyTorch (ONNX를 통해) 모델 지원
 - 전체 TensorFlow보다 3-4배 작음
@@ -164,7 +164,7 @@ Google의 멀티미디어 ML 프레임워크:
 - GPU보다 나은 전력 효율
 - 클라우드 TPU보다 작은 배치 크기
 
-**NVIDIA Jetson**: GPU 기반 엣지 컴퓨팅
+**NVIDIA Jetson**: [GPU](/gpu-hardware-kor.html) 기반 엣지 컴퓨팅
 - 복잡한 모델을 위한 전체 CUDA 지원
 - 간단한 추론에는 과도할 수 있음
 - 로보틱스, 자율 주행에 좋음
@@ -173,16 +173,16 @@ Google의 멀티미디어 ML 프레임워크:
 
 ### 사후 학습 양자화
 
-재학습 없이 이미 학습된 모델 양자화:
+재학습 없이 이미 학습된 [모델 양자화](/quantization-kor.html):
 - 빠르고 간단함
 - 정확도 손실은 모델에 따라 다름
 - 좋은 기초 접근
 
 ### 양자화 인식 학습
 
-학습 중 양자화 시뮬레이션:
+학습 중 [양자화](/quantization-kor.html) 시뮬레이션:
 - 모델이 낮은 정밀도 처리 학습
-- 사후 학습 양자화보다 나은 정확도
+- 사후 학습 [양자화](/quantization-kor.html)보다 나은 정확도
 - 재학습 필요
 
 ### 엣지용 모델 아키텍처 검색
@@ -190,7 +190,7 @@ Google의 멀티미디어 ML 프레임워크:
 엣지 최적화 아키텍처를 찾는 AutoML 기술:
 - MobileNet, ShuffleNet: 모바일용 설계
 - EfficientNet: 복합 스케일 (너비, 깊이, 해상도)
-- MobileViT: 모바일용 비전 트랜스포머
+- MobileViT: 모바일용 [비전 트랜스포머](/vision-transformers-kor.html)
 
 ### 동적 입력 해상도
 
@@ -204,7 +204,7 @@ Google의 멀티미디어 ML 프레임워크:
 사용자 데이터로 모델 미세 조정:
 - 특정 사용자/컨텍스트에 적응
 - 프라이버시 보존 (사용자 데이터 업로드 없음)
-- 연합 학습: 여러 장치에서 학습, 업데이트 집계
+- [연합 학습](/privacy-ai-kor.html): 여러 장치에서 학습, 업데이트 집계
 
 **도전**:
 - 제한된 계산 자원

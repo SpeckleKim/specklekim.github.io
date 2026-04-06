@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Generative Adversarial Networks (GANs) represent a breakthrough paradigm in generative modeling, introduced by Ian Goodfellow and colleagues in 2014. Unlike traditional generative models that directly model probability distributions, GANs employ an adversarial training framework where two neural networks compete with each other to produce realistic synthetic data.
+Generative Adversarial Networks (GANs) represent a breakthrough paradigm in generative modeling, introduced by Ian Goodfellow and colleagues in 2014. Unlike traditional generative models that directly model [probability](/probability-eng.html) distributions, GANs employ an adversarial training framework where two [neural networks](/neural-eng.html) compete with each other to produce realistic [synthetic data](/synthetic-data-eng.html).
 
 ## Core Architecture
 
@@ -16,11 +16,11 @@ Generative Adversarial Networks (GANs) represent a breakthrough paradigm in gene
 
 A GAN consists of two main components:
 
-**Generator (G):** Takes random noise from a latent distribution and generates synthetic data that mimics the real data distribution. The generator aims to fool the discriminator into classifying fake samples as real.
+**Generator (G):** Takes random noise from a latent distribution and generates [synthetic data](/synthetic-data-eng.html) that mimics the real data distribution. The generator aims to fool the discriminator into classifying fake samples as real.
 
 **Discriminator (D):** A binary classifier that distinguishes between real and fake samples. The discriminator tries to maximize its classification accuracy while the generator attempts to minimize it.
 
-This adversarial relationship drives both networks toward improvement simultaneously, creating a dynamic training process fundamentally different from supervised learning.
+This adversarial relationship drives both networks toward improvement simultaneously, creating a dynamic training process fundamentally different from [supervised learning](/supervised-learning-eng.html).
 
 ## Training Dynamics and Game Theory
 
@@ -66,11 +66,11 @@ This occurs because the generator exploits local minima by reusing successful sa
 
 Introduced architectural guidelines that stabilized GAN training:
 - Using convolutional and transposed convolutional layers
-- Batch normalization in both networks (except generator output and discriminator input)
+- [Batch normalization](/batch-normalization-eng.html) in both networks (except generator output and discriminator input)
 - ReLU activations in generator, LeakyReLU in discriminator
 - No fully connected layers
 
-DCGAN's architectural principles became the foundation for most modern image generation GANs.
+DCGAN's architectural principles became the foundation for most modern [image generation](/image-generation-eng.html) GANs.
 
 ### StyleGAN and Progressive Training
 
@@ -97,21 +97,21 @@ Extends GANs to controlled generation by conditioning both generator and discrim
 
 **Face Manipulation:** Aging faces, changing expressions, or editing facial attributes
 
-**Medical Imaging:** Synthesizing medical scans for data augmentation and anomaly detection
+**Medical Imaging:** Synthesizing medical scans for [data augmentation](/data-augmentation-eng.html) and [anomaly detection](/anomaly-detection-eng.html)
 
 ## Current Research Directions
 
 Recent GAN research focuses on:
 - Hybrid models combining GANs with other generative approaches
 - Improved stability and training convergence
-- Better evaluation metrics beyond Inception Score and Fréchet Inception Distance
+- Better [evaluation metrics](/evaluation-metrics-eng.html) beyond Inception Score and Fréchet Inception Distance
 - Controllable and interpretable generation
 - Scaling to extremely high resolutions (e.g., 4K or 8K images)
 
 ## Advantages and Limitations
 
 **Advantages:**
-- Produces sharp, high-quality images faster than autoregressive models
+- Produces sharp, high-quality images faster than [autoregressive models](/gpt-eng.html)
 - Compact training procedure relative to some alternatives
 - Diverse output through noise variation
 
@@ -119,8 +119,8 @@ Recent GAN research focuses on:
 - Training instability and mode collapse
 - Difficult convergence and hyperparameter sensitivity
 - Limited ability to generate diverse samples consistently
-- Recent diffusion models have shown superior performance on many benchmarks
+- Recent [diffusion models](/diffusion-models-eng.html) have shown superior performance on many [benchmarks](/benchmarks-eng.html)
 
 ## Conclusion
 
-GANs fundamentally changed how we approach generative modeling by introducing competitive learning dynamics. While newer approaches like diffusion models have achieved state-of-the-art results, GANs remain valuable for their efficiency and continue to evolve. Understanding GAN principles provides crucial insights into generative modeling and adversarial learning that extend beyond image generation.
+GANs fundamentally changed how we approach generative modeling by introducing competitive learning dynamics. While newer approaches like [diffusion models](/diffusion-models-eng.html) have achieved state-of-the-art results, GANs remain valuable for their efficiency and continue to evolve. Understanding GAN principles provides crucial insights into generative modeling and adversarial learning that extend beyond [image generation](/image-generation-eng.html).

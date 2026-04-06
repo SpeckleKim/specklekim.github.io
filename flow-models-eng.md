@@ -8,7 +8,7 @@ lang: en
 
 ## Introduction
 
-Flow-based models represent a distinct class of generative models that learn transformations between simple distributions and complex data distributions. By using invertible transformations, these models provide tractable likelihood computation and allow exact density evaluation—a capability lacking in GANs and more expensive in VAEs.
+Flow-based models represent a distinct class of generative models that learn transformations between simple distributions and complex data distributions. By using invertible transformations, these models provide tractable likelihood computation and allow exact density evaluation—a capability lacking in [GANs](/gan-eng.html) and more expensive in VAEs.
 
 ## Normalizing Flows: Core Principle
 
@@ -41,7 +41,7 @@ This enables computing exact log-likelihood:
 log p(x) = log p(z) - log |det(∂f/∂z)|
 ```
 
-The ability to compute exact likelihoods makes flow models valuable for tasks where density estimation matters, such as anomaly detection and scientific modeling.
+The ability to compute exact likelihoods makes flow models valuable for tasks where density estimation matters, such as [anomaly detection](/anomaly-detection-eng.html) and scientific modeling.
 
 ## Invertible Transformations
 
@@ -58,7 +58,7 @@ x_1' = x_1
 x_2' = t(x_1) ⊙ x_2 + s(x_1)
 ```
 
-Where t and s are arbitrary neural networks. This maintains invertibility while allowing powerful transformations through arbitrarily complex networks. The Jacobian is triangular, making determinant computation efficient.
+Where t and s are arbitrary [neural networks](/neural-eng.html). This maintains invertibility while allowing powerful transformations through arbitrarily complex networks. The Jacobian is triangular, making determinant computation efficient.
 
 ### Autoregressive Layers
 
@@ -83,13 +83,13 @@ The masking ensures each layer's Jacobian is triangular while permutations preve
 
 Glow improves on RealNVP through:
 
-**Actnorm layers:** Activation normalization using per-channel affine transformation with data-dependent initialization. Provides fast, stable training without explicit batch normalization.
+**Actnorm layers:** Activation normalization using per-channel affine transformation with data-dependent initialization. Provides fast, stable training without explicit [batch normalization](/batch-normalization-eng.html).
 
 **1x1 Convolutions:** Replaces fixed permutations with learnable 1x1 convolutions for improved flexibility.
 
 **Multi-scale Architecture:** Processes different resolution levels, improving computational efficiency while maintaining expressiveness.
 
-Glow achieves comparable image generation quality to GANs while providing exact likelihood—a unique advantage among high-quality generative models.
+Glow achieves comparable [image generation](/image-generation-eng.html) quality to [GANs](/gan-eng.html) while providing exact likelihood—a unique advantage among high-quality generative models.
 
 ## Continuous Normalizing Flows
 
@@ -99,7 +99,7 @@ Neural ODE-based approaches model flows as continuous transformations:
 z_T = z_0 + ∫_0^T v_θ(z_t, t) dt
 ```
 
-Where v_θ is a neural network velocity function learned during training. Computing the determinant requires solving:
+Where v_θ is a [neural network](/neural-eng.html) velocity function learned during training. Computing the determinant requires solving:
 
 ```
 log |det(∂z_T/∂z_0)| = ∫_0^T tr(∂v_θ/∂z_t) dt
@@ -117,12 +117,12 @@ However, they require expensive numerical integration during training and sampli
 **Flow Models:**
 - Exact likelihood computation
 - Stable training
-- Slower generation than GANs
-- Limited generation quality compared to diffusion models
+- Slower generation than [GANs](/gan-eng.html)
+- Limited generation quality compared to [diffusion models](/diffusion-models-eng.html)
 - Architectural constraints for invertibility
 
 **GANs:**
-- Sharp image generation
+- Sharp [image generation](/image-generation-eng.html)
 - Fast sampling
 - Unstable training and mode collapse
 - No likelihood available
@@ -140,11 +140,11 @@ However, they require expensive numerical integration during training and sampli
 - Stable training
 - Slow sampling
 - Allows likelihood computation with modifications
-- Increasingly preferred for image generation
+- Increasingly preferred for [image generation](/image-generation-eng.html)
 
 ## Applications of Flow Models
 
-**Density Estimation:** Computing likelihoods for scientific data analysis, anomaly detection
+**Density Estimation:** Computing likelihoods for scientific data analysis, [anomaly detection](/anomaly-detection-eng.html)
 
 **Invertible Neural Networks:** Learning reversible transformations for specific applications
 
@@ -167,16 +167,16 @@ However, they require expensive numerical integration during training and sampli
 
 **Limitations:**
 - Architectural constraints reduce modeling flexibility
-- Generated samples typically less sharp than GANs
-- Slower generation than GANs
+- Generated samples typically less sharp than [GANs](/gan-eng.html)
+- Slower generation than [GANs](/gan-eng.html)
 - Training computational cost can be significant
-- Limited success on high-resolution image generation
+- Limited success on high-resolution [image generation](/image-generation-eng.html)
 - Jacobian computation requires careful implementation
 
 ## Current Research Directions
 
 Recent flow research explores:
-- Hybrid approaches combining flows with diffusion models
+- Hybrid approaches combining flows with [diffusion models](/diffusion-models-eng.html)
 - Improved inverse transformations for faster sampling
 - Scalable flow architectures for high-dimensional data
 - Applications in scientific computing and physics
@@ -184,4 +184,4 @@ Recent flow research explores:
 
 ## Conclusion
 
-Flow-based models provide a mathematically elegant approach to generative modeling with guaranteed likelihood computation. While recent diffusion models have achieved superior image generation, flows remain valuable for applications requiring exact densities, such as anomaly detection, scientific inference, and likelihood-based analysis. Understanding normalizing flows develops intuition about invertible transformations and probability, concepts increasingly relevant across deep learning.
+Flow-based models provide a mathematically elegant approach to generative modeling with guaranteed likelihood computation. While recent [diffusion models](/diffusion-models-eng.html) have achieved superior [image generation](/image-generation-eng.html), flows remain valuable for applications requiring exact densities, such as [anomaly detection](/anomaly-detection-eng.html), scientific inference, and likelihood-based analysis. Understanding normalizing flows develops intuition about invertible transformations and [probability](/probability-eng.html), concepts increasingly relevant across deep learning.

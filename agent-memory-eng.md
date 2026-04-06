@@ -8,15 +8,15 @@ lang: en
 
 ## Introduction
 
-AI agents need memory to maintain context, learn from past interactions, and make informed decisions. Unlike humans who have embodied memory spanning years, AI agents rely entirely on explicit memory systems. Effective agent memory encompasses short-term context, long-term knowledge, episodic recall, and semantic understanding—each serving different roles in agent cognition.
+[AI agents](/agent-eng.html) need memory to maintain context, learn from past interactions, and make informed decisions. Unlike humans who have embodied memory spanning years, [AI agents](/agent-eng.html) rely entirely on explicit memory systems. Effective agent memory encompasses short-term context, long-term knowledge, episodic recall, and semantic understanding—each serving different roles in agent cognition.
 
 ## Short-Term Memory (Context Window)
 
 ### Definition
 
 The sequence of tokens the model currently processes:
-- Typical context window: 4k-200k tokens
-- Latest LLMs (GPT-4 Turbo, Claude 3): 100k-200k tokens
+- Typical [context window](/context-window-eng.html): 4k-200k tokens
+- Latest [LLMs](/llm-eng.html) ([GPT](/gpt-eng.html)-4 Turbo, Claude 3): 100k-200k tokens
 - Larger context = more conversation history accessible
 
 ### Challenges
@@ -55,7 +55,7 @@ Structured knowledge about facts and concepts:
 - Embeddings: Dense vector representations
 - Retrieved based on semantic similarity
 
-**Storage**: Vector databases (Pinecone, Weaviate, Milvus)
+**Storage**: [Vector databases](/vector-databases-eng.html) (Pinecone, Weaviate, Milvus)
 
 **Retrieval**: 
 ```
@@ -168,7 +168,7 @@ Level 4: Domain Knowledge
 ```
 
 **Retrieval strategy**:
-1. Check context window (fastest)
+1. Check [context window](/context-window-eng.html) (fastest)
 2. If not found, query conversation summaries
 3. If not found, query user profile
 4. If not found, query domain knowledge (slowest)
@@ -206,7 +206,7 @@ Better for long-term memory.
 ### Hybrid Approach
 
 Combine multiple memory types:
-- Recent context in context window
+- Recent context in [context window](/context-window-eng.html)
 - Summaries in traditional DB
 - Full interactions in vector DB
 - Semantic knowledge in knowledge graph

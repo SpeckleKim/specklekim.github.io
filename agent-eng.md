@@ -10,7 +10,7 @@ lang: en
 
 AI Agents are autonomous software systems that perceive their environment, reason about it, execute actions, and learn from outcomes to achieve specific goals. Unlike traditional chatbots or models that respond to isolated queries, agents operate continuously with persistent memory, tool access, and the ability to break down complex problems into manageable steps.
 
-The 2024-2025 era has seen a fundamental shift: large language models (LLMs) have become the cognitive engine for agents, enabling sophisticated reasoning previously thought impossible in software systems.
+The 2024-2025 era has seen a fundamental shift: [large language models](/llm-eng.html) ([LLMs](/llm-eng.html)) have become the cognitive engine for agents, enabling sophisticated reasoning previously thought impossible in software systems.
 
 ## Agent Architecture: Core Components
 
@@ -48,7 +48,7 @@ Use planning and internal models to predict outcomes before acting. Slower but c
 Combine reactive fast responses with deliberative planning. Most practical modern agents follow this pattern.
 
 ### **Learning Agents**
-Incorporate feedback mechanisms to improve performance. Can be trained via reinforcement learning or continuous improvement from interactions.
+Incorporate feedback mechanisms to improve performance. Can be trained via [reinforcement learning](/rl-eng.html) or continuous improvement from interactions.
 
 ## LLM-Based Agent Patterns (2024-2025)
 
@@ -59,7 +59,7 @@ Combines explicit reasoning traces with tool actions. The agent generates though
 Self-directed agents that set sub-goals, execute plans, and iterate without human intervention. Popular for autonomous research and content generation.
 
 ### **BabyAGI**
-Task-prioritization agents that manage queues of AI-generated sub-tasks. Demonstrates emergent behavior from simple iteration.
+Task-prioritization agents that manage queues of AI-generated sub-tasks. Demonstrates [emergent behavior](/emergent-abilities-eng.html) from simple iteration.
 
 ### **Claude Computer Use**
 Breakthrough approach enabling agents to navigate, click, type, and interact with web interfaces and applications directly—treating the computer as a universal tool.
@@ -92,13 +92,13 @@ Specialized agents pass work to others with greater expertise, similar to human 
 ## Agent Frameworks (2024-2025)
 
 ### **LangChain**
-Comprehensive library for chaining LLM calls, managing tools, memory, and agent loops. Mature ecosystem with extensive integrations.
+Comprehensive library for chaining [LLM](/llm-eng.html) calls, managing tools, memory, and agent loops. Mature ecosystem with extensive integrations.
 
 ### **CrewAI**
 Focus on role-based agent teams and hierarchical orchestration. Emphasizes agent specialization and collaboration patterns.
 
 ### **Microsoft AutoGen**
-Multi-agent conversation framework allowing agents to communicate with each other and humans. Strong for group problem-solving.
+[Multi-agent](/multi-agent-eng.html) conversation framework allowing agents to communicate with each other and humans. Strong for group problem-solving.
 
 ### **Anthropic Claude Agent SDK**
 Purpose-built for Claude models with native support for computer use and complex reasoning. Optimized for production deployments.
@@ -109,10 +109,10 @@ Frameworks like LlamaIndex (for retrieval), DSPy (for prompt optimization), and 
 ## Memory Systems in Practice
 
 ### **Short-term Context**
-Current conversation history, task state, and recent observations. Limited by context window length (typically 100k-200k tokens).
+Current conversation history, task state, and recent observations. Limited by [context window](/context-window-eng.html) length (typically 100k-200k tokens).
 
 ### **Long-term Storage**
-Vector databases (Pinecone, Weaviate) enable semantic search over historical interactions and knowledge bases.
+[Vector databases](/vector-databases-eng.html) (Pinecone, Weaviate) enable semantic search over historical interactions and knowledge bases.
 
 ### **Episodic Recall**
 Structured logging of agent actions, outcomes, and lessons learned. Enables replay, debugging, and learning from failures.
@@ -144,7 +144,7 @@ Break goals recursively into manageable sub-tasks, essential for problems too co
 
 ### **Mitigation Strategies**
 - **Tool Restriction**: Limit agent access to safe, monitored functions
-- **Interpretability**: Trace reasoning and require explainability
+- **Interpretability**: Trace reasoning and require [explainability](/xai-eng.html)
 - **Human-in-the-Loop**: Require approval for high-stakes actions
 - **Bounds & Constraints**: Hard limits on agent capabilities and cost
 - **Red-Teaming**: Adversarial testing of agent behavior
@@ -179,7 +179,7 @@ Agents controlling robots and physical systems, learning from real-world interac
 Agents that apply lessons from one domain to solve novel problems in others.
 
 ### **Collective Problem-Solving**
-Large-scale multi-agent systems coordinating on infrastructure, research, and organizational challenges.
+Large-scale [multi-agent](/multi-agent-eng.html) systems coordinating on infrastructure, research, and organizational challenges.
 
 ### **Constitutional AI at Scale**
 Embedding human values and intentions directly into agent behavior through principle-based training.
@@ -200,7 +200,7 @@ Embedding human values and intentions directly into agent behavior through princ
 
 ## Conclusion
 
-AI agents represent evolution beyond isolated AI systems—they are autonomous entities that plan, act, learn, and collaborate. The 2024-2025 breakthroughs in LLM reasoning and computer interaction have moved agents from academic exercises to practical business applications.
+AI agents represent evolution beyond isolated AI systems—they are autonomous entities that plan, act, learn, and collaborate. The 2024-2025 breakthroughs in [LLM](/llm-eng.html) reasoning and computer interaction have moved agents from academic exercises to practical business applications.
 
 Success requires thoughtful architecture: clear goal definition, appropriate tool access, robust testing, and human oversight mechanisms. The agents that will thrive combine competence with humility—knowing not just how to act, but when to ask for help.
 

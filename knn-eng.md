@@ -103,7 +103,7 @@ The hyperparameter K significantly affects performance:
 - More robust to noise
 
 **Typical practice:**
-- Cross-validation to find optimal K
+- [Cross-validation](/cross-validation-eng.html) to find optimal K
 - Often K = √(n) or K = 3-5 for small datasets
 - Odd K for binary classification (avoids ties)
 
@@ -153,10 +153,10 @@ KNN suffers severely in high dimensions:
 - In 100D, the same distance sphere misses most of the space
 
 **Solutions:**
-- Dimensionality reduction (PCA, feature selection)
+- [Dimensionality reduction](/dimensionality-reduction-eng.html) (PCA, feature selection)
 - Distance metric learning
 - Use tree-based methods instead
-- Careful feature engineering
+- Careful [feature engineering](/feature-engineering-eng.html)
 
 ## Applications
 
@@ -172,7 +172,7 @@ KNN suffers severely in high dimensions:
 - Function approximation
 
 **Hybrid:**
-- Anomaly detection (neighbors are far apart)
+- [Anomaly detection](/anomaly-detection-eng.html) (neighbors are far apart)
 - Imbalanced classification (weighted votes)
 
 ## Advantages
@@ -202,14 +202,14 @@ KNN suffers severely in high dimensions:
 - Handle missing values
 
 **Parameter tuning:**
-- Cross-validation for optimal K
+- [Cross-validation](/cross-validation-eng.html) for optimal K
 - Try different distance metrics
 - Consider weighted variants for imbalanced data
 
 **Optimization:**
 - Use KD-trees for moderate dimensions
 - Approximate methods (LSH) for high dimensions
-- Dimensionality reduction before applying KNN
+- [Dimensionality reduction](/dimensionality-reduction-eng.html) before applying KNN
 
 **When to use:**
 - Small-to-medium datasets

@@ -8,23 +8,23 @@ lang: en
 
 ## What are Large Language Models (LLMs)?
 
-Large Language Models are neural networks with billions to trillions of parameters trained on vast amounts of text data from the internet, books, and other sources. They learn statistical patterns in language that enable them to predict the next word with remarkable accuracy. Rather than explicitly programmed rules, LLMs develop an implicit understanding of grammar, facts, reasoning, and even creative writing through a process called unsupervised learning.
+Large Language Models are [neural networks](/neural-eng.html) with billions to trillions of parameters trained on vast amounts of text data from the internet, books, and other sources. They learn statistical patterns in language that enable them to predict the next word with remarkable accuracy. Rather than explicitly programmed rules, LLMs develop an implicit understanding of grammar, facts, reasoning, and even creative writing through a process called [unsupervised learning](/unsupervised-learning-eng.html).
 
 An LLM is not a search engine or a database of memorized facts. Instead, it's a sophisticated pattern-matching system that has learned the underlying structure of human language and knowledge. When you ask an LLM a question, it generates a response token by token, where each new token is predicted based on all previous context and the learned patterns.
 
 ### Why "Large"?
 
-The term "large" is crucial. Scaling matters enormously in deep learning. A model with 7 billion parameters behaves qualitatively differently from one with 70 billion. This isn't just a matter of performance—larger models exhibit "emergent abilities" that smaller models don't possess, including the ability to perform complex reasoning, write code, and engage in nuanced dialogue.
+The term "large" is crucial. Scaling matters enormously in deep learning. A model with 7 billion parameters behaves qualitatively differently from one with 70 billion. This isn't just a matter of performance—larger models exhibit "[emergent abilities](/emergent-abilities-eng.html)" that smaller models don't possess, including the ability to perform complex reasoning, write code, and engage in nuanced dialogue.
 
 ## The Transformer Architecture
 
-The Transformer architecture, introduced by Vaswani et al. in 2017, revolutionized natural language processing by replacing recurrent neural networks (RNNs) with a mechanism called attention.
+The Transformer architecture, introduced by Vaswani et al. in 2017, revolutionized natural language processing by replacing recurrent [neural networks](/neural-eng.html) (RNNs) with a mechanism called attention.
 
 ### Self-Attention Mechanism
 
-At the heart of Transformers lies self-attention, which allows the model to weigh the importance of different words when processing each word. For example, in the sentence "The bank executive walked into the bank," self-attention helps the model understand that the two instances of "bank" refer to different meanings based on context.
+At the heart of Transformers lies [self-attention](/self-attention-eng.html), which allows the model to weigh the importance of different words when processing each word. For example, in the sentence "The bank executive walked into the bank," self-attention helps the model understand that the two instances of "bank" refer to different meanings based on context.
 
-Self-attention works by:
+[Self-attention](/self-attention-eng.html) works by:
 1. Converting each word into three vectors: Query (Q), Key (K), and Value (V)
 2. Computing attention scores by comparing the Query vector to all Key vectors
 3. Using these scores as weights to create a weighted sum of Value vectors
@@ -38,7 +38,7 @@ Rather than computing attention once, Transformers use multiple attention "heads
 
 ### Positional Encoding
 
-Since Transformers process all tokens in parallel, they need a way to understand word order. Positional encoding adds information about each word's position through sinusoidal functions, creating unique patterns that encode position in a way the model can learn to interpret.
+Since Transformers process all tokens in parallel, they need a way to understand word order. [Positional encoding](/positional-encoding-eng.html) adds information about each word's position through sinusoidal functions, creating unique patterns that encode position in a way the model can learn to interpret.
 
 ### Feedforward Networks
 
@@ -46,13 +46,13 @@ Between attention layers, Transformers include feedforward networks that apply n
 
 ### Decoder-Only vs. Encoder-Decoder
 
-The original Transformer had both an encoder (like BERT) and a decoder (like GPT). Encoders process entire sequences at once and are used for understanding tasks. Decoders generate sequences token-by-token and are used for generation. Modern LLMs like GPT, Claude, and Llama use decoder-only architectures that can both understand and generate text.
+The original Transformer had both an encoder (like [BERT](/bert-eng.html)) and a decoder (like [GPT](/gpt-eng.html)). Encoders process entire sequences at once and are used for understanding tasks. Decoders generate sequences token-by-token and are used for generation. Modern LLMs like GPT, Claude, and Llama use decoder-only architectures that can both understand and generate text.
 
 ## Key Milestones in Language Model Development
 
 ### Pre-Transformer Era
-- **2013: Word2Vec**: Word embeddings that captured semantic relationships
-- **2014: Sequence-to-Sequence Models**: Attention mechanisms introduced for machine translation
+- **2013: Word2Vec**: [Word embeddings](/word-embeddings-eng.html) that captured semantic relationships
+- **2014: Sequence-to-Sequence Models**: [Attention mechanisms](/attention-mechanism-eng.html) introduced for [machine translation](/machine-translation-eng.html)
 
 ### The Transformer Revolution (2017+)
 - **2017: Transformer Architecture**: Foundation for all modern LLMs
@@ -61,14 +61,14 @@ The original Transformer had both an encoder (like BERT) and a decoder (like GPT
 - **2019: GPT-2**: Showed concerning capabilities in text generation and zero-shot learning
 
 ### The Scale Era
-- **2020: GPT-3**: 175 billion parameters, demonstrated few-shot learning and emergent abilities
+- **2020: GPT-3**: 175 billion parameters, demonstrated few-shot learning and [emergent abilities](/emergent-abilities-eng.html)
 - **2021: T5**: Unified framework treating all NLP tasks as text-to-text
 - **2021: PALM**: Google's 540 billion parameter model
-- **2022: Chinchilla**: Showed optimal scaling laws differ from prior assumptions
+- **2022: Chinchilla**: Showed optimal [scaling laws](/scaling-laws-eng.html) differ from prior assumptions
 - **2023: LLaMA**: Meta's efficient open-source models (7B-65B)
-- **2023: GPT-4**: Multimodal, more robust reasoning, improved reliability
+- **2023: GPT-4**: [Multimodal](/multimodal-llm-eng.html), more robust reasoning, improved reliability
 - **2023: Claude 2**: Constitutional AI with improved safety
-- **2024+**: Mixture of Experts models, longer context windows, multimodal capabilities
+- **2024+**: [Mixture of Experts](/moe-eng.html) models, longer context windows, [multimodal](/multimodal-llm-eng.html) capabilities
 
 ## Training Process
 
@@ -84,7 +84,7 @@ This training is computationally intensive, requiring specialized hardware (GPUs
 
 ### Fine-tuning: Adapting to Specific Tasks
 
-After pre-training, models are fine-tuned on smaller, curated datasets for specific tasks like question-answering, summarization, or translation. Fine-tuning requires far less computational resources than pre-training (hours or days instead of months).
+After pre-training, models are fine-tuned on smaller, curated datasets for specific tasks like question-answering, [summarization](/text-summarization-eng.html), or translation. Fine-tuning requires far less computational resources than pre-training (hours or days instead of months).
 
 ### Instruction Fine-tuning: Teaching to Follow Commands
 
@@ -92,23 +92,23 @@ Modern LLMs undergo instruction fine-tuning, where they learn to follow natural 
 
 ### RLHF: Reinforcement Learning from Human Feedback
 
-RLHF improves alignment between what the model generates and what humans find valuable. The process involves:
+[RLHF](/rlhf-eng.html) improves alignment between what the model generates and what humans find valuable. The process involves:
 1. Training a reward model on human preferences between outputs
 2. Using this reward model to score model-generated outputs
-3. Training the LLM with reinforcement learning to maximize the reward signal
+3. Training the LLM with [reinforcement learning](/rl-eng.html) to maximize the reward signal
 
-RLHF has proven crucial for safety, helpfulness, and harmlessness.
+[RLHF](/rlhf-eng.html) has proven crucial for safety, helpfulness, and harmlessness.
 
 ## Tokenization and Embeddings
 
 ### Tokenization
 
-Before text enters an LLM, it's broken into tokens—subword units. Models don't process raw characters; instead, they use vocabularies of 50,000 to 100,000 tokens. Common tokenization methods include:
+Before text enters an LLM, it's broken into tokens—subword units. Models don't process raw characters; instead, they use vocabularies of 50,000 to 100,000 tokens. Common [tokenization](/tokenization-eng.html) methods include:
 - **Byte-Pair Encoding (BPE)**: Iteratively merges frequent byte pairs
-- **WordPiece**: Used in BERT, adds special tokens for unknown words
+- **WordPiece**: Used in [BERT](/bert-eng.html), adds special tokens for unknown words
 - **SentencePiece**: Language-agnostic approach
 
-The choice of tokenization affects performance, especially for non-English languages.
+The choice of [tokenization](/tokenization-eng.html) affects performance, especially for non-English languages.
 
 ### Embeddings
 
@@ -140,7 +140,7 @@ These abilities don't exist at small scales—they "emerge" with scale, suggesti
 ### Leading Models
 
 **Open-source**: LLaMA-2, Mistral, Falcon
-**Commercial**: GPT-4, Claude 3, Gemini, Copilot
+**Commercial**: [GPT](/gpt-eng.html)-4, Claude 3, Gemini, Copilot
 
 Each has trade-offs in speed, cost, capability, and customization.
 
@@ -152,14 +152,14 @@ Each has trade-offs in speed, cost, capability, and customization.
 - **Research**: Literature review, hypothesis generation
 - **Translation**: Near-human translation quality
 - **Education**: Personalized tutoring, explanations
-- **Business Intelligence**: Data analysis, insights, summarization
+- **Business Intelligence**: Data analysis, insights, [summarization](/text-summarization-eng.html)
 - **Scientific Discovery**: Protein folding, drug discovery assistance
 
 ## Limitations and Challenges
 
 ### Hallucinations
 
-LLMs sometimes confidently generate false information that sounds plausible. This isn't lying—the model has no access to truth; it's pattern matching. Context length and training data quality affect hallucination rates.
+LLMs sometimes confidently generate false information that sounds plausible. This isn't lying—the model has no access to truth; it's pattern matching. Context length and training data quality affect [hallucination](/hallucination-eng.html) rates.
 
 ### Context Length
 
@@ -185,7 +185,7 @@ Training large models requires enormous energy, raising environmental concerns. 
 
 ### Safety and Alignment
 
-Aligning powerful AI systems with human values is an open problem. RLHF helps, but questions remain about:
+Aligning powerful AI systems with human values is an open problem. [RLHF](/rlhf-eng.html) helps, but questions remain about:
 - Adversarial robustness
 - Manipulation and deception
 - Reward hacking
@@ -199,7 +199,7 @@ Future models will handle longer contexts (potentially millions of tokens) and i
 
 ### Mixture of Experts
 
-Instead of using all parameters for every input, Mixture of Experts (MoE) models route inputs to specialized sub-networks. This enables scaling to trillions of parameters more efficiently.
+Instead of using all parameters for every input, [Mixture of Experts](/moe-eng.html) ([MoE](/moe-eng.html)) models route inputs to specialized sub-networks. This enables scaling to trillions of parameters more efficiently.
 
 ### Multimodal Models
 

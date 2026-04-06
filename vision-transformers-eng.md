@@ -8,22 +8,22 @@ lang: en
 
 ## Introduction
 
-Vision Transformers (ViT) adapted the transformer architecture from NLP to computer vision, achieving remarkable results on image classification and related tasks. Unlike CNNs with inductive biases for spatial structure, ViT learns relationships purely from data, offering a different perspective on visual reasoning.
+Vision [Transformers](/llm-eng.html) (ViT) adapted the [transformer](/llm-eng.html) architecture from NLP to [computer vision](/cv-eng.html), achieving remarkable results on image classification and related tasks. Unlike CNNs with inductive biases for spatial structure, ViT learns relationships purely from data, offering a different perspective on visual reasoning.
 
 ## Patch Embedding
 
-ViT begins by dividing images into non-overlapping patches, typically 16×16 or 32×32 pixels. Each patch is flattened and linearly embedded into a fixed-dimensional vector. This creates a sequence of patch embeddings, enabling transformer processing.
+ViT begins by dividing images into non-overlapping patches, typically 16×16 or 32×32 pixels. Each patch is flattened and linearly embedded into a fixed-dimensional vector. This creates a sequence of patch embeddings, enabling [transformer](/llm-eng.html) processing.
 
-**Key Insight:** Patches become tokens, analogous to words in NLP. The transformer processes this sequence without explicit spatial structure knowledge.
+**Key Insight:** Patches become tokens, analogous to words in NLP. The [transformer](/llm-eng.html) processes this sequence without explicit spatial structure knowledge.
 
 **Positional Encoding:** Patch position information is added via learnable position embeddings, allowing the model to understand spatial relationships.
 
 ## ViT Architecture
 
-The standard ViT follows transformer design:
+The standard ViT follows [transformer](/llm-eng.html) design:
 1. **Input:** Image patches + special [CLS] token
-2. **Embedding:** Linear projection + positional encoding
-3. **Transformer Encoder:** Multiple layers of multi-head self-attention and feed-forward networks
+2. **Embedding:** Linear projection + [positional encoding](/positional-encoding-eng.html)
+3. **Transformer Encoder:** Multiple layers of multi-head [self-attention](/self-attention-eng.html) and feed-forward networks
 4. **Classification:** MLP head applied to [CLS] token output
 
 Unlike CNNs that hierarchically downsample, ViT maintains resolution throughout, processing all patches at the same scale.
@@ -32,7 +32,7 @@ Unlike CNNs that hierarchically downsample, ViT maintains resolution throughout,
 
 ViT initially required massive datasets (JFT-300M) for strong performance. DeiT improved data efficiency through:
 
-- **Knowledge Distillation:** Learning from a CNN teacher, reducing data needs
+- **Knowledge Distillation:** Learning from a [CNN](/cnn-deep-dive-eng.html) teacher, reducing data needs
 - **Regularization Techniques:** Stochastic depth, label smoothing, augmentation strategies
 - **Achieves Competitive Results:** With ImageNet-only training, ViT becomes practical
 
@@ -47,10 +47,10 @@ Introduces hierarchical structure to ViT through shifted window attention:
 
 ## Hybrid Approaches
 
-Combine transformer strengths with CNN inductive biases:
+Combine [transformer](/llm-eng.html) strengths with [CNN](/cnn-deep-dive-eng.html) inductive biases:
 
-- **CNNs → ViT:** Use CNN as backbone for patch generation
-- **ViT → CNN:** Early transformer layers followed by convolutional heads
+- **CNNs → ViT:** Use [CNN](/cnn-deep-dive-eng.html) as backbone for patch generation
+- **ViT → CNN:** Early [transformer](/llm-eng.html) layers followed by convolutional heads
 - **Intermixed:** Attention and convolution layers alternately arranged
 
 Hybrids often achieve better performance than pure approaches with less data.
@@ -73,8 +73,8 @@ Hybrids often achieve better performance than pure approaches with less data.
 
 ## Recent Developments
 
-- **Efficient ViT Variants:** Distillation, pruning, quantization reducing model size
-- **Masked Image Modeling:** Self-supervised pre-training analogous to BERT
+- **Efficient ViT Variants:** Distillation, pruning, [quantization](/quantization-eng.html) reducing model size
+- **Masked Image Modeling:** Self-supervised pre-training analogous to [BERT](/bert-eng.html)
 - **Video ViT:** Extending ViT to temporal dimension for video understanding
 - **Multimodal ViT:** CLIP-like models learning from image-text pairs
 
@@ -86,7 +86,7 @@ Choose ViT when:
 - Need for state-of-the-art accuracy important
 - Model size/inference speed less critical
 
-Choose CNN when:
+Choose [CNN](/cnn-deep-dive-eng.html) when:
 - Limited training data
 - Edge deployment or real-time requirements
 - Computational efficiency essential
@@ -94,5 +94,5 @@ Choose CNN when:
 
 ## Conclusion
 
-Vision Transformers represent a paradigm shift from CNNs, showing that explicit inductive biases are unnecessary for vision tasks. While CNNs remain relevant for efficiency, ViT's scalability and flexibility make it the dominant approach for large-scale vision models. The field continues exploring hybrid architectures and efficient variants to broaden ViT applicability.
+Vision [Transformers](/llm-eng.html) represent a paradigm shift from CNNs, showing that explicit inductive biases are unnecessary for vision tasks. While CNNs remain relevant for efficiency, ViT's scalability and flexibility make it the dominant approach for large-scale vision models. The field continues exploring hybrid architectures and efficient variants to broaden ViT applicability.
 

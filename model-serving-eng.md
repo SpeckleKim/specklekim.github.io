@@ -16,8 +16,8 @@ Model serving is the final mile of the ML pipeline: getting trained models into 
 
 PyTorch's production serving framework:
 - Creates HTTP APIs from PyTorch models
-- Built-in batching and GPU support
-- Model management: versioning, A/B testing
+- Built-in batching and [GPU](/gpu-hardware-eng.html) support
+- Model management: versioning, [A/B testing](/ab-testing-ml-eng.html)
 - Scalable: single server or distributed cluster
 
 ```python
@@ -37,26 +37,26 @@ Google's production ML serving:
 
 ### vLLM
 
-Specialized for large language model inference:
+Specialized for [large language model](/llm-eng.html) inference:
 - Token-level batching (batches incomplete sequences)
-- Paged attention mechanism (memory efficient)
-- Supports multi-GPU inference
-- State-of-art throughput for LLMs
+- Paged [attention mechanism](/attention-mechanism-eng.html) (memory efficient)
+- Supports multi-[GPU](/gpu-hardware-eng.html) inference
+- State-of-art throughput for [LLMs](/llm-eng.html)
 
 ### Triton Inference Server
 
 NVIDIA's inference platform:
 - Supports multiple frameworks (TensorFlow, PyTorch, ONNX)
 - Dynamic batching with configurable delays
-- GPU memory optimization
+- [GPU](/gpu-hardware-eng.html) memory optimization
 - Model repository for easy deployment
 
 ### ONNX Runtime
 
 Optimized inference runtime:
 - Framework-agnostic (convert models to ONNX format)
-- Cross-platform (CPU, GPU, mobile, web)
-- Graph optimization and quantization
+- Cross-platform (CPU, [GPU](/gpu-hardware-eng.html), mobile, web)
+- Graph optimization and [quantization](/quantization-eng.html)
 - Low latency inference
 
 ## Batching Strategies
@@ -84,10 +84,10 @@ Variable batch size, timeout-based:
 
 ### Token-Level Batching (for LLMs)
 
-LLMs generate tokens sequentially. vLLM tokenizes requests on arrival, batches tokens:
+[LLMs](/llm-eng.html) generate tokens sequentially. vLLM tokenizes requests on arrival, batches tokens:
 - Far better throughput than padding to max length
 - Interleave inference of multiple requests
-- Essential for LLM efficiency
+- Essential for [LLM](/llm-eng.html) efficiency
 
 ## Latency Optimization
 
@@ -101,13 +101,13 @@ Group requests to amortize overhead:
 ### Model Compilation
 
 Compile models to target hardware:
-- Reduce model size via quantization
+- Reduce model size via [quantization](/quantization-eng.html)
 - Optimize operations for specific hardware
-- TensorRT (NVIDIA), CoreML (Apple), TFLite quantization
+- TensorRT (NVIDIA), CoreML (Apple), TFLite [quantization](/quantization-eng.html)
 
 ### KV-Cache Optimization
 
-For autoregressive models (language models, transformers):
+For [autoregressive models](/gpt-eng.html) (language models, [transformers](/llm-eng.html)):
 - Precompute and cache key-value pairs
 - Avoid recomputing on each token
 - Reduces memory bandwidth requirements
@@ -162,7 +162,7 @@ service PredictionService {
 For continuous predictions:
 - Event streams (Kafka, Kinesis)
 - WebSocket connections
-- Useful for monitoring, anomaly detection
+- Useful for monitoring, [anomaly detection](/anomaly-detection-eng.html)
 
 ## Serving Architecture Patterns
 
@@ -171,12 +171,12 @@ For continuous predictions:
 Deploy one model version:
 - Simple, low overhead
 - No version management complexity
-- Limited for A/B testing
+- Limited for [A/B testing](/ab-testing-ml-eng.html)
 
 ### Multi-Model Serving
 
 Multiple model versions available:
-- A/B testing: route traffic to different versions
+- [A/B testing](/ab-testing-ml-eng.html): route traffic to different versions
 - Model ensemble: combine predictions
 - Requires careful resource allocation
 
@@ -227,7 +227,7 @@ New model runs in parallel:
 - Throughput (requests/sec)
 - Latency (p50, p99)
 - Error rate
-- Hardware utilization (GPU, memory, CPU)
+- Hardware utilization ([GPU](/gpu-hardware-eng.html), memory, CPU)
 - Model performance (accuracy, precision on live data)
 
 **Alerting**:

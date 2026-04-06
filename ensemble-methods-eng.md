@@ -53,10 +53,10 @@ Bagging trains multiple copies of the same base learner on different bootstrap s
 - Reduces variance through averaging
 - Parallelizable (independent training)
 - Works best with high-variance, low-bias learners
-- Random forests extend bagging with feature randomness
+- [Random forests](/decision-trees-eng.html) extend bagging with feature randomness
 
 **When to use:**
-- Decision trees (reduce overfitting)
+- [Decision trees](/decision-trees-eng.html) (reduce overfitting)
 - Complex, unstable models
 - Computational resources available
 
@@ -93,14 +93,14 @@ Where ε_m is the weighted error of learner m.
 
 ### Gradient Boosting
 
-Gradient Boosting fits each new learner to residuals (errors) of previous learners using gradient descent:
+[Gradient Boosting](/gradient-boosting-eng.html) fits each new learner to residuals (errors) of previous learners using [gradient descent](/calculus-eng.html):
 
 **Process:**
 1. Initialize with average prediction
 2. For each iteration:
    - Compute residuals from current predictions
    - Fit new learner to residuals
-   - Add to ensemble with step size (learning rate)
+   - Add to ensemble with step size ([learning rate](/learning-rate-scheduling-eng.html))
 3. Final prediction: sum of all learners
 
 **Key advantage:**
@@ -108,16 +108,16 @@ Gradient Boosting fits each new learner to residuals (errors) of previous learne
 F(x) = F_(m-1)(x) + η × h_m(x)
 ```
 
-Where η is the learning rate (0 < η ≤ 1) controlling contribution.
+Where η is the [learning rate](/learning-rate-scheduling-eng.html) (0 < η ≤ 1) controlling contribution.
 
 **Popular variants:**
-- **XGBoost**: Optimized gradient boosting with regularization
-- **LightGBM**: Fast, memory-efficient gradient boosting
+- **XGBoost**: Optimized [gradient boosting](/gradient-boosting-eng.html) with [regularization](/regularization-eng.html)
+- **LightGBM**: Fast, memory-efficient [gradient boosting](/gradient-boosting-eng.html)
 - **CatBoost**: Handles categorical features naturally
 
 **Advantages:**
 - Powerful, often best single algorithm
-- Flexible, handles various loss functions
+- Flexible, handles various [loss functions](/loss-functions-eng.html)
 - Feature importance computation
 - Relatively robust to outliers
 
@@ -168,7 +168,7 @@ prediction = argmax(mean(probabilities from all learners))
 
 ## Random Forests
 
-Random forests are specialized bagging on decision trees with feature randomness:
+[Random forests](/decision-trees-eng.html) are specialized bagging on [decision trees](/decision-trees-eng.html) with feature randomness:
 
 **Key differences from simple bagging:**
 - Feature subsampling: randomly select features at each split
@@ -190,32 +190,32 @@ Random forests are specialized bagging on decision trees with feature randomness
 - Base learner complexity: increase to reduce bias
 
 **For boosting:**
-- Learning rate: lower values slower but more accurate
+- [Learning rate](/learning-rate-scheduling-eng.html): lower values slower but more accurate
 - Number of iterations: more improves until overfitting
 - Base learner complexity: typically weak learners (shallow depth)
 
 **For stacking:**
 - Diversity in base learners critical
-- Cross-validation folds in meta-learner training
+- [Cross-validation](/cross-validation-eng.html) folds in meta-learner training
 - Meta-learner complexity: usually simple (logistic regression)
 
 ### Best Practices
 
 **Diversity:**
-- Use different algorithms (tree, SVM, neural net)
+- Use different algorithms (tree, [SVM](/svm-eng.html), neural net)
 - Vary hyperparameters
 - Different feature subsets
-- Different data preprocessing
+- Different [data preprocessing](/data-preprocessing-eng.html)
 
 **Validation:**
-- Cross-validation for stable estimates
+- [Cross-validation](/cross-validation-eng.html) for stable estimates
 - Monitor out-of-bag (OOB) error
 - Separate test set for final evaluation
 
 **Computational efficiency:**
 - Parallelize independent learners (bagging)
 - Cache predictions for stacking
-- Use efficient implementations (XGBoost, LightGBM)
+- Use efficient implementations ([XGBoost](/gradient-boosting-eng.html), [LightGBM](/gradient-boosting-eng.html))
 
 ## Comparison
 
@@ -223,7 +223,7 @@ Random forests are specialized bagging on decision trees with feature randomness
 |--------|-------|-----------------|---|---|
 | Bagging | Fast | Moderate | Yes | Reduces variance |
 | AdaBoost | Moderate | Low | No | Reduces bias |
-| Gradient Boosting | Slow | Low | No | Reduces both |
+| [Gradient Boosting](/gradient-boosting-eng.html) | Slow | Low | No | Reduces both |
 | Stacking | Slow | Low | No | Reduces both |
 | Voting | Fast | Moderate | Yes | Reduces both |
 
@@ -236,8 +236,8 @@ Random forests are specialized bagging on decision trees with feature randomness
 - Can tolerate increased model complexity
 
 **Standard approaches:**
-- Default: Random Forests (fast, effective, simple)
-- For maximum accuracy: Gradient Boosting (XGBoost, LightGBM)
+- Default: [Random Forests](/decision-trees-eng.html) (fast, effective, simple)
+- For maximum accuracy: [Gradient Boosting](/gradient-boosting-eng.html) ([XGBoost](/gradient-boosting-eng.html), [LightGBM](/gradient-boosting-eng.html))
 - For safety: Voting ensemble (use multiple proven methods)
 
 **Diminishing returns:**

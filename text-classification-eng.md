@@ -8,11 +8,11 @@ lang: en
 
 ## Overview
 
-Text classification is the task of assigning predefined categories or labels to text documents. It is one of the most fundamental problems in natural language processing with wide-ranging applications including sentiment analysis, spam detection, topic classification, and intent recognition. The goal is to learn a mapping from text input to discrete class labels.
+Text classification is the task of assigning predefined categories or labels to text documents. It is one of the most fundamental problems in natural language processing with wide-ranging applications including [sentiment analysis](/sentiment-analysis-eng.html), spam detection, topic classification, and intent recognition. The goal is to learn a mapping from text input to discrete class labels.
 
 ## Bag-of-Words (BoW)
 
-The Bag-of-Words model represents text as an unordered collection of words, ignoring grammar and word order. Each document is represented as a vector where each dimension corresponds to a unique word in the vocabulary, and the value represents the word's frequency in that document.
+The Bag-of-Words model represents text as an unordered collection of words, ignoring grammar and word order. Each document is represented as a vector where each dimension corresponds to a unique word in the [vocabulary](/tokenizer-design-eng.html), and the value represents the word's frequency in that document.
 
 **Advantages:**
 - Simple and interpretable
@@ -39,9 +39,9 @@ This weighting scheme captures the intuition that rare, distinctive words are mo
 
 ## CNN for Text Classification
 
-Convolutional Neural Networks can be adapted for text by applying 1D convolutions over word embeddings. A typical architecture includes:
+[Convolutional Neural Networks](/cnn-deep-dive-eng.html) can be adapted for text by applying 1D convolutions over [word embeddings](/word-embeddings-eng.html). A typical architecture includes:
 
-1. **Embedding Layer**: Maps words to dense vectors (pre-trained word embeddings or learned)
+1. **Embedding Layer**: Maps words to dense vectors (pre-trained [word embeddings](/word-embeddings-eng.html) or learned)
 2. **Convolutional Layer**: Applies filters of varying widths to capture n-gram patterns
 3. **Max Pooling**: Extracts the most important feature for each filter
 4. **Fully Connected Layer**: Maps pooled features to class logits
@@ -50,7 +50,7 @@ CNNs efficiently capture local word patterns and are computationally efficient. 
 
 ## RNN/LSTM for Text Classification
 
-Recurrent Neural Networks process sequences iteratively, maintaining a hidden state that accumulates information from previous tokens. Long Short-Term Memory (LSTM) units address the vanishing gradient problem, enabling networks to capture long-range dependencies.
+Recurrent [Neural Networks](/neural-eng.html) process sequences iteratively, maintaining a hidden state that accumulates information from previous tokens. Long Short-Term Memory (LSTM) units address the [vanishing gradient](/vanishing-gradients-eng.html) problem, enabling networks to capture long-range dependencies.
 
 A typical RNN/LSTM classifier:
 1. Embeds words into vectors
@@ -62,9 +62,9 @@ LSTMs capture word order and long-range semantic dependencies, outperforming CNN
 
 ## BERT Fine-Tuning for Classification
 
-BERT (Bidirectional Encoder Representations from Transformers) revolutionized NLP by providing contextualized word representations from a bidirectional transformer. For classification tasks, the standard approach is:
+[BERT](/bert-eng.html) (Bidirectional Encoder Representations from [Transformers](/llm-eng.html)) revolutionized NLP by providing contextualized word representations from a bidirectional [transformer](/llm-eng.html). For classification tasks, the standard approach is:
 
-1. **Tokenize**: Break text into BERT tokens
+1. **Tokenize**: Break text into [BERT](/bert-eng.html) tokens
 2. **Add Classification Token**: Prepend [CLS] token
 3. **Run BERT**: Pass through pretrained layers
 4. **Extract Representation**: Use the [CLS] token's representation
@@ -77,15 +77,15 @@ This approach achieves state-of-the-art performance by leveraging rich contextua
 Multi-label classification assigns multiple labels to each document, unlike binary or multi-class classification which assigns a single label. For example, a news article might be labeled as both "politics" and "economy".
 
 Key differences:
-- **Loss Function**: Use binary cross-entropy instead of categorical cross-entropy
+- **Loss Function**: Use binary cross-[entropy](/information-theory-eng.html) instead of categorical cross-entropy
 - **Evaluation**: Precision, recall, and F1 are computed per label
-- **Threshold**: Often requires a probability threshold (e.g., 0.5) to binarize predictions
+- **Threshold**: Often requires a [probability](/probability-eng.html) threshold (e.g., 0.5) to binarize predictions
 
 Multi-label problems require careful handling of label dependencies and class imbalance.
 
 ## Sentiment Analysis
 
-Sentiment analysis determines whether text expresses positive, negative, or neutral sentiment. It's widely used for monitoring brand perception, analyzing customer reviews, and tracking public opinion.
+[Sentiment analysis](/sentiment-analysis-eng.html) determines whether text expresses positive, negative, or neutral sentiment. It's widely used for monitoring brand perception, analyzing customer reviews, and tracking public opinion.
 
 **Challenges:**
 - Sarcasm and irony often reverse sentiment
@@ -93,15 +93,15 @@ Sentiment analysis determines whether text expresses positive, negative, or neut
 - Mixed sentiments within single documents
 - Domain adaptation (models trained on reviews may fail on tweets)
 
-Modern approaches use BERT and similar transformers fine-tuned on sentiment datasets, achieving 90%+ accuracy on standard benchmarks.
+Modern approaches use [BERT](/bert-eng.html) and similar [transformers](/llm-eng.html) fine-tuned on sentiment datasets, achieving 90%+ accuracy on standard [benchmarks](/benchmarks-eng.html).
 
 ## Spam Detection
 
 Spam classification aims to identify unwanted or malicious messages (emails, SMS, social media posts). This is a binary classification task with important real-world impact.
 
 **Approaches:**
-- **Traditional**: TF-IDF + logistic regression or SVM
-- **Deep Learning**: LSTM or BERT-based classifiers
+- **Traditional**: TF-IDF + logistic regression or [SVM](/svm-eng.html)
+- **Deep Learning**: LSTM or [BERT](/bert-eng.html)-based classifiers
 - **Ensemble**: Combine multiple models for robustness
 
 Key features include sender reputation, message content (suspicious links, common spam phrases), and user behavior patterns.
@@ -111,7 +111,7 @@ Key features include sender reputation, message content (suspicious links, commo
 Topic classification assigns documents to predefined topic categories (news topics, product categories, etc.). Unlike sentiment which is about emotional content, topic classification focuses on semantic content.
 
 **Approaches:**
-- **Supervised**: Train a classifier on labeled documents (CNN, LSTM, BERT)
+- **Supervised**: Train a classifier on labeled documents ([CNN](/cnn-deep-dive-eng.html), LSTM, [BERT](/bert-eng.html))
 - **Unsupervised**: Use topic modeling (Latent Dirichlet Allocation)
 - **Zero-shot**: Use pretrained models with prompt-based classification
 
@@ -119,4 +119,4 @@ Topic classification is foundational for content organization, recommendation sy
 
 ## Conclusion
 
-Text classification encompasses a spectrum of techniques from simple statistical methods (BoW, TF-IDF) to complex deep learning approaches (BERT, transformers). The choice of method depends on available data, computational resources, and task requirements. Modern approaches leverage pretrained transformers for state-of-the-art results, while traditional methods remain valuable for resource-constrained scenarios. Understanding the full spectrum of techniques enables practitioners to select appropriate tools for their specific classification challenges.
+Text classification encompasses a spectrum of techniques from simple statistical methods (BoW, TF-IDF) to complex deep learning approaches ([BERT](/bert-eng.html), [transformers](/llm-eng.html)). The choice of method depends on available data, computational resources, and task requirements. Modern approaches leverage pretrained transformers for state-of-the-art results, while traditional methods remain valuable for resource-constrained scenarios. Understanding the full spectrum of techniques enables practitioners to select appropriate tools for their specific classification challenges.

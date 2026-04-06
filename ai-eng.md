@@ -16,7 +16,7 @@ AI is not limited to mimicking human cognition; it represents a broader aspirati
 
 ### Narrow vs General vs Super AI
 
-**Narrow AI (Weak AI)** is AI designed for specific tasks. All current AI systems are narrow AI—they excel at their designed purpose but cannot transfer learning to unrelated domains. Examples include chess engines, recommendation systems, and large language models.
+**Narrow AI (Weak AI)** is AI designed for specific tasks. All current AI systems are narrow AI—they excel at their designed purpose but cannot [transfer learning](/transfer-learning-eng.html) to unrelated domains. Examples include chess engines, recommendation systems, and [large language models](/llm-eng.html).
 
 **General AI (Strong AI)** refers to hypothetical AI systems with human-level intelligence across all domains. Such systems could learn, adapt, and apply knowledge across different areas as humans do. General AI remains theoretical and unrealized.
 
@@ -30,7 +30,7 @@ Machine Learning (ML) forms the foundation of modern AI, replacing hand-coded ru
 Learning from labeled data with explicit target outputs. The system learns to map inputs to correct outputs. Applications: image classification, spam detection, medical diagnosis.
 
 ### Unsupervised Learning
-Discovering hidden patterns in unlabeled data without predefined targets. Applications: customer segmentation, anomaly detection, dimensionality reduction.
+Discovering hidden patterns in unlabeled data without predefined targets. Applications: customer segmentation, [anomaly detection](/anomaly-detection-eng.html), [dimensionality reduction](/dimensionality-reduction-eng.html).
 
 ### Semi-Supervised Learning
 Combining small amounts of labeled data with large amounts of unlabeled data. Particularly useful when labeling data is expensive.
@@ -40,32 +40,32 @@ Creating learning signals from the data itself without manual labeling. Models l
 
 ## The Deep Learning Revolution
 
-Deep learning—neural networks with multiple layers—transformed AI in the 2010s. Deep Neural Networks (DNNs) automatically discover representations needed for detection and classification from raw input.
+Deep learning—[neural networks](/neural-eng.html) with multiple layers—transformed AI in the 2010s. Deep [Neural Networks](/neural-eng.html) (DNNs) automatically discover representations needed for detection and classification from raw input.
 
 **Key Breakthroughs:**
-- **2012 AlexNet**: Revolutionized image recognition through deep convolutional neural networks
-- **2016 AlphaGo**: Demonstrated mastery of complex strategic reasoning through deep reinforcement learning
-- **2017 Transformer Architecture**: Introduced attention mechanisms, enabling massive parallel processing and foundation models
+- **2012 AlexNet**: Revolutionized image recognition through deep [convolutional neural networks](/cnn-deep-dive-eng.html)
+- **2016 AlphaGo**: Demonstrated mastery of complex strategic reasoning through deep [reinforcement learning](/rl-eng.html)
+- **2017 Transformer Architecture**: Introduced [attention mechanisms](/attention-mechanism-eng.html), enabling massive parallel processing and foundation models
 
 The success of deep learning stems from three factors:
 1. **Scale**: Billions of parameters trained on massive datasets
-2. **Architecture**: Revolutionary designs like transformers and attention mechanisms
-3. **Compute**: GPU and TPU acceleration enabling practical training of enormous models
+2. **Architecture**: Revolutionary designs like [transformers](/llm-eng.html) and [attention mechanisms](/attention-mechanism-eng.html)
+3. **Compute**: [GPU](/gpu-hardware-eng.html) and TPU acceleration enabling practical training of enormous models
 
 ## Foundation Models and the New AI Paradigm
 
 Foundation models represent a fundamental shift in AI development. Rather than training specialized models for each task, these large models (trained on diverse, large-scale data) adapt to many downstream tasks through fine-tuning or in-context learning.
 
 **Characteristics of Foundation Models:**
-- Trained on broad, diverse data (text, images, multimodal)
-- Exhibit emergent abilities with scale
+- Trained on broad, diverse data (text, images, [multimodal](/multimodal-llm-eng.html))
+- Exhibit [emergent abilities](/emergent-abilities-eng.html) with scale
 - Transfer effectively to new tasks with minimal additional training
 - Enable prompt-based interaction without task-specific engineering
 
 **Notable Examples:**
-- **Language**: GPT-3/GPT-4 (OpenAI), Claude (Anthropic), Bard (Google)
+- **Language**: [GPT](/gpt-eng.html)-3/GPT-4 (OpenAI), Claude (Anthropic), Bard (Google)
 - **Vision**: DALL-E, Midjourney, Stable Diffusion
-- **Multimodal**: GPT-4 Vision, Claude with vision
+- **Multimodal**: [GPT](/gpt-eng.html)-4 Vision, Claude with vision
 
 This paradigm shift has democratized AI—practitioners can build sophisticated applications by adapting foundation models rather than training from scratch.
 
@@ -79,21 +79,21 @@ As AI systems become more powerful and pervasive, ethical considerations become 
 
 **Transparency and Interpretability**: Understanding how AI systems make decisions is crucial for accountability. "Black box" models pose risks in high-stakes domains like healthcare and criminal justice.
 
-**Privacy**: Training AI on sensitive personal data raises significant privacy concerns. Techniques like differential privacy and federated learning help mitigate risks.
+**Privacy**: Training AI on sensitive personal data raises significant privacy concerns. Techniques like [differential privacy](/privacy-ai-eng.html) and [federated learning](/privacy-ai-eng.html) help mitigate risks.
 
 **Autonomy and Control**: As AI systems make consequential decisions, maintaining meaningful human oversight and agency remains essential.
 
 **Environmental Impact**: Training large models consumes substantial energy. Sustainable AI development requires balancing capability with environmental responsibility.
 
-**Dual-use Concerns**: AI capabilities can be misused (deepfakes, autonomous weapons, surveillance). Governance frameworks must address both benefits and risks.
+**Dual-use Concerns**: AI capabilities can be misused ([deepfakes](/deepfakes-eng.html), autonomous weapons, surveillance). Governance frameworks must address both benefits and risks.
 
 ## Current State of AI (2024-2025 Landscape)
 
 The contemporary AI landscape is characterized by rapid deployment of foundation models alongside growing regulatory attention.
 
 ### Generative AI Explosion
-- Large language models (LLMs) drive conversational AI, code generation, and content creation
-- Multimodal models combine text, image, and video understanding
+- [Large language models](/llm-eng.html) ([LLMs](/llm-eng.html)) drive conversational AI, [code generation](/code-generation-eng.html), and content creation
+- [Multimodal](/multimodal-llm-eng.html) models combine text, image, and video understanding
 - Specialized models for domains (science, medicine, law) demonstrate task-specific capabilities
 
 ### Practical Applications
@@ -114,13 +114,13 @@ The contemporary AI landscape is characterized by rapid deployment of foundation
 The trajectory of AI development points toward several possibilities:
 
 ### Near-term (2025-2030)
-- Continued scaling and multimodal integration of foundation models
+- Continued scaling and [multimodal](/multimodal-llm-eng.html) integration of foundation models
 - Broader deployment in enterprise and consumer applications
 - Increased focus on efficiency and on-device AI
 - Strengthening of regulatory frameworks and safety practices
 
 ### Medium-term (2030-2040)
-- Development of more capable AI agents capable of autonomous planning and action
+- Development of more capable [AI agents](/agent-eng.html) capable of autonomous planning and action
 - Deeper integration of symbolic reasoning with neural approaches
 - Advances in few-shot and zero-shot learning reducing data requirements
 - Potential emergence of increasingly capable but still narrow AI systems
@@ -137,7 +137,7 @@ The future of AI will depend on technical advances, but equally on our choices r
 
 Artificial Intelligence has evolved from theoretical concept to transformative technology. From symbolic reasoning systems to foundation models trained on unprecedented scales of data, AI continues expanding what machines can accomplish.
 
-The most important challenge ahead lies not in building more capable AI systems—progress there appears inevitable—but in ensuring these systems serve humanity's interests. This requires continued research into AI safety, thoughtful governance, ethical implementation, and ongoing public dialogue.
+The most important challenge ahead lies not in building more capable AI systems—progress there appears inevitable—but in ensuring these systems serve humanity's interests. This requires continued research into [AI safety](/ai-safety-eng.html), thoughtful governance, ethical implementation, and ongoing public dialogue.
 
 The promise of AI lies in augmenting human capabilities, accelerating discovery, and solving complex problems. Realizing this promise requires technical excellence combined with wisdom about values, risks, and the kind of future we collectively want to build.
 

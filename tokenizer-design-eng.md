@@ -6,11 +6,11 @@ lang: en
 
 # Tokenizer Design & Vocabulary
 
-Tokenization is the critical first step in language model processing, converting raw text into a discrete sequence of tokens. The design of a tokenizer significantly impacts model efficiency, multilingual capability, and generalization performance.
+[Tokenization](/tokenization-eng.html) is the critical first step in language model processing, converting raw text into a discrete sequence of tokens. The design of a [tokenizer](/tokenization-eng.html) significantly impacts model efficiency, multilingual capability, and generalization performance.
 
 ## Vocabulary Size and Model Performance
 
-The vocabulary size (number of unique tokens) represents a fundamental tradeoff in tokenizer design:
+The vocabulary size (number of unique tokens) represents a fundamental tradeoff in [tokenizer](/tokenization-eng.html) design:
 
 **Small vocabulary (10K-30K tokens)**:
 - Fewer unique tokens reduces model parameters
@@ -24,7 +24,7 @@ The vocabulary size (number of unique tokens) represents a fundamental tradeoff 
 - More model capacity dedicated to vocabulary embeddings
 - Suitable for agglutinative languages and multilingual settings
 
-**Optimal range**: 30K-50K tokens for most modern LLMs represents a practical balance. GPT-2 used 50K, while LLAMA uses 32K and Claude uses 100K+ tokens.
+**Optimal range**: 30K-50K tokens for most modern [LLMs](/llm-eng.html) represents a practical balance. [GPT](/gpt-eng.html)-2 used 50K, while LLAMA uses 32K and Claude uses 100K+ tokens.
 
 The relationship isn't simply more vocabulary equals better performance:
 - Very large vocabularies waste model capacity on rare tokens
@@ -33,7 +33,7 @@ The relationship isn't simply more vocabulary equals better performance:
 
 ## BPE Training: Byte-Pair Encoding
 
-Byte-Pair Encoding (BPE) is the dominant tokenization algorithm used in modern language models:
+Byte-Pair Encoding (BPE) is the dominant [tokenization](/tokenization-eng.html) algorithm used in modern language models:
 
 **Algorithm**:
 1. Start with all individual bytes (256 tokens for UTF-8)
@@ -54,26 +54,26 @@ Result: <da> t a
 - Deterministic and reproducible
 - Works well across many languages
 
-**Training data importance**: BPE tokenizer quality depends heavily on training corpus diversity. Corpora that underrepresent certain languages result in inefficient tokenization for those languages.
+**Training data importance**: BPE [tokenizer](/tokenization-eng.html) quality depends heavily on training corpus diversity. Corpora that underrepresent certain languages result in inefficient [tokenization](/tokenization-eng.html) for those languages.
 
 ## Multilingual Tokenization Challenges
 
-Creating a single tokenizer for multiple languages introduces complexity:
+Creating a single [tokenizer](/tokenization-eng.html) for multiple languages introduces complexity:
 
-**Character distribution variance**: Languages have different character frequencies and alphabets. A tokenizer optimized for English may tokenize Chinese or Arabic inefficiently.
+**Character distribution variance**: Languages have different character frequencies and alphabets. A [tokenizer](/tokenization-eng.html) optimized for English may tokenize Chinese or Arabic inefficiently.
 
 **Script-specific issues**:
 - Languages with Latin alphabets (English, Spanish, German) compress well with BPE
 - Languages with distinct scripts (Arabic, Devanagari, CJK) require more bytes per character
 - Mixed-script text requires careful handling of script boundaries
 
-**Language-specific compression**: Ideally, each language would have its own tokenizer, but practical systems use multilingual tokenizers. This means some languages get better compression while others use more tokens for the same information.
+**Language-specific compression**: Ideally, each language would have its own [tokenizer](/tokenization-eng.html), but practical systems use multilingual tokenizers. This means some languages get better compression while others use more tokens for the same information.
 
 **Solution strategies**:
 - Oversample underrepresented languages during BPE training
 - Dedicate vocabulary capacity to important language families
 - Use separate tokenizers per language when feasible
-- Monitor tokenization efficiency metrics per language
+- Monitor [tokenization](/tokenization-eng.html) efficiency metrics per language
 
 ## Fertility Rate: Tokens per Word
 
@@ -84,7 +84,7 @@ Token fertility (how many tokens represent one word on average) is a key metric:
 - Language variations: English typically 1.1-1.2, Japanese 1.8-2.0
 
 High fertility languages require:
-- More tokens in the context window for the same information
+- More tokens in the [context window](/context-window-eng.html) for the same information
 - More compute during processing
 - Reduced effective context length
 
@@ -92,7 +92,7 @@ For multilingual models, disparate fertility rates across languages can bias mod
 
 ## Token Healing and Padding
 
-**Token healing** addresses an issue in autoregressive generation: when the model output is truncated and restarted, the tokenization at the boundary may not match optimal tokenization of the complete text.
+**Token healing** addresses an issue in autoregressive generation: when the model output is truncated and restarted, the [tokenization](/tokenization-eng.html) at the boundary may not match optimal [tokenization](/tokenization-eng.html) of the complete text.
 
 Example:
 ```
@@ -131,7 +131,7 @@ Modern tokenizers include special tokens beyond regular vocabulary:
 
 ## Tokenizer Evaluation Metrics
 
-Several metrics assess tokenizer quality:
+Several metrics assess [tokenizer](/tokenization-eng.html) quality:
 
 **Compression ratio**:
 ```
@@ -153,23 +153,23 @@ Lower is more efficient; typical: 1.1-1.3 for English.
 
 ## Impact on Model Architecture
 
-Tokenizer design choices propagate through the entire system:
+[Tokenizer](/tokenization-eng.html) design choices propagate through the entire system:
 
 1. **Embedding layer size**: Vocabulary size directly determines embedding parameters
 2. **Softmax output size**: Prediction of next token requires softmax over vocabulary size
 3. **Context length**: Larger vocabulary means shorter tokens, allowing longer context windows with same token count
-4. **Sequence length distribution**: Poor tokenization creates longer sequences, impacting memory and compute
+4. **Sequence length distribution**: Poor [tokenization](/tokenization-eng.html) creates longer sequences, impacting memory and compute
 
-These architectural implications mean tokenizer choice affects everything from training speed to inference latency.
+These architectural implications mean [tokenizer](/tokenization-eng.html) choice affects everything from training speed to inference latency.
 
 ## Practical Considerations
 
-**Using existing tokenizers**: Most modern applications use published tokenizers (GPT, LLAMA, Claude) rather than training custom ones. This provides compatibility with existing models.
+**Using existing tokenizers**: Most modern applications use published tokenizers ([GPT](/gpt-eng.html), LLAMA, Claude) rather than training custom ones. This provides compatibility with existing models.
 
 **Fine-tuning tokenizers**: When adding specialized vocabulary (domain-specific terms, new languages), most teams extend existing tokenizers rather than retraining from scratch.
 
-**Tokenization consistency**: Critical for reproducibility and model transfer. Any tokenization changes can cause performance shifts.
+**Tokenization consistency**: Critical for reproducibility and model transfer. Any [tokenization](/tokenization-eng.html) changes can cause performance shifts.
 
-**Debugging tokenization**: Common issues include handling of punctuation, numbers, and special characters. Use tokenizer visualization tools to understand model's view of your text.
+**Debugging tokenization**: Common issues include handling of punctuation, numbers, and special characters. Use [tokenizer](/tokenization-eng.html) visualization tools to understand model's view of your text.
 
-Tokenization is often overlooked, but its impact on model efficiency and performance is profound. Well-designed tokenizers enable models to process text more efficiently and generalize better across domains and languages.
+[Tokenization](/tokenization-eng.html) is often overlooked, but its impact on model efficiency and performance is profound. Well-designed tokenizers enable models to process text more efficiently and generalize better across domains and languages.

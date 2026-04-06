@@ -8,7 +8,7 @@ lang: en
 
 ## From Pretraining to Instruction Following
 
-Large language models trained on next-token prediction alone demonstrate remarkable abilities, but they often fail at basic task-following. A model might complete Shakespeare passages beautifully but struggle to answer "What is the capital of France?" when phrased as an instruction.
+[Large language models](/llm-eng.html) trained on next-token prediction alone demonstrate remarkable abilities, but they often fail at basic task-following. A model might complete Shakespeare passages beautifully but struggle to answer "What is the capital of France?" when phrased as an instruction.
 
 **Instruction tuning** bridges this gap. It's a fine-tuning phase where models learn to follow explicit instructions and produce task-specific outputs. Rather than just predicting the next likely token, models learn to understand tasks, follow constraints, and deliver useful responses.
 
@@ -48,7 +48,7 @@ Output: Photosynthesis is the process by which plants convert
 
 Effective instruction tuning requires:
 - **Quantity**: Thousands to hundreds of thousands of examples (typically 1K-100K)
-- **Diversity**: Examples spanning multiple task types (summarization, QA, reasoning, translation, etc.)
+- **Diversity**: Examples spanning multiple task types ([summarization](/text-summarization-eng.html), QA, reasoning, translation, etc.)
 - **Quality**: High-quality outputs with minimal errors
 - **Task variation**: Different phrasings of the same task to teach robustness
 
@@ -57,7 +57,7 @@ Effective instruction tuning requires:
 ### FLAN (Finetuning Language Models with Annotated Natural Languages)
 
 Google's FLAN dataset provides diverse instruction examples across dozens of task categories. FLAN combines:
-- Original datasets (hundreds of existing benchmarks)
+- Original datasets (hundreds of existing [benchmarks](/benchmarks-eng.html))
 - Templates converting datasets to instruction format
 - Task-specific variations
 
@@ -87,7 +87,7 @@ This is labor-intensive but produces high-quality data.
 
 ### Conversion from Existing Datasets
 
-Many benchmark datasets (SQuAD, GLUE, SuperGLUE) can be converted to instruction format:
+Many [benchmark datasets](/benchmarks-eng.html) (SQuAD, GLUE, SuperGLUE) can be converted to instruction format:
 
 **SQuAD to instruction format:**
 ```
@@ -168,7 +168,7 @@ Practitioners typically:
 - Oversample tasks where performance lags
 - Balance between breadth and depth
 
-A well-designed curriculum mixes foundational tasks (QA, summarization) with specialized ones (reasoning, code generation).
+A well-designed curriculum mixes foundational tasks (QA, [summarization](/text-summarization-eng.html)) with specialized ones (reasoning, [code generation](/code-generation-eng.html)).
 
 ## Instruction Tuning Principles
 
@@ -202,7 +202,7 @@ Instruction tuning is surprisingly efficient:
 
 ### Task Leakage
 
-If instruction-tuning data contains examples from evaluation benchmarks, performance numbers are inflated. This is a common pitfall.
+If instruction-tuning data contains examples from evaluation [benchmarks](/benchmarks-eng.html), performance numbers are inflated. This is a common pitfall.
 
 ### Instruction Following vs. Knowledge
 
@@ -217,7 +217,7 @@ A key research goal: can instruction tuning on diverse tasks enable zero-shot pe
 Instruction tuning requires:
 - High-quality dataset creation (expensive)
 - Significant compute for full-model fine-tuning
-- Careful hyperparameter tuning per model/domain
+- Careful [hyperparameter tuning](/hyperparameter-tuning-eng.html) per model/domain
 
 Smaller models may need more instruction tuning data to match larger models' instruction-following ability.
 

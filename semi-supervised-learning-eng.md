@@ -6,13 +6,13 @@ lang: en
 
 # Semi-Supervised Learning: Leveraging Unlabeled Data
 
-Semi-supervised learning bridges supervised and unsupervised learning, combining small amounts of labeled data with large amounts of unlabeled data. In practice, this is one of the most relevant learning paradigms because obtaining labels is expensive while unlabeled data is abundant.
+Semi-[supervised learning](/supervised-learning-eng.html) bridges supervised and [unsupervised learning](/unsupervised-learning-eng.html), combining small amounts of labeled data with large amounts of unlabeled data. In practice, this is one of the most relevant learning paradigms because obtaining labels is expensive while unlabeled data is abundant.
 
 ## The Label Scarcity Problem
 
 Real-world applications face a critical challenge: **label scarcity**. Medical imaging, autonomous driving, and content moderation require expensive expert annotation. Meanwhile, we have access to massive amounts of unlabeled data—images, text, sensor data—that could inform our models if we knew how to leverage it.
 
-Semi-supervised learning addresses this bottleneck by using unlabeled data to improve model performance beyond what supervised learning alone can achieve. The key assumption: the structure of unlabeled data reveals patterns that help classification even without explicit labels.
+Semi-[supervised learning](/supervised-learning-eng.html) addresses this bottleneck by using unlabeled data to improve model performance beyond what [supervised learning](/supervised-learning-eng.html) alone can achieve. The key assumption: the structure of unlabeled data reveals patterns that help classification even without explicit labels.
 
 ## Self-Training
 
@@ -46,7 +46,7 @@ Co-training uses multiple learners trained on different feature subsets or views
 
 **Key Idea:** Different views provide diverse information. Disagreement between classifiers flags uncertain examples; agreement provides confidence.
 
-**Example:** For text classification, one classifier might use word features while another uses syntactic structure.
+**Example:** For [text classification](/text-classification-eng.html), one classifier might use word features while another uses syntactic structure.
 
 **Advantage:** Reduces bias from single model; leverages data redundancy.
 
@@ -92,7 +92,7 @@ Pseudo-labeling directly assigns predicted labels to unlabeled examples and retr
 
 ## Consistency Regularization
 
-Consistency regularization enforces that predictions remain stable under data perturbations. If we slightly perturb an unlabeled example (add noise, apply augmentation), the model should make the same prediction.
+Consistency [regularization](/regularization-eng.html) enforces that predictions remain stable under data perturbations. If we slightly perturb an unlabeled example (add noise, apply augmentation), the model should make the same prediction.
 
 **Mathematical Form:** Minimize supervised loss on labeled data plus consistency loss on unlabeled data:
 
@@ -128,7 +128,7 @@ y_mixed = λy + (1-λ)y'
 
 ## FixMatch
 
-FixMatch simplifies semi-supervised learning with a single intuitive idea: model predictions under weak augmentation should match pseudo-labels from strong augmentation.
+FixMatch simplifies semi-[supervised learning](/supervised-learning-eng.html) with a single intuitive idea: model predictions under weak augmentation should match pseudo-labels from strong augmentation.
 
 **Algorithm:**
 1. Weak augmentation (flip, shift)—preserves true label
@@ -141,11 +141,11 @@ FixMatch simplifies semi-supervised learning with a single intuitive idea: model
 
 **Elegance:** Simple, interpretable, highly effective.
 
-**Scalability:** Efficient, outperforms complex methods on benchmark datasets.
+**Scalability:** Efficient, outperforms complex methods on [benchmark datasets](/benchmarks-eng.html).
 
 ## Applications
 
-**Medical Imaging:** Limited expert-annotated images paired with hospital archives. Semi-supervised learning enables diagnosis systems with modest labeled data.
+**Medical Imaging:** Limited expert-annotated images paired with hospital archives. Semi-[supervised learning](/supervised-learning-eng.html) enables diagnosis systems with modest labeled data.
 
 **Content Moderation:** Few manually-reviewed cases guide models trained on millions of automatic reviews.
 
@@ -157,7 +157,7 @@ FixMatch simplifies semi-supervised learning with a single intuitive idea: model
 
 ## Why Semi-Supervised Learning Matters
 
-As datasets grow and annotation becomes expensive, semi-supervised learning becomes essential. It reflects realistic constraints: we often have signal but not ground truth. By leveraging unlabeled data structure, semi-supervised methods unlock performance gains previously requiring complete annotation.
+As datasets grow and annotation becomes expensive, semi-[supervised learning](/supervised-learning-eng.html) becomes essential. It reflects realistic constraints: we often have signal but not ground truth. By leveraging unlabeled data structure, semi-supervised methods unlock performance gains previously requiring complete annotation.
 
 The evolution from simple self-training to sophisticated methods like MixMatch and FixMatch shows the field's maturation. These techniques now form the backbone of practical ML systems handling real-world label scarcity.
 

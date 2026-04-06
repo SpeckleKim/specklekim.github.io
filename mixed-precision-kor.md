@@ -8,7 +8,7 @@ lang: ko
 
 ## 소개
 
-혼합 정밀도 학습(Mixed Precision Training)은 신경망 학습 중 서로 다른 수치 정밀도 형식을 결합합니다. 모든 연산에 32비트 부동소수점(FP32)을 사용하는 대신, 혼합 정밀도 학습은 특정 연산에는 16비트 형식(FP16 또는 BF16)을 사용하고 다른 부분에는 FP32를 유지합니다. 이 접근 방식은 메모리 소비를 극적으로 줄이고 모델 정확도에 미미한 영향을 미치면서 학습 속도를 증가시킵니다.
+혼합 정밀도 학습(Mixed Precision Training)은 [신경망](/neural-kor.html) 학습 중 서로 다른 수치 정밀도 형식을 결합합니다. 모든 연산에 32비트 부동소수점(FP32)을 사용하는 대신, 혼합 정밀도 학습은 특정 연산에는 16비트 형식(FP16 또는 BF16)을 사용하고 다른 부분에는 FP32를 유지합니다. 이 접근 방식은 메모리 소비를 극적으로 줄이고 모델 정확도에 미미한 영향을 미치면서 학습 속도를 증가시킵니다.
 
 ## 정밀도 형식: FP32, FP16, BF16
 
@@ -22,7 +22,7 @@ lang: ko
 - 16비트 형식: 1 부호 비트, 5 지수 비트, 10 가수 비트
 - 범위: ±6.1×10⁻⁵ ~ ±65,504
 - FP32 대비 2배 메모리 감소
-- GPU 텐서 코어에서 더 빠른 계산
+- [GPU](/gpu-hardware-kor.html) 텐서 코어에서 더 빠른 계산
 - 제한된 수치 범위로 인한 오버플로우/언더플로우 문제
 
 **BF16 (Brain Float16)**:
@@ -37,7 +37,7 @@ lang: ko
 **메모리 감소**:
 - 활성화를 FP16/BF16로 저장: 50% 감소
 - FP16/BF16의 그래디언트: 50% 감소
-- FP32의 옵티마이저 상태: 안정성을 위해 필요
+- FP32의 [옵티마이저](/optimizers-kor.html) 상태: 안정성을 위해 필요
 - 전체적: 20-50% 메모리 감소 (아키텍처에 따라)
 
 **계산 속도**:
@@ -151,8 +151,8 @@ optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 
 **학습률**:
 - FP32 학습과 비교하여 조정 필요할 수 있음
-- 종종 약간 낮은 학습률이 더 잘 작동
-- 학습률 스케일링 기법 (선형 워밍업) 권장
+- 종종 약간 낮은 [학습률](/learning-rate-scheduling-kor.html)이 더 잘 작동
+- [학습률](/learning-rate-scheduling-kor.html) 스케일링 기법 (선형 워밍업) 권장
 
 **그래디언트 자르기**:
 - 규범 기반 자르기는 오버플로우 방지에 도움
@@ -179,25 +179,25 @@ optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 **마스터 가중치 복사**:
 - FP32에서 마스터 가중치 유지
 - FP16에서 전진/역진
-- 옵티마이저는 FP32 마스터 업데이트, 다음 반복에 FP16으로 복사
+- [옵티마이저](/optimizers-kor.html)는 FP32 마스터 업데이트, 다음 반복에 FP16으로 복사
 
 **정밀도 튜닝**:
 - 일부 연산이 다른 것보다 민감함
 - Softmax는 일반적으로 안정성을 위해 FP32 필요
-- 계층 정규화는 종종 더 높은 정밀도의 이점
+- 계층 [정규화](/regularization-kor.html)는 종종 더 높은 정밀도의 이점
 - PyTorch의 `cast_to_lowest_precision` 매개변수는 세밀한 제어 허용
 
 ## 호환성 및 한계
 
 **하드웨어 요구사항**:
-- FP16 텐서 연산: 계산 능력 ≥ 7.0의 NVIDIA GPU (V100, A100)
+- FP16 텐서 연산: 계산 능력 ≥ 7.0의 NVIDIA [GPU](/gpu-hardware-kor.html) (V100, A100)
 - BF16: NVIDIA A100 이상
-- AMD GPU: RDNA 시리즈 이상
+- AMD [GPU](/gpu-hardware-kor.html): RDNA 시리즈 이상
 - Intel Habana Gaudi
 
 **모델 아키텍처 민감성**:
 - 표준 아키텍처 (ResNet, Transformer, VGG): 잘 작동
-- 매우 깊은 계층이나 스킵 연결이 있는 모델: 때때로 추가 주의 필요
+- 매우 깊은 계층이나 [스킵 연결](/residual-connections-kor.html)이 있는 모델: 때때로 추가 주의 필요
 - 커스텀 연산은 최적화된 FP16 커널이 없을 수 있음
 
 **학습 역학**:
@@ -222,14 +222,14 @@ optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 ## 혼합 정밀도 학습을 사용할 시기
 
 **사용할 때**:
-- 텐서 코어가 있는 GPU (V100 또는 최신 NVIDIA)
+- 텐서 코어가 있는 [GPU](/gpu-hardware-kor.html) (V100 또는 최신 NVIDIA)
 - 학습 시간이 중요함
 - 메모리가 병목
-- 모델이 큼 (BERT, ResNet-50 등)
+- 모델이 큼 ([BERT](/bert-kor.html), ResNet-50 등)
 - 배치 크기를 증가할 수 있음
 
 **건너뛸 때**:
-- 제한된 정밀도 GPU (오래된 NVIDIA, 소비자 GPU)
+- 제한된 정밀도 [GPU](/gpu-hardware-kor.html) (오래된 NVIDIA, 소비자 GPU)
 - CPU에서 실행 (이점 없음)
 - 매우 작은 모델 학습
 - 정밀도 요구사항이 중요함 (금융 데이터)

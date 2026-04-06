@@ -21,8 +21,8 @@ Determining distance from camera for each pixel:
 - Applications: Autonomous driving, AR, robotics
 
 **Methods:**
-- Encoder-decoder CNNs with skip connections
-- Vision Transformers for global context
+- Encoder-decoder CNNs with [skip connections](/residual-connections-eng.html)
+- [Vision Transformers](/vision-transformers-eng.html) for global context
 - Self-supervised training from video sequences
 
 ## Stereo Vision
@@ -41,7 +41,7 @@ Using multiple views to compute depth:
 
 **Modern Approaches:**
 - Cost volume construction with learnable metrics
-- Transformer-based matching for robust correspondence
+- [Transformer](/llm-eng.html)-based matching for robust correspondence
 - Differentiable post-processing for end-to-end learning
 
 ## NeRF (Neural Radiance Fields, 2020)
@@ -50,12 +50,12 @@ Revolutionary approach for novel view synthesis and 3D reconstruction:
 
 **Core Concept:**
 - Represent scene as continuous function: RGB = f(position, viewing direction)
-- Neural network learns this mapping from multi-view images
+- [Neural network](/neural-eng.html) learns this mapping from multi-view images
 - Renders novel views via volume rendering equation
 
 **Advantages:**
 - Photorealistic results from few images
-- Compact representation (neural network weights)
+- Compact representation ([neural network](/neural-eng.html) weights)
 - Continuous, smooth reconstructions
 - Handles complex lighting and reflections
 
@@ -93,7 +93,7 @@ Unstructured 3D data representation:
 **Processing:**
 - PointNet: Direct point cloud processing without voxelization
 - Dynamic Graph CNNs: Adapt neighborhoods based on geometry
-- Vision Transformers adapted for point clouds
+- [Vision Transformers](/vision-transformers-eng.html) adapted for point clouds
 
 **Challenges:**
 - Unordered nature requires permutation-invariant methods
@@ -147,7 +147,7 @@ Converting point clouds or implicit functions to explicit surface:
 ## Recent Advances
 
 - **4D Content:** Adding temporal dimension for dynamic scene capture
-- **Diffusion-based 3D:** Generating 3D from text or images using diffusion models
+- **Diffusion-based 3D:** Generating 3D from text or images using [diffusion models](/diffusion-models-eng.html)
 - **Real-time Rendering:** Improvements to NeRF and splatting for interactive rates
 - **Multi-scale Representations:** Handling large scenes efficiently
 - **Learning-based Compression:** Compact scene representations
@@ -167,7 +167,7 @@ Converting point clouds or implicit functions to explicit surface:
 - Temporal consistency difficult to maintain
 
 **Practical Deployment:**
-- NeRF demands GPU compute; Gaussian splatting more accessible
+- NeRF demands [GPU](/gpu-hardware-eng.html) compute; Gaussian splatting more accessible
 - Mobile deployment requires careful optimization
 
 ## Conclusion

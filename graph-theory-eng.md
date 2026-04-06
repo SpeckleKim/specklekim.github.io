@@ -6,7 +6,7 @@ lang: en
 
 # Graph Theory for AI
 
-Graph theory is fundamental to modern AI systems. From social networks to knowledge graphs to neural network architectures, graphs represent relationships and dependencies. This guide explores graph concepts essential for AI practitioners and researchers.
+Graph theory is fundamental to modern AI systems. From social networks to knowledge graphs to [neural network](/neural-eng.html) architectures, graphs represent relationships and dependencies. This guide explores graph concepts essential for AI practitioners and researchers.
 
 ## Graph Basics: Nodes and Edges
 
@@ -16,7 +16,7 @@ A graph G = (V, E) consists of vertices (nodes) V and edges E connecting them. G
 - Undirected graphs have symmetric edges (friendship networks)
 - Directed graphs have asymmetric edges with direction (follower relationships, knowledge base implications)
 
-**Weighted graphs** assign values to edges, representing strength, cost, or probability of relationships. A knowledge graph might assign weights representing confidence in assertions.
+**Weighted graphs** assign values to edges, representing strength, cost, or [probability](/probability-eng.html) of relationships. A knowledge graph might assign weights representing confidence in assertions.
 
 **Graph properties** characterize structure:
 - **Degree**: number of edges connected to a node (undirected) or in-degree/out-degree (directed)
@@ -24,7 +24,7 @@ A graph G = (V, E) consists of vertices (nodes) V and edges E connecting them. G
 - **Diameter**: longest shortest path between any two nodes, measuring graph "width"
 - **Clustering coefficient**: tendency of nodes to form triangles (cliques)
 
-In social networks, high clustering coefficient indicates tight friend groups. In biological networks, it reveals functional modules.
+In social networks, high [clustering](/clustering-eng.html) coefficient indicates tight friend groups. In biological networks, it reveals functional modules.
 
 ## Adjacency Matrices: Compact Representations
 
@@ -66,7 +66,7 @@ Traversal algorithms systematically visit nodes. Two fundamental approaches:
 - Identifies strongly connected components in directed graphs
 - Also O(|V| + |E|)
 
-In recommendation systems, BFS from a user finds "nearby" other users (within 2-3 connections). In neural networks, DFS-like computation propagates information through layers.
+In recommendation systems, BFS from a user finds "nearby" other users (within 2-3 connections). In [neural networks](/neural-eng.html), DFS-like computation propagates information through layers.
 
 ## Shortest Paths: Optimal Routes
 
@@ -111,7 +111,7 @@ Example triple: (Albert Einstein, wrote, E=mc²)
 **Graph structure enables:**
 - Semantic reasoning: traverse relationships to infer new facts
 - Link prediction: estimate missing facts using neighboring relationships
-- Knowledge reasoning with graph neural networks
+- Knowledge reasoning with graph [neural networks](/neural-eng.html)
 
 **Heterogeneous graphs** have multiple node and edge types, representing richer information. A knowledge graph might have node types {Person, Paper, Venue} and edge types {authorOf, citedBy, publishedAt}.
 
@@ -134,7 +134,7 @@ In social media, high betweenness nodes are influencers bridging communities. Hi
 
 ## Graph Neural Networks: Deep Learning on Graphs
 
-GNNs extend neural networks to graph-structured data. Node features and graph structure jointly determine representations.
+GNNs extend [neural networks](/neural-eng.html) to graph-structured data. Node features and graph structure jointly determine representations.
 
 **Message Passing Framework:** Each node aggregates information from neighbors:
 
@@ -147,7 +147,7 @@ GNNs extend neural networks to graph-structured data. Node features and graph st
 **Graph Convolutional Networks (GCN):**
 - Aggregate neighbor features with normalized adjacency matrix
 - h^(l+1) = σ(D^(-1/2) A D^(-1/2) h^l W)
-- D is degree matrix, normalization prevents vanishing gradients
+- D is degree matrix, normalization prevents [vanishing gradients](/vanishing-gradients-eng.html)
 
 **GraphSAGE:**
 - Sample neighbors to handle large graphs
@@ -196,7 +196,7 @@ Spectral methods provide theoretical foundation for GNNs, connecting graph struc
 
 **Libraries:**
 - NetworkX (Python): educational and small-scale graphs
-- PyTorch Geometric: GNNs with GPU acceleration
+- PyTorch Geometric: GNNs with [GPU](/gpu-hardware-eng.html) acceleration
 - DGL (Deep Graph Library): unified GNN implementations
 - GraphQL for knowledge graph query
 
@@ -211,4 +211,4 @@ Spectral methods provide theoretical foundation for GNNs, connecting graph struc
 
 ## Conclusion
 
-Graph theory provides elegant mathematical tools for representing relational data. From basic properties to advanced algorithms, graphs enable reasoning about complex systems. Graph neural networks extend deep learning to structured data, while classical algorithms remain indispensable for analysis and optimization. Understanding graphs is essential for modern AI systems handling relational, hierarchical, and network-structured data.
+Graph theory provides elegant mathematical tools for representing relational data. From basic properties to advanced algorithms, graphs enable reasoning about complex systems. Graph [neural networks](/neural-eng.html) extend deep learning to structured data, while classical algorithms remain indispensable for analysis and optimization. Understanding graphs is essential for modern AI systems handling relational, hierarchical, and network-structured data.
